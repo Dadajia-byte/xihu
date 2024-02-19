@@ -2,7 +2,7 @@
 
 ### 技术栈
 
-**vue3** + **vite** + **element-plus** + **scss** + **pinia**
+**vue3** + **vite** + **element-plus** + **scss** + **pinia** + **ts**
 
 ### 文件目录简要
 
