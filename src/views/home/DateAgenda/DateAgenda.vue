@@ -3,57 +3,48 @@
     <span class="divider">大会议程</span>
     <el-card class="timeline-container">
       <div class="timeline">
-        <div
-          class="timeline-item"
-          v-for="(item, index) in items"
-          :key="index"
-          :class="{ active: index === activeIndex }"
-          @click="setActive(index)"
-        >
-          <div
-            class="timeline-content"
-            :style="
-              index === activeIndex
-                ? 'background-color:#1185e4;'
-                : 'background-color:#fff'
-            "
-          >
-            <div
-              class="day"
-              :style="index === activeIndex ? 'color:#fff;' : 'color: #1185e4;'"
-            >
+        <div class="timeline-item" v-for="(item, index) in items" :key="index" :class="{ active: index === activeIndex }"
+          @click="setActive(index)">
+          <div class="timeline-content" :style="index === activeIndex
+            ? 'background-color:#1185e4;'
+            : 'background-color:#fff'
+            ">
+            <div class="day" :style="index === activeIndex ? 'color:#fff;' : 'color: #1185e4;'">
               {{ item.date }}
             </div>
-            <div
-              class="date"
-              :style="index === activeIndex ? 'color:#fff;' : 'color: #666;'"
-            >
+            <div class="date" :style="index === activeIndex ? 'color:#fff;' : 'color: #666;'">
               {{ item.day }}
             </div>
           </div>
           <div class="arrow-down" v-show="index === activeIndex"></div>
         </div>
       </div>
-      <div class="box-card" style="width: 1017px; height: 90px">
+      <div class="box-card" style="width: 950px; height: 90px">
         <div class="item1">
           <div>10:00-10:30</div>
           <div>线上直播</div>
         </div>
         <div class="item2">
-          <div>95后极客青年talk</div>
+          <span>95后极客青年talk</span>
         </div>
         <div class="item3">
-          <el-button icon="Plus">订阅</el-button>
+          <el-button icon="Plus" type="primary" v-show="true"
+            style="width: 100px;height: 33px;font-size: 18px;">订阅</el-button>
+          <div class="subbed" v-show="false">已订阅</div>
         </div>
       </div>
-      <div class="box-card" style="width: 1017px; height: 90px">
+      <div class="box-card" style="width: 950px; height: 90px">
         <div class="item1">
-          <div>10:00-10:30</div>
+          <div>13:00-13:30</div>
           <div>线上直播</div>
         </div>
-        <div class="item2">95后极客青年talk</div>
+        <div class="item2">
+          <span>当科幻照进现实我们会更安全吗？</span>
+        </div>
         <div class="item3">
-          <el-button icon="Plus">订阅</el-button>
+          <el-button icon="Plus" type="primary" v-show="false"
+            style="width: 100px;height: 33px;font-size: 18px;">订阅</el-button>
+          <div class="subbed" v-show="true">已订阅</div>
         </div>
       </div>
     </el-card>
@@ -199,10 +190,12 @@ const setActive = (index: number) => {
         }
 
         &:nth-child(2) {
+
           padding-top: 8px;
           text-align: center;
           font-size: 10px;
           color: black;
+
         }
       }
     }
@@ -210,20 +203,33 @@ const setActive = (index: number) => {
     .item2 {
       flex: 7;
 
-      height: 39px;
-      line-height: 39px;
-      padding: 0px 15px;
-      font-size: 26px;
-      font-weight: 700;
-      background: linear-gradient(to right, #84bded, #fafafa);
-      border-radius: 20px;
+      span {
+        display: inline-block;
+        margin-left: 40px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0px 25px 0px 15px;
+        font-size: 26px;
+        font-weight: 700;
+        background: linear-gradient(to right, #84bded, #fafafa);
+        border-radius: 20px;
+      }
+
     }
 
     .item3 {
       flex: 2;
       justify-self: right;
-      width: 108px;
-      height: 33px;
+
+
+      .subbed {
+        width: 100px;
+        height: 33px;
+        line-height: 29px;
+        text-align: center;
+        border-radius: 5px;
+        border: #fafafa 2px solid;
+      }
     }
   }
 }
