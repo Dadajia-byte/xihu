@@ -2,10 +2,15 @@
   <div class="main">
     <span class="divider">新闻资讯</span>
 
-    <el-carousel :interval="4000" type="card" height="642px" style="width: 1200px;margin: 0 auto;">
+    <el-carousel
+      :interval="4000"
+      type="card"
+      height="642px"
+      style="width: 1200px; margin: 0 auto"
+    >
       <el-carousel-item>
         <el-card>
-          <img src="" alt="">
+          <img src="" alt="" />
           <div></div>
           <div></div>
           <div></div>
@@ -25,7 +30,6 @@
 
 <style scoped lang="scss">
 .main {
-
   flex-direction: column;
 
   .divider {
