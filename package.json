@@ -21,7 +21,9 @@
     "@element-plus/icons-vue": "^2.3.1",
     "axios": "^1.6.7",
     "element-plus": "^2.5.5",
-    "vue": "^3.4.15"
+    "pinia": "^2.1.7",
+    "vue": "^3.4.15",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.10",

@@ -8,7 +8,6 @@ EventEmitter.defaultMaxListeners = 0
 // 引入svg需要用到的插件
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
-
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   // 获取各种环境下对应的变量
