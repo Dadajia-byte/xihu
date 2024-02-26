@@ -48,17 +48,8 @@
         <img :src="setting.logo(3)" alt="" />
       </el-col>
       <el-col :span="10">
-        <el-menu
-          :default-active="1"
-          class="el-menu-demo"
-          mode="horizontal"
-          background-color="transparent"
-          font-size="16px"
-          text-color="white"
-          style="font-weight: 700; border-bottom: none"
-          :ellipsis="false"
-          active-text-color="white"
-        >
+        <el-menu class="el-menu-demo" mode="horizontal" background-color="transparent" font-size="16px" text-color="white"
+          style="font-weight: 700; border-bottom: none" :ellipsis="false" active-text-color="white">
           <div class="flex-grow" />
           <el-menu-item index="1">首页</el-menu-item>
           <el-menu-item index="2">大会云集</el-menu-item>
@@ -86,14 +77,12 @@
           <el-menu-item index="8">
             直播
             <!-- 直播图标 -->
-            <el-icon
-              style="
+            <el-icon style="
                 width: 10px;
                 height: 9px;
                 color: #ff0000;
                 transform: translateY(-5px);
-              "
-            >
+              ">
               <Histogram />
             </el-icon>
           </el-menu-item>

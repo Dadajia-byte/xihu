@@ -1,26 +1,28 @@
-// layout 相关配置仓库
 import { defineStore } from 'pinia'
-import { ref, reactive } from 'vue'
-let useLayoutSettingStore = defineStore('settingStore', () => {
-  // 是否显示对话框
-  const dialogFormVisible = ref(false)
-  // 登录表单收集数据
-  const loginForm = reactive({
-    username: '',
-    password: '',
-  })
-  // 注册表单收集数据
-  const registerForm = reactive({
-    username: '',
-    password: '',
-    password2: '',
-  })
+import { ref } from 'vue'
+import { constantRoutes } from '@/routers/routes'
 
-  return {
-    dialogFormVisible,
-    loginForm,
-    registerForm,
-  }
+
+
+let useLayoutSettingStore = defineStore('settingStore', () => {
+    // 引入路由（常量路由）
+
+    let menuList = ref(constantRoutes[0].children)
+    // 是否显示对话框
+    const dialogFormVisible = ref(false)
+    // 是否显示注册对话框
+    const dialogRegisterVisible = ref(false)
+    // 是否登录
+    let isLog = ref(false)
+    // 使用语言
+    let choosedLan = ref('中文')
+    return {
+        dialogFormVisible,
+        dialogRegisterVisible,
+        isLog,
+        choosedLan,
+        menuList
+    }
 })
 
 export default useLayoutSettingStore

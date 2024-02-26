@@ -3,12 +3,12 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 // 引入常量路由
 import { constantRoutes } from '@/routers/routes'
-
+import type { RouteRecordRaw } from 'vue-router'
 // 暴露并创建路由器
 export default createRouter({
   // 路由模式hash
   history: createWebHashHistory(),
-  routes: constantRoutes,
+  routes: constantRoutes as RouteRecordRaw[],
   // 滚动行为
   scrollBehavior() {
     return {

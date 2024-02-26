@@ -5,6 +5,9 @@ import 'element-plus/dist/index.css'
 import 'virtual:svg-icons-register'
 import '@/styles/index.scss'
 
+import 'animate.css/animate.min.css'
+import 'wow.js/css/libs/animate.css'
+
 //@ts-ignore忽略当前文件ts类型的检测否则有红色提示(打包会失败)
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 
@@ -25,5 +28,8 @@ app.use(routers)
 // 引入pinia
 import pinia from './store'
 app.use(pinia)
+
+// 引入路由鉴权
+import './permission'
 
 app.mount('#app')

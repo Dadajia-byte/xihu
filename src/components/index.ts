@@ -1,9 +1,8 @@
 // 引入项目中全部的全局组件
-import SvgIcon from './SvgIcon/index.vue'
 // 引入element-plus提供的全部图标组件
 import * as ElementPlusIcons from '@element-plus/icons-vue'
 const allGlobalComponents: any = {
-  SvgIcon,
+
 }
 
 // 对外暴露插件对象

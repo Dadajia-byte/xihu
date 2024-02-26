@@ -1,111 +1,106 @@
 <template>
-  <div class="underframe" :style="`background-color: ${props.bgc};`">
-    <el-menu
-      default-active="1"
-      class="el-menu-demo"
-      mode="horizontal"
-      background-color="transparent"
-      font-size="16px"
-      :text-color="props.textColor"
-      style="font-weight: 700; border-bottom: none"
-      :ellipsis="false"
-      active-text-color="white"
-    >
-      <el-menu-item index="0">
-        <img
-          :src="setting.logo(props.logoNum)"
-          alt=""
-          style="width: 197px; height: 39px"
-        />
-      </el-menu-item>
-      <el-menu-item index="1">首页</el-menu-item>
-      <el-menu-item index="2">大会云集</el-menu-item>
-      <el-menu-item index="3">精彩活动</el-menu-item>
-      <el-menu-item index="4">成果展示</el-menu-item>
-      <el-menu-item index="5">大咖云集</el-menu-item>
-      <el-sub-menu index="6">
-        <template #title>合作伙伴</template>
-        <el-menu-item index="6-1" style="color: #606266">展商合作</el-menu-item>
-        <el-menu-item index="6-2" style="color: #606266">媒体合作</el-menu-item>
-      </el-sub-menu>
-      <el-sub-menu index="7">
-        <template #title>关于大会</template>
-        <el-menu-item index="7-1" style="color: #606266">大会介绍</el-menu-item>
-        <el-menu-item index="7-2" style="color: #606266">参会指南</el-menu-item>
-      </el-sub-menu>
-      <el-menu-item index="8" style="color: #ff0020">
+  <div class="underframe">
+    <!-- logo -->
+    <img :src="setting.logo(1)" alt="" class="logo" />
+    <el-menu default-active="1" mode="horizontal" background-color="transparent" :ellipsis="false"
+      active-text-color="#409EFF" router style="font-size: 20px!important">
+      <!-- 菜单组件 -->
+      <Menu :menuList="layoutSettingStore.menuList">
+      </Menu>
+
+      <!-- 直播 -->
+      <el-menu-item index="8" style="color: #ff0020;font-size: 18px;">
         直播
-        <!-- 直播图标 -->
-        <el-icon
-          style="
-            width: 10px;
-            height: 9px;
-            color: #ff0000;
-            transform: translateY(-5px);
-          "
-        >
+        <el-icon style="width: 10px;height: 9px;color: #ff0000;transform: translateY(-5px);">
           <Histogram />
         </el-icon>
       </el-menu-item>
-      <div class="flex-grow" />
-      <el-menu-item index="9" style="padding: 0px">
-        <el-icon>
-          <Search color="#838383" />
-        </el-icon>
-      </el-menu-item>
-      <el-sub-menu
-        index="10"
-        style="border-left: 2px solid #838383; margin: 12px 0px"
-      >
-        <template #title>{{ choosedLan }}</template>
-        <el-menu-item
-          index="10-1"
-          @click="chooseLan('中文')"
-          style="color: #606266"
-        >
-          中文
-        </el-menu-item>
-        <el-menu-item
-          index="10-2"
-          @click="chooseLan('ENG')"
-          style="color: #606266"
-        >
-          ENG
-        </el-menu-item>
-      </el-sub-menu>
-      <el-menu-item style="padding: 0px">
-        <el-button
-          style="
-            width: 120px;
-            height: 42px;
-            border-radius: 7px;
-            color: #0d49df;
-            padding-left: 5px;
-            font-size: 15px;
-          "
-          @click="layoutSettingStore.dialogFormVisible = true"
-        >
-          <el-icon :size="22">
-            <UserFilled />
-          </el-icon>
-          登录|注册
-        </el-button>
-      </el-menu-item>
     </el-menu>
+    <!-- 搜索 -->
+    <div class="search">
+      <el-icon>
+        <Search color="#838383" />
+      </el-icon>
+    </div>
+    <!-- 语言切换 -->
+    <div class="language">
+      <el-dropdown>
+        <span class="el-dropdown-link">
+          {{ layoutSettingStore.choosedLan }}
+          <el-icon class="el-icon--right">
+            <arrow-down />
+          </el-icon>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="chooseLan('中文')">中文</el-dropdown-item>
+          </el-dropdown-menu>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="chooseLan('ENG')">ENG</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
+    <!-- 右侧登录用户相关 -->
+    <div class="loginAbout">
+      <el-button class="log" @click="layoutSettingStore.dialogFormVisible = true" v-if="!layoutSettingStore.isLog">
+        <el-icon :size="22">
+          <UserFilled />
+        </el-icon>
+        登录|注册
+      </el-button>
+      <img :src="userStore.userData.data.avatar" v-if="layoutSettingStore.isLog" class="avatar" @click="goPerson" />
+      <el-dropdown v-if="layoutSettingStore.isLog">
+        <span class="el-dropdown-link">
+          {{ userStore.userData.data.username }}
+          <el-icon class="el-icon--right">
+            <arrow-down />
+          </el-icon>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="goPerson">个人中心</el-dropdown-item>
+          </el-dropdown-menu>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="Logout">退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import Menu from './Menu.vue'
+import useUserStore from '@/store/modules/user'
+import useLayoutSettingStore from '@/store/setting'
+import { ElMessage } from 'element-plus'
 import setting from '@/setting'
 import { ref } from 'vue'
-import useLayoutSettingStore from '@/store/setting'
+import { useRouter } from 'vue-router'
+
+let $router = useRouter()
+let userStore = useUserStore()
 let layoutSettingStore = useLayoutSettingStore()
 
-const choosedLan = ref('中文')
-let props = defineProps(['bgc', 'logoNum', 'textColor'])
+
+
 
 const chooseLan = (Lan: string) => {
-  return (choosedLan.value = Lan)
+  return (layoutSettingStore.choosedLan = Lan)
+}
+
+const Logout = () => {
+  // 退出登录成功后返回首页
+  layoutSettingStore.isLog = false
+  userStore.logout().then(() => {
+    $router.push('/home')
+    ElMessage.success('退出成功登录')
+  })
+
+}
+
+const goPerson = () => {
 }
 </script>
 <script lang="ts">
@@ -115,17 +110,75 @@ export default {
 </script>
 <style scoped lang="scss">
 .underframe {
-  height: 62px;
-  width: $tabbar-width;
-  border-radius: 30px;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: rgba(255, 255, 255, .9);
+  backdrop-filter: blur(5px);
+  font-size: 20px;
 
   .el-menu {
-    margin-left: 60px;
-    width: calc(1346px - 93px);
+    margin-left: 100px;
+    width: 50%;
+    font-weight: 400;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    height: 85%;
+  }
+
+  .logo {
+    width: 218px;
+    height: 47px;
+    margin: 0 30px 0 120px;
+  }
+
+  .el-dropdown {
+
+
+    .el-dropdown-link {
+      color: black;
+      font-weight: 400;
+    }
+
+    margin: auto 10px;
+  }
+
+  .search {
+    margin: 0 10px;
+  }
+
+  .language {
+    border-left: 3px solid #838383;
+    padding-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .loginAbout {
+    display: flex;
+    align-items: center;
   }
 }
 
-.flex-grow {
-  flex-grow: 1;
+.log {
+  height: 42px;
+  border-radius: 7px;
+  color: #0d49df;
+  padding: 0px 5px;
+  line-height: 42px;
+  font-size: 18px;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  vertical-align: center;
+  border-radius: 50%;
+  cursor: pointer;
 }
 </style>

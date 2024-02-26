@@ -3,75 +3,34 @@
     <span class="divider">大会议程</span>
     <el-card class="timeline-container">
       <div class="timeline">
-        <div
-          class="timeline-item"
-          v-for="(item, index) in items"
-          :key="index"
-          :class="{ active: index === activeIndex }"
-          @click="setActive(index)"
-        >
-          <div
-            class="timeline-content"
-            :style="
-              index === activeIndex
-                ? 'background-color:#1185e4;'
-                : 'background-color:#fff'
-            "
-          >
-            <div
-              class="day"
-              :style="index === activeIndex ? 'color:#fff;' : 'color: #1185e4;'"
-            >
+        <div class="timeline-item" v-for="(item, index) in items" :key="index" :class="{ active: index === activeIndex }"
+          @click="setActive(index, item)">
+          <div class="timeline-content"
+            :style="index === activeIndex ? 'background-color:#1185e4;' : 'background-color:#fff'">
+            <div class="day" :style="index === activeIndex ? 'color:#fff;' : 'color: #1185e4;'">
               {{ item.date }}
             </div>
-            <div
-              class="date"
-              :style="index === activeIndex ? 'color:#fff;' : 'color: #666;'"
-            >
+            <div class="date" :style="index === activeIndex ? 'color:#fff;' : 'color: #666;'">
               {{ item.day }}
             </div>
           </div>
           <div class="arrow-down" v-show="index === activeIndex"></div>
         </div>
       </div>
-      <div class="box-card" style="width: 950px; height: 90px">
+      <div class="box-card" style="width: 950px; height: 90px" v-for="item in meetingStore.agendaItems">
         <div class="item1">
-          <div>10:00-10:30</div>
-          <div>线上直播</div>
+          <div>{{ `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}` }}</div>
+          <div>{{ item.location }}</div>
         </div>
         <div class="item2">
-          <span>95后极客青年talk</span>
+          <span>{{ item.title }}</span>
         </div>
         <div class="item3">
-          <el-button
-            icon="Plus"
-            type="primary"
-            v-show="true"
-            style="width: 100px; height: 33px; font-size: 18px"
-          >
+          <el-button icon="Plus" type="primary" v-show="item.isSub == 0"
+            style="width: 100px; height: 33px; font-size: 18px" @click="goSub(item.id)">
             订阅
           </el-button>
-          <div class="subbed" v-show="false">已订阅</div>
-        </div>
-      </div>
-      <div class="box-card" style="width: 950px; height: 90px">
-        <div class="item1">
-          <div>13:00-13:30</div>
-          <div>线上直播</div>
-        </div>
-        <div class="item2">
-          <span>当科幻照进现实我们会更安全吗？</span>
-        </div>
-        <div class="item3">
-          <el-button
-            icon="Plus"
-            type="primary"
-            v-show="false"
-            style="width: 100px; height: 33px; font-size: 18px"
-          >
-            订阅
-          </el-button>
-          <div class="subbed" v-show="true">已订阅</div>
+          <div class="subbed" v-show="item.isSub == 1" @click="cancelSub(item.id)">已订阅</div>
         </div>
       </div>
     </el-card>
@@ -79,8 +38,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
+import { ref, onMounted, nextTick } from 'vue'
+import useMeetingStore from '@/store/modules/meeting';
+import { ElMessage } from 'element-plus';
+let meetingStore = useMeetingStore();
 const items = ref([
   { date: 'Day 1', day: '5月5日' },
   { date: 'Day 2', day: '5月6日' },
@@ -90,9 +51,49 @@ const items = ref([
 
 const activeIndex = ref(0)
 
-const setActive = (index: number) => {
+const setActive = async (index: number, item: any) => {
   activeIndex.value = index
+  meetingStore.reqData.date = item.day
+  await meetingStore.getAgenda()
 }
+
+const goSub = async (id: number) => {
+  console.log(id);
+  await meetingStore.subAgenda(id).then(() => {
+    nextTick(async () => {
+      // 重新请求数据
+      await meetingStore.getAgenda()
+    })
+    ElMessage({
+      message: '订阅成功',
+      type: 'success'
+    })
+  }).catch(res => {
+    console.log(res);
+    ElMessage({
+      message: res.message,
+      type: 'error'
+    })
+  })
+}
+const cancelSub = async (id: number) => {
+  console.log(id);
+  await meetingStore.cancelAgenda(id)
+  nextTick(async () => {
+    await meetingStore.getAgenda()
+    ElMessage({
+      message: '取消订阅成功',
+      type: 'success'
+    })
+  })
+
+}
+onMounted(async () => {
+  console.log('我是请求数据函数，我应该在登录之后');
+
+  meetingStore.reqData.date = '5月5日'
+  await meetingStore.getAgenda()
+})
 </script>
 
 <style scoped lang="scss">
