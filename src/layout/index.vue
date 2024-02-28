@@ -4,24 +4,41 @@
     <Tabbar class="tabbar"></Tabbar>
     <Main class="main"></Main>
     <Footer class="footer"></Footer>
-    <el-dialog v-model="dialogFormVisible" width="670" :show-close="false" style="
+    <el-dialog
+      v-model="dialogFormVisible"
+      width="670"
+      :show-close="false"
+      style="
         border-radius: 12px;
         opacity: 0.95;
         box-shadow: 0px 8px 24px #000000;
-      ">
+      "
+    >
       <!-- 头部 -->
       <div class="header">
         <div class="login">
-          <span :class="{ login2: !isAccLog, login1: isAccLog }" @click="isAccLog = true">
+          <span
+            :class="{ login2: !isAccLog, login1: isAccLog }"
+            @click="isAccLog = true"
+          >
             账号登录
           </span>
-          <span :class="{ login1: !isAccLog, login2: isAccLog }" @click="isAccLog = false">
+          <span
+            :class="{ login1: !isAccLog, login2: isAccLog }"
+            @click="isAccLog = false"
+          >
             手机号登录
           </span>
         </div>
       </div>
       <!-- 账号登录表单 -->
-      <el-form label-width="25px" v-show="isAccLog" :rules="rules1" :model="accLogForm" ref="logForm1">
+      <el-form
+        label-width="25px"
+        v-show="isAccLog"
+        :rules="rules1"
+        :model="accLogForm"
+        ref="logForm1"
+      >
         <el-form-item prop="account">
           <el-input placeholder="请输入账号" v-model="accLogForm.account">
             <template #prefix>
@@ -32,7 +49,12 @@
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input placeholder="请输入密码" type="password" show-password v-model="accLogForm.password">
+          <el-input
+            placeholder="请输入密码"
+            type="password"
+            show-password
+            v-model="accLogForm.password"
+          >
             <template #prefix>
               <el-icon>
                 <Lock />
@@ -48,7 +70,12 @@
               </el-icon>
             </template>
             <template #suffix>
-              <img :src="captchaUrl" class="captcha" @click="refreshCaptcha" alt="点击重新加载" />
+              <img
+                :src="captchaUrl"
+                class="captcha"
+                @click="refreshCaptcha"
+                alt="点击重新加载"
+              />
             </template>
           </el-input>
         </el-form-item>
@@ -57,13 +84,24 @@
         </div>
         <!-- 登录按钮 -->
         <el-form-item>
-          <el-button type="primary" style="width: 285px; border-radius: 17px" @click="login" :loading="false">
+          <el-button
+            type="primary"
+            style="width: 285px; border-radius: 17px"
+            @click="login"
+            :loading="false"
+          >
             登录
           </el-button>
         </el-form-item>
       </el-form>
       <!-- 手机号登录表单 -->
-      <el-form label-width="25px" :rules="rules2" :model="phoneLogForm" v-show="!isAccLog" ref="logForm2">
+      <el-form
+        label-width="25px"
+        :rules="rules2"
+        :model="phoneLogForm"
+        v-show="!isAccLog"
+        ref="logForm2"
+      >
         <el-form-item prop="phone">
           <el-input placeholder="请输入手机号码" v-model="phoneLogForm.phone">
             <template #prefix>
@@ -74,20 +112,29 @@
           </el-input>
         </el-form-item>
         <el-form-item prop="verifyCode">
-          <el-input placeholder="请输入短信验证码" v-model="phoneLogForm.verifyCode">
+          <el-input
+            placeholder="请输入短信验证码"
+            v-model="phoneLogForm.verifyCode"
+          >
             <template #prefix>
               <el-icon>
                 <Bell />
               </el-icon>
             </template>
             <template #suffix>
-              <el-button @click="() => sendVerificationCode('1')" size="small" :disabled="isSendingCode['1'].value == true ||
-                (countdown['1'].value as number) > 0
-                " class="sendCode">
+              <el-button
+                @click="() => sendVerificationCode('1')"
+                size="small"
+                :disabled="
+                  isSendingCode['1'].value == true ||
+                  (countdown['1'].value as number) > 0
+                "
+                class="sendCode"
+              >
                 {{
                   (countdown['1'].value as number) > 0
-                  ? `重新发送(${countdown['1'].value})`
-                  : '发送验证码'
+                    ? `重新发送(${countdown['1'].value})`
+                    : '发送验证码'
                 }}
               </el-button>
             </template>
@@ -101,7 +148,12 @@
               </el-icon>
             </template>
             <template #suffix>
-              <img :src="captchaUrl" @click="refreshCaptcha" class="captcha" alt="点击重新加载" />
+              <img
+                :src="captchaUrl"
+                @click="refreshCaptcha"
+                class="captcha"
+                alt="点击重新加载"
+              />
             </template>
           </el-input>
         </el-form-item>
@@ -111,7 +163,12 @@
         </div>
         <!-- 登录按钮 -->
         <el-form-item>
-          <el-button type="primary" style="width: 285px; border-radius: 17px" @click="login" :loading="false">
+          <el-button
+            type="primary"
+            style="width: 285px; border-radius: 17px"
+            @click="login"
+            :loading="false"
+          >
             登录
           </el-button>
         </el-form-item>
@@ -129,12 +186,17 @@
       </div>
     </el-dialog>
     <!-- 注册对话框 -->
-    <el-dialog v-model="dialogRegisterVisible" width="600" :show-close="false" style="
+    <el-dialog
+      v-model="dialogRegisterVisible"
+      width="600"
+      :show-close="false"
+      style="
         border-radius: 12px;
         opacity: 0.95;
         margin: 230px auto;
         box-shadow: 0px 8px 24px #000000;
-      ">
+      "
+    >
       <template #header>
         <div class="register-header">
           <span style="margin-right: 5px">注册用户</span>
@@ -148,27 +210,45 @@
         <el-step title="密码" />
         <el-step title="手机号" />
       </el-steps>
-      <el-form label-position="right" label-width="75px" :model="regForm" :rules="rules3" ref="registerForm"
-        style="height: 180px">
+      <el-form
+        label-position="right"
+        label-width="75px"
+        :model="regForm"
+        :rules="rules3"
+        ref="registerForm"
+        style="height: 180px"
+      >
         <div v-if="activeStep === 0" class="Step1">
           <!-- 上传头像 -->
           <el-row>
             <el-col :span="2"></el-col>
             <el-col :span="8.5" style="display: flex; align-items: center">
               <div style="margin-right: 15px; font-size: 16px">头像:</div>
-              <el-upload class="avatar-uploader" action="/dev-api/upload" :show-file-list="false"
-                :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-                <img v-if="regForm.avatar" :src="regForm.avatar" class="avatar" />
+              <el-upload
+                class="avatar-uploader"
+                action="/dev-api/upload"
+                :show-file-list="false"
+                :on-success="handleAvatarSuccess"
+                :before-upload="beforeAvatarUpload"
+              >
+                <img
+                  v-if="regForm.avatar"
+                  :src="regForm.avatar"
+                  class="avatar"
+                />
                 <el-icon v-else class="avatar-uploader-icon">
                   <Plus />
                 </el-icon>
               </el-upload>
             </el-col>
-            <el-col :span="12.5" style="
+            <el-col
+              :span="12.5"
+              style="
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-              ">
+              "
+            >
               <el-form-item label="用户名" prop="username" style="width: 300px">
                 <el-input placeholder="请设置用户名" v-model="regForm.username">
                   <template #prefix>
@@ -190,15 +270,24 @@
             </el-col>
           </el-row>
         </div>
-        <div v-if="activeStep === 1" class="Step2" style="
+        <div
+          v-if="activeStep === 1"
+          class="Step2"
+          style="
             height: 141.33px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-          ">
+          "
+        >
           <el-form-item label="密码" prop="password" style="width: 380px">
-            <el-input placeholder="请设置密码" type="password" show-password v-model="regForm.password">
+            <el-input
+              placeholder="请设置密码"
+              type="password"
+              show-password
+              v-model="regForm.password"
+            >
               <template #prefix>
                 <el-icon>
                   <Key />
@@ -207,7 +296,12 @@
             </el-input>
           </el-form-item>
           <el-form-item label="确认密码" prop="checkPwd" style="width: 380px">
-            <el-input placeholder="请再次输入密码" show-password type="password" v-model="regForm.checkPwd">
+            <el-input
+              placeholder="请再次输入密码"
+              show-password
+              type="password"
+              v-model="regForm.checkPwd"
+            >
               <template #prefix>
                 <el-icon>
                   <Key />
@@ -234,13 +328,20 @@
                 </el-icon>
               </template>
               <template #suffix>
-                <el-button v-show="!isAccLog" @click="() => sendVerificationCode('2')" size="small" :disabled="isSendingCode['2'].value == true ||
-                  (countdown['2'].value as number) > 0
-                  " class="sendCode">
+                <el-button
+                  v-show="!isAccLog"
+                  @click="() => sendVerificationCode('2')"
+                  size="small"
+                  :disabled="
+                    isSendingCode['2'].value == true ||
+                    (countdown['2'].value as number) > 0
+                  "
+                  class="sendCode"
+                >
                   {{
                     (countdown['2'].value as number) > 0
-                    ? `重新发送(${countdown['2'].value})`
-                    : '发送验证码'
+                      ? `重新发送(${countdown['2'].value})`
+                      : '发送验证码'
                   }}
                 </el-button>
               </template>
@@ -248,7 +349,12 @@
           </el-form-item>
         </div>
         <div class="stepBtn">
-          <el-button :disabled="activeStep === 0" @click="prev" type="success" text>
+          <el-button
+            :disabled="activeStep === 0"
+            @click="prev"
+            type="success"
+            text
+          >
             上一步
           </el-button>
           <el-button type="success" @click="next" v-if="activeStep !== 2">
@@ -332,7 +438,7 @@ const sendVerificationCode = (num: string) => {
   countdown[num].value = 60
   // 倒计时效果
   const countdownInterval = setInterval(() => {
-    ; (countdown[num].value as number)--
+    ;(countdown[num].value as number)--
     if ((countdown[num].value as number) <= 0) {
       clearInterval(countdownInterval)
       isSendingCode[num].value = false

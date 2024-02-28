@@ -3,23 +3,42 @@
     <span class="divider">大会议程</span>
     <el-card class="timeline-container">
       <div class="timeline">
-        <div class="timeline-item" v-for="(item, index) in items" :key="index" :class="{ active: index === activeIndex }"
-          @click="setActive(index, item)">
-          <div class="timeline-content" :style="index === activeIndex
-            ? 'background-color:#1185e4;'
-            : 'background-color:#fff'
-            ">
-            <div class="day" :style="index === activeIndex ? 'color:#fff;' : 'color: #1185e4;'">
+        <div
+          class="timeline-item"
+          v-for="(item, index) in items"
+          :key="index"
+          :class="{ active: index === activeIndex }"
+          @click="setActive(index, item)"
+        >
+          <div
+            class="timeline-content"
+            :style="
+              index === activeIndex
+                ? 'background-color:#1185e4;'
+                : 'background-color:#fff'
+            "
+          >
+            <div
+              class="day"
+              :style="index === activeIndex ? 'color:#fff;' : 'color: #1185e4;'"
+            >
               {{ item.date }}
             </div>
-            <div class="date" :style="index === activeIndex ? 'color:#fff;' : 'color: #666;'">
+            <div
+              class="date"
+              :style="index === activeIndex ? 'color:#fff;' : 'color: #666;'"
+            >
               {{ item.day }}
             </div>
           </div>
           <div class="arrow-down" v-show="index === activeIndex"></div>
         </div>
       </div>
-      <div class="box-card" style="width: 950px; height: 90px" v-for="item in meetingStore.agendaItems">
+      <div
+        class="box-card"
+        style="width: 950px; height: 90px"
+        v-for="item in meetingStore.agendaItems"
+      >
         <div class="item1">
           <div>
             {{
@@ -32,11 +51,20 @@
           <span>{{ item.title }}</span>
         </div>
         <div class="item3">
-          <el-button icon="Plus" type="primary" v-show="item.isSub == 0"
-            style="width: 100px; height: 33px; font-size: 18px" @click="goSub(item.id)">
+          <el-button
+            icon="Plus"
+            type="primary"
+            v-show="item.isSub == 0"
+            style="width: 100px; height: 33px; font-size: 18px"
+            @click="goSub(item.id)"
+          >
             订阅
           </el-button>
-          <div class="subbed" v-show="item.isSub == 1" @click="cancelSub(item.id)">
+          <div
+            class="subbed"
+            v-show="item.isSub == 1"
+            @click="cancelSub(item.id)"
+          >
             已订阅
           </div>
         </div>
@@ -105,7 +133,6 @@ onMounted(async () => {
 })
 
 /* 静态样式相关的代码 */
-
 </script>
 
 <style scoped lang="scss">

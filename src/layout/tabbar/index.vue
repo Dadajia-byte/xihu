@@ -2,20 +2,29 @@
   <div class="underframe">
     <!-- logo -->
     <img :src="setting.logo(1)" alt="" class="logo" />
-    <el-menu default-active="1" mode="horizontal" background-color="transparent" :ellipsis="false"
-      active-text-color="#409EFF" router style="font-size: 20px !important">
+    <el-menu
+      default-active="1"
+      mode="horizontal"
+      background-color="transparent"
+      :ellipsis="false"
+      active-text-color="#409EFF"
+      router
+      style="font-size: 20px !important"
+    >
       <!-- 菜单组件 -->
       <Menu :menuList="layoutSettingStore.menuList"></Menu>
 
       <!-- 直播 -->
       <el-menu-item index="8" style="color: #ff0020; font-size: 18px">
         直播
-        <el-icon style="
+        <el-icon
+          style="
             width: 10px;
             height: 9px;
             color: #ff0000;
             transform: translateY(-5px);
-          ">
+          "
+        >
           <Histogram />
         </el-icon>
       </el-menu-item>
@@ -47,13 +56,22 @@
     </div>
     <!-- 右侧登录用户相关 -->
     <div class="loginAbout">
-      <el-button class="log" @click="layoutSettingStore.dialogFormVisible = true" v-if="!layoutSettingStore.isLog">
+      <el-button
+        class="log"
+        @click="layoutSettingStore.dialogFormVisible = true"
+        v-if="!layoutSettingStore.isLog"
+      >
         <el-icon :size="22">
           <UserFilled />
         </el-icon>
         登录|注册
       </el-button>
-      <img :src="userStore.userData.data.avatar" v-if="layoutSettingStore.isLog" class="avatar" @click="goPerson" />
+      <img
+        :src="userStore.userData.data.avatar"
+        v-if="layoutSettingStore.isLog"
+        class="avatar"
+        @click="goPerson"
+      />
       <el-dropdown v-if="layoutSettingStore.isLog">
         <span class="el-dropdown-link">
           {{ userStore.userData.data.username }}
