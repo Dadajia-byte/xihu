@@ -4,7 +4,7 @@ import 'element-plus/dist/index.css'
 
 import 'virtual:svg-icons-register'
 import '@/styles/index.scss'
-
+import './utils/flexible'
 import 'animate.css/animate.min.css'
 import 'wow.js/css/libs/animate.css'
 

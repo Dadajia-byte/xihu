@@ -31,7 +31,6 @@ export const reqPhoneLogin = (data: phoneLogData) =>
 // 图形验证码获取接口
 export const reqCaptcha = () => request.get<any, any>(API.CAPTCHA)
 // 用户验证接口
-export const reqCheckUser = () =>
-  request.get<any, any>(API.USER_CHECK)
+export const reqCheckUser = () => request.get<any, any>(API.USER_CHECK)
 // 用户注销接口
 export const reqLogout = () => request.post<any, any>(API.USER_LOGOUT)

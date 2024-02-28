@@ -109,7 +109,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .footer {
   height: 469px;
   width: 100%;

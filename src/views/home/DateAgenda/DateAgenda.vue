@@ -5,8 +5,10 @@
       <div class="timeline">
         <div class="timeline-item" v-for="(item, index) in items" :key="index" :class="{ active: index === activeIndex }"
           @click="setActive(index, item)">
-          <div class="timeline-content"
-            :style="index === activeIndex ? 'background-color:#1185e4;' : 'background-color:#fff'">
+          <div class="timeline-content" :style="index === activeIndex
+            ? 'background-color:#1185e4;'
+            : 'background-color:#fff'
+            ">
             <div class="day" :style="index === activeIndex ? 'color:#fff;' : 'color: #1185e4;'">
               {{ item.date }}
             </div>
@@ -19,7 +21,11 @@
       </div>
       <div class="box-card" style="width: 950px; height: 90px" v-for="item in meetingStore.agendaItems">
         <div class="item1">
-          <div>{{ `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}` }}</div>
+          <div>
+            {{
+              `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}`
+            }}
+          </div>
           <div>{{ item.location }}</div>
         </div>
         <div class="item2">
@@ -30,7 +36,9 @@
             style="width: 100px; height: 33px; font-size: 18px" @click="goSub(item.id)">
             订阅
           </el-button>
-          <div class="subbed" v-show="item.isSub == 1" @click="cancelSub(item.id)">已订阅</div>
+          <div class="subbed" v-show="item.isSub == 1" @click="cancelSub(item.id)">
+            已订阅
+          </div>
         </div>
       </div>
     </el-card>
@@ -39,9 +47,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue'
-import useMeetingStore from '@/store/modules/meeting';
-import { ElMessage } from 'element-plus';
-let meetingStore = useMeetingStore();
+import useMeetingStore from '@/store/modules/meeting'
+import { ElMessage } from 'element-plus'
+let meetingStore = useMeetingStore()
 const items = ref([
   { date: 'Day 1', day: '5月5日' },
   { date: 'Day 2', day: '5月6日' },
@@ -58,42 +66,46 @@ const setActive = async (index: number, item: any) => {
 }
 
 const goSub = async (id: number) => {
-  console.log(id);
-  await meetingStore.subAgenda(id).then(() => {
-    nextTick(async () => {
-      // 重新请求数据
-      await meetingStore.getAgenda()
+  console.log(id)
+  await meetingStore
+    .subAgenda(id)
+    .then(() => {
+      nextTick(async () => {
+        // 重新请求数据
+        await meetingStore.getAgenda()
+      })
+      ElMessage({
+        message: '订阅成功',
+        type: 'success',
+      })
     })
-    ElMessage({
-      message: '订阅成功',
-      type: 'success'
+    .catch((res) => {
+      console.log(res)
+      ElMessage({
+        message: res.message,
+        type: 'error',
+      })
     })
-  }).catch(res => {
-    console.log(res);
-    ElMessage({
-      message: res.message,
-      type: 'error'
-    })
-  })
 }
 const cancelSub = async (id: number) => {
-  console.log(id);
   await meetingStore.cancelAgenda(id)
   nextTick(async () => {
     await meetingStore.getAgenda()
     ElMessage({
       message: '取消订阅成功',
-      type: 'success'
+      type: 'success',
     })
   })
-
 }
 onMounted(async () => {
-  console.log('我是请求数据函数，我应该在登录之后');
+  console.log('我是请求数据函数，我应该在登录之后')
 
   meetingStore.reqData.date = '5月5日'
   await meetingStore.getAgenda()
 })
+
+/* 静态样式相关的代码 */
+
 </script>
 
 <style scoped lang="scss">

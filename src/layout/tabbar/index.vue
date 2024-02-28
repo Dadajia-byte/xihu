@@ -3,15 +3,19 @@
     <!-- logo -->
     <img :src="setting.logo(1)" alt="" class="logo" />
     <el-menu default-active="1" mode="horizontal" background-color="transparent" :ellipsis="false"
-      active-text-color="#409EFF" router style="font-size: 20px!important">
+      active-text-color="#409EFF" router style="font-size: 20px !important">
       <!-- 菜单组件 -->
-      <Menu :menuList="layoutSettingStore.menuList">
-      </Menu>
+      <Menu :menuList="layoutSettingStore.menuList"></Menu>
 
       <!-- 直播 -->
-      <el-menu-item index="8" style="color: #ff0020;font-size: 18px;">
+      <el-menu-item index="8" style="color: #ff0020; font-size: 18px">
         直播
-        <el-icon style="width: 10px;height: 9px;color: #ff0000;transform: translateY(-5px);">
+        <el-icon style="
+            width: 10px;
+            height: 9px;
+            color: #ff0000;
+            transform: translateY(-5px);
+          ">
           <Histogram />
         </el-icon>
       </el-menu-item>
@@ -83,9 +87,6 @@ let $router = useRouter()
 let userStore = useUserStore()
 let layoutSettingStore = useLayoutSettingStore()
 
-
-
-
 const chooseLan = (Lan: string) => {
   return (layoutSettingStore.choosedLan = Lan)
 }
@@ -97,10 +98,10 @@ const Logout = () => {
     $router.push('/home')
     ElMessage.success('退出成功登录')
   })
-
 }
 
 const goPerson = () => {
+  $router.push('/person')
 }
 </script>
 <script lang="ts">
@@ -115,7 +116,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: rgba(255, 255, 255, .9);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(5px);
   font-size: 20px;
 
@@ -136,8 +137,6 @@ export default {
   }
 
   .el-dropdown {
-
-
     .el-dropdown-link {
       color: black;
       font-weight: 400;

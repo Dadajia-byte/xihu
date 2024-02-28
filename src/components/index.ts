@@ -1,9 +1,7 @@
 // 引入项目中全部的全局组件
 // 引入element-plus提供的全部图标组件
 import * as ElementPlusIcons from '@element-plus/icons-vue'
-const allGlobalComponents: any = {
-
-}
+const allGlobalComponents: any = {}
 
 // 对外暴露插件对象
 export default {

@@ -10,20 +10,20 @@ NProgress.configure({ showSpinner: false })
 // 因为在外面所以要重新引入大仓库pinia
 import pinia from './store'
 import useUserStore from './store/modules/user'
-
+import useLayoutSettingStore from './store/setting'
+let layoutSettingStore = useLayoutSettingStore(pinia)
 let userStore = useUserStore(pinia)
 
 // 全局前置守卫
 router.beforeEach(async (to, from, next) => {
-    NProgress.start()
-    document.title = `${setting.title}-${to.meta.title}`
-
-    next()
+  NProgress.start()
+  document.title = `${setting.title}-${to.meta.title}`
+  next()
 })
 
 // 全局后置守卫
 router.afterEach((to, from) => {
-    NProgress.done()
+  NProgress.done()
 })
 
 // 第一个问题：任意路由切换实现进度条业务 ——— nprogress

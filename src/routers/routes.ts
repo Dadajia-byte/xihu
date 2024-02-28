@@ -28,7 +28,7 @@ export const constantRoutes = [
         meta: {
           title: '大会云集',
           hidden: false,
-        }
+        },
       },
       {
         path: '/activity',
@@ -37,7 +37,7 @@ export const constantRoutes = [
         meta: {
           title: '精彩活动',
           hidden: false,
-        }
+        },
       },
       {
         path: '/achivevement',
@@ -46,7 +46,7 @@ export const constantRoutes = [
         meta: {
           title: '成果展示',
           hidden: false,
-        }
+        },
       },
       {
         path: '/master',
@@ -55,7 +55,7 @@ export const constantRoutes = [
         meta: {
           title: '大咖云集',
           hidden: false,
-        }
+        },
       },
       {
         path: '/mate',
@@ -73,7 +73,7 @@ export const constantRoutes = [
             meta: {
               title: '展商合作',
               hidden: false,
-            }
+            },
           },
           {
             path: '/mate/media',
@@ -81,9 +81,9 @@ export const constantRoutes = [
             meta: {
               title: '媒体合作',
               hidden: false,
-            }
+            },
           },
-        ]
+        ],
       },
       {
         path: '/about',
@@ -100,7 +100,7 @@ export const constantRoutes = [
             meta: {
               title: '大会介绍',
               hidden: false,
-            }
+            },
           },
           {
             path: '/about/guide',
@@ -108,11 +108,11 @@ export const constantRoutes = [
             meta: {
               title: '参赛指南',
               hidden: false,
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
-    ]
+    ],
   },
 
   {
@@ -133,4 +133,13 @@ export const constantRoutes = [
       hidden: true,
     },
   },
+  {
+    path: '/person',
+    component: () => import('@/views/person/index.vue'),
+    name: 'person',
+    meta: {
+      title: '个人中心',
+      hidden: true,
+    }
+  }
 ]
