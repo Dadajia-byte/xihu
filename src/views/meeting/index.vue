@@ -5,42 +5,22 @@
       <h2 class="title">全部会议</h2>
       <p class="title-re">Agendas</p>
       <div class="agenda-content">
-        <div
-          class="ad-item wow fadeInLeft"
-          v-for="(item, index) in data"
-          :class="index % 2 == 0 ? 'ad-item-re' : ''"
-          @mouseover="item.isExpand = true"
-          @mouseleave="data.forEach((i) => (i.isExpand = false))"
-          :key="item.title"
-          :data-wow-delay="index / 10 + 's'"
-          @click="handleRouter"
-        >
+        <div class="ad-item wow fadeInLeft" v-for="(item, index) in data" :class="index % 2 == 0 ? 'ad-item-re' : ''"
+          @mouseover="item.isExpand = true" @mouseleave="data.forEach((i) => (i.isExpand = false))" :key="item.title"
+          :data-wow-delay="index / 10 + 's'" @click="handleRouter">
           <div class="time">
             {{ item.date }}
           </div>
           <div class="ad-title">
             {{ item.title }}
           </div>
-          <div
-            class="expand"
-            :style="{
-              width: item.isExpand ? '200px' : '0px',
-            }"
-          >
-            <span
-              v-if="item.isExpand"
-              class="e-r"
-              @mouseover="stopP"
-              @mouseleave="stopP"
-            >
+          <div class="expand" :style="{
+            width: item.isExpand ? '200px' : '0px',
+          }">
+            <span v-if="item.isExpand" class="e-r" @mouseover="stopP" @mouseleave="stopP">
               时间 {{ item.time }}
             </span>
-            <span
-              v-if="item.isExpand"
-              class="e-l"
-              @mouseover="stopP"
-              @mouseleave="stopP"
-            >
+            <span v-if="item.isExpand" class="e-l" @mouseover="stopP" @mouseleave="stopP">
               地点 {{ item.address }}
             </span>
           </div>
@@ -50,9 +30,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import Screen from './components/Screen.vue'
+// @ts-ignore
 import WOW from 'wow.js'
 import { useRouter } from 'vue-router'
 
@@ -76,11 +57,19 @@ onMounted(() => {
   initWOW()
 })
 
-const stopP = (e) => {
+const stopP = (e: any) => {
   e.stopPropagation
 }
 
-const data = ref([
+type dataType = {
+  title: string
+  date: string
+  time: string
+  address: string
+  isExpand?: boolean
+}
+
+const data = ref<dataType[]>([
   {
     title: '格致论道@西湖论剑',
     date: '5月5日 下午',
@@ -198,11 +187,9 @@ const data = ref([
           height: 3.8rem;
           width: 1rem;
           font-size: 0.3rem;
-          background: linear-gradient(
-            to bottom,
-            $theme-color-green,
-            $theme-color-blue
-          );
+          background: linear-gradient(to bottom,
+              $theme-color-green,
+              $theme-color-blue );
           color: white;
           display: flex;
           align-items: center;
@@ -248,11 +235,9 @@ const data = ref([
         .time {
           text-align: end;
           justify-content: flex-end;
-          background: linear-gradient(
-            to bottom,
-            $theme-color-blue,
-            $theme-color-green
-          );
+          background: linear-gradient(to bottom,
+              $theme-color-blue,
+              $theme-color-green );
           clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
           position: relative;
           top: 0.6667rem;

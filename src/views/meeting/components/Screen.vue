@@ -3,42 +3,19 @@
     <div class="cir-outside">
       <div class="cir-inner">
         <div class="letters">
-          <span
-            v-for="lettter in letters"
-            :style="{
-              'font-size': letters.length > 4 ? '0.8rem' : '1rem',
-            }"
-          >
+          <span v-for="lettter in letters" :style="{
+            'font-size': letters.length > 4 ? '.8rem' : '1rem',
+          }">
             {{ lettter }}
           </span>
           <div class="let-after"></div>
         </div>
       </div>
-      <FloatCard
-        class="f-c"
-        content="主论坛"
-        style="left: 37%; top: 0; --i: 0s"
-      ></FloatCard>
-      <FloatCard
-        class="f-c"
-        content="平行论坛"
-        style="left: 13%; bottom: 0; --i: 1s"
-      ></FloatCard>
-      <FloatCard
-        class="f-c"
-        content="科普论坛"
-        style="right: 13%; bottom: 0; --i: 2s"
-      ></FloatCard>
-      <FloatCard
-        class="f-c"
-        content="掌上论剑"
-        style="right: -5%; top: 30%; --i: 3s"
-      ></FloatCard>
-      <FloatCard
-        class="f-c"
-        content="生态合作论坛"
-        style="left: -5%; top: 30%; --i: 4s"
-      ></FloatCard>
+      <FloatCard class="f-c" content="主论坛" style="left: 37%; top: 0; --i: 0s"></FloatCard>
+      <FloatCard class="f-c" content="平行论坛" style="left: 13%; bottom: 0; --i: 1s"></FloatCard>
+      <FloatCard class="f-c" content="科普论坛" style="right: 13%; bottom: 0; --i: 2s"></FloatCard>
+      <FloatCard class="f-c" content="掌上论剑" style="right: -5%; top: 30%; --i: 3s"></FloatCard>
+      <FloatCard class="f-c" content="生态合作论坛" style="left: -5%; top: 30%; --i: 4s"></FloatCard>
     </div>
   </div>
 </template>
@@ -96,14 +73,14 @@ onMounted(() => {
 
   .cir-outside {
     @include cover;
-    border: 0.0167rem solid rgba(222, 222, 222, 0.588);
+    border: .0167rem solid rgba(222, 222, 222, 0.588);
     border-radius: 100% / 100%;
     padding: 15%;
     position: relative;
 
     .cir-inner {
       @include cover;
-      border: 0.0167rem solid rgba(222, 222, 222, 0.588);
+      border: .0167rem solid rgba(222, 222, 222, 0.588);
       border-radius: 100% / 100%;
       display: flex;
       justify-content: center;
@@ -131,7 +108,7 @@ onMounted(() => {
         right: -0.1667rem;
         // bottom: 0;
         // height: 90%;
-        width: 0.0367rem;
+        width: .0367rem;
         background-color: white;
         animation: hei 0.9s ease-in-out infinite;
       }
@@ -170,7 +147,7 @@ onMounted(() => {
     }
 
     50% {
-      transform: translate(0.0467rem, 0.0867rem);
+      transform: translate(.0467rem, .0867rem);
     }
 
     100% {

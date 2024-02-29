@@ -1,44 +1,26 @@
 <template>
   <div class="list-box">
     <div class="type">
-      <div
-        class="type-item"
-        v-for="(item, index) in type"
-        :key="index"
-        @click="filter(item)"
-        :style="
-          item === activityStore.filterItem.type
-            ? 'background-color:#01a4ff;color:#fff;scale:1.2'
-            : ''
-        "
-      >
+      <div class="type-item" v-for="(item, index) in type" :key="index" @click="filter(item)" :style="item === activityStore.filterItem.type
+        ? 'background-color:#01a4ff;color:#fff;scale:1.2'
+        : ''
+        ">
         {{ item }}
       </div>
     </div>
 
-    <div
-      class="list-card wow fadeInUp"
-      v-for="(item, index) in activityStore.lists"
-      :style="{ flexDirection: index % 2 == 0 ? 'row' : 'row-reverse' }"
-      :key="item.id"
-    >
-      <div
-        class="card-left"
-        :style="{
-          transformOrigin: index % 2 == 0 ? '100% 50%' : '0px 50%',
-        }"
-      >
+    <div class="list-card wow fadeInUp" v-for="(item, index) in activityStore.lists"
+      :style="{ flexDirection: index % 2 == 0 ? 'row' : 'row-reverse' }" :key="item.id">
+      <div class="card-left" :style="{
+        transformOrigin: index % 2 == 0 ? '100% 50%' : '0px 50%',
+      }">
         <div class="titles">
           <span>{{ item.title }}</span>
         </div>
         <el-button class="dy" @click="sub(item.id)" v-show="item.isSub == 0">
           订阅
         </el-button>
-        <el-button
-          class="dy"
-          @click="cancelSub(item.id)"
-          v-show="item.isSub != 0"
-        >
+        <el-button class="dy" @click="cancelSub(item.id)" v-show="item.isSub != 0">
           取消订阅
         </el-button>
         <div class="c-c">
@@ -49,22 +31,14 @@
           <span>{{ item.peo }}人订阅</span>
         </div>
       </div>
-      <div
-        class="card-right"
-        :style="{
-          backgroundImage: `url(${item.image})`,
-        }"
-      ></div>
+      <div class="card-right" :style="{
+        backgroundImage: `url(${item.image})`,
+      }"></div>
     </div>
     <div class="demo-pagination-block">
-      <el-pagination
-        v-model:current-page="activityStore.filterItem.startIndex"
-        v-model:page-size="activityStore.filterItem.pageSize"
-        :small="false"
-        layout="prev, pager, next, jumper"
-        :total="activityStore.total"
-        @current-change="handleCurrentChange"
-      />
+      <el-pagination v-model:current-page="activityStore.filterItem.startIndex"
+        v-model:page-size="activityStore.filterItem.pageSize" :small="false" layout="prev, pager, next, jumper"
+        :total="activityStore.total" @current-change="handleCurrentChange" />
     </div>
   </div>
 </template>
@@ -103,7 +77,7 @@ const filter = (item: string) => {
 }
 
 onBeforeUnmount(() => {
-  ;(activityStore.filterItem.type = ''),
+  ; (activityStore.filterItem.type = ''),
     (activityStore.filterItem.pageSize = 4),
     (activityStore.filterItem.startIndex = 1)
 })
@@ -112,18 +86,21 @@ const handleCurrentChange = () => {
 }
 
 const sub = (id: number) => {
-  activityStore.subActivity(id).then(async () => {
-    handleCurrentChange()
-    ElMessage.success('订阅成功')
-  })
-}
-
+  activityStore.subActivity(id).then(() => {
+    ElMessage.success('订阅成功');
+  }).then(() => {
+    activityStore.getActivty()
+  }).catch(err => {
+    ElMessage.error(err.message);
+  });
+};
 const cancelSub = (id: number) => {
-  activityStore.cancelActivity(id).then(async () => {
-    await activityStore.getActivty().then(async () => {
-      handleCurrentChange()
-      ElMessage.success('取消订阅成功')
-    })
+  activityStore.cancelActivity(id).then(() => {
+    ElMessage.success('取消订阅成功')
+  }).then(() => {
+    activityStore.getActivty()
+  }).catch(() => {
+    ElMessage.error('请先登录')
   })
 }
 </script>
@@ -156,15 +133,13 @@ export default {
       width: 100%;
       height: 0.0313rem;
       /* 设置边框的高度 */
-      background: linear-gradient(
-        to right,
-        #004dbd,
-        #014fbb,
-        #019bc4,
-        #1bc2c1,
-        #aeebe4,
-        #ffffff
-      );
+      background: linear-gradient(to right,
+          #004dbd,
+          #014fbb,
+          #019bc4,
+          #1bc2c1,
+          #aeebe4,
+          #ffffff);
     }
 
     .type-item {

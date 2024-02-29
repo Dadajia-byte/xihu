@@ -1,16 +1,16 @@
 <template>
   <div>
     <!-- 轮播图 -->
-    <div style="height: 804px">
+    <div style="height: 11.4857rem">
       <el-carousel :interval="5000" arrow="never" height="auto">
-        <el-carousel-item style="height: 804px">
+        <el-carousel-item style="height: 11.4857rem">
           <img src="" alt="" />
           图片1
         </el-carousel-item>
-        <el-carousel-item style="height: 804px">
+        <el-carousel-item style="height: 11.4857rem">
           <img src="" alt="" />
         </el-carousel-item>
-        <el-carousel-item style="height: 804px">
+        <el-carousel-item style="height: 11.4857rem">
           <img src="" alt="" />
           图片3——当然可以任意张图片
         </el-carousel-item>
@@ -18,20 +18,17 @@
       <el-card class="box-card">
         <el-card class="container-card">
           <el-row>
-            <el-col :span="3" style="height: 60px">
+            <el-col :span="3" style="height: .8571rem">
               <ul class="highlight">
                 <li>大会亮点</li>
                 <li>HIGHLIGHTS</li>
               </ul>
             </el-col>
-            <el-col
-              :span="21"
-              style="position: relative; top: -20px; left: 20px"
-            >
+            <el-col :span="21" style="position: relative; top: -0.2857rem; left: .2857rem">
               <div class="highlight-bar"></div>
             </el-col>
           </el-row>
-          <el-row justify="space-around" style="margin-top: 10px">
+          <el-row justify="space-around" style="margin-top: .1429rem">
             <el-col :span="4">
               <ul>
                 <li class="li1">{{ num1 }}+</li>
@@ -111,40 +108,40 @@ onMounted(() => {
 
 .box-card {
   position: relative;
-  width: 1037px;
-  height: 196px;
+  width: 14.8143rem;
+  height: 2.8rem;
   left: 50%;
   transform: translateX(-50%);
-  top: -220px;
+  top: -3.1429rem;
   background-color: rgba($color: #ffffff, $alpha: 0.3);
-  border-radius: 10px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+  border-radius: .1429rem;
+  box-shadow: 0 .0429rem .0857rem 0 rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .container-card {
-  width: 1017px;
-  height: 170px;
-  border-radius: 13px;
-  font-size: 14px;
+  width: 14.5286rem;
+  height: 2.4286rem;
+  border-radius: .1857rem;
+  font-size: .2rem;
 
   .highlight {
     text-align: left;
-    border-left: 2px solid #1185e4;
+    border-left: .0286rem solid #1185e4;
 
     li {
-      margin: 5px 10px;
+      margin: .0714rem .1429rem;
 
       &:nth-child(1) {
-        font-size: 18px;
+        font-size: .2571rem;
         font-weight: 700;
         color: black;
       }
 
       &:nth-child(2) {
-        font-size: 17px;
+        font-size: .2429rem;
         color: #1185e4;
         font-style: italic;
         font-weight: 350;
@@ -155,19 +152,19 @@ onMounted(() => {
   .highlight-bar {
     position: relative;
     width: 100%; // 使容器宽度充满父元素
-    height: 40px; // 容器高度
+    height: .5714rem; // 容器高度
     background-color: #1185e4;
 
     // 使用伪元素创建三角形
     &::before {
       content: '';
       position: absolute;
-      left: 1px;
+      left: .0143rem;
       top: 0;
       width: 0;
       height: 0;
-      border-top: 40px solid #1185e4; // 三角形高度和颜色
-      border-left: 25px solid transparent; // 三角形宽度
+      border-top: .5714rem solid #1185e4; // 三角形高度和颜色
+      border-left: .3571rem solid transparent; // 三角形宽度
       transform: translateX(-100%); // 将三角形完全移动到容器的左边界
     }
   }
@@ -176,7 +173,7 @@ onMounted(() => {
     text-align: center;
 
     .li1 {
-      font-size: 25px;
+      font-size: .3571rem;
       font-weight: 700;
     }
 
@@ -212,8 +209,8 @@ onMounted(() => {
   }
 
   .li2 {
-    font-size: 16px;
-    line-height: 30px;
+    font-size: .2286rem;
+    line-height: .4286rem;
     color: black;
   }
 }
@@ -234,7 +231,7 @@ onMounted(() => {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-0.2857rem);
   }
 
   to {

@@ -9,20 +9,20 @@
 <style scoped lang="scss">
 .divider {
   display: flex;
-  width: 280px;
+  width: 4rem;
   align-items: center;
   text-align: center;
   color: #1185e4;
-  font-size: 30px;
-  margin: 40px auto;
+  font-size: .4286rem;
+  margin: .5714rem auto;
   font-weight: 700;
 
   &::before,
   &::after {
     content: '';
     flex: 1;
-    border-bottom: 3px solid #1185e4;
-    margin: 0 10px;
+    border-bottom: .0429rem solid #1185e4;
+    margin: 0 .1429rem;
   }
 }
 </style>

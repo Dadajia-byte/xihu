@@ -1,5 +1,6 @@
 // 对外暴露配置路由(常量路由)
 
+
 export const constantRoutes = [
   {
     // 登录成功后展示数据的路由
@@ -141,5 +142,47 @@ export const constantRoutes = [
       title: '个人中心',
       hidden: true,
     },
+    children: [
+      {
+        path: '/person/setting',
+        component: () => import('@/views/person/personMes/index.vue'),
+        meta: {
+          title: '个人信息',
+          hidden: true,
+        },
+      },
+      {
+        path: '/person/calendar',
+        component: () => import('@/views/person/calendar/index.vue'),
+        meta: {
+          title: '我的日程',
+          hidden: true,
+        },
+      },
+      {
+        path: '/person/subscribe',
+        component: () => import('@/views/person/subscribe/index.vue'),
+        meta: {
+          title: '我的订阅',
+          hidden: true,
+        }
+      },
+      {
+        path: '/person/history',
+        component: () => import('@/views/person/history/index.vue'),
+        meta: {
+          title: '观看历史',
+          hidden: true,
+        }
+      },
+      {
+        path: '/person/point',
+        component: () => import('@/views/person/point/index.vue'),
+        meta: {
+          title: '我的积分',
+          hidden: true,
+        }
+      }
+    ],
   },
 ]

@@ -4,16 +4,17 @@ import { ref, reactive } from 'vue'
 import { GET_TOKEN, SET_TOKEN, REMOVE_TOKEN } from '@/utils/token'
 import {
   reqAccLogin,
-  reqCheckUser,
+  reqUserInfo,
   reqPhoneLogin,
   reqRegister,
   reqLogout,
+  reqUpdateUser,
 } from '@/api/user'
 import {
   accountLogData,
   phoneLogData,
   registerData,
-  logResponse,
+  userData,
 } from '@/api/user/type'
 let useUserStore = defineStore('userStore', () => {
   // 小仓库存储数据的地方
@@ -42,20 +43,19 @@ let useUserStore = defineStore('userStore', () => {
     sex: '',
     avatar: '',
   })
-  // 返回的用户信息
-  let userData: logResponse = reactive({
-    code: '',
-    msg: '',
-    data: {
-      id: '',
-      username: '',
-      token: '',
-      avatar: '',
-      phone: '',
-      account: '',
-      email: '',
-      sex: '',
-    },
+  // 返回的信息
+  let userData: userData = reactive({
+    id: '',
+    username: '',
+    token: '',
+    avatar: '',
+    phone: '',
+    account: '',
+    email: '',
+    sex: '',
+    birth: '',
+    position: '',
+    company: '',
   })
 
   // 清空表单的函数
@@ -85,18 +85,17 @@ let useUserStore = defineStore('userStore', () => {
   // 清空userData的数据
   const clearUserData = () => {
     Object.assign(userData, {
-      code: '',
-      msg: '',
-      data: {
-        id: '',
-        username: '',
-        token: '',
-        avatar: '',
-        phone: '',
-        account: '',
-        email: '',
-        sex: '',
-      },
+      id: '',
+      username: '',
+      token: '',
+      avatar: '',
+      phone: '',
+      account: '',
+      email: '',
+      sex: '',
+      birth: '',
+      position: '',
+      company: '',
     })
   }
 
@@ -108,9 +107,7 @@ let useUserStore = defineStore('userStore', () => {
       token.value = response.data.token
       SET_TOKEN(token.value)
       // 更新 userData
-      userData.code = response.code
-      userData.msg = response.msg
-      userData.data = { ...response.data }
+      userData = { ...response.data }
     } else {
       // 登录失败
       return Promise.reject(new Error(response.msg))
@@ -123,10 +120,8 @@ let useUserStore = defineStore('userStore', () => {
       // 登录成功
       token.value = response.data.token
       SET_TOKEN(token.value)
-      // 更新 userData
-      userData.code = response.code
-      userData.msg = response.msg
-      userData.data = { ...response.data }
+      // 更新 userData !!!这里有个小坑，因为是reactive对象，不能使用={...response.data}进行解构赋值，会丧失响应式
+      Object.assign(userData, response.data)
     } else {
       // 登录失败
       return Promise.reject(new Error(response.msg))
@@ -134,13 +129,11 @@ let useUserStore = defineStore('userStore', () => {
   }
 
   // 检测是否登录
-  const checkUser = async () => {
+  const userInfo = async () => {
     if (token) {
-      let res = await reqCheckUser()
+      let res = await reqUserInfo()
       if (res.code == 0) {
-        userData.code = res.code
-        userData.msg = res.msg
-        userData.data = { ...res.data }
+        Object.assign(userData, res.data)
         return 'ok'
       } else {
         return Promise.reject(new Error('未登录'))
@@ -156,6 +149,15 @@ let useUserStore = defineStore('userStore', () => {
       .catch((res) => {
         Promise.reject(new Error(res.msg as any))
       })
+  }
+  // 修改用户信息
+  const updateUser = async () => {
+    let res = await reqUpdateUser(userData)
+    if (res.code == 0) {
+      return 'ok'
+    } else {
+      return Promise.reject(new Error(res.msg))
+    }
   }
 
   // 退出登录
@@ -175,7 +177,7 @@ let useUserStore = defineStore('userStore', () => {
     userData,
     token,
     // 操作
-    checkUser,
+    userInfo,
     accLogin,
     phoneLogin,
     registerAcc,
@@ -184,6 +186,8 @@ let useUserStore = defineStore('userStore', () => {
     clearLogForm,
     clearRegForm,
     clearUserData,
+    // 更新用户信息
+    updateUser
   }
 })
 

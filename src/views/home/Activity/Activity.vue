@@ -24,28 +24,28 @@
 <style scoped lang="scss">
 .divider {
   display: flex;
-  width: 280px;
+  width: 4rem;
   align-items: center;
   text-align: center;
   color: #fff;
-  font-size: 30px;
-  margin: 40px auto;
+  font-size: .4286rem;
+  margin: .5714rem auto;
   font-weight: 700;
 
   &::before,
   &::after {
     content: '';
     flex: 1;
-    border-bottom: 3px solid #fff;
-    margin: 0 10px;
+    border-bottom: .0429rem solid #fff;
+    margin: 0 .1429rem;
   }
 }
 
 .activity {
   overflow: hidden; // 解决外边距合并
-  width: 1440px;
-  height: 600px;
-  margin: 100px auto;
+  width: 20.5714rem;
+  height: 8.5714rem;
+  margin: 1.4286rem auto;
   background-color: #090a36;
 
   .whole-content {
@@ -53,35 +53,35 @@
     justify-content: space-around;
 
     img {
-      width: 684px;
-      height: 442px;
-      padding: 10px;
+      width: 9.7714rem;
+      height: 6.3143rem;
+      padding: .1429rem;
     }
 
     .activity-content {
-      width: 684px;
-      padding: 10px;
+      width: 9.7714rem;
+      padding: .1429rem;
       color: white;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
 
       .title {
-        width: 650px;
+        width: 9.2857rem;
         font-weight: 700;
-        font-size: 25px;
+        font-size: .3571rem;
       }
 
       .content {
-        width: 500px;
-        padding-left: 10px;
-        font-size: 20px;
-        line-height: 35px;
+        width: 7.1429rem;
+        padding-left: .1429rem;
+        font-size: .2857rem;
+        line-height: .5rem;
         text-align: left;
       }
 
       .more {
-        font-size: 15px;
+        font-size: .2143rem;
         font-weight: 700;
 
         cursor: pointer;

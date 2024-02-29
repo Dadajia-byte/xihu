@@ -8,11 +8,11 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
+<script setup lang="ts">
+defineProps({
   bkData: {
     type: Object,
-    default: () => {},
+    default: () => { },
   },
 })
 </script>
@@ -28,9 +28,11 @@ const props = defineProps({
   border-radius: 0.1667rem;
   padding: 0.3333rem 20%;
   display: flex;
+
   img {
     height: 90%;
   }
+
   .content {
     h4 {
       margin-bottom: 0.3333rem;
@@ -38,6 +40,7 @@ const props = defineProps({
       text-align: center;
       @include linear-txt;
     }
+
     p {
       font-size: 0.22rem;
       color: grey;

@@ -48,16 +48,8 @@
         <img :src="setting.logo(3)" alt="" />
       </el-col>
       <el-col :span="10">
-        <el-menu
-          class="el-menu-demo"
-          mode="horizontal"
-          background-color="transparent"
-          font-size="16px"
-          text-color="white"
-          style="font-weight: 700; border-bottom: none"
-          :ellipsis="false"
-          active-text-color="white"
-        >
+        <el-menu class="el-menu-demo" mode="horizontal" background-color="transparent" font-size=".2286rem"
+          text-color="white" style="font-weight: 700; border-bottom: none" :ellipsis="false" active-text-color="white">
           <div class="flex-grow" />
           <el-menu-item index="1">首页</el-menu-item>
           <el-menu-item index="2">大会云集</el-menu-item>
@@ -85,14 +77,12 @@
           <el-menu-item index="8">
             直播
             <!-- 直播图标 -->
-            <el-icon
-              style="
-                width: 10px;
-                height: 9px;
+            <el-icon style="
+                width: .1429rem;
+                height: .1286rem;
                 color: #ff0000;
-                transform: translateY(-5px);
-              "
-            >
+                transform: translateY(-0.0714rem);
+              ">
               <Histogram />
             </el-icon>
           </el-menu-item>
@@ -100,7 +90,7 @@
       </el-col>
       <el-col :span="6"></el-col>
     </el-row>
-    <el-row class="row3" style="font-size: 12px">
+    <el-row class="row3" style="font-size: .1714rem">
       <el-col :span="2"></el-col>
       <el-col :span="6"><a href="">隐私协议/服务条款</a></el-col>
       <el-col :span="3"><a href="">杭州安恒信息技术股份有限公司</a></el-col>
@@ -121,30 +111,30 @@ export default {
 
 <style scoped lang="scss">
 .footer {
-  height: 469px;
+  height: 6.7rem;
   width: 100%;
   background: linear-gradient(to right, rgb(0, 113, 206), rgb(106, 183, 245));
 
   .row1 {
-    padding-top: 46px;
+    padding-top: .6571rem;
 
     li {
-      font-size: 12px;
-      padding: 7px 0px;
+      font-size: .1714rem;
+      padding: .1rem 0rem;
     }
 
     .firli {
-      padding-bottom: 24px;
-      font-size: 24px;
+      padding-bottom: .3429rem;
+      font-size: .3429rem;
     }
   }
 
   .row2 {
-    padding-top: calc(4710px - 4660px);
+    padding-top: calc(67.2857rem - 66.5714rem);
   }
 
   .row3 {
-    padding-top: calc(89px - 71px);
+    padding-top: calc(1.2714rem - 1.0143rem);
   }
 }
 

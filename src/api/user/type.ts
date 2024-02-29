@@ -30,14 +30,19 @@ export interface otherResponse {
 export interface logResponse {
   code: number | string
   msg: string
-  data: {
-    id: number | string
-    username: string
-    token: string
-    avatar: string
-    phone: number | string
-    account: string
-    email: string
-    sex: number | string
-  }
+  data: userData
+}
+
+export interface userData {
+  id: number | string
+  username: string
+  token: string
+  avatar: string
+  phone: number | string
+  account: string
+  email: string
+  sex: string
+  position: string
+  company: string
+  birth: string
 }

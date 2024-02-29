@@ -7,37 +7,25 @@
         <p class="title">大会议程</p>
         <p class="title-en">Conference Agenda</p>
       </div>
-      <div
-        class="ca-header-item ca-header-item-day wow fadeInDown"
-        data-wow-delay="0.2s"
-      >
+      <div class="ca-header-item ca-header-item-day wow fadeInDown" data-wow-delay="0.2s">
         <el-icon>
           <Calendar />
         </el-icon>
         <span>5月5日</span>
       </div>
-      <div
-        class="ca-header-item ca-header-item-day wow fadeInDown"
-        data-wow-delay="0.4s"
-      >
+      <div class="ca-header-item ca-header-item-day wow fadeInDown" data-wow-delay="0.4s">
         <el-icon>
           <Calendar />
         </el-icon>
         <span>5月6日</span>
       </div>
-      <div
-        class="ca-header-item ca-header-item-day wow fadeInDown"
-        data-wow-delay="0.6s"
-      >
+      <div class="ca-header-item ca-header-item-day wow fadeInDown" data-wow-delay="0.6s">
         <el-icon>
           <Calendar />
         </el-icon>
         <span>5月7日</span>
       </div>
-      <div
-        class="ca-header-item ca-header-item-day wow fadeInDown"
-        data-wow-delay="0.8s"
-      >
+      <div class="ca-header-item ca-header-item-day wow fadeInDown" data-wow-delay="0.8s">
         <el-icon>
           <Calendar />
         </el-icon>
@@ -53,8 +41,8 @@
 .ca-header {
   width: 80%;
   display: flex;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
-  padding-right: 0.6667rem;
+  box-shadow: 0 0 .1875rem 0 rgba(0, 0, 0, 0.1);
+  padding-right: 53.336px;
   position: relative;
   background-color: white;
 
@@ -62,41 +50,39 @@
     position: absolute;
     left: 100%;
     bottom: 100%;
-    transform: translate(calc(1.9667rem / -2), calc(1.9667rem / 2));
-    height: 1.9667rem;
-    width: 1.9667rem;
+    transform: translate(calc(157.336px / -2), calc(157.336px / 2));
+    height: 157.336px;
+    width: 157.336px;
     border-radius: 50%;
     z-index: -1;
     background: linear-gradient($theme-color-green, $theme-color-blue);
   }
 
   .title {
-    font-size: 0.3833rem;
+    font-size: 30.664px;
     color: white;
     font-weight: 300;
   }
 
   .title-en {
     color: white;
-    font-size: 0.1467rem;
+    font-size: 11.736px;
   }
 
   .fir {
     flex: 1.3 !important;
     position: relative;
     scale: 1.2;
-    left: 0.1667rem;
+    left: 13.336px;
     clip-path: polygon(0 0, 100%, 70% 100%, 0 100%);
     -webkit-clip-path: polygon(0 0, 100%, 70% 100%, 0 100%);
-    background-image: linear-gradient(
-      to right,
-      $theme-color-blue,
-      $theme-color-green
-    );
+    background-image: linear-gradient(to right,
+        $theme-color-blue,
+        $theme-color-green );
 
     p {
       position: relative;
-      right: 0.2667rem;
+      right: 21.336px;
     }
   }
 
@@ -104,8 +90,8 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 0.3333rem 0.0033rem;
-    gap: 10px;
+    padding: 26.664px .264px;
+    gap: .125rem;
     align-items: center;
   }
 

@@ -2,12 +2,7 @@
   <div class="main">
     <span class="divider">新闻资讯</span>
 
-    <el-carousel
-      :interval="4000"
-      type="card"
-      height="642px"
-      style="width: 1200px; margin: 0 auto"
-    >
+    <el-carousel :interval="4000" type="card" height="9.1714rem" style="width: 17.1429rem; margin: 0 auto">
       <el-carousel-item>
         <el-card>
           <img src="" alt="" />
@@ -34,32 +29,32 @@
 
   .divider {
     display: flex;
-    width: 280px;
+    width: 4rem;
     align-items: center;
     color: #1185e4;
-    font-size: 30px;
-    margin: 40px auto;
+    font-size: .4286rem;
+    margin: .5714rem auto;
     font-weight: 700;
 
     &::before,
     &::after {
       content: '';
       flex: 1;
-      border-bottom: 3px solid #1185e4;
-      margin: 0 10px;
+      border-bottom: .0429rem solid #1185e4;
+      margin: 0 .1429rem;
     }
   }
 
   .el-card {
-    width: 600px;
-    height: 642px;
+    width: 8.5714rem;
+    height: 9.1714rem;
 
     .el-carousel__item {
       margin: auto;
 
       .description {
         width: 100%;
-        height: 2.9867rem;
+        height: 209.069px;
       }
     }
   }
