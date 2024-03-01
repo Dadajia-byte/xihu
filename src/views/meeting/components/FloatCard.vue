@@ -1,6 +1,11 @@
 <template>
   <div class="float-card-box">
-    <div class="bor" v-for="bor in bors" :key="bor" :style="getBorStyle(bor)"></div>
+    <div
+      class="bor"
+      v-for="bor in bors"
+      :key="bor"
+      :style="getBorStyle(bor)"
+    ></div>
     <span>{{ content }}</span>
   </div>
 </template>
@@ -19,40 +24,40 @@ const props = defineProps({
 const getBorStyle = (bor: any) => {
   const styles = {}
   bor[0] === 'l'
-    // @ts-ignore
-    ? (styles.left = '-10px')
+    ? // @ts-ignore
+      (styles.left = '-10px')
     : bor[0] === 'r'
-      // @ts-ignore
-      ? (styles.right = '-10px')
+      ? // @ts-ignore
+        (styles.right = '-10px')
       : bor[0] === 't'
-        // @ts-ignore
-        ? (styles.top = '-10px')
+        ? // @ts-ignore
+          (styles.top = '-10px')
         : bor[0] === 'b'
-          // @ts-ignore
-          ? (styles.bottom = '-10px')
+          ? // @ts-ignore
+            (styles.bottom = '-10px')
           : ''
   bor[1] === 't'
-    // @ts-ignore
-    ? (styles.top = '-10px')
+    ? // @ts-ignore
+      (styles.top = '-10px')
     : bor[1] === 'b'
-      // @ts-ignore
-      ? (styles.bottom = '-10px')
+      ? // @ts-ignore
+        (styles.bottom = '-10px')
       : bor[1] === 'l'
-        // @ts-ignore
-        ? (styles.left = '-10px')
+        ? // @ts-ignore
+          (styles.left = '-10px')
         : bor[1] === 'r'
-          // @ts-ignore
-          ? (styles.right = '-10px')
+          ? // @ts-ignore
+            (styles.right = '-10px')
           : ''
   // @ts-ignore
   styles.width = '20px'
   // @ts-ignore
   styles.height = '20px'
   bor[0] === 'l' || bor[0] === 'r'
-    // @ts-ignore
-    ? (styles.width = '2px')
-    // @ts-ignore
-    : (styles.height = '2px')
+    ? // @ts-ignore
+      (styles.width = '2px')
+    : // @ts-ignore
+      (styles.height = '2px')
   return styles
 }
 </script>

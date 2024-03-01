@@ -3,23 +3,42 @@
     <span class="divider">大会议程</span>
     <el-card class="timeline-container">
       <div class="timeline">
-        <div class="timeline-item" v-for="(item, index) in items" :key="index" :class="{ active: index === activeIndex }"
-          @click="setActive(index, item)">
-          <div class="timeline-content" :style="index === activeIndex
-            ? 'background-color:#1185e4;'
-            : 'background-color:#fff'
-            ">
-            <div class="day" :style="index === activeIndex ? 'color:#fff;' : 'color: #1185e4;'">
+        <div
+          class="timeline-item"
+          v-for="(item, index) in items"
+          :key="index"
+          :class="{ active: index === activeIndex }"
+          @click="setActive(index, item)"
+        >
+          <div
+            class="timeline-content"
+            :style="
+              index === activeIndex
+                ? 'background-color:#1185e4;'
+                : 'background-color:#fff'
+            "
+          >
+            <div
+              class="day"
+              :style="index === activeIndex ? 'color:#fff;' : 'color: #1185e4;'"
+            >
               {{ item.date }}
             </div>
-            <div class="date" :style="index === activeIndex ? 'color:#fff;' : 'color: #666;'">
+            <div
+              class="date"
+              :style="index === activeIndex ? 'color:#fff;' : 'color: #666;'"
+            >
               {{ item.day }}
             </div>
           </div>
           <div class="arrow-down" v-show="index === activeIndex"></div>
         </div>
       </div>
-      <div class="box-card" style="width: 13.5714rem; height: 1.2857rem" v-for="item in meetingStore.agendaItems">
+      <div
+        class="box-card"
+        style="width: 13.5714rem; height: 1.2857rem"
+        v-for="item in meetingStore.agendaItems"
+      >
         <div class="item1">
           <div>
             {{
@@ -32,11 +51,20 @@
           <span>{{ item.title }}</span>
         </div>
         <div class="item3">
-          <el-button icon="Plus" type="primary" v-show="item.isSub == 0"
-            style="width: 1.4286rem; height: .4714rem; font-size: .2571rem" @click="goSub(item.id)">
+          <el-button
+            icon="Plus"
+            type="primary"
+            v-show="item.isSub == 0"
+            style="width: 1.4286rem; height: 0.4714rem; font-size: 0.2571rem"
+            @click="goSub(item.id)"
+          >
             订阅
           </el-button>
-          <div class="subbed" v-show="item.isSub == 1" @click="cancelSub(item.id)">
+          <div
+            class="subbed"
+            v-show="item.isSub == 1"
+            @click="cancelSub(item.id)"
+          >
             已订阅
           </div>
         </div>
@@ -114,16 +142,16 @@ onMounted(async () => {
   align-items: center;
   text-align: center;
   color: #1185e4;
-  font-size: .4286rem;
-  margin: .5714rem auto;
+  font-size: 0.4286rem;
+  margin: 0.5714rem auto;
   font-weight: 700;
 
   &::before,
   &::after {
     content: '';
     flex: 1;
-    border-bottom: .0429rem solid #1185e4;
-    margin: 0 .1429rem;
+    border-bottom: 0.0429rem solid #1185e4;
+    margin: 0 0.1429rem;
   }
 }
 
@@ -159,7 +187,7 @@ onMounted(async () => {
       position: absolute;
       top: 50%;
       width: 100%;
-      height: .0286rem;
+      height: 0.0286rem;
       background-color: #1185e4;
       z-index: 1;
     }
@@ -178,29 +206,29 @@ onMounted(async () => {
           transform: translateX(-50%);
           width: 0;
           height: 0;
-          border-left: .2857rem solid transparent;
-          border-right: .2857rem solid transparent;
-          border-top: .3571rem solid #1185e4; // Arrow color
+          border-left: 0.2857rem solid transparent;
+          border-right: 0.2857rem solid transparent;
+          border-top: 0.3571rem solid #1185e4; // Arrow color
         }
       }
 
       .timeline-content {
         display: inline-block;
         width: 1.7143rem;
-        padding: .0714rem .1429rem;
-        border-radius: .2143rem;
-        box-shadow: 0 .0286rem .0571rem rgba(0, 0, 0, 0.1);
+        padding: 0.0714rem 0.1429rem;
+        border-radius: 0.2143rem;
+        box-shadow: 0 0.0286rem 0.0571rem rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
 
         .date {
-          font-size: .2571rem;
-          padding: .0714rem .0286rem;
+          font-size: 0.2571rem;
+          padding: 0.0714rem 0.0286rem;
         }
 
         .day {
-          font-size: .3429rem;
+          font-size: 0.3429rem;
           font-weight: bold;
-          padding: .0714rem .0286rem;
+          padding: 0.0714rem 0.0286rem;
         }
       }
     }
@@ -211,27 +239,27 @@ onMounted(async () => {
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    box-shadow: 0rem .0429rem .0857rem rgba(0, 0, 0, 0.15);
-    border-radius: .0714rem;
-    margin: .1429rem auto .2857rem;
+    box-shadow: 0rem 0.0429rem 0.0857rem rgba(0, 0, 0, 0.15);
+    border-radius: 0.0714rem;
+    margin: 0.1429rem auto 0.2857rem;
 
     .item1 {
       flex: 3;
 
       div {
-        margin-left: .3571rem;
+        margin-left: 0.3571rem;
 
         &:nth-child(1) {
-          padding-left: .1rem;
-          font-size: .3714rem;
+          padding-left: 0.1rem;
+          font-size: 0.3714rem;
           font-weight: 700;
-          border-left: #1185e4 solid .0429rem;
+          border-left: #1185e4 solid 0.0429rem;
         }
 
         &:nth-child(2) {
-          padding-top: .1143rem;
+          padding-top: 0.1143rem;
           text-align: center;
-          font-size: .1429rem;
+          font-size: 0.1429rem;
           color: black;
         }
       }
@@ -242,14 +270,14 @@ onMounted(async () => {
 
       span {
         display: inline-block;
-        margin-left: .5714rem;
-        height: .5714rem;
-        line-height: .5714rem;
-        padding: 0rem .3571rem 0rem .2143rem;
-        font-size: .3714rem;
+        margin-left: 0.5714rem;
+        height: 0.5714rem;
+        line-height: 0.5714rem;
+        padding: 0rem 0.3571rem 0rem 0.2143rem;
+        font-size: 0.3714rem;
         font-weight: 700;
         background: linear-gradient(to right, #84bded, #fafafa);
-        border-radius: .2857rem;
+        border-radius: 0.2857rem;
       }
     }
 
@@ -259,11 +287,11 @@ onMounted(async () => {
 
       .subbed {
         width: 1.4286rem;
-        height: .4714rem;
-        line-height: .4143rem;
+        height: 0.4714rem;
+        line-height: 0.4143rem;
         text-align: center;
-        border-radius: .0714rem;
-        border: #fafafa .0286rem solid;
+        border-radius: 0.0714rem;
+        border: #fafafa 0.0286rem solid;
       }
     }
   }

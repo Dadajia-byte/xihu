@@ -3,7 +3,6 @@ const wait = (ms: number) => {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-
 export const useCoding = (str: string) => {
   const curStrs = ref<string[]>([])
   const letters = str.split('')

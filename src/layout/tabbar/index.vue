@@ -2,20 +2,29 @@
   <div class="underframe">
     <!-- logo -->
     <img :src="setting.logo(1)" alt="" class="logo" />
-    <el-menu default-active="1" mode="horizontal" background-color="transparent" :ellipsis="false"
-      active-text-color="#409EFF" router style="font-size: .2857rem !important">
+    <el-menu
+      default-active="1"
+      mode="horizontal"
+      background-color="transparent"
+      :ellipsis="false"
+      active-text-color="#409EFF"
+      router
+      style="font-size: 0.2857rem !important"
+    >
       <!-- 菜单组件 -->
       <Menu :menuList="layoutSettingStore.menuList"></Menu>
 
       <!-- 直播 -->
-      <el-menu-item index="8" style="color: #ff0020; font-size: .2571rem">
+      <el-menu-item index="8" style="color: #ff0020; font-size: 0.2571rem">
         直播
-        <el-icon style="
-            width: .1429rem;
-            height: .1286rem;
+        <el-icon
+          style="
+            width: 0.1429rem;
+            height: 0.1286rem;
             color: #ff0000;
             transform: translateY(-0.0714rem);
-          ">
+          "
+        >
           <Histogram />
         </el-icon>
       </el-menu-item>
@@ -47,13 +56,22 @@
     </div>
     <!-- 右侧登录用户相关 -->
     <div class="loginAbout">
-      <el-button class="log" @click="layoutSettingStore.dialogFormVisible = true" v-if="!layoutSettingStore.isLog">
+      <el-button
+        class="log"
+        @click="layoutSettingStore.dialogFormVisible = true"
+        v-if="!layoutSettingStore.isLog"
+      >
         <el-icon :size="22">
           <UserFilled />
         </el-icon>
         登录|注册
       </el-button>
-      <img :src="userStore.userData.avatar" v-if="layoutSettingStore.isLog" class="avatar" @click="goPerson" />
+      <img
+        :src="userStore.userData.avatar"
+        v-if="layoutSettingStore.isLog"
+        class="avatar"
+        @click="goPerson"
+      />
       <el-dropdown v-if="layoutSettingStore.isLog">
         <span class="el-dropdown-link">
           {{ userStore.userData.username }}
@@ -116,8 +134,8 @@ export default {
   flex-direction: row;
   align-items: center;
   background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(.0714rem);
-  font-size: .2857rem;
+  backdrop-filter: blur(0.0714rem);
+  font-size: 0.2857rem;
 
   .el-menu {
     margin-left: 1.4286rem;
@@ -131,8 +149,8 @@ export default {
 
   .logo {
     width: 3.1143rem;
-    height: .6714rem;
-    margin: 0 .4286rem 0 1.7143rem;
+    height: 0.6714rem;
+    margin: 0 0.4286rem 0 1.7143rem;
   }
 
   .el-dropdown {
@@ -141,17 +159,17 @@ export default {
       font-weight: 400;
     }
 
-    margin: auto .1429rem;
+    margin: auto 0.1429rem;
   }
 
   .search {
-    margin: 0 .1429rem;
+    margin: 0 0.1429rem;
   }
 
   .language {
-    border-left: .0429rem solid #838383;
-    padding-left: .1429rem;
-    margin-right: .1429rem;
+    border-left: 0.0429rem solid #838383;
+    padding-left: 0.1429rem;
+    margin-right: 0.1429rem;
     display: flex;
     align-items: center;
   }
@@ -163,18 +181,18 @@ export default {
 }
 
 .log {
-  height: .6rem;
-  border-radius: .1rem;
+  height: 0.6rem;
+  border-radius: 0.1rem;
   color: #0d49df;
-  padding: 0px .0714rem;
-  line-height: .6rem;
-  font-size: .2571rem;
+  padding: 0px 0.0714rem;
+  line-height: 0.6rem;
+  font-size: 0.2571rem;
 }
 
 .avatar {
-  width: .5rem;
-  height: .5rem;
-  margin-right: .1429rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.1429rem;
   vertical-align: center;
   border-radius: 50%;
   cursor: pointer;

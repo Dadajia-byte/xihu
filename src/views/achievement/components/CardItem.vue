@@ -1,5 +1,5 @@
 <template>
-  <div class="card-item-box" :style="cardStyle">
+  <div class="card-item-box">
     <div class="card-left c-i">
       <p class="en">{{ cardData.enTitle }}</p>
       <p class="ch">{{ cardData.chTitle }}</p>
@@ -7,15 +7,14 @@
       <div class="down">立即下载</div>
     </div>
     <div class="card-right c-i">
-      <img :src="cardData.bgUrl" alt="" />
+      <img :src="cardData.bgUrl" class="images" alt="" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 
-const props = defineProps({
+defineProps({
   cardData: {
     type: Object,
     default: () => { },
@@ -25,17 +24,13 @@ const props = defineProps({
     default: false,
   },
 })
-const cardStyle = computed(() => {
-  return {
-    flexDirection: props.reverse ? 'row-reverse' : 'row',
-  } as const
-})
+
 </script>
 
 <style scoped lang="scss">
 .card-item-box {
-  width: 100%;
-  height: 9rem;
+  width: 70%;
+  height: 8.5714rem;
   display: flex;
   flex-wrap: nowrap;
   border-radius: 0.3333rem;
@@ -44,11 +39,15 @@ const cardStyle = computed(() => {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .images {
+      height: 85%;
+    }
   }
 
   .c-i {
     flex: 1;
-    padding: 0.5rem;
+    padding: .4286rem;
 
     img {
       height: 100%;
@@ -57,27 +56,28 @@ const cardStyle = computed(() => {
 
     .en {
       color: #bbb;
-      font-size: 0.5rem;
+      font-size: .3714rem;
       line-height: 1.1;
     }
 
     .ch {
-      margin-top: 0.3333rem;
+      margin-top: .2857rem;
       @include linear-txt;
-      font-size: 0.55rem;
+      font-size: .4rem;
       text-align: center;
     }
 
     .content {
       background-color: #f7f7f7;
       line-height: 2;
-      padding: 0.3333rem;
-      margin-top: 0.6667rem;
+      padding: .2143rem 0rem .2143rem .2143rem;
+      margin-top: .5429rem;
       color: grey;
+      font-size: .2286rem;
     }
 
     .down {
-      margin-top: 0.3333rem;
+      margin-top: .2857rem;
       width: fit-content;
       background: linear-gradient(to left,
           $theme-color-green,

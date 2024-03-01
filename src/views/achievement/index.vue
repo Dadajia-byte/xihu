@@ -5,50 +5,63 @@
       <div class="ranks">
         <div class="rank wow fadeInLeft" data-wow-delay="0s">
           <p>1</p>
-          <p>白皮书</p>
+          <p><a href="#section1">白皮书</a></p>
         </div>
         <div class="rank wow fadeInLeft" data-wow-delay="0.2s">
           <p>2</p>
-          <p>新品发布</p>
+          <p><a href="#section2">新品发布</a></p>
         </div>
         <div class="rank wow fadeInLeft" data-wow-delay="0.4s">
           <p>3</p>
+          <p><a href="#section3">书籍</a></p>
+        </div>
+      </div>
+    </div>
+    <!-- 白皮书 -->
+    <section id="section1">
+      <div class="white-paper a-p-item">
+        <div class="title wow fadeInUp">
+          <p>白皮书</p>
+          <p>White Paper</p>
+        </div>
+        <div class="card">
+          <CardItem :class="{
+            'ci': true,
+            'wow': true,
+            'slideInRight': index % 2 === 0,
+            'slideInLeft': index % 2 !== 0,
+          }" v-for="(item, index) in data" :key="item.bgUrl" :card-data="item" data-wow-duration="1s"></CardItem>
+        </div>
+      </div>
+    </section>
+    <!-- 新品发布 -->
+    <section id="section2">
+      <div class="new-product a-p-item">
+        <div class="title wow fadeInUp">
+          <p>新品发布</p>
+          <p>New Product Launch</p>
+        </div>
+        <div class="new-cards">
+          <div v-for="(item, index) in newData" :key="item.bgUrl" class="wow fadeInUp"
+            :data-wow-delay="index * 0.2 + 's'">
+            <NewCard :title="item.title" :bg-url="item.bgUrl" :content="item.content"></NewCard>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="section3">
+      <div class="bk a-p-item">
+        <div class="title wow fadeInUp">
           <p>书籍</p>
+          <p>Books</p>
+        </div>
+        <div class="books">
+          <div v-for="item in bookData" :key="item.bgUrl" class="wow fadeInUp">
+            <Book :bk-data="item"></Book>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="white-paper a-p-item">
-      <div class="title wow fadeInUp">
-        <p>白皮书</p>
-        <p>White Paper</p>
-      </div>
-      <div class="card">
-        <CardItem class="ci wow fadeInUp" v-for="(item, index) in data" :key="item.bgUrl" :reverse="index % 2 == 1"
-          :card-data="item"></CardItem>
-      </div>
-    </div>
-    <div class="new-product a-p-item">
-      <div class="title wow fadeInUp">
-        <p>新品发布</p>
-        <p>New Product Launch</p>
-      </div>
-      <div class="new-cards">
-        <div v-for="(item, index) in newData" :key="item.bgUrl" class="wow fadeInUp" :data-wow-delay="index * 0.2 + 's'">
-          <NewCard :title="item.title" :bg-url="item.bgUrl" :content="item.content"></NewCard>
-        </div>
-      </div>
-    </div>
-    <div class="bk a-p-item">
-      <div class="title wow fadeInUp">
-        <p>书籍</p>
-        <p>Books</p>
-      </div>
-      <div class="books">
-        <div v-for="item in bookData" :key="item.bgUrl" class="wow fadeInUp">
-          <Book :bk-data="item"></Book>
-        </div>
-      </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -129,6 +142,9 @@ const initWOW = () => {
 onMounted(() => {
   initWOW()
 })
+
+
+
 </script>
 
 <style scoped lang="scss">
@@ -136,7 +152,7 @@ onMounted(() => {
   width: 100%;
 
   .ci {
-    padding: 0.5333rem 0;
+    padding: .4rem 0;
     border-bottom: 1px solid rgb(229, 229, 229);
     box-shadow: 0 0rem 0.3333rem 0 rgb(230, 230, 230);
   }
@@ -150,6 +166,16 @@ onMounted(() => {
       display: flex;
       flex-direction: column;
       gap: 0.8333rem;
+
+      .ci:nth-child(odd) {
+        flex-direction: row;
+        margin-left: auto;
+      }
+
+      .ci:nth-child(even) {
+        flex-direction: row-reverse;
+        margin-right: auto;
+      }
     }
 
     .title {
@@ -170,6 +196,8 @@ onMounted(() => {
 
   .new-product {
     .new-cards {
+      display: flex;
+      justify-content: center;
       width: 100%;
       margin-top: 0.5rem;
       display: flex;

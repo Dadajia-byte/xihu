@@ -1,6 +1,5 @@
 // 对外暴露配置路由(常量路由)
 
-
 export const constantRoutes = [
   {
     // 登录成功后展示数据的路由
@@ -165,7 +164,7 @@ export const constantRoutes = [
         meta: {
           title: '我的订阅',
           hidden: true,
-        }
+        },
       },
       {
         path: '/person/history',
@@ -173,7 +172,7 @@ export const constantRoutes = [
         meta: {
           title: '观看历史',
           hidden: true,
-        }
+        },
       },
       {
         path: '/person/point',
@@ -181,8 +180,8 @@ export const constantRoutes = [
         meta: {
           title: '我的积分',
           hidden: true,
-        }
-      }
+        },
+      },
     ],
   },
 ]

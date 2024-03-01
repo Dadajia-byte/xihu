@@ -19,7 +19,7 @@ defineProps({
 
 <style scoped lang="scss">
 .book {
-  width: 100%;
+  width: 80%;
   height: 5rem;
   background-image: url(https://www.gcsis.cn/img/cg5.jpg);
   background-size: cover;
@@ -36,7 +36,7 @@ defineProps({
   .content {
     h4 {
       margin-bottom: 0.3333rem;
-      font-size: 0.35rem;
+      font-size: .2857rem;
       text-align: center;
       @include linear-txt;
     }

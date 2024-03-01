@@ -16,7 +16,7 @@ enum API {
   PHONE_LOGIN = '/sms/loginbyphone', // 手机号登录
   USER_LOGOUT = '/user/logout', // 用户退出
 
-  USER_UPDATE = 'user/updateInfo' // 修改用户信息
+  USER_UPDATE = 'user/updateInfo', // 修改用户信息
 }
 
 // 注册接口
@@ -38,4 +38,5 @@ export const reqUserInfo = () => request.get<any, any>(API.USER_CHECK)
 // 用户注销接口
 export const reqLogout = () => request.post<any, any>(API.USER_LOGOUT)
 // 用户修改信息接口
-export const reqUpdateUser = (data: userData) => request.post<any, any>(API.USER_UPDATE, data)
+export const reqUpdateUser = (data: userData) =>
+  request.post<any, any>(API.USER_UPDATE, data)

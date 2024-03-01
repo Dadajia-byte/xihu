@@ -19,14 +19,18 @@ router.beforeEach(async (to, _from, next) => {
   NProgress.start()
   document.title = `${setting.title}-${to.meta.title}`
   let token = GET_TOKEN()
-  if (token) { // 这里有bug，只是判断有无token，万一token错误或者过期
+  if (token) {
+    // 这里有bug，只是判断有无token，万一token错误或者过期
     await userStore.userInfo()
     layoutSettingStore.isLog = true
     next()
-  } else { // 若未登录
-    if (/^\/person/.test(to.path)) { //没登陆想访问个人信息中心，返回home
+  } else {
+    // 若未登录
+    if (/^\/person/.test(to.path)) {
+      //没登陆想访问个人信息中心，返回home
       next({ path: '/home' })
-    } else { // 没登陆可以访问任意一个页面
+    } else {
+      // 没登陆可以访问任意一个页面
       next()
     }
   }

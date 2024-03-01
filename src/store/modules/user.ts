@@ -187,7 +187,7 @@ let useUserStore = defineStore('userStore', () => {
     clearRegForm,
     clearUserData,
     // 更新用户信息
-    updateUser
+    updateUser,
   }
 })
 
