@@ -1,11 +1,8 @@
 <template>
   <div class="new-card">
-    <div
-      class="img"
-      :style="{
-        backgroundImage: `url(${props.bgUrl})`,
-      }"
-    ></div>
+    <div class="img" :style="{
+      backgroundImage: `url(${props.bgUrl})`,
+    }"></div>
     <h4 class="title">{{ title }}</h4>
     <p class="content">{{ content }}</p>
     <button class="btn">立即试用</button>
@@ -37,6 +34,7 @@ const props = defineProps({
   border-radius: 0.1667rem;
   box-shadow: 0 0 0.3333rem 0px rgb(222, 222, 222);
   padding: 0.3667rem;
+  background-color: white;
 
   .img {
     width: 100%;

@@ -13,18 +13,16 @@
 </template>
 
 <script setup lang="ts">
-
 defineProps({
   cardData: {
     type: Object,
-    default: () => { },
+    default: () => {},
   },
   reverse: {
     type: Boolean,
     default: false,
   },
 })
-
 </script>
 
 <style scoped lang="scss">
@@ -47,7 +45,7 @@ defineProps({
 
   .c-i {
     flex: 1;
-    padding: .4286rem;
+    padding: 0.4286rem;
 
     img {
       height: 100%;
@@ -56,32 +54,34 @@ defineProps({
 
     .en {
       color: #bbb;
-      font-size: .3714rem;
+      font-size: 0.3714rem;
       line-height: 1.1;
     }
 
     .ch {
-      margin-top: .2857rem;
+      margin-top: 0.2857rem;
       @include linear-txt;
-      font-size: .4rem;
+      font-size: 0.4rem;
       text-align: center;
     }
 
     .content {
       background-color: #f7f7f7;
       line-height: 2;
-      padding: .2143rem 0rem .2143rem .2143rem;
-      margin-top: .5429rem;
+      padding: 0.2143rem 0rem 0.2143rem 0.2143rem;
+      margin-top: 0.5429rem;
       color: grey;
-      font-size: .2286rem;
+      font-size: 0.2286rem;
     }
 
     .down {
-      margin-top: .2857rem;
+      margin-top: 0.2857rem;
       width: fit-content;
-      background: linear-gradient(to left,
-          $theme-color-green,
-          $theme-color-blue );
+      background: linear-gradient(
+        to left,
+        $theme-color-green,
+        $theme-color-blue
+      );
       color: white;
       cursor: pointer;
       padding: 0.1167rem 0.1667rem;

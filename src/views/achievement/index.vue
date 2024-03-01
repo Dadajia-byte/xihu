@@ -26,10 +26,10 @@
         </div>
         <div class="card">
           <CardItem :class="{
-            'ci': true,
-            'wow': true,
-            'slideInRight': index % 2 === 0,
-            'slideInLeft': index % 2 !== 0,
+            ci: true,
+            wow: true,
+            slideInRight: index % 2 === 0,
+            slideInLeft: index % 2 !== 0,
           }" v-for="(item, index) in data" :key="item.bgUrl" :card-data="item" data-wow-duration="1s"></CardItem>
         </div>
       </div>
@@ -142,9 +142,6 @@ const initWOW = () => {
 onMounted(() => {
   initWOW()
 })
-
-
-
 </script>
 
 <style scoped lang="scss">
@@ -152,7 +149,7 @@ onMounted(() => {
   width: 100%;
 
   .ci {
-    padding: .4rem 0;
+    padding: 0.4rem 0;
     border-bottom: 1px solid rgb(229, 229, 229);
     box-shadow: 0 0rem 0.3333rem 0 rgb(230, 230, 230);
   }
@@ -195,8 +192,11 @@ onMounted(() => {
   }
 
   .new-product {
+    background-color: #eff7fe;
+
     .new-cards {
       display: flex;
+
       justify-content: center;
       width: 100%;
       margin-top: 0.5rem;
@@ -207,7 +207,7 @@ onMounted(() => {
 
   .bk {
     .books {
-      width: 80%;
+      width: 100%;
       margin: 0.6667rem auto;
     }
   }
