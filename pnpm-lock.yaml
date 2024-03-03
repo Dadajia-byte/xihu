@@ -23,6 +23,18 @@ dependencies:
   pinia:
     specifier: ^2.1.7
     version: 2.1.7(typescript@5.3.3)(vue@3.4.19)
+  three:
+    specifier: ^0.162.0
+    version: 0.162.0
+  three.js:
+    specifier: ^0.77.1
+    version: 0.77.1
+  vant:
+    specifier: ^3.4.3
+    version: 3.4.3(vue@3.4.19)
+  vanta:
+    specifier: ^0.5.24
+    version: 0.5.24
   vue:
     specifier: ^3.4.15
     version: 3.4.19(typescript@5.3.3)
@@ -1223,6 +1235,22 @@ packages:
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
+
+  /@vant/icons@1.8.0:
+    resolution: {integrity: sha512-sKfEUo2/CkQFuERxvkuF6mGQZDKu3IQdj5rV9Fm0weJXtchDSSQ+zt8qPCNUEhh9Y8shy5PzxbvAfOOkCwlCXg==}
+    dev: false
+
+  /@vant/popperjs@1.3.0:
+    resolution: {integrity: sha512-hB+czUG+aHtjhaEmCJDuXOep0YTZjdlRR+4MSmIFnkCQIxJaXLQdSsR90XWvAI2yvKUI7TCGqR8pQg2RtvkMHw==}
+    dev: false
+
+  /@vant/use@1.6.0(vue@3.4.19):
+    resolution: {integrity: sha512-PHHxeAASgiOpSmMjceweIrv2AxDZIkWXyaczksMoWvKV2YAYEhoizRuk/xFnKF+emUIi46TsQ+rvlm/t2BBCfA==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      vue: 3.4.19(typescript@5.3.3)
+    dev: false
 
   /@vitejs/plugin-vue@5.0.4(vite@5.1.1)(vue@3.4.19):
     resolution: {integrity: sha512-WS3hevEszI6CEVEx28F8RjTX97k3KsrcY6kvTg7+Whm5y3oYvcqzVeGCU3hxSAn4uY2CLCkeokkGKpoctccilQ==}
@@ -5317,6 +5345,20 @@ packages:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
 
+  /three.js@0.77.1:
+    resolution: {integrity: sha512-lVMYlBXhhHlZtsF+cQdev6WCm2fSWs3I+A6Z63j6TBmkVXOYgdo9AUCRemfsw5mllqWx23VubJ5Qt8/uWKQpJA==}
+    dependencies:
+      three: 0.77.0
+    dev: false
+
+  /three@0.162.0:
+    resolution: {integrity: sha512-xfCYj4RnlozReCmUd+XQzj6/5OjDNHBy5nT6rVwrOKGENAvpXe2z1jL+DZYaMu4/9pNsjH/4Os/VvS9IrH7IOQ==}
+    dev: false
+
+  /three@0.77.0:
+    resolution: {integrity: sha512-YWEp8ahs2l+6fAFVbanLVQoSBwVq5jDct3nZdBSHHXb5I/w5oy/LCMAzIOAguKWclRqcjR4W1BeP5QBnftGbpA==}
+    dev: false
+
   /through2@4.0.2:
     resolution: {integrity: sha512-iOqSav00cVxEEICeD7TjLB1sueEL+81Wpzp2bY17uZjZN0pWZPuo4suZ/61VujxmqSGFfgOcNuTZ85QJwNZQpw==}
     dependencies:
@@ -5538,6 +5580,21 @@ packages:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
     dev: true
+
+  /vant@3.4.3(vue@3.4.19):
+    resolution: {integrity: sha512-vkOgMspRxqhTwX6huPjEiWgTDULZZVVVv2IaAeyXq21heKIJazv2Nymolhzmk4Ar/ZFfoxC/yOeG7MhnhTbrew==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@vant/icons': 1.8.0
+      '@vant/popperjs': 1.3.0
+      '@vant/use': 1.6.0(vue@3.4.19)
+      vue: 3.4.19(typescript@5.3.3)
+    dev: false
+
+  /vanta@0.5.24:
+    resolution: {integrity: sha512-fvieEbHy1ZS23zrcX+topzqAgA4Uct1enngOEWLFBgs9TtOf6RDFOYatH7KSVdrABzQDMCQ5myQy+nTSZZwLzg==}
+    dev: false
 
   /vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}

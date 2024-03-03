@@ -9,7 +9,7 @@
             </div>
         </div>
         <!-- 核心 -->
-        <img src="../../../assets/images/logo.png" class="logo">
+        <img src="../../../../../public/logo/logo1.png" class="logo">
         <!-- 装饰 -->
         <div class="outline">
             <div class="e"  :class="'e_' + (index + 1)" :key="item"
@@ -32,7 +32,7 @@
 
 
 
-<script setup>
+<script setup lang="js">
 import WOW from 'wow.js'
 import { onMounted } from 'vue';
 

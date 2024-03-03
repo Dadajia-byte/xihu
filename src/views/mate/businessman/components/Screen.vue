@@ -13,10 +13,10 @@
 
 
 <script setup lang="ts">
-// @ts-ignore
-import clouds from 'vanta/dist/vanta.clouds.min'
+import * as three from 'three';
+//@ts-ignore
+import clouds from "vanta/dist/vanta.clouds.min";
 import { onMounted, onUnmounted, ref } from 'vue';
-// @ts-ignore
 import WOW from 'wow.js'
 import { useCoding } from '@/utils/useCoding'
 
@@ -35,17 +35,17 @@ const { curStrs, startCoding, destroyCoding } = useCoding('展商风采——带
 
 const initVanta = () => {
     vantaEffect.value = clouds({
-        el: vantaRef.value,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        skyColor: 0x4ba8d9,
-        cloudColor: 0xaabfe3,
-        sunGlareColor: 0x2a2a26,
-        speed: 1.40
-    })
+    el: vantaRef.value,
+    THREE: three,
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00
+  });
+
 }
 
 onMounted(() => {
@@ -74,13 +74,11 @@ onUnmounted(() => {
     align-items: center;
     padding: 15% 20%;
     gap: .6667rem;
-
     .title_1 {
         font-size: 1.1rem;
         display: flex;
         gap: .3333rem;
     }
-
     .title_2 {
         font-size: 0.5rem;
     }
