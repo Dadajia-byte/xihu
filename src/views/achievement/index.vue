@@ -25,12 +25,18 @@
           <p>White Paper</p>
         </div>
         <div class="card">
-          <CardItem :class="{
-            ci: true,
-            wow: true,
-            slideInRight: index % 2 === 0,
-            slideInLeft: index % 2 !== 0,
-          }" v-for="(item, index) in data" :key="item.bgUrl" :card-data="item" data-wow-duration="1s"></CardItem>
+          <CardItem
+            :class="{
+              ci: true,
+              wow: true,
+              slideInRight: index % 2 === 0,
+              slideInLeft: index % 2 !== 0,
+            }"
+            v-for="(item, index) in data"
+            :key="item.bgUrl"
+            :card-data="item"
+            data-wow-duration="1s"
+          ></CardItem>
         </div>
       </div>
     </section>
@@ -42,9 +48,17 @@
           <p>New Product Launch</p>
         </div>
         <div class="new-cards">
-          <div v-for="(item, index) in newData" :key="item.bgUrl" class="wow fadeInUp"
-            :data-wow-delay="index * 0.2 + 's'">
-            <NewCard :title="item.title" :bg-url="item.bgUrl" :content="item.content"></NewCard>
+          <div
+            v-for="(item, index) in newData"
+            :key="item.bgUrl"
+            class="wow fadeInUp"
+            :data-wow-delay="index * 0.2 + 's'"
+          >
+            <NewCard
+              :title="item.title"
+              :bg-url="item.bgUrl"
+              :content="item.content"
+            ></NewCard>
           </div>
         </div>
       </div>
@@ -248,9 +262,11 @@ onMounted(() => {
 
       p:first-child {
         color: white;
-        background: linear-gradient(to right,
-            $theme-color-green,
-            $theme-color-blue );
+        background: linear-gradient(
+          to right,
+          $theme-color-green,
+          $theme-color-blue
+        );
         padding: 0.2167rem 0.4333rem;
         scale: 1.3;
         border-radius: 0.0833rem;

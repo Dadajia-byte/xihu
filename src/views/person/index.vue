@@ -49,7 +49,7 @@
             </el-button>
           </el-card>
         </el-col>
-        <el-col :span="1"></el-col>
+        <el-col :span="0.1"></el-col>
         <el-col class="right" :span="12">
           <Main></Main>
         </el-col>
