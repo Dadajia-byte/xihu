@@ -1,7 +1,7 @@
 <template>
   <div class="activity-page">
-    <div class="a-bg">
-      <h2>精彩活动 & 大会打卡</h2>
+    <div class="a-bg" ref="vantaRef">
+      <h2>精彩活动</h2>
     </div>
     <div class="lists">
       <List></List>
@@ -18,11 +18,38 @@
 
 <script setup lang="ts">
 import List from './List.vue'
-import { onMounted } from 'vue'
+import { onMounted,ref,onUnmounted } from 'vue'
 import useActivityStore from '@/store/modules/activity'
 let activityStore = useActivityStore()
 onMounted(() => {
   activityStore.getActivty()
+})
+
+import * as three from 'three'
+//@ts-ignore
+import net from 'vanta/dist/vanta.net.min'
+const vantaEffect = ref()
+const vantaRef = ref()
+const initVanta = () => {
+  vantaEffect.value = net({
+    el: vantaRef.value,
+    THREE: three,
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00
+  })
+}
+onMounted(()=>{
+   initVanta()
+})
+onUnmounted(() => {
+  if (vantaEffect.value) {
+    vantaEffect.value.destroy()
+  }
 })
 </script>
 
@@ -31,10 +58,7 @@ onMounted(() => {
   width: 100%;
 
   .a-bg {
-    height: 5.3333rem;
-    background-image: url(https://www.gcsis.cn/img/activity_banner.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 7.5rem;
     position: relative;
 
     h2 {
@@ -50,7 +74,7 @@ onMounted(() => {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-    transform: translateY(-2.3333rem);
+    transform: translateY(-3.75rem);
   }
 
   .clock-in {
