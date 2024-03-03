@@ -24,16 +24,13 @@ dependencies:
     specifier: ^2.1.7
     version: 2.1.7(typescript@5.3.3)(vue@3.4.19)
   three:
-    specifier: ^0.162.0
-    version: 0.162.0
-  three.js:
-    specifier: ^0.77.1
-    version: 0.77.1
+    specifier: 0.121.0
+    version: 0.121.0
   vant:
     specifier: ^3.4.3
     version: 3.4.3(vue@3.4.19)
   vanta:
-    specifier: ^0.5.24
+    specifier: 0.5.24
     version: 0.5.24
   video.js:
     specifier: ^8.10.0
@@ -5495,18 +5492,8 @@ packages:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
 
-  /three.js@0.77.1:
-    resolution: {integrity: sha512-lVMYlBXhhHlZtsF+cQdev6WCm2fSWs3I+A6Z63j6TBmkVXOYgdo9AUCRemfsw5mllqWx23VubJ5Qt8/uWKQpJA==}
-    dependencies:
-      three: 0.77.0
-    dev: false
-
-  /three@0.162.0:
-    resolution: {integrity: sha512-xfCYj4RnlozReCmUd+XQzj6/5OjDNHBy5nT6rVwrOKGENAvpXe2z1jL+DZYaMu4/9pNsjH/4Os/VvS9IrH7IOQ==}
-    dev: false
-
-  /three@0.77.0:
-    resolution: {integrity: sha512-YWEp8ahs2l+6fAFVbanLVQoSBwVq5jDct3nZdBSHHXb5I/w5oy/LCMAzIOAguKWclRqcjR4W1BeP5QBnftGbpA==}
+  /three@0.121.0:
+    resolution: {integrity: sha512-12bkOFsSCsfHViuqDuxDccMBT8eJ/UH829P1J50f4mvI9pWNX4iurZq8Vbo+rs9rKkgrSBRq7ubE77dQ1Y1hzA==}
     dev: false
 
   /through2@4.0.2:

@@ -1,13 +1,12 @@
 <template>
   <div class="screen-box" ref="vantaRef">
-    <h1 class="title_1">
-      <span class="wow fadeInLeft">展商合作</span>
-      <video src="https://cnstatic01.e.vhall.com/upload/saas/webinars/record-cover/20230422/1476a6e029c984632988dcc8882848ce.jpg?mode=1&have-wap-image=750"></video>
-
-    </h1>
-    <h1 class="title_2 wow fadeInUp">
+    <div class="title_1">
+      <div class="wow fadeInLeft">展商合作</div>
+    </div>
+    <video ref="videoPlayer" class="video-js" ></video>
+     <div class="title_2 wow fadeInUp">
       <span v-for="item in curStrs">{{ item }}</span>
-    </h1>
+    </div>
   </div>
 </template>
 
@@ -17,6 +16,10 @@ import * as three from 'three'
 import rings from 'vanta/dist/vanta.rings.min'
 import { onMounted, onUnmounted, ref } from 'vue'
 import WOW from 'wow.js'
+import videjs from 'video.js'
+
+const videoPlayer = ref()
+const myPlayer = ref()
 import { useCoding } from '@/utils/useCoding'
 
 const initWOW = () => {
@@ -38,15 +41,15 @@ const initVanta = () => {
     el: vantaRef.value,
     THREE: three,
     mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  scale: 1.00,
-  scaleMobile: 1.00,
-  backgroundAlpha:1,
-  backgroundColor:0x202428,
-  color:0x88ff00
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.0,
+    minWidth: 200.0,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    backgroundAlpha: 1,
+    backgroundColor: 0x202428,
+    color: 0x88ff00,
   })
 }
 
@@ -54,11 +57,32 @@ onMounted(() => {
   initVanta()
   initWOW()
   startCoding()
+  myPlayer.value=videjs(videoPlayer.value,{
+    controls:true,
+    poster:'https://cnstatic01.e.vhall.com/upload/saas/webinars/record-cover/20230422/1476a6e029c984632988dcc8882848ce.jpg?mode=1&have-wap-image=750',
+    source:[
+      {
+        src:'', // 缺少视频链接
+        type: 'video/mp4',
+      }
+    ],
+    controlBar: {
+      remainingTimeDisplay: {
+        displayNegative: false
+      }
+    },
+    playbackRates: [0.5, 1, 1.5, 2]
+  }, () => {
+    myPlayer.value.log("play.....")
+  })
 })
 
 onUnmounted(() => {
   if (vantaEffect.value) {
     vantaEffect.value.destroy()
+  }
+   if (myPlayer.value) {
+    myPlayer.value.dispose()
   }
 })
 </script>
@@ -72,15 +96,20 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15% 20%;
-  gap: 0.6667rem;
+  padding: 3% 20%;
   .title_1 {
     font-size: 1.1rem;
-    display: flex;
-    gap: 0.3333rem;
+    margin: .625rem auto;
   }
+
   .title_2 {
-    font-size: 0.5rem;
+    font-size: .4rem;
   }
+    .video-js {
+      width: 12.5rem;
+      height: 7.5rem;
+      margin-top: .25rem;
+      margin-bottom: .625rem;
+    }
 }
 </style>

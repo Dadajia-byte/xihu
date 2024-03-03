@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import List from './List.vue'
-import { onMounted,ref,onUnmounted } from 'vue'
+import { onMounted, ref, onUnmounted } from 'vue'
 import useActivityStore from '@/store/modules/activity'
 let activityStore = useActivityStore()
 onMounted(() => {
@@ -37,14 +37,14 @@ const initVanta = () => {
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00
+    minHeight: 200.0,
+    minWidth: 200.0,
+    scale: 1.0,
+    scaleMobile: 1.0,
   })
 }
-onMounted(()=>{
-   initVanta()
+onMounted(() => {
+  initVanta()
 })
 onUnmounted(() => {
   if (vantaEffect.value) {
