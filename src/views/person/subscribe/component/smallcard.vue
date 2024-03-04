@@ -30,13 +30,13 @@
 .name {
   margin-top: 0.125rem;
   margin-left: 0.125rem;
-  font-size: 13px;
+  font-size: .1625rem;
   color: white;
 }
 .time {
   margin-top: -0.2rem;
   margin-left: 0.4rem;
-  font-size: 11px;
+  font-size: .1375rem;
   color: white;
 }
 .clock {
@@ -54,13 +54,13 @@
 .place {
   margin-top: -0.1875rem;
   margin-left: 2.0625rem;
-  font-size: 11px;
+  font-size: .1375rem;
   color: white;
 }
 .type {
   margin-top: -0.525rem;
   margin-left: 3.0625rem;
-  font-size: 11px;
+  font-size: .1375rem;
   background-color: #1185e4;
   width: 0.9rem;
   padding: 0.05rem;

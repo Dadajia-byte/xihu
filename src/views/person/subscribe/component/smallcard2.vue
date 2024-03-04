@@ -16,6 +16,7 @@
     no-repeat;
   background-size: 4rem 2.25rem;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   margin-top: 0.1875rem;
   margin-left: 0.3125rem;
@@ -57,7 +58,7 @@
 .right {
   margin-top: -0.2437rem;
   margin-left: 3.5875rem;
-  font-size: 14px;
+  font-size: .175rem;
   color: #1185e4;
 }
 </style>

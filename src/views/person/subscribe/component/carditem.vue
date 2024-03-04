@@ -3,6 +3,7 @@
     <smallcard></smallcard>
     <smallcard></smallcard>
     <smallcard></smallcard>
+    <smallcard></smallcard>
   </div>
 </template>
 
@@ -13,5 +14,7 @@ import smallcard from './smallcard.vue'
 <style scoped>
 .subItem {
   display: flex;
+  flex-wrap: wrap;
+
 }
 </style>

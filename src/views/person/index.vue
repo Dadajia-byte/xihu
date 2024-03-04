@@ -33,7 +33,7 @@
               </el-menu-item>
               <el-menu-item index="/person/point">
                 <el-icon>
-                  <Postcard />
+                  <Coin />
                 </el-icon>
                 我的积分
               </el-menu-item>
