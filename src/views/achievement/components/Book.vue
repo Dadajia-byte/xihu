@@ -12,7 +12,7 @@
 defineProps({
   bkData: {
     type: Object,
-    default: () => { },
+    default: () => {},
   },
 })
 </script>

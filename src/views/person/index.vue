@@ -39,7 +39,7 @@
               </el-menu-item>
               <el-menu-item index="/person/history">
                 <el-icon>
-                  <Memo />
+                  <Clock />
                 </el-icon>
                 观看历史
               </el-menu-item>

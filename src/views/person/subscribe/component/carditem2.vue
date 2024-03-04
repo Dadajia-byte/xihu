@@ -1,13 +1,13 @@
 <template>
   <div class="subItem">
-    <smallcard></smallcard>
-    <smallcard></smallcard>
-    <smallcard></smallcard>
+    <smallcard2></smallcard2>
+    <smallcard2></smallcard2>
+    <smallcard2></smallcard2>
   </div>
 </template>
 
 <script setup lang="ts">
-import smallcard from './smallcard.vue'
+import smallcard2 from './smallcard2.vue'
 </script>
 
 <style scoped>

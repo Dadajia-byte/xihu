@@ -1,8 +1,11 @@
 <template>
   <div class="new-card">
-    <div class="img" :style="{
-      backgroundImage: `url(${props.bgUrl})`,
-    }"></div>
+    <div
+      class="img"
+      :style="{
+        backgroundImage: `url(${props.bgUrl})`,
+      }"
+    ></div>
     <h4 class="title">{{ title }}</h4>
     <p class="content">{{ content }}</p>
     <button class="btn">立即试用</button>
