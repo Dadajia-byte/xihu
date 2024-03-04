@@ -18,15 +18,12 @@
 
 <script setup lang="ts">
 import List from './List.vue'
-import { onMounted} from 'vue'
+import { onMounted } from 'vue'
 import useActivityStore from '@/store/modules/activity'
 let activityStore = useActivityStore()
 onMounted(() => {
   activityStore.getActivty()
 })
-
-
-
 </script>
 
 <style scoped lang="scss">

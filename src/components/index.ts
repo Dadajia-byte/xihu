@@ -3,7 +3,7 @@
 import * as ElementPlusIcons from '@element-plus/icons-vue'
 import SvgIcon from './SvgIcon/index.vue'
 const allGlobalComponents: any = {
-  SvgIcon
+  SvgIcon,
 }
 
 // 对外暴露插件对象
