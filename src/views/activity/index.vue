@@ -18,39 +18,15 @@
 
 <script setup lang="ts">
 import List from './List.vue'
-import { onMounted, ref, onUnmounted } from 'vue'
+import { onMounted} from 'vue'
 import useActivityStore from '@/store/modules/activity'
 let activityStore = useActivityStore()
 onMounted(() => {
   activityStore.getActivty()
 })
 
-import * as three from 'three'
-//@ts-ignore
-import net from 'vanta/dist/vanta.net.min'
-const vantaEffect = ref()
-const vantaRef = ref()
-const initVanta = () => {
-  vantaEffect.value = net({
-    el: vantaRef.value,
-    THREE: three,
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.0,
-    minWidth: 200.0,
-    scale: 1.0,
-    scaleMobile: 1.0,
-  })
-}
-onMounted(() => {
-  initVanta()
-})
-onUnmounted(() => {
-  if (vantaEffect.value) {
-    vantaEffect.value.destroy()
-  }
-})
+
+
 </script>
 
 <style scoped lang="scss">
@@ -60,6 +36,7 @@ onUnmounted(() => {
   .a-bg {
     height: 7.5rem;
     position: relative;
+    background: url(https://www.gcsis.cn/img/activity_banner.jpg) no-repeat;
 
     h2 {
       color: white;

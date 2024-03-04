@@ -3,8 +3,8 @@
     <div class="title_1">
       <div class="wow fadeInLeft">展商合作</div>
     </div>
-    <video ref="videoPlayer" class="video-js" ></video>
-     <div class="title_2 wow fadeInUp">
+    <video ref="videoPlayer" class="video-js"></video>
+    <div class="title_2 wow fadeInUp">
       <span v-for="item in curStrs">{{ item }}</span>
     </div>
   </div>
@@ -57,31 +57,36 @@ onMounted(() => {
   initVanta()
   initWOW()
   startCoding()
-  myPlayer.value=videjs(videoPlayer.value,{
-    controls:true,
-    poster:'https://cnstatic01.e.vhall.com/upload/saas/webinars/record-cover/20230422/1476a6e029c984632988dcc8882848ce.jpg?mode=1&have-wap-image=750',
-    source:[
-      {
-        src:'', // 缺少视频链接
-        type: 'video/mp4',
-      }
-    ],
-    controlBar: {
-      remainingTimeDisplay: {
-        displayNegative: false
-      }
+  myPlayer.value = videjs(
+    videoPlayer.value,
+    {
+      controls: true,
+      poster:
+        'https://cnstatic01.e.vhall.com/upload/saas/webinars/record-cover/20230422/1476a6e029c984632988dcc8882848ce.jpg?mode=1&have-wap-image=750',
+      source: [
+        {
+          src: '', // 缺少视频链接
+          type: 'video/mp4',
+        },
+      ],
+      controlBar: {
+        remainingTimeDisplay: {
+          displayNegative: false,
+        },
+      },
+      playbackRates: [0.5, 1, 1.5, 2],
     },
-    playbackRates: [0.5, 1, 1.5, 2]
-  }, () => {
-    myPlayer.value.log("play.....")
-  })
+    () => {
+      myPlayer.value.log('play.....')
+    },
+  )
 })
 
 onUnmounted(() => {
   if (vantaEffect.value) {
     vantaEffect.value.destroy()
   }
-   if (myPlayer.value) {
+  if (myPlayer.value) {
     myPlayer.value.dispose()
   }
 })
@@ -99,17 +104,17 @@ onUnmounted(() => {
   padding: 3% 20%;
   .title_1 {
     font-size: 1.1rem;
-    margin: .625rem auto;
+    margin: 0.625rem auto;
   }
 
   .title_2 {
-    font-size: .4rem;
+    font-size: 0.4rem;
   }
-    .video-js {
-      width: 12.5rem;
-      height: 7.5rem;
-      margin-top: .25rem;
-      margin-bottom: .625rem;
-    }
+  .video-js {
+    width: 12.5rem;
+    height: 7.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.625rem;
+  }
 }
 </style>
