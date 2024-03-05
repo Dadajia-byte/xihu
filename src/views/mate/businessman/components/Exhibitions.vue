@@ -9,11 +9,11 @@
       </div>
     </div>
     <!-- 核心 -->
-<<<<<<< HEAD
+    <<<<<<< HEAD
     <img src="../../../assets/images/logo.png" class="logo" />
-=======
+    =======
     <img src="../../../../../public/logo/logo1.png" class="logo" />
->>>>>>> 296e24bd4209c01c2d7296a25be3ba6252f8b87c
+    >>>>>>> 296e24bd4209c01c2d7296a25be3ba6252f8b87c
     <!-- 装饰 -->
     <div class="outline">
       <div

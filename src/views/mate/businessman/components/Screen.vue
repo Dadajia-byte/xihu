@@ -1,6 +1,6 @@
 <template>
   <div class="screen-box" ref="vantaRef">
-<<<<<<< HEAD
+    <<<<<<< HEAD
     <h1 class="title_1">
       <span class="wow fadeInLeft">虚拟数字展馆</span>
       <span class="wow fadeInDown">&</span>
@@ -9,7 +9,7 @@
     <h1 class="title_2 wow fadeInUp">
       <span v-for="item in curStrs">{{ item }}</span>
     </h1>
-=======
+    =======
     <div class="title_1">
       <div class="wow fadeInLeft">展商合作</div>
     </div>
@@ -17,7 +17,7 @@
     <div class="title_2 wow fadeInUp">
       <span v-for="item in curStrs">{{ item }}</span>
     </div>
->>>>>>> 296e24bd4209c01c2d7296a25be3ba6252f8b87c
+    >>>>>>> 296e24bd4209c01c2d7296a25be3ba6252f8b87c
   </div>
 </template>
 
