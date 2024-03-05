@@ -1,9 +1,10 @@
 <template>
     <div class="box-card">
-      <div class="name">2021年成都大运会赛事门票</div>
-      <div class="price">25000积分</div>
-      <div class="type">立即兑换</div>
-      <div class="sub-box"></div>
+      <div class="sub-box">
+        <div class="name">2021年成都大运会赛事门票</div>
+        <div class="price">25000积分</div>
+        <div class="type">立即兑换</div>
+      </div>
     </div>
 </template>
   
@@ -17,39 +18,44 @@
     display: flex;
     flex-direction: column;
     margin-top: 0.1875rem;
-    margin-left: 0.3125rem;
+    margin-left: .775rem;
     width: 5.25rem;
-    height: 4rem;
+    height: 4.375rem;
+    transition: transform 0.3s;
+}
+.box-card:hover {
+    transform: scale(1.05);
 }
 .sub-box{
-    margin-top: 0.1875rem;
-    margin-left: 0.3125rem;
-    width: 5.25rem;
-    height: 2.5rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-top: 2.85rem;
+    margin-left: .0187rem;
+    width: 5.2375rem;
+    height: 1.25rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .name {
-    margin-top: 2.9375rem;
+    margin-top: .125rem;
     margin-left: .1875rem;
-    font-size: 18px;
+    font-size: .2375rem;
     color: black;
 }
 .price {
     margin-top: .375rem;
     margin-left: .1875rem;
-    font-size: 23px;
+    font-size: .3125rem;
     color: #1185e4;
 }
 .type {
-    margin-top: 0.25rem;
-    margin-left: 2.8125rem;
-    font-size: 11px;
-    width: 1.025rem;
-    padding: 0.0437rem 0.05rem 0.05rem 0.0875rem;
+    margin-top: -0.25rem;
+    margin-left: 3.9375rem;
+    font-size: .1875rem;
+    width: 1.0625rem;
+    padding: .05rem;
     color: #1185e4;
-    border: 1px solid #1185e4;
+    border: .0125rem solid #1185e4;
     border-radius: 0.375rem;
+    text-align: center;
 }
 </style>
   

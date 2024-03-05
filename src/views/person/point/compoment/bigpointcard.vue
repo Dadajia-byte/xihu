@@ -9,8 +9,6 @@
       <pointcard></pointcard>
       <div class="line"></div>
       <pointcard></pointcard>
-      <div class="more">查看更多</div>
-      <el-icon class="down"><ArrowDown /></el-icon>
     </div>
   </template>
   
@@ -20,25 +18,15 @@
   
   <style scoped>
   .subItem {
-    margin-left: .625rem;
-    height: 3rem;
+    margin-left: .5rem;
+    height: 2.375rem;
     display: flex;
+    flex-wrap: wrap;
   }
   .line{
     margin-top: .5625rem;
-    margin-left: -4.1875rem;
+    margin-left: .125rem;
     border-left: .025rem solid #E3E5E7;
     height: .875rem;
-  }
-  .more{
-    margin-top: 2.875rem;
-    margin-left: -10.5375rem;
-    font-size: .175rem;
-    color: #1185e4;
-  }
-  .down{
-    margin-top: 2.875rem;
-    font-size: .2rem;
-    color: #1185e4;
   }
   </style>

@@ -14,10 +14,9 @@
   .box-card {
     display: flex;
     flex-direction: column;
-    margin-top: 0.1875rem;
-    margin-left: 0.3125rem;
-    width: 6.25rem;
-    height: 6.25rem;
+    margin-left: .375rem;
+    width: 1.875rem;
+    height: 2.75rem;
     overflow: hidden;
   }
   .circle {
@@ -36,9 +35,11 @@
   }
   .task{
     margin-top: .125rem;
-    margin-left: -4.4375rem;
+    margin-left: .25rem;
+    width: 1.25rem;
     font-size: .2125rem;
     text-align: center;
+    line-height: .25rem;
   }
   .finish{
     margin-top: .15rem;
