@@ -6,7 +6,13 @@
     </div>
     <div class="content">
       <section class="section1">
-        <div class="tag wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">大会场馆</div>
+        <div
+          class="tag wow fadeInDown"
+          data-wow-duration="1s"
+          data-wow-delay="0.1s"
+        >
+          大会场馆
+        </div>
         <div class="scene-plan">
           <div
             :class="{ scene: true, chosed: truePic }"
@@ -21,7 +27,11 @@
             大会平面图
           </div>
         </div>
-        <div class="map wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+        <div
+          class="map wow fadeInUp"
+          data-wow-duration="1s"
+          data-wow-delay="0.1s"
+        >
           <img
             v-show="truePic"
             src="https://img2023.gcsis.cn/2023/4/42089a0585c7403191042decc029556f.jpeg"
@@ -33,13 +43,23 @@
         </div>
       </section>
       <section class="section2">
-        <div class="tag wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">大会交通</div>
+        <div
+          class="tag wow fadeInDown"
+          data-wow-duration="1s"
+          data-wow-delay="0.1s"
+        >
+          大会交通
+        </div>
         <div class="transport">
           <div class="routeMap wow fadeInLeft" data-wow-duration="1s">
             <div class="inner"></div>
           </div>
           <div class="route">
-            <div class="route1 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s">
+            <div
+              class="route1 wow fadeInRight"
+              data-wow-duration="1s"
+              data-wow-delay="0.1s"
+            >
               <div class="trangle">
                 <span>1</span>
               </div>
@@ -72,7 +92,11 @@
                 </div>
               </div>
             </div>
-            <div class="route2 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s">
+            <div
+              class="route2 wow fadeInRight"
+              data-wow-duration="1s"
+              data-wow-delay="0.1s"
+            >
               <div class="trangle">
                 <span>2</span>
               </div>
@@ -106,10 +130,24 @@
         </div>
       </section>
       <section class="section3">
-        <div class="tag wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">酒店住宿</div>
+        <div
+          class="tag wow fadeInDown"
+          data-wow-duration="1s"
+          data-wow-delay="0.1s"
+        >
+          酒店住宿
+        </div>
         <div class="accom">
-          <div class="map wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"></div>
-          <el-card class="card_3 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
+          <div
+            class="map wow fadeInUp"
+            data-wow-duration="1s"
+            data-wow-delay="0.1s"
+          ></div>
+          <el-card
+            class="card_3 wow fadeInRight"
+            data-wow-duration="1s"
+            data-wow-delay="0.2s"
+          >
             <div class="title_3">酒店住址及联系人</div>
             <div class="info">
               <div class="pos_3">杭州洲际酒店（上城区解放东路2号）</div>
@@ -161,8 +199,18 @@
         </div>
       </section>
       <section class="section4">
-        <div class="tag wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">大会签到</div>
-        <div class="details wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+        <div
+          class="tag wow fadeInDown"
+          data-wow-duration="1s"
+          data-wow-delay="0.1s"
+        >
+          大会签到
+        </div>
+        <div
+          class="details wow fadeInUp"
+          data-wow-duration="1s"
+          data-wow-delay="0.2s"
+        >
           <div class="detail">
             <div class="sign">签到位置</div>
             <div class="moredetail">杭州洲际酒店正门入口</div>
@@ -177,7 +225,11 @@
             <div class="moredetail">通过大会【短信】签到，领取大会胸卡</div>
           </div>
         </div>
-        <div class="not wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+        <div
+          class="not wow fadeInUp"
+          data-wow-duration="1s"
+          data-wow-delay="0.3s"
+        >
           <div class="title_not">
             <svgIcon
               name="bell"
@@ -195,16 +247,23 @@
         </div>
       </section>
       <section class="section5">
-        <div class="tag wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">联系我们</div>
+        <div
+          class="tag wow fadeInDown"
+          data-wow-duration="1s"
+          data-wow-delay="0.1s"
+        >
+          联系我们
+        </div>
         <div>
           <el-card
             class="card wow slideInLeft"
             style="top: 4.5rem; left: 3.55rem; z-index: 222"
-            data-wow-delay="0.4s" data-wow-duration="0.8s"
+            data-wow-delay="0.4s"
+            data-wow-duration="0.8s"
           >
             <div class="name">
-              <div class="name1 " >朱女士</div>
-              <div class="name2" >商务合作</div>
+              <div class="name1">朱女士</div>
+              <div class="name2">商务合作</div>
             </div>
             <div class="comm">
               <div class="phone">
@@ -231,7 +290,12 @@
               </div>
             </div>
           </el-card>
-          <el-card class="card  wow slideInRight" style="top: 1.5rem; left: 11rem" data-wow-delay="0.1s" data-wow-duration="0.8s">
+          <el-card
+            class="card wow slideInRight"
+            style="top: 1.5rem; left: 11rem"
+            data-wow-delay="0.1s"
+            data-wow-duration="0.8s"
+          >
             <div class="name">
               <div class="name1">薛女士</div>
               <div class="name2">会务咨询</div>
@@ -268,7 +332,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref,onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import WOW from 'wow.js'
 let truePic = ref(true)
 const initWOW = () => {
@@ -290,7 +354,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
 body {
   background-color: #999999;
 }
@@ -592,7 +655,7 @@ body {
           align-items: center;
         }
       }
-      transition: all .3s;
+      transition: all 0.3s;
 
       &:hover {
         transform: scale(1.1);
