@@ -1,7 +1,7 @@
 <template>
   <div class="activity-page">
-    <div class="a-bg">
-      <h2>精彩活动 & 大会打卡</h2>
+    <div class="a-bg" ref="vantaRef">
+      <h2>精彩活动</h2>
     </div>
     <div class="lists">
       <List></List>
@@ -31,11 +31,9 @@ onMounted(() => {
   width: 100%;
 
   .a-bg {
-    height: 5.3333rem;
-    background-image: url(https://www.gcsis.cn/img/activity_banner.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 7.5rem;
     position: relative;
+    background: url(https://www.gcsis.cn/img/activity_banner.jpg) no-repeat;
 
     h2 {
       color: white;
@@ -50,7 +48,7 @@ onMounted(() => {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-    transform: translateY(-2.3333rem);
+    transform: translateY(-3.75rem);
   }
 
   .clock-in {

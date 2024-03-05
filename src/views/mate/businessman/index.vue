@@ -1,11 +1,16 @@
 <template>
-  <div></div>
+  <div class="exhibitor-page">
+    <Screen></Screen>
+    <Exhibitions></Exhibitions>
+  </div>
 </template>
 
-<script setup lang="ts"></script>
-<script lang="ts">
-export default {
-  name: 'businessman',
-}
+<script setup>
+import Screen from './components/Screen.vue'
+import Exhibitions from './components/Exhibitions.vue'
 </script>
-<style lang="scss" scoped></style>
+
+<style scoped lang="scss">
+.exhibitor-page {
+}
+</style>

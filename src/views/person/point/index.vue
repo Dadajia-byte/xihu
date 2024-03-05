@@ -90,7 +90,7 @@ import bigshopcard from './compoment/bigshopcard.vue'
   width: 12.5rem;
 }
 .down {
-  margin-top: .475rem;
+  margin-top: 0.475rem;
   margin-left: 6.8375rem;
   font-size: 0.2rem;
   color: #1185e4;

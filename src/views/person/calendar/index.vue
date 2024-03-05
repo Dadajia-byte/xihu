@@ -1,17 +1,16 @@
 <template>
   <el-card class="calendar-card">
     <el-table border style="width: 13.125rem" class="table">
-    <el-table-column prop="date" label="" width="80" />
-    <el-table-column prop="date" label="5月5日" />
-    <el-table-column prop="name" label="5月6日" />
-    <el-table-column prop="address" label="5月7日" />
-    <el-table-column prop="address" label="5月8日" />
-  </el-table>
+      <el-table-column prop="date" label="" width="80" />
+      <el-table-column prop="date" label="5月5日" />
+      <el-table-column prop="name" label="5月6日" />
+      <el-table-column prop="address" label="5月7日" />
+      <el-table-column prop="address" label="5月8日" />
+    </el-table>
   </el-card>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .calendar-card {

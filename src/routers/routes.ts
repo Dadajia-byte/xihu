@@ -60,7 +60,6 @@ export const constantRoutes = [
       {
         path: '/mate',
         name: 'mate',
-        component: () => import('@/layout/index.vue'),
         redirect: '/home',
         meta: {
           title: '合作伙伴',
@@ -88,7 +87,6 @@ export const constantRoutes = [
       {
         path: '/about',
         name: 'about',
-        component: () => import('@/layout/index.vue'),
         meta: {
           title: '关于大会',
         },

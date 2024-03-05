@@ -35,7 +35,7 @@
 }
 .time {
   margin-top: -0.1875rem;
-  margin-left: .425rem;
+  margin-left: 0.425rem;
   font-size: 11px;
   color: #1185e4;
 }

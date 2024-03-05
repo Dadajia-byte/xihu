@@ -46,7 +46,7 @@
   color: white;
 }
 .location {
-  font-size: .2rem;
+  font-size: 0.2rem;
   margin-top: -0.1875rem;
   margin-left: 2.0625rem;
   color: white;
@@ -62,8 +62,8 @@
   margin-left: 3.0625rem;
   font-size: 0.1375rem;
   background-color: #1185e4;
-  width: .75rem;
-  padding: 0.05rem .05rem .0375rem .05rem;
+  width: 0.75rem;
+  padding: 0.05rem 0.05rem 0.0375rem 0.05rem;
   color: white;
   border-radius: 0.375rem;
   text-align: center;
