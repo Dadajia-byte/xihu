@@ -698,7 +698,7 @@ const register = async () => {
   background-color: #fafafa;
   position: relative;
   /* 测试属性 start */
-  height: 71.4286rem !important;
+  height: 75rem;
 
   /* 测试属性end */
   .tabbar {
