@@ -30,40 +30,40 @@
 .name {
   margin-top: 0.125rem;
   margin-left: 0.125rem;
-  font-size: .1625rem;
+  font-size: 0.1625rem;
   color: white;
 }
 .time {
-  margin-top: -0.2rem;
+  margin-top: -0.175rem;
   margin-left: 0.4rem;
-  font-size: .1375rem;
+  font-size: 0.1375rem;
   color: white;
 }
 .clock {
   font-size: 0.225rem;
-  margin-top: 1.625rem;
+  margin-top: 1.6rem;
   margin-left: 0.125rem;
   color: white;
 }
 .location {
-  font-size: 0.225rem;
-  margin-top: -0.2rem;
-  margin-left: 1.775rem;
+  font-size: .2rem;
+  margin-top: -0.1875rem;
+  margin-left: 2.0625rem;
   color: white;
 }
 .place {
-  margin-top: -0.1875rem;
-  margin-left: 2.0625rem;
-  font-size: .1375rem;
+  margin-top: -0.1625rem;
+  margin-left: 2.3125rem;
+  font-size: 0.1375rem;
   color: white;
 }
 .type {
-  margin-top: -0.525rem;
+  margin-top: -0.4125rem;
   margin-left: 3.0625rem;
-  font-size: .1375rem;
+  font-size: 0.1375rem;
   background-color: #1185e4;
-  width: 0.9rem;
-  padding: 0.05rem;
+  width: .75rem;
+  padding: 0.05rem .05rem .0375rem .05rem;
   color: white;
   border-radius: 0.375rem;
   text-align: center;

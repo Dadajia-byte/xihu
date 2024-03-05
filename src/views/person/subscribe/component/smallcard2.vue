@@ -34,8 +34,8 @@
   color: black;
 }
 .time {
-  margin-top: -0.1938rem;
-  margin-left: 0.4125rem;
+  margin-top: -0.1875rem;
+  margin-left: .425rem;
   font-size: 11px;
   color: #1185e4;
 }
@@ -58,7 +58,7 @@
 .right {
   margin-top: -0.2437rem;
   margin-left: 3.5875rem;
-  font-size: .175rem;
+  font-size: 0.175rem;
   color: #1185e4;
 }
 </style>

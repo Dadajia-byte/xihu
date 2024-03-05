@@ -26,13 +26,13 @@
 }
 .name {
   margin-top: 2.25rem;
-  font-size: .1625rem;
+  font-size: 0.1625rem;
   color: black;
 }
 .progress {
   margin-top: -0.1875rem;
   margin-left: 0.25rem;
-  font-size: .1375rem;
+  font-size: 0.1375rem;
   color: #777777;
 }
 .televsion {

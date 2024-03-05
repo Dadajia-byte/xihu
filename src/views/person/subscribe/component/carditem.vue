@@ -15,6 +15,5 @@ import smallcard from './smallcard.vue'
 .subItem {
   display: flex;
   flex-wrap: wrap;
-
 }
 </style>
