@@ -46,18 +46,18 @@
   color: #1185e4;
 }
 .type {
-  margin-top: 0.25rem;
-  margin-left: 2.8125rem;
+  margin-top: .2625rem;
+  margin-left: 2.8375rem;
   font-size: 11px;
-  width: 1.025rem;
+  width: .975rem;
   padding: 0.0437rem 0.05rem 0.05rem 0.0875rem;
   color: #1185e4;
   border: 1px solid #1185e4;
   border-radius: 0.375rem;
 }
 .right {
-  margin-top: -0.2437rem;
-  margin-left: 3.5875rem;
+  margin-top: -0.225rem;
+  margin-left: 3.575rem;
   font-size: 0.175rem;
   color: #1185e4;
 }
