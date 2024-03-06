@@ -1,5 +1,9 @@
 <template>
-  <div class="date-agenda">
+  <div
+    class="date-agenda wow fadeInUp"
+    data-wow-duration="1s"
+    data-wow-delay="0.1s"
+  >
     <span class="divider">大会议程</span>
     <el-card class="timeline-container">
       <div class="timeline">
@@ -77,6 +81,8 @@
 import { ref, onMounted, nextTick } from 'vue'
 import useMeetingStore from '@/store/modules/meeting'
 import { ElMessage } from 'element-plus'
+import WOW from 'wow.js'
+
 let meetingStore = useMeetingStore()
 const items = ref([
   { date: 'Day 1', day: '5月5日' },
@@ -84,6 +90,16 @@ const items = ref([
   { date: 'Day 3', day: '5月7日' },
   { date: 'Day 4', day: '5月8日' },
 ])
+
+const initWOW = () => {
+  const wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+  })
+  wow.init()
+}
 
 const activeIndex = ref(0)
 
@@ -127,7 +143,7 @@ const cancelSub = async (id: number) => {
 }
 onMounted(async () => {
   console.log('我是请求数据函数，我应该在登录之后')
-
+  initWOW()
   meetingStore.reqData.date = '5月5日'
   await meetingStore.getAgenda()
 })

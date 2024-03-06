@@ -1,6 +1,9 @@
 <template>
   <div
-    class="mate-container"
+    class="mate-container wow"
+    :class="animateClass(index)"
+    data-wow-duration="1.5s"
+    data-wow-delay="0.5s"
     v-for="(mateData, index) in mateDatas"
     :key="index"
   >
@@ -45,8 +48,8 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowDown } from '@element-plus/icons-vue'
-import { defineProps, ref } from 'vue'
+import { defineProps, ref, onMounted, computed } from 'vue'
+import WOW from 'wow.js'
 
 defineProps({
   mateDatas: {
@@ -55,11 +58,27 @@ defineProps({
   },
 })
 
+const animateClass = (index) => ({
+  fadeInLeft: index % 2 === 0,
+  fadeInRight: index % 2 !== 0,
+})
 const expandedIndex = ref(-1) // -1 表示没有展开的卡片
-
-const handleFold = (index) => {
+const handleFold = (index: number) => {
   expandedIndex.value = expandedIndex.value === index ? -1 : index
 }
+
+const initWOW = () => {
+  const wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+  })
+  wow.init()
+}
+onMounted(() => {
+  initWOW()
+})
 </script>
 
 <style scoped lang="scss">

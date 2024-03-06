@@ -1,5 +1,5 @@
 <template>
-  <div class="master">
+  <div class="master wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
     <span class="divider">大咖云集</span>
     <div class="carousel-container">
       <div class="master-container" ref="cardlist">
@@ -34,26 +34,40 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import WOW from 'wow.js'
+
+const initWOW = () => {
+  const wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+  })
+  wow.init()
+}
+onMounted(() => {
+  initWOW()
+})
 
 const cards = [
   {
-    url: 'https://picsum.photos/id/1033/50/60',
+    url: 'https://img2023.gcsis.cn/2023/4/7c46ac80f91542b4a0f6ce2b593f3f19.png',
     name: '1',
     description: '中国信通院安全研究所车联网安全中心主任',
   },
   {
-    url: 'https://picsum.photos/id/1033/50/60',
+    url: 'https://img2023.gcsis.cn/2023/4/aa1635e18de24d88b86753e1ca39a05e.png',
     name: '2',
     description: '安恒信息副董事长',
   },
   {
-    url: 'https://picsum.photos/id/1033/50/60',
+    url: 'https://img2023.gcsis.cn/2023/4/1a80708d46f64e079919a2c93a6aa7c4.png',
     name: '3',
     description: '安恒信息副董事长',
   },
   {
-    url: 'https://picsum.photos/id/1033/50/60',
+    url: 'https://img2023.gcsis.cn/2023/4/3976ced942c44672b457895baa4e33e8.png',
     name: '4',
     description: '安恒信息副董事长',
   },

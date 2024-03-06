@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
     <span class="divider">过去大会</span>
     <div class="carousel-container">
       <div class="master-container" ref="cardlist">
@@ -32,8 +32,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
+import { ref, onMounted } from 'vue'
+import WOW from 'wow.js'
+const initWOW = () => {
+  const wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+  })
+  wow.init()
+}
+onMounted(() => {
+  initWOW()
+})
 const cards = [
   {
     url: 'https://picsum.photos/id/1033/50/60',
