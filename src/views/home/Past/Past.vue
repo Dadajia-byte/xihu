@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span class="divider">过去大会</span>
+    <span class="divider">往届大会</span>
   </div>
 </template>
 
