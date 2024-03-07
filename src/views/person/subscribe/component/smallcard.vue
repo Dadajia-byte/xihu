@@ -14,7 +14,6 @@
     <div class="type-box">
       <div class="type">平行论坛</div>
     </div>
-    
   </div>
 </template>
 
