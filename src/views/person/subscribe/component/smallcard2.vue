@@ -1,10 +1,16 @@
 <template>
   <div class="box-card">
     <div class="name">格致论道@西湖论剑</div>
-    <el-icon class="clock"><Clock /></el-icon>
-    <div class="time">2023-05-05 18:30-21:45</div>
-    <div class="type">查看详情</div>
-    <el-icon class="right"><Right /></el-icon>
+    <div style="display: flex;">
+      <el-icon class="clock"><Clock /></el-icon>
+      <div class="time">2023-05-05 18:30-21:45</div>
+    </div>
+
+    <div style="display: flex;">
+      <div class="type">查看详情</div>
+      <el-icon class="right"><Right /></el-icon>
+    </div>
+
   </div>
 </template>
 
@@ -34,8 +40,8 @@
   color: black;
 }
 .time {
-  margin-top: -0.1875rem;
-  margin-left: 0.425rem;
+  margin-top: .2125rem;
+  margin-left: .0375rem;
   font-size: 11px;
   color: #1185e4;
 }
@@ -46,18 +52,18 @@
   color: #1185e4;
 }
 .type {
-  margin-top: .2625rem;
+  margin-top: 0.2625rem;
   margin-left: 2.8375rem;
   font-size: 11px;
-  width: .975rem;
+  width: 0.975rem;
   padding: 0.0437rem 0.05rem 0.05rem 0.0875rem;
   color: #1185e4;
   border: 1px solid #1185e4;
   border-radius: 0.375rem;
 }
 .right {
-  margin-top: -0.225rem;
-  margin-left: 3.575rem;
+  margin-top: .3125rem;
+  margin-left: -0.25rem;
   font-size: 0.175rem;
   color: #1185e4;
 }

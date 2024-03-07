@@ -16,6 +16,7 @@ import carditem2 from './component/carditem2.vue'
 .subscribe-card {
   width: 150%;
   display: flex;
+  flex-wrap: wrap;
   margin-top: 0.25rem;
   margin-left: 0.3125rem;
   height: 12.5rem;

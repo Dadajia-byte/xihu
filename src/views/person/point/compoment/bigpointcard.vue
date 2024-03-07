@@ -1,5 +1,5 @@
 <template>
-  <div class="subItem">
+  <div class="subsItem">
     <pointcard></pointcard>
     <div class="line"></div>
     <pointcard></pointcard>
@@ -9,7 +9,6 @@
     <pointcard></pointcard>
     <div class="line"></div>
     <pointcard></pointcard>
-    <div class="line"></div>
     <pointcard></pointcard>
   </div>
 </template>
@@ -19,9 +18,8 @@ import pointcard from './pointcard.vue'
 </script>
 
 <style scoped>
-.subItem {
+.subsItem {
   margin-left: 0.5rem;
-  height: 2.375rem;
   display: flex;
   flex-wrap: wrap;
 }

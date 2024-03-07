@@ -21,7 +21,6 @@
   margin-left: 0.375rem;
   width: 1.875rem;
   height: 2.75rem;
-  overflow: hidden;
 }
 .circle {
   margin-top: 0.125rem;
