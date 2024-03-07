@@ -2,7 +2,7 @@
   <div class="box-card">
     <div class="name">教育技术产业融合创新发展论坛</div>
     <div class="time-location-box">
-      <div style="display: flex;">
+      <div style="display: flex">
         <el-icon class="clock"><Clock /></el-icon>
         <div class="time">08:30-12:10</div>
       </div>
@@ -14,7 +14,6 @@
     <div class="type-box">
       <div class="type">平行论坛</div>
     </div>
-    
   </div>
 </template>
 
@@ -42,20 +41,20 @@
   font-size: 0.1625rem;
   color: white;
 }
-.time-location-box{
+.time-location-box {
   display: flex;
   flex-direction: column;
 }
 .time {
   margin-top: 1.6625rem;
-  margin-left: .025rem;
+  margin-left: 0.025rem;
   font-size: 0.1375rem;
   color: white;
 }
 .clock {
-  font-size: .2rem;
+  font-size: 0.2rem;
   margin-top: 1.625rem;
-  margin-left: .125rem;
+  margin-left: 0.125rem;
   color: white;
 }
 .location {
@@ -66,27 +65,27 @@
 }
 .place {
   margin-top: -0.1625rem;
-  margin-left: .025rem;
+  margin-left: 0.025rem;
   font-size: 0.1375rem;
   color: white;
 }
-.location-box{
+.location-box {
   display: flex;
   justify-content: flex-end;
-  margin-right: .1875rem;
+  margin-right: 0.1875rem;
 }
 .type {
   font-size: 0.1375rem;
   background-color: #1185e4;
   width: auto;
-  padding: 0.05rem .075rem 0.0375rem 0.075rem;
+  padding: 0.05rem 0.075rem 0.0375rem 0.075rem;
   color: white;
   border-radius: 0.375rem;
 }
-.type-box{
+.type-box {
   display: flex;
   justify-content: flex-end;
   margin-top: -0.4375rem;
-  margin-right: .1625rem;
+  margin-right: 0.1625rem;
 }
 </style>

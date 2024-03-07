@@ -5,15 +5,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted } from 'vue'
 import activtyItems from './activityItems.vue'
-import useMeetingStore from '@/store/modules/meeting';
-let meetingStore = useMeetingStore();
+import useMeetingStore from '@/store/modules/meeting'
+let meetingStore = useMeetingStore()
 
-
-onMounted(()=>{
-
-})
+onMounted(() => {})
 </script>
 
 <style scoped>

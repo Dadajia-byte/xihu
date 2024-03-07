@@ -3,10 +3,12 @@
     <el-table :data="tableData" border style="width: 13.125rem" class="table">
       <el-table-column prop="time" label="" width="80">
         <template #default="{ row }">
-          <el-icon v-if="row.index === 0 && row.columnIndex === 0"><Calendar /></el-icon>
+          <el-icon v-if="row.index === 0 && row.columnIndex === 0">
+            <Calendar />
+          </el-icon>
         </template>
       </el-table-column>
-      <el-table-column prop="date" label="5月5日" class="co"/>
+      <el-table-column prop="date" label="5月5日" class="co" />
       <el-table-column prop="name" label="5月6日" />
       <el-table-column prop="address" label="5月7日" />
       <el-table-column prop="address" label="5月8日" />
@@ -70,6 +72,6 @@ const tableData = [
   height: 12.5rem;
 }
 .table {
-  margin-left: .0625rem;
+  margin-left: 0.0625rem;
 }
 </style>
