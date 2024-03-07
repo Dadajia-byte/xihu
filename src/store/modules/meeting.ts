@@ -3,6 +3,7 @@ import { reqAgenda, reqSubAgenda, reqCancelAgenda } from '@/api/meeting/index'
 import { reqData, agendaResponse, agendaItem } from '@/api/meeting/type'
 import { reactive, ref } from 'vue'
 let useMeetingStore = defineStore('meetingStore', () => {
+
   let reqData: reqData = reactive({
     type: '',
     date: '',
@@ -46,6 +47,7 @@ let useMeetingStore = defineStore('meetingStore', () => {
       }
     })
   }
+
   return {
     reqData,
     agendaItems,

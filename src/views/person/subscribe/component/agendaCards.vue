@@ -1,14 +1,13 @@
 <template>
   <div class="subItem">
-    <smallcard></smallcard>
-    <smallcard></smallcard>
-    <smallcard></smallcard>
-    <smallcard></smallcard>
+    <AgendaItems></AgendaItems>
+    <AgendaItems></AgendaItems>
+    <AgendaItems></AgendaItems>
   </div>
 </template>
 
 <script setup lang="ts">
-import smallcard from './smallcard.vue'
+import AgendaItems from './agendaItems.vue'
 </script>
 
 <style scoped>

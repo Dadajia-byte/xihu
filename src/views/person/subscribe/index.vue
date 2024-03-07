@@ -1,15 +1,15 @@
 <template>
   <el-card class="subscribe-card">
     <div class="title1">议程订阅</div>
-    <carditem></carditem>
+    <agenda-cards></agenda-cards>
     <div class="title2">精彩活动订阅</div>
-    <carditem2></carditem2>
+    <activity-cards></activity-cards>
   </el-card>
 </template>
 
 <script setup lang="ts">
-import carditem from './component/carditem.vue'
-import carditem2 from './component/carditem2.vue'
+import agendaCards from './component/agendaCards.vue'
+import activityCards from './component/activityCards.vue'
 </script>
 
 <style scoped>
