@@ -1,6 +1,6 @@
 <template>
   <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-    <span class="divider">过去大会</span>
+    <span class="divider">往届大会</span>
     <div class="carousel-container">
       <div class="master-container" ref="cardlist">
         <div class="card-container" v-for="(card, index) in cards" :key="index">
@@ -144,6 +144,7 @@ const handleLeftClick = () => {
     left.value.disabled = false
   }, 500)
 }
+
 </script>
 
 <style scoped lang="scss">
