@@ -33,13 +33,13 @@
               </el-menu-item>
               <el-menu-item index="/person/point">
                 <el-icon>
-                  <Postcard />
+                  <Coin />
                 </el-icon>
                 我的积分
               </el-menu-item>
               <el-menu-item index="/person/history">
                 <el-icon>
-                  <Memo />
+                  <Clock />
                 </el-icon>
                 观看历史
               </el-menu-item>
@@ -49,7 +49,7 @@
             </el-button>
           </el-card>
         </el-col>
-        <el-col :span="1"></el-col>
+        <el-col :span="0.1"></el-col>
         <el-col class="right" :span="12">
           <Main></Main>
         </el-col>

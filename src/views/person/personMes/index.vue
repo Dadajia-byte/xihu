@@ -87,14 +87,14 @@
             <el-option label="其他" value="其他" />
           </el-select>
         </el-form-item>
-        <el-form-item label="工作单位/学校:">
+        <el-form-item label="公司/单位:">
           <div v-show="!isEdit">
             {{ userStore.userData.company || '暂无信息' }}
           </div>
           <el-input
             v-if="isEdit"
             v-model="userStore.userData.company"
-            placeholder="请填写工作单位/学校"
+            placeholder="请填写公司/单位"
           ></el-input>
         </el-form-item>
         <el-form-item label="邮箱:">
@@ -182,9 +182,8 @@ const handleAvatarSuccess: UploadProps['onSuccess'] = (response: any) => {
 
 <style scoped>
 .box-card {
-  width: 120%;
-  margin-top: 1rem;
-  margin-left: 0.5rem;
+  width: 140%;
+  margin-top: 0.125rem;
 }
 
 .gray {

@@ -7,6 +7,8 @@ import {
   registerData,
   userData,
 } from './type'
+
+
 enum API {
   USER_CHECK = '/user/Info',
   REGISTER = '/sms/register', // 注册
@@ -16,7 +18,7 @@ enum API {
   PHONE_LOGIN = '/sms/loginbyphone', // 手机号登录
   USER_LOGOUT = '/user/logout', // 用户退出
 
-  USER_UPDATE = 'user/updateInfo', // 修改用户信息
+  USER_UPDATE = '/user/updateInfo', // 修改用户信息
 }
 
 // 注册接口

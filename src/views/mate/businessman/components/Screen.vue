@@ -16,10 +16,11 @@ import * as three from 'three'
 import rings from 'vanta/dist/vanta.rings.min'
 import { onMounted, onUnmounted, ref } from 'vue'
 import WOW from 'wow.js'
-import videjs from 'video.js'
+import videojs from 'video.js'
 
 const videoPlayer = ref()
 const myPlayer = ref()
+
 import { useCoding } from '@/utils/useCoding'
 
 const initWOW = () => {
@@ -57,7 +58,7 @@ onMounted(() => {
   initVanta()
   initWOW()
   startCoding()
-  myPlayer.value = videjs(
+  myPlayer.value = videojs(
     videoPlayer.value,
     {
       controls: true,
