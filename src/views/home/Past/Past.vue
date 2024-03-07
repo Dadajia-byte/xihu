@@ -144,7 +144,6 @@ const handleLeftClick = () => {
     left.value.disabled = false
   }, 500)
 }
-
 </script>
 
 <style scoped lang="scss">
