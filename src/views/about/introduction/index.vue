@@ -4,11 +4,11 @@
       <div class="title">大会介绍</div>
       <div class="engtitle">CONFERENCE INTRODUCTION</div>
     </div>
-    <div class="video-container">
-      <div class="video">
+    <div class="video-container ">
+      <div class="video wow slideInLeft">
         <video ref="videoPlayer" class="video-js"></video>
       </div>
-      <div class="video-description">
+      <div class="video-description wow slideInRight">
         <div class="description-title">西湖论剑·网络安全大会</div>
         <div class="content">
           <span>
@@ -17,7 +17,6 @@
         </div>
       </div>
     </div>
-
     <HighLight></HighLight>
     <Past></Past>
   </div>
@@ -28,13 +27,21 @@ import { onMounted, onUnmounted, ref } from 'vue'
 import videojs from 'video.js'
 import HighLight from './components/HighLight.vue'
 import Past from '@/views/home/Past/Past.vue'
-
+import WOW from 'wow.js'
 const descriptionContent = ref(
   '西湖论剑·网络安全大会自2012年创办，是国内首个已举办十周年的网络安全大会。十届以来，大会线下参会嘉宾累计超过10000人次，线上直播观看累计超过2500万人次，已成为国内网络安全领域的一张“金名片”。历届大会期间，国家部委、省市领导，院士、知名专家和优秀企业代表齐聚杭州，共商数字时代的安全之道。2023年是全面贯彻落实党的二十大精神的开局之年，为深入学习贯彻党的二十大精神，推动落实《数字中国建设整体布局规划》尤其是筑牢数字安全屏障的要求，推进数字安全人才培养、科技创新、产业融合发展，以保障数字政务、数字经济、数字社会等数字化生态安全发展。在迎来大会十一年之际，由“西湖论剑·网络安全大会”升级为“西湖论剑·数字安全大会”，定于5月5日-8日在杭州举办。',
 )
 const videoPlayer = ref(null)
 const myPlayer = ref(null)
-
+const initWOW = () => {
+  const wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+  })
+  wow.init()
+}
 onMounted(() => {
   myPlayer.value = videojs(
     videoPlayer.value,
@@ -65,6 +72,7 @@ onUnmounted(() => {
   if (myPlayer.value) {
     myPlayer.value.dispose()
   }
+  initWOW()
 })
 </script>
 

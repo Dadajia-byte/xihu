@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="divider">
+    <div class="divider wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
       <span style="font-family: Source Han Sans CN">大会亮点</span>
       <span class="divider-tip" style="font-family: Source Han Sans CN">
         Conference Highlights
       </span>
     </div>
 
-    <div class="highlight-contanier wow">
+    <div class="highlight-contanier wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
       <el-row justify="space-around" style="margin-top: 0.1429rem">
         <el-col :span="4">
           <ul>
@@ -59,8 +59,8 @@
     <div class="characteristic-container">
       <el-row :gutter="20">
         <el-col :span="12">
-          <div class="card">
-            <div class="character-content">
+          <div class="card wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.1s">
+            <div class="character-content ">
               <div class="title">议题更前沿</div>
               <div class="detail">
                 大会主题及议题、展览锚定数字中国建设要求，助力政企单位从政策、技术、人才、产业等各层面落实工作。
@@ -70,7 +70,7 @@
           </div>
         </el-col>
         <el-col :span="12">
-          <div class="card">
+          <div class="card wow slideInRight" data-wow-duration="1s" data-wow-delay="0.1s">
             <div class="character-content">
               <div class="title">线上更精彩</div>
               <div class="detail">
@@ -83,7 +83,7 @@
       </el-row>
       <el-row :gutter="20">
         <el-col :span="12">
-          <div class="card">
+          <div class="card wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.1s">
             <div class="character-content">
               <div class="title">成果更显著</div>
               <div class="detail">
@@ -94,7 +94,7 @@
           </div>
         </el-col>
         <el-col :span="12">
-          <div class="card">
+          <div class="card wow slideInRight" data-wow-duration="1s" data-wow-delay="0.1s">
             <div class="character-content">
               <div class="title">国际化更深入</div>
               <div class="detail">
@@ -134,11 +134,11 @@ const initWOW = () => {
 }
 
 onMounted(() => {
+  initWOW()
   incraeseNum((num) => (num1.value = num), finalNum1.value, 5000)
   incraeseNum((num) => (num2.value = num), finalNum2.value, 2500)
   incraeseNum((num) => (num3.value = num), finalNum3.value, 2000)
   incraeseNum((num) => (num4.value = num), finalNum4.value, 2000)
-  initWOW()
 })
 </script>
 
