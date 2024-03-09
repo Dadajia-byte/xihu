@@ -4,7 +4,7 @@
       <div class="title">大会介绍</div>
       <div class="engtitle">CONFERENCE INTRODUCTION</div>
     </div>
-    <div class="video-container ">
+    <div class="video-container">
       <div class="video wow slideInLeft">
         <video ref="videoPlayer" class="video-js"></video>
       </div>
