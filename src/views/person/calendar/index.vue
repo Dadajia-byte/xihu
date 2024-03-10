@@ -1,13 +1,19 @@
 <template>
   <el-card class="calendar-card">
-    <el-table :data="tableData" 
-    border
-    :row-style="{height: '200px'}" 
-    :cell-style="{borderColor: '#D8D8D8',fontSize: '13px'}"
-    :header-cell-style="{color: '#333333','text-align': 'center', borderColor: '#D8D8D8'}"
-    class="table">
+    <el-table
+      :data="tableData"
+      border
+      :row-style="{ height: '200px' }"
+      :cell-style="{ borderColor: '#D8D8D8', fontSize: '13px' }"
+      :header-cell-style="{
+        color: '#333333',
+        'text-align': 'center',
+        borderColor: '#D8D8D8',
+      }"
+      class="table"
+    >
       <el-table-column prop="time" label="" width="70%" align="center" />
-      <el-table-column prop="date5" label="5月5日" :cell-style="cellStyle" >
+      <el-table-column prop="date5" label="5月5日" :cell-style="cellStyle">
         <template #default="{ row }">
           <div class="cell-wrap">{{ row.date5 }}</div>
         </template>
@@ -20,12 +26,11 @@
 </template>
 
 <script setup lang="ts">
-
 const cellStyle = ({ row, column, rowIndex, columnIndex }) => {
   if (rowIndex !== 0 && columnIndex !== 0) {
-    return 'font-size: 14px'; // 设置除了表头和首列以外的文字大小
+    return 'font-size: 14px' // 设置除了表头和首列以外的文字大小
   }
-};
+}
 
 const tableData = [
   {
@@ -87,7 +92,7 @@ const tableData = [
   width: 13.125rem;
   white-space: pre-line;
   color: #333333;
-  border: .0125rem solid #D8D8D8;
+  border: 0.0125rem solid #d8d8d8;
 }
 .cell-wrap {
   white-space: pre-wrap;

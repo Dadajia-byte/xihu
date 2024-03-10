@@ -1,6 +1,5 @@
 <template>
   <el-card class="point-card">
-
     <!-- 我的积分模块 start -->
     <div class="box1">
       <div class="title">我的积分</div>
@@ -21,7 +20,10 @@
       <div class="subtitle1">积分奖励</div>
 
       <!-- 积分任务模块实现展开（1000px是动态高度，200px是初始固定高度） start -->
-      <bigpointcard class="point-task" :style="{ maxHeight: TaskisExpand ? '1000px' : '200px' }"></bigpointcard>
+      <bigpointcard
+        class="point-task"
+        :style="{ maxHeight: TaskisExpand ? '1000px' : '200px' }"
+      ></bigpointcard>
       <div style="display: flex" v-show="!TaskisExpand" @click="taskExpand">
         <div class="more">查看更多</div>
         <el-icon class="down">
@@ -38,7 +40,6 @@
         </el-icon>
       </div>
       <!-- 积分任务模块实现收起 end -->
-
     </div>
     <!-- 积分任务模块 end -->
 
@@ -52,12 +53,15 @@
       <div class="subtitle2">积分商城</div>
 
       <!-- 积分兑换模块实现展开（1000px是动态高度，650px是初始固定高度）start -->
-      <bigshopcard class="shop" :style="{ maxHeight: ShopisExpand ? '1000px' : '650px' }"></bigshopcard>
+      <bigshopcard
+        class="shop"
+        :style="{ maxHeight: ShopisExpand ? '1000px' : '650px' }"
+      ></bigshopcard>
       <div style="display: flex" v-show="!ShopisExpand" @click="shopExpand">
-          <div class="more">查看更多</div>
-          <el-icon class="down">
-            <ArrowDown />
-          </el-icon>
+        <div class="more">查看更多</div>
+        <el-icon class="down">
+          <ArrowDown />
+        </el-icon>
       </div>
       <!-- 积分兑换模块实现展开（1000px是动态高度，650px是初始固定高度）end -->
 
@@ -69,7 +73,6 @@
         </el-icon>
       </div>
       <!-- 积分兑换模块实现收起 end -->
-
     </div>
     <!-- 积分商城模块 end -->
 
@@ -81,8 +84,14 @@
         <Notebook />
       </el-icon>
       <div class="subtitle3">积分明细</div>
-      <el-table :data="tableData" stripe true :row-style="{height: '50px'}" class="table">
-        <el-table-column prop="time" label="" width="350%"/>
+      <el-table
+        :data="tableData"
+        stripe
+        true
+        :row-style="{ height: '50px' }"
+        class="table"
+      >
+        <el-table-column prop="time" label="" width="350%" />
         <el-table-column prop="action" label="" />
         <el-table-column prop="change" label="" />
       </el-table>
@@ -128,22 +137,21 @@
 <script setup lang="ts">
 import bigpointcard from './compoment/bigpointcard.vue'
 import bigshopcard from './compoment/bigshopcard.vue'
-import {ref} from 'vue'
-let TaskisExpand =  ref(false)
-let ShopisExpand =  ref(false)
-const taskExpand = () =>{
+import { ref } from 'vue'
+let TaskisExpand = ref(false)
+let ShopisExpand = ref(false)
+const taskExpand = () => {
   TaskisExpand.value = true
 }
-const taskCollapse = () =>{
-  TaskisExpand.value = false;
+const taskCollapse = () => {
+  TaskisExpand.value = false
 }
-const shopExpand = () =>{
+const shopExpand = () => {
   ShopisExpand.value = true
 }
-const shopCollapse = () =>{
-  ShopisExpand.value = false;
+const shopCollapse = () => {
+  ShopisExpand.value = false
 }
-
 
 // 积分明细表的数据
 const tableData = [
@@ -220,22 +228,19 @@ const tableData = [
   font-weight: bold;
 }
 .point-task,
-.shop
-{
+.shop {
   overflow: hidden;
   transition: max-height 0.5s ease;
 }
 .more,
-.less
-{
+.less {
   margin-left: 6.125rem;
   width: 0.75rem;
   font-size: 0.175rem;
   cursor: pointer;
   color: #1185e4;
 
-  &.less
-  {
+  &.less {
     margin-left: 6.375rem;
   }
 }
@@ -246,15 +251,13 @@ const tableData = [
   width: 12.5rem;
 }
 .down,
-.up
-{
+.up {
   margin-left: -0.025rem;
   font-size: 0.2rem;
   color: #1185e4;
   cursor: pointer;
 
-  &.up
-  {
+  &.up {
     margin-top: -0.025rem;
     margin-left: -0.375rem;
   }
@@ -263,8 +266,7 @@ const tableData = [
 .subtitle1,
 .subtitle2,
 .subtitle3,
-.subtitle4
-{
+.subtitle4 {
   margin-top: -0.4125rem;
   margin-left: 0.825rem;
   margin-bottom: 0.125rem;
@@ -274,28 +276,23 @@ const tableData = [
 .medal,
 .good,
 .notebook,
-.memo
-{
+.memo {
   margin-top: 0.25rem;
   margin-left: 0.3125rem;
   font-size: 0.4rem;
   color: #ee8b06;
 
-  &.medal
-  {
+  &.medal {
     color: #f8cd00;
   }
-  &.notebook
-  {
+  &.notebook {
     color: #12b899;
   }
-  &.memo
-  {
+  &.memo {
     color: #1185e4;
   }
 }
-.table
-{
+.table {
   width: 95%;
   margin: auto;
   display: auto;
