@@ -1,14 +1,13 @@
 <template>
   <div class="subItem">
-    <smallcard></smallcard>
-    <smallcard></smallcard>
-    <smallcard></smallcard>
-    <smallcard></smallcard>
+    <activitycard></activitycard>
+    <activitycard></activitycard>
+    <activitycard></activitycard>
   </div>
 </template>
 
 <script setup lang="ts">
-import smallcard from './smallcard.vue'
+import activitycard from './activitycard.vue'
 </script>
 
 <style scoped>
