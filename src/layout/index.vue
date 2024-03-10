@@ -724,8 +724,8 @@ const register = async () => {
   .sidebar {
     position: fixed;
     z-index: 9999;
-    bottom:1.25rem;
-    right: .375rem;
+    bottom: 1.25rem;
+    right: 0.375rem;
   }
 
   .header {
