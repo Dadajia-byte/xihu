@@ -8,7 +8,6 @@ import {
   userData,
 } from './type'
 
-
 enum API {
   USER_CHECK = '/user/Info',
   REGISTER = '/sms/register', // 注册

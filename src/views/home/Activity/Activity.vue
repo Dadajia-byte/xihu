@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div class="activity">
+    <div
+      class="activity wow fadeInUp"
+      data-wow-duration="1s"
+      data-wow-delay="0.2s"
+    >
       <span class="divider">精彩活动</span>
       <div class="whole-content">
         <img src="" alt="" />
@@ -19,7 +23,22 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import WOW from 'wow.js'
+import { onMounted } from 'vue'
+const initWOW = () => {
+  const wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+  })
+  wow.init()
+}
+onMounted(() => {
+  initWOW()
+})
+</script>
 
 <style scoped lang="scss">
 .divider {
