@@ -10,7 +10,7 @@
       <el-icon class="medal"><Trophy /></el-icon>
       <div class="subtitle1">积分奖励</div>
       <bigpointcard></bigpointcard>
-      <div style="display: flex;">
+      <div style="display: flex">
         <div class="more">查看更多</div>
         <el-icon class="down"><ArrowDown /></el-icon>
       </div>
