@@ -8,6 +8,7 @@
 
 <script setup lang="ts">
 import activitycard from './activitycard.vue'
+
 </script>
 
 <style scoped>
