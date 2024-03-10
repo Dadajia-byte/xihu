@@ -83,6 +83,7 @@ import Master from './Master/Master.vue'
 import Mate from './Mate/Mate.vue'
 import Past from './Past/Past.vue'
 import { ref, onMounted } from 'vue'
+import WOW from 'wow.js'
 let num1 = ref(1)
 let finalNum1 = ref(10000)
 let num2 = ref(1)
@@ -97,7 +98,18 @@ onMounted(() => {
   incraeseNum((num) => (num2.value = num), finalNum2.value, 2500)
   incraeseNum((num) => (num3.value = num), finalNum3.value, 2000)
   incraeseNum((num) => (num4.value = num), finalNum4.value, 2000)
+  initWOW()
 })
+
+const initWOW = () => {
+  const wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+  })
+  wow.init()
+}
 </script>
 
 <style lang="scss" scoped>
