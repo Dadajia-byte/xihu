@@ -84,9 +84,9 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  if (vantaEffect.value) {
+  /* if (vantaEffect.value) {
     vantaEffect.value.destroy()
-  }
+  } */
   if (myPlayer.value) {
     myPlayer.value.dispose()
   }

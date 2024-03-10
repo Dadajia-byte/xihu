@@ -1,30 +1,111 @@
 <template>
   <el-card class="point-card">
+    <!-- 我的积分模块 start -->
     <div class="box1">
       <div class="title">我的积分</div>
-      <el-icon class="coin"><Coin /></el-icon>
+      <el-icon class="coin">
+        <Coin />
+      </el-icon>
       <div class="number">500</div>
     </div>
+    <!-- 我的积分模块 end -->
+
     <div class="line"></div>
+
+    <!-- 积分任务模块 start -->
     <div class="box2">
-      <el-icon class="medal"><Trophy /></el-icon>
+      <el-icon class="medal">
+        <Trophy />
+      </el-icon>
       <div class="subtitle1">积分奖励</div>
-      <bigpointcard></bigpointcard>
-      <div style="display: flex">
+
+      <!-- 积分任务模块实现展开（1000px是动态高度，200px是初始固定高度） start -->
+      <bigpointcard
+        class="point-task"
+        :style="{ maxHeight: TaskisExpand ? '1000px' : '200px' }"
+      ></bigpointcard>
+      <div style="display: flex" v-show="!TaskisExpand" @click="taskExpand">
         <div class="more">查看更多</div>
-        <el-icon class="down"><ArrowDown /></el-icon>
+        <el-icon class="down">
+          <ArrowDown />
+        </el-icon>
       </div>
+      <!-- 积分任务模块实现展开 end -->
+
+      <!-- 积分任务模块实现收起 start -->
+      <div style="display: flex" v-show="TaskisExpand" @click="taskCollapse">
+        <div class="less">收起</div>
+        <el-icon class="up">
+          <ArrowUp />
+        </el-icon>
+      </div>
+      <!-- 积分任务模块实现收起 end -->
     </div>
+    <!-- 积分任务模块 end -->
+
     <div class="line"></div>
+
+    <!-- 积分商城模块 start -->
     <div class="box3">
-      <el-icon class="good"><Goods /></el-icon>
+      <el-icon class="good">
+        <Goods />
+      </el-icon>
       <div class="subtitle2">积分商城</div>
-      <bigshopcard></bigshopcard>
+
+      <!-- 积分兑换模块实现展开（1000px是动态高度，650px是初始固定高度）start -->
+      <bigshopcard
+        class="shop"
+        :style="{ maxHeight: ShopisExpand ? '1000px' : '650px' }"
+      ></bigshopcard>
+      <div style="display: flex" v-show="!ShopisExpand" @click="shopExpand">
+        <div class="more">查看更多</div>
+        <el-icon class="down">
+          <ArrowDown />
+        </el-icon>
+      </div>
+      <!-- 积分兑换模块实现展开（1000px是动态高度，650px是初始固定高度）end -->
+
+      <!-- 积分兑换模块实现收起 start -->
+      <div style="display: flex" v-show="ShopisExpand" @click="shopCollapse">
+        <div class="less">收起</div>
+        <el-icon class="up">
+          <ArrowUp />
+        </el-icon>
+      </div>
+      <!-- 积分兑换模块实现收起 end -->
     </div>
+    <!-- 积分商城模块 end -->
+
     <div class="line"></div>
+
+    <!-- 无限滑动展示积分明细表 start -->
     <div class="box4">
-      <el-icon class="memo"><Memo /></el-icon>
-      <div class="subtitle3">积分规则说明</div>
+      <el-icon class="notebook">
+        <Notebook />
+      </el-icon>
+      <div class="subtitle3">积分明细</div>
+      <el-table
+        :data="tableData"
+        stripe
+        true
+        :row-style="{ height: '50px' }"
+        class="table"
+      >
+        <el-table-column prop="time" label="" width="350%" />
+        <el-table-column prop="action" label="" />
+        <el-table-column prop="change" label="" />
+      </el-table>
+    </div>
+    <!-- 无限滑动展示积分明细表 end -->
+
+    <div class="line"></div>
+
+    <!-- 静态不需要更改 -->
+    <div class="box5">
+      <el-icon class="memo">
+        <Memo />
+      </el-icon>
+      <div class="subtitle4">积分规则说明</div>
       <div class="text">
         1.
         您所得积分可参与平台不定期开展的物品兑换活动，具体参见每次兑换活动说明；
@@ -56,6 +137,65 @@
 <script setup lang="ts">
 import bigpointcard from './compoment/bigpointcard.vue'
 import bigshopcard from './compoment/bigshopcard.vue'
+import { ref } from 'vue'
+let TaskisExpand = ref(false)
+let ShopisExpand = ref(false)
+const taskExpand = () => {
+  TaskisExpand.value = true
+}
+const taskCollapse = () => {
+  TaskisExpand.value = false
+}
+const shopExpand = () => {
+  ShopisExpand.value = true
+}
+const shopCollapse = () => {
+  ShopisExpand.value = false
+}
+
+// 积分明细表的数据
+const tableData = [
+  {
+    time: '2024-02-22 14:36:46',
+    action: '签到',
+    change: '+100积分',
+  },
+  {
+    time: '2024-02-21 22:48:21',
+    action: '订阅',
+    change: '+200积分',
+  },
+  {
+    time: '2024-02-21 21:33:30',
+    action: '订阅',
+    change: '+200积分',
+  },
+  {
+    time: '2024-02-21 21:33:24',
+    action: '订阅',
+    change: '+200积分',
+  },
+  {
+    time: '2024-02-21 21:22:11',
+    action: '订阅',
+    change: '+200积分',
+  },
+  {
+    time: '2024-02-18 11:19:43',
+    action: '订阅',
+    change: '+200积分',
+  },
+  {
+    time: '2024-02-17 11:37:09',
+    action: '订阅',
+    change: '+200积分',
+  },
+  {
+    time: '2024-02-16 20:50:53',
+    action: '用户注册',
+    change: '+100积分',
+  },
+]
 </script>
 
 <style scoped>
@@ -65,7 +205,7 @@ import bigshopcard from './compoment/bigshopcard.vue'
   flex-wrap: wrap;
   margin-top: 0.25rem;
   margin-left: 0.3125rem;
-  height: 21.25rem;
+  min-height: 21.25rem;
 }
 .title {
   margin-top: 0.1875rem;
@@ -87,11 +227,22 @@ import bigshopcard from './compoment/bigshopcard.vue'
   font-size: 0.4375rem;
   font-weight: bold;
 }
-.more {
+.point-task,
+.shop {
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+.more,
+.less {
   margin-left: 6.125rem;
   width: 0.75rem;
   font-size: 0.175rem;
+  cursor: pointer;
   color: #1185e4;
+
+  &.less {
+    margin-left: 6.375rem;
+  }
 }
 .line {
   margin-top: 0.1875rem;
@@ -99,46 +250,53 @@ import bigshopcard from './compoment/bigshopcard.vue'
   border: 0.0125rem solid #e3e5e7;
   width: 12.5rem;
 }
-.down {
-  margin-left: 0;
+.down,
+.up {
+  margin-left: -0.025rem;
   font-size: 0.2rem;
   color: #1185e4;
+  cursor: pointer;
+
+  &.up {
+    margin-top: -0.025rem;
+    margin-left: -0.375rem;
+  }
 }
-.medal {
-  margin-top: 0.25rem;
-  margin-left: 0.3125rem;
-  font-size: 0.4rem;
-  color: #f8cd00;
-}
-.subtitle1 {
+
+.subtitle1,
+.subtitle2,
+.subtitle3,
+.subtitle4 {
   margin-top: -0.4125rem;
   margin-left: 0.825rem;
   margin-bottom: 0.125rem;
   font-size: 0.35rem;
 }
-.subtitle2 {
-  margin-top: -0.4125rem;
-  margin-left: 0.825rem;
-  margin-bottom: 0.125rem;
-  font-size: 0.35rem;
-}
-.good {
-  margin-top: 0.25rem;
-  margin-left: 0.3125rem;
-  font-size: 0.4rem;
-  color: #ee8b06;
-}
+
+.medal,
+.good,
+.notebook,
 .memo {
   margin-top: 0.25rem;
   margin-left: 0.3125rem;
   font-size: 0.4rem;
-  color: #1185e4;
+  color: #ee8b06;
+
+  &.medal {
+    color: #f8cd00;
+  }
+  &.notebook {
+    color: #12b899;
+  }
+  &.memo {
+    color: #1185e4;
+  }
 }
-.subtitle3 {
-  margin-top: -0.4125rem;
-  margin-left: 0.825rem;
-  margin-bottom: 0.125rem;
-  font-size: 0.35rem;
+.table {
+  width: 95%;
+  margin: auto;
+  display: auto;
+  height: 4.375rem;
 }
 .text {
   margin-top: 0.325rem;
