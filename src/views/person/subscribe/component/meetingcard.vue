@@ -1,28 +1,28 @@
 <template>
-  <div class="box-card">
-    <div class="name">教育技术产业融合创新发展论坛</div>
+  <div class="box-card" :style="{'background':`url(${data.imageUrl}) no-repeat`}">
+    <div class="name">{{ data.title }}</div>
     <div class="time-location-box">
       <div style="display: flex">
         <el-icon class="clock"><Clock /></el-icon>
-        <div class="time">08:30-12:10</div>
+        <div class="time">{{ data.startTime.slice(11,16) }}-{{ data.endTime.slice(11,16) }}</div>
       </div>
       <div class="location-box">
         <el-icon class="location"><MapLocation /></el-icon>
-        <div class="place">杭州洲际酒店·国际厅1厅</div>
+        <div class="place">{{ data.location }}</div>
       </div>
     </div>
     <div class="type-box">
-      <div class="type">平行论坛</div>
+      <div class="type">{{ data.activityType }}</div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps(['data'])
+</script>
 
 <style scoped>
 .box-card {
-  background: url(../../../../assets/images/person_images/education.jpeg)
-    no-repeat;
   background-size: 4rem 2.25rem;
   display: flex;
   flex-direction: column;

@@ -427,10 +427,10 @@ let { dialogFormVisible, dialogRegisterVisible, isLog } =
   storeToRefs(layoutSettingStore)
 
 /* 图片验证码 */
-let captchaUrl = ref('http://8.130.55.70:8080/dev-api/captcha/get')
+let captchaUrl = ref('http://8.130.145.109:8080/dev-api/captcha/get')
 function refreshCaptcha() {
   const timestamp = new Date().getTime()
-  captchaUrl.value = `http://8.130.55.70:8080/dev-api/captcha/get?timestamp=${timestamp}`
+  captchaUrl.value = `http://8.130.145.109:8080/dev-api/captcha/get?timestamp=${timestamp}`
 }
 
 let isAccLog = ref<boolean>(true)

@@ -75,6 +75,8 @@ import useActivityStore from '@/store/modules/activity'
 import WOW from 'wow.js'
 import { onBeforeUnmount } from 'vue'
 import { ElMessage } from 'element-plus'
+
+import judgeLog from '@/utils/judgeLog'
 //@ts-ignore
 const initWOW = () => {
   const wow = new WOW({
@@ -112,6 +114,7 @@ const handleCurrentChange = () => {
 }
 
 const sub = (id: number) => {
+  judgeLog()
   activityStore
     .subActivity(id)
     .then(() => {
@@ -132,9 +135,6 @@ const cancelSub = (id: number) => {
     })
     .then(() => {
       activityStore.getActivty()
-    })
-    .catch(() => {
-      ElMessage.error('请先登录')
     })
 }
 </script>

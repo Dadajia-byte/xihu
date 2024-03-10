@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <div class="poster">
+    <div class="poster" @click="poster">
       <el-icon size="0.35rem" color="#409eff"><Share /></el-icon>
       <div>海报分享</div>
     </div>
 
-    <div class="clockIn">
+    <div class="clockIn" @click="clockIn">
       <el-icon size="0.35rem" color="#0b81f0"><Camera /></el-icon>
       <div>打卡分享</div>
     </div>
@@ -26,6 +26,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import judgeLog from '@/utils/judgeLog';
 
 const isShow = ref(false)
 
@@ -34,6 +35,14 @@ const backTop = () => {
     top: 0,
     behavior: 'smooth',
   })
+}
+
+const poster =()=>{
+  judgeLog()
+}
+
+const clockIn = () => {
+  judgeLog()
 }
 
 onMounted(() => {

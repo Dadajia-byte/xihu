@@ -1,19 +1,24 @@
 <template>
   <div class="box-card">
-    <div class="name">格致论道@西湖论剑</div>
+    <div class="name">{{data.title}}</div>
     <div style="display: flex">
       <el-icon class="clock"><Clock /></el-icon>
-      <div class="time">2023-05-05 18:30-21:45</div>
+      <div class="time">{{ data.time }}</div>
     </div>
 
-    <div style="display: flex">
-      <div class="type">查看详情</div>
-      <el-icon class="right"><Right /></el-icon>
+    <div>
+      <div class="type">
+        查看详情
+        <el-icon class="right"><Right /></el-icon>
+      </div>
+      
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps(['data'])
+</script>
 
 <style scoped>
 .box-card {
@@ -51,19 +56,33 @@
   color: #1185e4;
 }
 .type {
-  margin-top: 0.2625rem;
-  margin-left: 2.8375rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: .25rem;
   font-size: 11px;
   width: 0.975rem;
-  padding: 0.0437rem 0.05rem 0.05rem 0.0875rem;
   color: #1185e4;
   border: 1px solid #1185e4;
+  margin-left: 70%;
   border-radius: 0.375rem;
+  transition: all .3s;
+
+  .right {
+    font-size: 0.175rem;
+    color: #1185e4;
+    
+    
+  }
+  &:hover {
+    scale: 1.05;
+    background-color: #1185e4;
+    color:white;
+    .right {
+      color: white;
+    }
+  }
 }
-.right {
-  margin-top: 0.3125rem;
-  margin-left: -0.25rem;
-  font-size: 0.175rem;
-  color: #1185e4;
-}
+
 </style>

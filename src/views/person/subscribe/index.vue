@@ -5,22 +5,19 @@
     <!-- 议程订阅模块实现展开（1000px是动态高度，350px是初始固定高度）start -->
     <meetingItems
       class="meeting"
-      :style="{ maxHeight: isExpand ? '1000px' : '350px' }"
+      :style="{ maxHeight: isExpand ? `${agendaSubNum*2.4375}rem` : '4.875rem'}"
+      ref = "meeting"
     ></meetingItems>
-    <el-icon class="arrowdown" v-show="!isExpand" @click="expand">
+    <el-icon class="arrowdown" v-show="!isExpand && agendaSubNum>6" @click="expand">
       <ArrowDown />
     </el-icon>
-    <el-icon class="arrowup" v-show="isExpand" @click="collapse">
+    <el-icon class="arrowup" v-show="isExpand && agendaSubNum>6" @click="collapse">
       <ArrowUp />
     </el-icon>
     <!-- 议程订阅模块实现展开（1000px是动态高度，350px是初始固定高度）end -->
-
-    <div
-      class="content-wrapper"
-      :style="{ maxHeight: isExpand ? '1000px' : '200px' }"
-    >
+    <div class="content-wrapper">
       <div class="title2">精彩活动订阅</div>
-      <activityItems></activityItems>
+      <activityItems ref="activity"></activityItems>
     </div>
   </el-card>
 </template>
@@ -28,8 +25,20 @@
 <script setup lang="ts">
 import meetingItems from './component/meetingItems.vue'
 import activityItems from './component/activityItems.vue'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 let isExpand = ref(false)
+
+const meeting = ref()
+const agendaSubNum = ref(0)
+const activity = ref()
+const activitySubNum = ref(0)
+
+onMounted(()=>{
+  agendaSubNum.value = meeting.value.agendaSubNum
+  activitySubNum.value = activity.value.activitySubNum
+  
+})
+
 const expand = () => {
   isExpand.value = true
 }

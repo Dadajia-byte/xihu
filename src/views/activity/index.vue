@@ -22,6 +22,7 @@ import { onMounted } from 'vue'
 import useActivityStore from '@/store/modules/activity'
 let activityStore = useActivityStore()
 onMounted(() => {
+  activityStore.filterItem.pageSize = 4
   activityStore.getActivty()
 })
 </script>
