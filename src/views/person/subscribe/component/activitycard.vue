@@ -1,6 +1,6 @@
 <template>
   <div class="box-card">
-    <div class="name">{{data.title}}</div>
+    <div class="name">{{ data.title }}</div>
     <div style="display: flex">
       <el-icon class="clock"><Clock /></el-icon>
       <div class="time">{{ data.time }}</div>
@@ -11,7 +11,6 @@
         查看详情
         <el-icon class="right"><Right /></el-icon>
       </div>
-      
     </div>
   </div>
 </template>
@@ -60,29 +59,26 @@ defineProps(['data'])
   display: flex;
   justify-content: center;
   align-items: center;
-  height: .25rem;
+  height: 0.25rem;
   font-size: 11px;
   width: 0.975rem;
   color: #1185e4;
   border: 1px solid #1185e4;
   margin-left: 70%;
   border-radius: 0.375rem;
-  transition: all .3s;
+  transition: all 0.3s;
 
   .right {
     font-size: 0.175rem;
     color: #1185e4;
-    
-    
   }
   &:hover {
     scale: 1.05;
     background-color: #1185e4;
-    color:white;
+    color: white;
     .right {
       color: white;
     }
   }
 }
-
 </style>

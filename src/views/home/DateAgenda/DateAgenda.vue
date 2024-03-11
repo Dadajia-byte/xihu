@@ -1,6 +1,6 @@
 <template>
   <div
-    class="date-agenda wow fadeInUp"
+    class="date-agenda wow animate__backInUp"
     data-wow-duration="1s"
     data-wow-delay="0.1s"
   >

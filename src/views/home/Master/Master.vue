@@ -1,9 +1,9 @@
 <template>
-  <div class="master wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+  <div class="master wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.1s">
     <span class="divider">大咖云集</span>
     <div class="carousel-container">
-      <div class="master-container" ref="cardlist">
-        <div class="card-container" v-for="(card, index) in cards" :key="index">
+      <div class="master-container " ref="cardlist">
+        <div class="card-container wow bounceInUp" data-wow-duration="1.2s" data-wow-delay="0.5s"  v-for="(card, index) in cards" :key="index">
           <div class="card">
             <img :src="card.url" alt="" />
           </div>
@@ -166,8 +166,8 @@ const handleLeftClick = () => {
 
 <style scoped lang="scss">
 .carousel-container {
-  height: 5.3125rem;
-  width: 15.1375rem;
+  height: 7.9688rem;
+  width: 22.7063rem;
   position: relative;
   display: flex;
   justify-content: center;
@@ -175,8 +175,8 @@ const handleLeftClick = () => {
   overflow: hidden;
   .master-container {
     position: absolute;
-    height: 5.3125rem;
-    width: 14.525rem;
+    height: 7.9688rem;
+    width: 21.7875rem;
     display: flex;
     justify-content: flex-start;
     align-content: center;
@@ -188,24 +188,32 @@ const handleLeftClick = () => {
       justify-content: flex-start;
       align-content: center;
       text-align: center;
-      padding: 0 0.375rem;
+      padding: 0 .5625rem;
 
       .card {
-        height: 3.35rem;
-        width: 2.8875rem;
+        height: 5.025rem;
+        width: 4.3312rem;
+        overflow: hidden;
         img {
           height: 100%;
           width: 100%;
+          transition: transform 0.5s ease-in-out
+          
+          
         }
+        &:hover img{
+          transform: scale(1.1);  
+          
+      }
       }
 
       .name {
-        margin: 0.15rem 0;
-        font-size: 0.3rem;
+        margin: .225rem 0;
+        font-size: .45rem;
         text-align: center;
       }
       .description {
-        font-size: 0.2rem;
+        font-size: .3rem;
         color: #abaaaa;
       }
     }
@@ -216,10 +224,10 @@ const handleLeftClick = () => {
   position: absolute;
   top: 33%;
   transform: translateY(-33%);
-  height: 0.475rem;
-  width: 0.475rem;
-  line-height: 0.475rem;
-  font-size: 0.475rem;
+  height: .7125rem;
+  width: .7125rem;
+  line-height: .7125rem;
+  font-size: .7125rem;
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
