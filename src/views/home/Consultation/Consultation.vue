@@ -1,7 +1,9 @@
 <template>
-  <div class="main wow animate__rotateInDownLeft" data-wow-duration="1s" data-wow-delay="0.1s">
-    <span class="divider">新闻资讯</span>
-    <el-carousel :interval="100000" height="8.1937rem" type="card">
+  <div
+    class="main"
+  >
+    <span class="divider wow fadeInUp">新闻资讯</span>
+    <el-carousel :interval="100000" height="8.1937rem" type="card" class="wow animate__rotateInDownLeft"  data-wow-duration="1s" data-wow-delay="1s">
       <el-carousel-item v-for="(item, index) in newsList" :key="index">
         <el-card body-style="padding:0;     ">
           <div
@@ -74,28 +76,28 @@ const newsList = ref([
     background-repeat: no-repeat;
   }
   .title {
-    padding: 0 .1875rem;
+    padding: 0 0.1875rem;
     height: 1.1438rem;
     line-height: 1.1438rem;
     text-align: start;
-    font-size: .4125rem;
+    font-size: 0.4125rem;
     font-weight: bold;
     position: relative;
 
     &::after {
       content: '';
       position: absolute;
-      left: .1875rem;
+      left: 0.1875rem;
       bottom: -0.0375rem;
-      width: .9375rem;
-      height: .0563rem;
+      width: 0.9375rem;
+      height: 0.0563rem;
       background-color: #1185e4;
     }
   }
   .content {
-    font-size: .25rem;
-    padding: .3655rem .1875rem;
-    line-height: .4688rem;
+    font-size: 0.25rem;
+    padding: 0.3655rem 0.1875rem;
+    line-height: 0.4688rem;
     height: 2.2687rem;
     text-align: start;
   }

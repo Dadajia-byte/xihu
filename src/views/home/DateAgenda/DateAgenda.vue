@@ -1,11 +1,10 @@
 <template>
   <div
-    class="date-agenda wow animate__backInUp"
-    data-wow-duration="1s"
-    data-wow-delay="0.1s"
+    class="date-agenda "
+    
   >
-    <span class="divider">大会议程</span>
-    <el-card class="timeline-container">
+    <span class="divider wow fadeInUp">大会议程</span>
+    <el-card class="timeline-container wow animate__backInUp" data-wow-duration="1s" data-wow-delay="0.1s">
       <div class="timeline">
         <div
           class="timeline-item"

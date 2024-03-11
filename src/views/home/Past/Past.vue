@@ -1,7 +1,7 @@
 <template>
-  <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-    <span class="divider">往届大会</span>
-    <div class="carousel-container">
+  <div  >
+    <span class="divider wow fadeInUp">往届大会</span>
+    <div class="carousel-container wow bounceInUp" data-wow-duration="1s" data-wow-delay="1s">
       <div class="master-container" ref="cardlist">
         <div class="card-container" v-for="(card, index) in cards" :key="index">
           <div class="card">
@@ -170,7 +170,7 @@ const handleLeftClick = () => {
       justify-content: flex-start;
       align-content: center;
       text-align: center;
-      padding: 0 .3937rem;
+      padding: 0 0.3937rem;
 
       .card {
         height: 4.3688rem;
@@ -182,7 +182,7 @@ const handleLeftClick = () => {
           transition: transform 0.5s ease-in-out;
         }
 
-        &:hover img{
+        &:hover img {
           transform: scale(1.1);
         }
       }
@@ -194,10 +194,10 @@ const handleLeftClick = () => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  height: .6375rem;
-  width: .6375rem;
-  line-height: .6375rem;
-  font-size: .6375rem;
+  height: 0.6375rem;
+  width: 0.6375rem;
+  line-height: 0.6375rem;
+  font-size: 0.6375rem;
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
@@ -216,16 +216,16 @@ const handleLeftClick = () => {
   align-items: center;
   text-align: center;
   color: #1185e4;
-  font-size: .4286rem;
-  margin: .5714rem auto;
+  font-size: 0.4286rem;
+  margin: 0.5714rem auto;
   font-weight: 700;
 
   &::before,
   &::after {
     content: '';
     flex: 1;
-    border-bottom: .0429rem solid #1185e4;
-    margin: 0 .1429rem;
+    border-bottom: 0.0429rem solid #1185e4;
+    margin: 0 0.1429rem;
   }
 }
 </style>

@@ -1,9 +1,18 @@
 <template>
-  <div class="master wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.1s">
+  <div
+    class="master wow fadeInUp"
+    data-wow-duration="1.5s"
+    data-wow-delay="0.1s"
+  >
     <span class="divider">大咖云集</span>
-    <div class="carousel-container">
-      <div class="master-container " ref="cardlist">
-        <div class="card-container wow bounceInUp" data-wow-duration="1.2s" data-wow-delay="0.5s"  v-for="(card, index) in cards" :key="index">
+    <div class="carousel-container wow bounceInUp" data-wow-duration="1s" data-wow-delay="1s">
+      <div class="master-container" ref="cardlist">
+        <div
+          class="card-container "
+          
+          v-for="(card, index) in cards"
+          :key="index"
+        >
           <div class="card">
             <img :src="card.url" alt="" />
           </div>
@@ -188,7 +197,7 @@ const handleLeftClick = () => {
       justify-content: flex-start;
       align-content: center;
       text-align: center;
-      padding: 0 .5625rem;
+      padding: 0 0.5625rem;
 
       .card {
         height: 5.025rem;
@@ -197,23 +206,20 @@ const handleLeftClick = () => {
         img {
           height: 100%;
           width: 100%;
-          transition: transform 0.5s ease-in-out
-          
-          
+          transition: transform 0.5s ease-in-out;
         }
-        &:hover img{
-          transform: scale(1.1);  
-          
-      }
+        &:hover img {
+          transform: scale(1.1);
+        }
       }
 
       .name {
-        margin: .225rem 0;
-        font-size: .45rem;
+        margin: 0.225rem 0;
+        font-size: 0.45rem;
         text-align: center;
       }
       .description {
-        font-size: .3rem;
+        font-size: 0.3rem;
         color: #abaaaa;
       }
     }
@@ -224,10 +230,10 @@ const handleLeftClick = () => {
   position: absolute;
   top: 33%;
   transform: translateY(-33%);
-  height: .7125rem;
-  width: .7125rem;
-  line-height: .7125rem;
-  font-size: .7125rem;
+  height: 0.7125rem;
+  width: 0.7125rem;
+  line-height: 0.7125rem;
+  font-size: 0.7125rem;
   text-align: center;
   border-radius: 50%;
   cursor: pointer;

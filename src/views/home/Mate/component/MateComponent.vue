@@ -2,8 +2,8 @@
   <div
     class="mate-container wow"
     :class="animateClass(index)"
-    data-wow-duration="1.5s"
-    data-wow-delay="0.5s"
+    data-wow-duration="1s"
+    data-wow-delay="0.7s"
     v-for="(mateData, index) in mateDatas"
     :key="index"
   >
@@ -99,8 +99,8 @@ onMounted(() => {
 
 .fold {
   text-align: center;
-  font-size: .2625rem;
-  margin: .2625rem 0;
+  font-size: 0.2625rem;
+  margin: 0.2625rem 0;
   color: #1e8ce6;
   cursor: pointer;
 }
@@ -127,8 +127,8 @@ onMounted(() => {
 
 .mate-container {
   .el-card {
-    font-size: .45rem;
-    margin: 0 auto .525rem;
+    font-size: 0.45rem;
+    margin: 0 auto 0.525rem;
     width: 20.6812rem;
   }
 }
