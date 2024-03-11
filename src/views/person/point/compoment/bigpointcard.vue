@@ -10,6 +10,14 @@
     <div class="line"></div>
     <pointcard></pointcard>
     <pointcard></pointcard>
+    <div class="line"></div>
+    <pointcard></pointcard>
+    <div class="line"></div>
+    <pointcard></pointcard>
+    <div class="line"></div>
+    <pointcard></pointcard>
+    <div class="line"></div>
+    <pointcard></pointcard>
   </div>
 </template>
 

@@ -10,4 +10,16 @@
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style scoped>
+.fade-enter-active {
+  transition: all 1s;
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-enter-to {
+  opacity: 1;
+}
+</style>

@@ -93,10 +93,12 @@ body {
   .left {
     display: flex;
     justify-content: center;
+    height: 10rem;
 
     .avatar {
-      width: 1.875rem;
-      height: 1.875rem;
+      margin-left: 12%;
+      width: 1.5rem;
+      height: 1.5rem;
       border-radius: 50%;
     }
 

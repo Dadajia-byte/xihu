@@ -3,6 +3,7 @@
     <!-- 顶部导航栏 -->
     <Tabbar class="tabbar"></Tabbar>
     <Main class="main"></Main>
+    <Sidebar class="sidebar"></Sidebar>
     <Footer class="footer"></Footer>
     <el-dialog
       v-model="dialogFormVisible"
@@ -399,6 +400,8 @@ import Tabbar from './tabbar/index.vue'
 // 引入页脚
 import Footer from './footer/index.vue'
 
+import Sidebar from './sidebar/index.vue'
+
 /* 路由相关 */
 import { useRouter } from 'vue-router'
 let $router = useRouter()
@@ -424,10 +427,10 @@ let { dialogFormVisible, dialogRegisterVisible, isLog } =
   storeToRefs(layoutSettingStore)
 
 /* 图片验证码 */
-let captchaUrl = ref('http://8.130.55.70:8080/dev-api/captcha/get')
+let captchaUrl = ref('http://8.130.145.109:8080/dev-api/captcha/get')
 function refreshCaptcha() {
   const timestamp = new Date().getTime()
-  captchaUrl.value = `http://8.130.55.70:8080/dev-api/captcha/get?timestamp=${timestamp}`
+  captchaUrl.value = `http://8.130.145.109:8080/dev-api/captcha/get?timestamp=${timestamp}`
 }
 
 let isAccLog = ref<boolean>(true)
@@ -716,6 +719,13 @@ const register = async () => {
   .main {
     padding-top: 1rem;
     height: 11.4857rem;
+  }
+
+  .sidebar {
+    position: fixed;
+    z-index: 9999;
+    bottom: 1.25rem;
+    right: 0.375rem;
   }
 
   .header {

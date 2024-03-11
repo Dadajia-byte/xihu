@@ -21,8 +21,8 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 import videojs from 'video.js'
-const videoPlayer = ref(null)
-const myPlayer = ref(null)
+const videoPlayer = ref()
+const myPlayer = ref()
 const logoList = ref([
   {
     logoUrl:
@@ -88,7 +88,6 @@ onUnmounted(() => {
   if (myPlayer.value) {
     myPlayer.value.dispose()
   }
-  // initWOW()
 })
 </script>
 

@@ -6,7 +6,7 @@ let useMeetingStore = defineStore('meetingStore', () => {
   let reqData: reqData = reactive({
     type: '',
     date: '',
-    num: 4, // num==-1代表全部日期
+    num: -1, // num==-1代表全部日期
   })
 
   let agendaItems = ref<agendaItem[]>()
