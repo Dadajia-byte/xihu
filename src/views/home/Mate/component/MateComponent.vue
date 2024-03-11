@@ -4,7 +4,7 @@
     :class="animateClass(index)"
     data-wow-duration="1.5s"
     data-wow-delay="0.5s"
-    v-for="(mateData, index) in mateDatas"
+    v-for="(mateData,index) in mateDatas"
     :key="index"
   >
     <el-card :body-style="{ padding: '0px' }">
@@ -48,17 +48,17 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref, onMounted, computed } from 'vue'
+import { defineProps, ref, onMounted } from 'vue'
 import WOW from 'wow.js'
 
 defineProps({
   mateDatas: {
-    type: Object,
+    type: Array,
     default: () => {},
   },
 })
 
-const animateClass = (index) => ({
+const animateClass = (index:number) => ({
   fadeInLeft: index % 2 === 0,
   fadeInRight: index % 2 !== 0,
 })
