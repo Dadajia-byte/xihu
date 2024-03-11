@@ -3,57 +3,95 @@
     <Screen></Screen>
     <div class="filter-container">
       <div class="filter-main">
-        <div class="all" :class="{ active: mainIndex === 1 }" @click="setMainActive">全部议程</div>
-        <div class="admin" :class="{ active: mainIndex === -1 }" @click="setMainActive">我的日程</div>
+        <div
+          class="all"
+          :class="{ active: mainIndex === 1 }"
+          @click="setMainActive"
+        >
+          全部议程
+        </div>
+        <div
+          class="admin"
+          :class="{ active: mainIndex === -1 }"
+          @click="setMainActive"
+        >
+          我的日程
+        </div>
       </div>
       <div class="filter-date">
-        <div class="filteritem" v-for="(item, index) in dateList" :key="index"
-          :class="{ active: index === activeDateIndex }" @click="setDateActive(index, item)" :style="index === activeDateIndex
-          ? 'background-color:#79C3FF;'
-          : 'background-color:#EDEBEB'
-          ">{{ item.date }} </div>
+        <div
+          class="filteritem"
+          v-for="(item, index) in dateList"
+          :key="index"
+          :class="{ active: index === activeDateIndex }"
+          @click="setDateActive(index, item)"
+          :style="
+            index === activeDateIndex
+              ? 'background-color:#79C3FF;'
+              : 'background-color:#EDEBEB'
+          "
+        >
+          {{ item.date }}
+        </div>
       </div>
       <div class="filter-type">
-        <div class="filteritem" v-for="(item, index) in typeList" :key="index"
-          :class="{ active: index === activeTypeIndex }" @click="setTypeActive(index, item)" :style="index === activeTypeIndex
-          ? 'background-color:#79C3FF;'
-          : 'background-color:#EDEBEB'
-          ">{{ item.type }}</div>
+        <div
+          class="filteritem"
+          v-for="(item, index) in typeList"
+          :key="index"
+          :class="{ active: index === activeTypeIndex }"
+          @click="setTypeActive(index, item)"
+          :style="
+            index === activeTypeIndex
+              ? 'background-color:#79C3FF;'
+              : 'background-color:#EDEBEB'
+          "
+        >
+          {{ item.type }}
+        </div>
       </div>
     </div>
 
-
     <div class="agendalist-container" v-show="meetingStore.reqData.date === ''">
-      <div class="agenda-content" v-for="(dateItem,index) in filteredAgendas" :key="index">
-        <div class="content-item"  >
+      <div
+        class="agenda-content"
+        v-for="(dateItem, index) in filteredAgendas"
+        :key="index"
+      >
+        <div class="content-item">
           <div class="date">
             <span>{{ dateItem.date }}</span>
           </div>
-          <div class="cardcontainer" v-for="(events, index) in dateItem.events"  :key="index">
+          <div
+            class="cardcontainer"
+            v-for="(events, index) in dateItem.events"
+            :key="index"
+          >
             <el-card body-style="display:flex;">
               <div class="part1">
-                <div style="display: flex;">
-                  <div class="time"> {{
-          `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
-        }}</div>
+                <div style="display: flex">
+                  <div class="time">
+                    {{
+                      `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
+                    }}
+                  </div>
                   <div class="link">
-
                     <span>
                       <el-icon>
                         <ChatDotSquare />
                       </el-icon>
                       {{ events.activityType }}
                     </span>
-
-
                   </div>
                   <div class="link">
-                    <span><el-icon>
+                    <span>
+                      <el-icon>
                         <VideoCamera />
-                      </el-icon> 回放</span>
+                      </el-icon>
+                      回放
+                    </span>
                   </div>
                 </div>
-
 
                 <div class="location">
                   <el-icon>
@@ -64,54 +102,55 @@
               </div>
 
               <div class="part2">
-                <div class="title"><span>{{ events.title }}</span></div>
+                <div class="title">
+                  <span>{{ events.title }}</span>
+                </div>
               </div>
               <div class="part3">
-                <el-button icon="Plus" type="primary">
-                  订阅
-                </el-button>
+                <el-button icon="Plus" type="primary">订阅</el-button>
               </div>
             </el-card>
           </div>
         </div>
-
       </div>
-
     </div>
 
-
     <div class="agendalist-container" v-show="meetingStore.reqData.date !== ''">
-
       <div class="agenda-content">
         <div class="content-item">
           <div class="date">
             <span>{{ meetingStore.reqData.date }}</span>
           </div>
-          <div class="cardcontainer" v-for="(item, index) in meetingStore.agendaItems " :key="index">
+          <div
+            class="cardcontainer"
+            v-for="(item, index) in meetingStore.agendaItems"
+            :key="index"
+          >
             <el-card body-style="display:flex;">
               <div class="part1">
-                <div style="display: flex;">
-                  <div class="time"> {{
-          `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}`
-        }}</div>
+                <div style="display: flex">
+                  <div class="time">
+                    {{
+                      `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}`
+                    }}
+                  </div>
                   <div class="link">
-
                     <span>
                       <el-icon>
                         <ChatDotSquare />
                       </el-icon>
                       {{ item.activityType }}
                     </span>
-
-
                   </div>
                   <div class="link">
-                    <span><el-icon>
+                    <span>
+                      <el-icon>
                         <VideoCamera />
-                      </el-icon> 回放</span>
+                      </el-icon>
+                      回放
+                    </span>
                   </div>
                 </div>
-
 
                 <div class="location">
                   <el-icon>
@@ -122,22 +161,18 @@
               </div>
 
               <div class="part2">
-                <div class="title"><span>{{ item.title }}</span></div>
+                <div class="title">
+                  <span>{{ item.title }}</span>
+                </div>
               </div>
               <div class="part3">
-                <el-button icon="Plus" type="primary">
-                  订阅
-                </el-button>
+                <el-button icon="Plus" type="primary">订阅</el-button>
               </div>
             </el-card>
           </div>
         </div>
-
       </div>
-
-
     </div>
-
   </div>
 </template>
 
@@ -150,7 +185,6 @@ import useMeetingStore from '@/store/modules/meeting'
 
 let meetingStore = useMeetingStore()
 
-
 const dateList = ref([
   { date: '全部' },
   { date: '5月5日' },
@@ -159,10 +193,10 @@ const dateList = ref([
   { date: '5月8日' },
 ])
 const dates = ref([
-  { date: '5月5日',show:0 ,findFlag:'05-05'},
-  { date: '5月6日',show:0 ,findFlag:'05-06'},
-  { date: '5月7日',show:0 ,findFlag:'05-07'},
-  { date: '5月8日',show:0 ,findFlag:'05-08'},
+  { date: '5月5日', show: 0, findFlag: '05-05' },
+  { date: '5月6日', show: 0, findFlag: '05-06' },
+  { date: '5月7日', show: 0, findFlag: '05-07' },
+  { date: '5月8日', show: 0, findFlag: '05-08' },
 ])
 const typeList = ref([
   { type: '全部' },
@@ -177,21 +211,17 @@ const activeTypeIndex = ref(0)
 const activeDateIndex = ref(0)
 const mainIndex = ref(1) //1为全部议程 -1为我的议程
 
+const filteredAgenda = ref([])
 
-
-
-
-
-const filteredAgenda = ref([]) 
-
-const filterAgendaItem = (dateItem:any) => {
-  filteredAgenda.value = meetingStore.agendaItems?.filter(item =>{item.startTime.includes(dateItem.findFlag)})
+const filterAgendaItem = (dateItem: any) => {
+  filteredAgenda.value = meetingStore.agendaItems?.filter((item) => {
+    item.startTime.includes(dateItem.findFlag)
+  })
   return filteredAgenda.value
 }
 
 const setMainActive = () => {
   mainIndex.value = -mainIndex.value
-  
 }
 const setTypeActive = async (index: number, item: any) => {
   activeTypeIndex.value = index
@@ -208,18 +238,21 @@ const initAgenda = async () => {
   meetingStore.reqData.date = ''
   meetingStore.reqData.type = ''
   meetingStore.reqData.num = -1
- await meetingStore.getAgenda()
+  await meetingStore.getAgenda()
 }
 const filteredAgendas = computed(() => {
-  return dates.value.map((dateItem: { findFlag: string }) => {
-    // 根据 dateItem.findFlag 过滤议程
-    const eventsForDate = meetingStore.agendaItems?.filter(event => 
-      event.startTime.includes(dateItem.findFlag));
-    return {
-      ...dateItem,
-      events: eventsForDate
-    };
-  })?.filter(item => item.events?.length > 0); // 过滤掉没有议程的日期
+  return dates.value
+    .map((dateItem: { findFlag: string }) => {
+      // 根据 dateItem.findFlag 过滤议程
+      const eventsForDate = meetingStore.agendaItems?.filter((event) =>
+        event.startTime.includes(dateItem.findFlag),
+      )
+      return {
+        ...dateItem,
+        events: eventsForDate,
+      }
+    })
+    ?.filter((item) => item.events?.length > 0) // 过滤掉没有议程的日期
 })
 
 const initWOW = () => {
@@ -232,23 +265,16 @@ const initWOW = () => {
   wow.init()
 }
 
-
-
-onMounted( async () => {
+onMounted(async () => {
   initWOW()
-  
-  await  initAgenda()
-  console.log(filteredAgendas )
+
+  await initAgenda()
+  console.log(filteredAgendas)
 })
 
 onUnmounted(() => {
-  meetingStore.reqData.num = 4;
-
+  meetingStore.reqData.num = 4
 })
-
-
-
-
 </script>
 
 <style scoped lang="scss">
@@ -383,13 +409,12 @@ onUnmounted(() => {
   .filter-container {
     margin: 0 auto;
     width: 13.725rem;
-    padding: .425rem 0 .7rem;
+    padding: 0.425rem 0 0.7rem;
 
     .filter-main {
-
       display: flex;
       width: 13.725rem;
-      box-shadow: .0125rem .0625rem .0625rem #d5d5d5;
+      box-shadow: 0.0125rem 0.0625rem 0.0625rem #d5d5d5;
 
       .all,
       .admin {
@@ -398,17 +423,16 @@ onUnmounted(() => {
         justify-content: center;
         align-content: center;
         width: 6.8625rem;
-        height: .7375rem;
-        font-size: .25rem;
-        line-height: .7375rem;
+        height: 0.7375rem;
+        font-size: 0.25rem;
+        line-height: 0.7375rem;
         text-align: center;
         font-weight: bold;
       }
-
     }
 
     .filter-date {
-      margin: .4rem 0;
+      margin: 0.4rem 0;
       display: flex;
     }
 
@@ -421,12 +445,10 @@ onUnmounted(() => {
       display: flex;
       justify-content: center;
       width: 1.7375rem;
-      height: .4875rem;
-      margin-right: .3375rem;
-      font-size: .2rem;
-      line-height: .4875rem;
-
-
+      height: 0.4875rem;
+      margin-right: 0.3375rem;
+      font-size: 0.2rem;
+      line-height: 0.4875rem;
     }
   }
 
@@ -434,10 +456,9 @@ onUnmounted(() => {
     margin: 0 auto;
     width: 13.725rem;
 
-
     .date {
-      font-size: .35rem;
-      line-height: .4875rem;
+      font-size: 0.35rem;
+      line-height: 0.4875rem;
       position: relative;
       font-style: oblique;
 
@@ -447,8 +468,8 @@ onUnmounted(() => {
         left: 0;
         bottom: -0.0625rem;
         width: 100%;
-        height: .0625rem;
-        background-color: #1185E4;
+        height: 0.0625rem;
+        background-color: #1185e4;
       }
     }
 
@@ -456,7 +477,7 @@ onUnmounted(() => {
       flex: 2.5;
 
       .time {
-        font-size: .325rem;
+        font-size: 0.325rem;
         font-weight: bold;
         position: relative;
 
@@ -465,28 +486,28 @@ onUnmounted(() => {
           position: absolute;
           left: -0.125rem;
           top: 0;
-          height: .325rem;
-          width: .0625rem;
-          background-color: #1185E4;
+          height: 0.325rem;
+          width: 0.0625rem;
+          background-color: #1185e4;
         }
       }
 
       .location {
-        font-size: .15rem;
-        line-height: .45rem;
+        font-size: 0.15rem;
+        line-height: 0.45rem;
       }
 
       .link {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        font-size: .1375rem;
-        line-height: .25rem;
+        font-size: 0.1375rem;
+        line-height: 0.25rem;
         text-align: end;
-        margin-left: .175rem;
+        margin-left: 0.175rem;
 
         span {
-          color: #1185E4;
+          color: #1185e4;
         }
       }
     }
@@ -499,7 +520,7 @@ onUnmounted(() => {
         height: 0.5714rem;
         line-height: 0.5714rem;
         padding: 0rem 0.3571rem 0rem 0.2143rem;
-        font-size: .325rem;
+        font-size: 0.325rem;
         font-weight: 700;
         background: linear-gradient(to right, #84bded, #fafafa);
         border-radius: 0.2857rem;
@@ -513,17 +534,14 @@ onUnmounted(() => {
     }
 
     .el-card {
-      margin: .4rem 0;
-
-
+      margin: 0.4rem 0;
     }
   }
 
   .active {
-    background-color: #79C3FF;
+    background-color: #79c3ff;
     color: #fff;
     font-weight: bold;
   }
-
 }
 </style>
