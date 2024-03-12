@@ -3,77 +3,47 @@
     <Screen></Screen>
     <div class="filter-container">
       <div class="filter-main">
-        <div
-          class="all"
-          :class="{ active: mainIndex === 1 }"
-          @click="setMainActive"
-        >
+        <div class="all" :class="{ active: mainIndex === 1 }" @click="setMainActive">
           全部议程
         </div>
-        <div
-          class="admin"
-          :class="{ active: mainIndex === -1 }"
-          @click="setMainActive"
-        >
+        <div class="admin" :class="{ active: mainIndex === -1 }" @click="setMainActive">
           我的日程
         </div>
       </div>
       <div class="filter-date">
-        <div
-          class="filteritem"
-          v-for="(item, index) in dateList"
-          :key="index"
-          :class="{ active: index === activeDateIndex }"
-          @click="setDateActive(index, item)"
-          :style="
-            index === activeDateIndex
-              ? 'background-color:#79C3FF;'
-              : 'background-color:#EDEBEB'
-          "
-        >
+        <div class="filteritem" v-for="(item, index) in dateList" :key="index"
+          :class="{ active: index === activeDateIndex }" @click="setDateActive(index, item)" :style="index === activeDateIndex
+            ? 'background-color:#79C3FF;'
+            : 'background-color:#EDEBEB'
+          ">
           {{ item.date }}
         </div>
       </div>
       <div class="filter-type">
-        <div
-          class="filteritem"
-          v-for="(item, index) in typeList"
-          :key="index"
-          :class="{ active: index === activeTypeIndex }"
-          @click="setTypeActive(index, item)"
-          :style="
-            index === activeTypeIndex
-              ? 'background-color:#79C3FF;'
-              : 'background-color:#EDEBEB'
-          "
-        >
+        <div class="filteritem" v-for="(item, index) in typeList" :key="index"
+          :class="{ active: index === activeTypeIndex }" @click="setTypeActive(index, item)" :style="index === activeTypeIndex
+            ? 'background-color:#79C3FF;'
+            : 'background-color:#EDEBEB'
+          ">
           {{ item.type }}
         </div>
       </div>
     </div>
 
     <div class="agendalist-container" v-show="meetingStore.reqData.date === ''">
-      <div
-        class="agenda-content"
-        v-for="(dateItem, index) in filteredAgendas"
-        :key="index"
-      >
+      <div class="agenda-content" v-for="(dateItem, index) in filteredAgendas" :key="index">
         <div class="content-item">
           <div class="date">
             <span>{{ dateItem.date }}</span>
           </div>
-          <div
-            class="cardcontainer"
-            v-for="(events, index) in dateItem.events"
-            :key="index"
-          >
+          <div class="cardcontainer" v-for="(events, index) in dateItem.events" :key="index">
             <el-card body-style="display:flex;">
               <div class="part1">
                 <div style="display: flex">
                   <div class="time">
                     {{
-                      `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
-                    }}
+          `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
+        }}
                   </div>
                   <div class="link">
                     <span>
@@ -121,18 +91,14 @@
           <div class="date">
             <span>{{ meetingStore.reqData.date }}</span>
           </div>
-          <div
-            class="cardcontainer"
-            v-for="(item, index) in meetingStore.agendaItems"
-            :key="index"
-          >
+          <div class="cardcontainer" v-for="(item, index) in meetingStore.agendaItems" :key="index">
             <el-card body-style="display:flex;">
               <div class="part1">
                 <div style="display: flex">
                   <div class="time">
                     {{
-                      `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}`
-                    }}
+          `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}`
+        }}
                   </div>
                   <div class="link">
                     <span>
@@ -166,7 +132,13 @@
                 </div>
               </div>
               <div class="part3">
-                <el-button icon="Plus" type="primary">订阅</el-button>
+                <el-button icon="Plus" type="primary" v-show="item.isSub == 0"
+                  style="width: 1.4286rem; height: 0.4714rem; font-size: 0.2571rem" @click="goSub(item.id)">
+                  订阅
+                </el-button>
+                <div class="subbed" v-show="item.isSub == 1" @click="cancelSub(item.id)">
+                  已订阅
+                </div>
               </div>
             </el-card>
           </div>
@@ -177,11 +149,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, computed, onBeforeMount } from 'vue'
+import { onMounted, onUnmounted, ref, computed, nextTick } from 'vue'
 import Screen from './components/Screen.vue'
 // @ts-ignore
 import WOW from 'wow.js'
 import useMeetingStore from '@/store/modules/meeting'
+import { ElMessage } from 'element-plus'
 
 let meetingStore = useMeetingStore()
 
@@ -240,6 +213,7 @@ const initAgenda = async () => {
   meetingStore.reqData.num = -1
   await meetingStore.getAgenda()
 }
+
 const filteredAgendas = computed(() => {
   return dates.value
     .map((dateItem: { findFlag: string }) => {
@@ -255,6 +229,39 @@ const filteredAgendas = computed(() => {
     ?.filter((item) => item.events?.length > 0) // 过滤掉没有议程的日期
 })
 
+const goSub = async (id: number) => {
+  console.log(id)
+  await meetingStore
+    .subAgenda(id)
+    .then(() => {
+      nextTick(async () => {
+        // 重新请求数据
+        await meetingStore.getAgenda()
+      })
+      ElMessage({
+        message: '订阅成功',
+        type: 'success',
+      })
+    })
+    .catch((res) => {
+      console.log(res)
+      ElMessage({
+        message: res.message,
+        type: 'error',
+      })
+    })
+}
+const cancelSub = async (id: number) => {
+  await meetingStore.cancelAgenda(id)
+  nextTick(async () => {
+    await meetingStore.getAgenda()
+    ElMessage({
+      message: '取消订阅成功',
+      type: 'success',
+    })
+  })
+}
+
 const initWOW = () => {
   const wow = new WOW({
     boxClass: 'wow',
@@ -269,7 +276,6 @@ onMounted(async () => {
   initWOW()
 
   await initAgenda()
-  console.log(filteredAgendas)
 })
 
 onUnmounted(() => {
@@ -280,131 +286,6 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .agenda-page {
   width: 100%;
-
-  // .agenda-list {
-  //   width: 100%;
-  //   padding: 1rem;
-
-  //   .title {
-  //     width: 100%;
-  //     text-align: center;
-  //     font-size: 0.5rem;
-  //     @include linear-txt;
-  //   }
-
-  //   .title-re {
-  //     margin: 0.1067rem 0;
-  //     @include linear-txt;
-  //     text-align: center;
-  //     line-height: 1.4;
-  //     font-size: 0.1967rem;
-  //   }
-
-  //   .agenda-content {
-  //     width: fit-content;
-  //     min-height: 70vh;
-  //     margin-top: 1.2333rem;
-  //     margin-bottom: 0.6333rem;
-  //     display: flex;
-  //     flex-direction: row;
-
-  //     .ad-item {
-  //       display: flex;
-  //       @include text-column;
-  //       cursor: pointer;
-  //       border: 0.0167rem solid rgba(217, 217, 217, 0.382);
-
-  //       .expand {
-  //         width: 0;
-  //         transition: all 0.3s;
-  //         position: relative;
-
-  //         .e-r {
-  //           position: absolute;
-  //           bottom: 0;
-  //           height: 5.5rem;
-  //           text-align: center;
-  //           right: 0.1667rem;
-  //           @include linear-txt;
-  //         }
-
-  //         .e-l {
-  //           position: absolute;
-  //           bottom: 0;
-  //           height: 5.5rem;
-  //           left: 0;
-  //           text-align: center;
-  //           left: 0.1667rem;
-  //           @include linear-txt;
-  //         }
-  //       }
-
-  //       .time {
-  //         height: 3.8rem;
-  //         width: 1rem;
-  //         font-size: 0.3rem;
-  //         background: linear-gradient(
-  //           to bottom,
-  //           $theme-color-green,
-  //           $theme-color-blue
-  //         );
-  //         color: white;
-  //         display: flex;
-  //         align-items: center;
-  //         padding: 0.2rem 0.2rem;
-  //         clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
-  //         position: relative;
-  //         top: -0.6667rem;
-  //       }
-
-  //       .ad-title {
-  //         flex: 2;
-  //         @include linear-txt;
-  //         display: flex;
-  //         align-items: center;
-  //         font-size: 0.35rem;
-  //         position: relative;
-  //       }
-  //     }
-
-  //     .ad-item-re {
-  //       flex-direction: row-reverse;
-
-  //       .e-r {
-  //         position: absolute;
-  //         top: 0;
-  //         text-align: start;
-  //         height: 5.5rem;
-  //       }
-
-  //       .e-l {
-  //         position: absolute;
-  //         top: 0;
-  //         height: 5.5rem;
-  //         left: 0;
-  //         text-align: start;
-  //       }
-
-  //       .ad-title {
-  //         text-align: end;
-  //         justify-content: flex-end;
-  //       }
-
-  //       .time {
-  //         text-align: end;
-  //         justify-content: flex-end;
-  //         background: linear-gradient(
-  //           to bottom,
-  //           $theme-color-blue,
-  //           $theme-color-green
-  //         );
-  //         clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
-  //         position: relative;
-  //         top: 0.6667rem;
-  //       }
-  //     }
-  //   }
-  // }
 
   .filter-container {
     margin: 0 auto;
@@ -531,6 +412,14 @@ onUnmounted(() => {
       flex: 2;
       display: flex;
       justify-items: end;
+      .subbed {
+        width: 1.4286rem;
+        height: 0.4714rem;
+        line-height: 0.4143rem;
+        text-align: center;
+        border-radius: 0.0714rem;
+        border: #fafafa 0.0286rem solid;
+      }
     }
 
     .el-card {

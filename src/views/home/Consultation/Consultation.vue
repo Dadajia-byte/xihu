@@ -1,9 +1,14 @@
 <template>
-  <div
-    class="main"
-  >
+  <div class="main">
     <span class="divider wow fadeInUp">新闻资讯</span>
-    <el-carousel :interval="100000" height="8.1937rem" type="card" class="wow animate__rotateInDownLeft"  data-wow-duration="1s" data-wow-delay="1s">
+    <el-carousel
+      :interval="100000"
+      height="8.1937rem"
+      type="card"
+      class="wow animate__rotateInDownLeft"
+      data-wow-duration="1s"
+      data-wow-delay="1s"
+    >
       <el-carousel-item v-for="(item, index) in newsList" :key="index">
         <el-card body-style="padding:0;     ">
           <div

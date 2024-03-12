@@ -5,14 +5,13 @@
     data-wow-delay="0.1s"
   >
     <span class="divider">大咖云集</span>
-    <div class="carousel-container wow bounceInUp" data-wow-duration="1s" data-wow-delay="1s">
+    <div
+      class="carousel-container wow bounceInUp"
+      data-wow-duration="1s"
+      data-wow-delay="1s"
+    >
       <div class="master-container" ref="cardlist">
-        <div
-          class="card-container "
-          
-          v-for="(card, index) in cards"
-          :key="index"
-        >
+        <div class="card-container" v-for="(card, index) in cards" :key="index">
           <div class="card">
             <img :src="card.url" alt="" />
           </div>
