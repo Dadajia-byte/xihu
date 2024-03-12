@@ -5,13 +5,23 @@
     <!-- 议程订阅模块实现展开（1000px是动态高度，350px是初始固定高度）start -->
     <meetingItems
       class="meeting"
-      :style="{ maxHeight: isExpand ? `${agendaSubNum*2.4375}rem` : '4.875rem'}"
-      ref = "meeting"
+      :style="{
+        maxHeight: isExpand ? `${agendaSubNum * 2.4375}rem` : '4.875rem',
+      }"
+      ref="meeting"
     ></meetingItems>
-    <el-icon class="arrowdown" v-show="!isExpand && agendaSubNum>6" @click="expand">
+    <el-icon
+      class="arrowdown"
+      v-show="!isExpand && agendaSubNum > 6"
+      @click="expand"
+    >
       <ArrowDown />
     </el-icon>
-    <el-icon class="arrowup" v-show="isExpand && agendaSubNum>6" @click="collapse">
+    <el-icon
+      class="arrowup"
+      v-show="isExpand && agendaSubNum > 6"
+      @click="collapse"
+    >
       <ArrowUp />
     </el-icon>
     <!-- 议程订阅模块实现展开（1000px是动态高度，350px是初始固定高度）end -->
@@ -33,10 +43,9 @@ const agendaSubNum = ref(0)
 const activity = ref()
 const activitySubNum = ref(0)
 
-onMounted(()=>{
+onMounted(() => {
   agendaSubNum.value = meeting.value.agendaSubNum
   activitySubNum.value = activity.value.activitySubNum
-  
 })
 
 const expand = () => {

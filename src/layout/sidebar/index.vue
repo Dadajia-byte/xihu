@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import judgeLog from '@/utils/judgeLog';
+import judgeLog from '@/utils/judgeLog'
 
 const isShow = ref(false)
 
@@ -37,7 +37,7 @@ const backTop = () => {
   })
 }
 
-const poster =()=>{
+const poster = () => {
   judgeLog()
 }
 

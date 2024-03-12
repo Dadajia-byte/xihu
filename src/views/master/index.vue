@@ -1,5 +1,20 @@
 <template>
-  <div></div>
+  <div>
+    <div class="marster">
+      <div class="header">
+        <div class="title">大咖云集</div>
+        <div class="engtitle">SPEAKERS</div>
+      </div>
+
+      <div class="professonal">
+        <div class="professonal-title">
+          <div class="title">专家委员会</div>
+          <div class="tips">排名不分先后</div>
+        </div>
+      </div>
+      <div class="guest"></div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts"></script>
@@ -8,4 +23,52 @@ export default {
   name: 'master',
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.header {
+  width: 100%;
+  height: 7.3rem;
+  padding-left: 1.325rem;
+  padding-top: 1.75rem;
+  background-color: green;
+
+  .title {
+    font-size: .525rem;
+    font-weight: bold;
+    line-height: .5rem;
+    color: #fff;
+  }
+
+  .engtitle {
+    font-size: .2rem;
+    line-height: .7375rem;
+    color: #fff;
+
+  }
+}
+
+.professonal {
+  padding: 0 .45rem;
+
+  .professonal-title {
+    color: #1185E4;
+    position: relative;
+    .title{
+      font-size: .525rem;
+      font-weight: bold
+
+      
+    }
+    .tips{
+      font-size: .175rem;
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      
+      width: .0625rem;
+      height: .525rem;
+      
+    }
+  }
+}
+</style>

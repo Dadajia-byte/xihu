@@ -1,7 +1,11 @@
 <template>
-  <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-    <span class="divider">往届大会</span>
-    <div class="carousel-container">
+  <div>
+    <span class="divider wow fadeInUp">往届大会</span>
+    <div
+      class="carousel-container wow bounceInUp"
+      data-wow-duration="1s"
+      data-wow-delay="1s"
+    >
       <div class="master-container" ref="cardlist">
         <div class="card-container" v-for="(card, index) in cards" :key="index">
           <div class="card">
@@ -12,7 +16,7 @@
       <el-icon
         class="left"
         ref="left"
-        size="0.3125rem"
+        size=".3125rem"
         color="#1185E4"
         @click="handleLeftClick"
       >
@@ -21,7 +25,7 @@
       <el-icon
         class="right"
         ref="right"
-        size="0.3125rem"
+        size=".3125rem"
         color="#1185E4"
         @click="handleRightClick"
       >
@@ -148,8 +152,8 @@ const handleLeftClick = () => {
 
 <style scoped lang="scss">
 .carousel-container {
-  height: 2.9125rem;
-  width: 16.2rem;
+  height: 4.3688rem;
+  width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
@@ -157,8 +161,8 @@ const handleLeftClick = () => {
   overflow: hidden;
 
   .master-container {
-    height: 2.9125rem;
-    width: 15.675rem;
+    height: 4.3688rem;
+    width: 23.5125rem;
     display: flex;
     justify-content: flex-start;
     align-content: center;
@@ -170,14 +174,20 @@ const handleLeftClick = () => {
       justify-content: flex-start;
       align-content: center;
       text-align: center;
-      padding: 0 0.2625rem;
+      padding: 0 0.3937rem;
 
       .card {
-        height: 2.9125rem;
-        width: 4.7rem;
+        height: 4.3688rem;
+        width: 7.05rem;
+        overflow: hidden;
         img {
           height: 100%;
           width: 100%;
+          transition: transform 0.5s ease-in-out;
+        }
+
+        &:hover img {
+          transform: scale(1.1);
         }
       }
     }
@@ -188,20 +198,20 @@ const handleLeftClick = () => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  height: 0.425rem;
-  width: 0.425rem;
-  line-height: 0.425rem;
-  font-size: 0.425rem;
+  height: 0.6375rem;
+  width: 0.6375rem;
+  line-height: 0.6375rem;
+  font-size: 0.6375rem;
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .left {
-  left: -0.0625rem;
+  left: -0.0938rem;
 }
 .right {
-  right: -0.0625rem;
+  right: -0.0938rem;
 }
 
 .divider {

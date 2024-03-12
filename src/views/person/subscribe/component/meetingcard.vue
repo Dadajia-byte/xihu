@@ -1,10 +1,15 @@
 <template>
-  <div class="box-card" :style="{'background':`url(${data.imageUrl}) no-repeat`}">
+  <div
+    class="box-card"
+    :style="{ background: `url(${data.imageUrl}) no-repeat` }"
+  >
     <div class="name">{{ data.title }}</div>
     <div class="time-location-box">
       <div style="display: flex">
         <el-icon class="clock"><Clock /></el-icon>
-        <div class="time">{{ data.startTime.slice(11,16) }}-{{ data.endTime.slice(11,16) }}</div>
+        <div class="time">
+          {{ data.startTime.slice(11, 16) }}-{{ data.endTime.slice(11, 16) }}
+        </div>
       </div>
       <div class="location-box">
         <el-icon class="location"><MapLocation /></el-icon>

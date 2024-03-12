@@ -2,8 +2,8 @@
   <div
     class="mate-container wow"
     :class="animateClass(index)"
-    data-wow-duration="1.5s"
-    data-wow-delay="0.5s"
+    data-wow-duration="1s"
+    data-wow-delay="0.7s"
     v-for="(mateData, index) in mateDatas"
     :key="index"
   >
@@ -11,7 +11,7 @@
       <div
         class="content-wrapper"
         ref="matewrapper"
-        :style="{ height: expandedIndex === index ? '100%' : '2.206rem' }"
+        :style="{ height: expandedIndex === index ? '100%' : '3.309rem' }"
       >
         <div class="title">{{ mateData.title }}</div>
         <div class="logo-wrapper">
@@ -48,19 +48,19 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref, onMounted, computed } from 'vue'
+import { defineProps, ref, onMounted } from 'vue'
 import WOW from 'wow.js'
 
 defineProps({
   mateDatas: {
-    type: Object,
+    type: Array,
     default: () => {},
   },
 })
 
-const animateClass = (index) => ({
-  fadeInLeft: index % 2 === 0,
-  fadeInRight: index % 2 !== 0,
+const animateClass = (index: number) => ({
+  bounceInLeft: index % 2 === 0,
+  bounceInRight: index % 2 !== 0,
 })
 const expandedIndex = ref(-1) // -1 表示没有展开的卡片
 const handleFold = (index: number) => {
@@ -86,10 +86,10 @@ onMounted(() => {
   display: flex;
   align-items: stretch;
   width: 100%;
-  height: 2.206rem;
+  height: 3.309rem;
   overflow: hidden;
   .title {
-    width: 2.3875rem;
+    width: 3.5812rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,14 +99,14 @@ onMounted(() => {
 
 .fold {
   text-align: center;
-  font-size: 0.175rem;
-  margin: 0.175rem 0;
+  font-size: 0.2625rem;
+  margin: 0.2625rem 0;
   color: #1e8ce6;
   cursor: pointer;
 }
 
 .logo-container {
-  width: 11.4rem;
+  width: 17.1rem;
   display: flex;
   align-content: flex-start;
   justify-content: flex-start;
@@ -116,7 +116,7 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 2.206rem;
+    height: 3.309rem;
     width: calc(100% / 5);
     .img {
       height: 100%;
@@ -127,9 +127,9 @@ onMounted(() => {
 
 .mate-container {
   .el-card {
-    font-size: 0.3rem;
-    margin: 0 auto 0.35rem;
-    width: 13.7875rem;
+    font-size: 0.45rem;
+    margin: 0 auto 0.525rem;
+    width: 20.6812rem;
   }
 }
 </style>

@@ -14,12 +14,38 @@
           <div class="let-after"></div>
         </div>
       </div>
+      <FloatCard
+        class="f-c"
+        content="主论坛"
+        style="left: 37%; top: 0; --i: 0s"
+      ></FloatCard>
+      <FloatCard
+        class="f-c"
+        content="平行论坛"
+        style="left: 13%; bottom: 0; --i: 1s"
+      ></FloatCard>
+      <FloatCard
+        class="f-c"
+        content="科普论坛"
+        style="right: 13%; bottom: 0; --i: 2s"
+      ></FloatCard>
+      <FloatCard
+        class="f-c"
+        content="掌上论剑"
+        style="right: -5%; top: 30%; --i: 3s"
+      ></FloatCard>
+      <FloatCard
+        class="f-c"
+        content="生态合作论坛"
+        style="left: -5%; top: 30%; --i: 4s"
+      ></FloatCard>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import FloatCard from './FloatCard.vue'
 const wait = (ms: number) => {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }

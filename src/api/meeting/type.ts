@@ -29,6 +29,3 @@ export interface agendaItem {
   popularity: number
   isSub: number // 0是不订阅，1是订阅
 }
-
-
-

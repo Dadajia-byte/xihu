@@ -1,7 +1,14 @@
 <template>
-  <div class="main wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-    <span class="divider">新闻资讯</span>
-    <el-carousel :interval="100000" height="5.4625rem" type="card">
+  <div class="main">
+    <span class="divider wow fadeInUp">新闻资讯</span>
+    <el-carousel
+      :interval="100000"
+      height="8.1937rem"
+      type="card"
+      class="wow animate__rotateInDownLeft"
+      data-wow-duration="1s"
+      data-wow-delay="1s"
+    >
       <el-carousel-item v-for="(item, index) in newsList" :key="index">
         <el-card body-style="padding:0;     ">
           <div
@@ -68,35 +75,35 @@ const newsList = ref([
   flex-direction: column;
 
   .newsImg {
-    height: 3.175rem;
+    height: 4.7625rem;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
   }
   .title {
-    padding: 0 0.125rem;
-    height: 0.7625rem;
-    line-height: 0.7625rem;
+    padding: 0 0.1875rem;
+    height: 1.1438rem;
+    line-height: 1.1438rem;
     text-align: start;
-    font-size: 0.275rem;
+    font-size: 0.4125rem;
     font-weight: bold;
     position: relative;
 
     &::after {
       content: '';
       position: absolute;
-      left: 0.125rem;
+      left: 0.1875rem;
       bottom: -0.0375rem;
-      width: 0.625rem;
-      height: 0.0375rem;
+      width: 0.9375rem;
+      height: 0.0563rem;
       background-color: #1185e4;
     }
   }
   .content {
-    font-size: 0.2rem;
-    padding: 0.2437rem 0.125rem;
-    line-height: 0.3125rem;
-    height: 1.5125rem;
+    font-size: 0.25rem;
+    padding: 0.3655rem 0.1875rem;
+    line-height: 0.4688rem;
+    height: 2.2687rem;
     text-align: start;
   }
   .divider {
@@ -118,17 +125,17 @@ const newsList = ref([
   }
 
   .el-carousel {
-    width: 15.2625rem;
+    width: 22.8938rem;
     margin: 0 auto;
   }
 
   .el-card {
-    height: 5.4625rem;
+    height: 8.1937rem;
     border-radius: 0.3125rem;
   }
   .el-carousel__item {
     margin: 0 auto;
-    height: 5.4625rem;
+    height: 8.1937rem;
     background: transparent;
   }
 }

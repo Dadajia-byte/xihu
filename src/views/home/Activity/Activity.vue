@@ -1,9 +1,9 @@
 <template>
   <div>
     <div
-      class="activity wow fadeInUp"
+      class="activity wow animate__rotateInDownRight"
       data-wow-duration="1s"
-      data-wow-delay="0.2s"
+      data-wow-delay="1s"
     >
       <span class="divider">精彩活动</span>
       <div class="whole-content">
