@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="float-card-box">
-    <div
-      class="bor"
-      v-for="bor in bors"
-      :key="bor"
-      :style="getBorStyle(bor)"
-    ></div>
-    <span>{{ content }}</span>
-  </div>
+      <div
+        class="bor"
+        v-for="bor in bors"
+        :key="bor"
+        :style="getBorStyle(bor)"
+      ></div>
+      <span>{{ content }}</span>
+    </div>
   </div>
 </template>
 
@@ -61,7 +61,8 @@ const getBorStyle = (bor: any) => {
     : // @ts-ignore
       (styles.height = '2px')
   return styles
-}</script>
+}
+</script>
 
 <script lang="ts">
 export default {

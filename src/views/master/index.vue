@@ -26,49 +26,58 @@ export default {
 <style lang="scss" scoped>
 .header {
   width: 100%;
-  height: 7.3rem;
+  height: 4.8rem;
   padding-left: 1.325rem;
   padding-top: 1.75rem;
   background-color: green;
 
   .title {
-    font-size: .525rem;
+    font-size: 0.525rem;
     font-weight: bold;
-    line-height: .5rem;
+    line-height: 0.5rem;
     color: #fff;
   }
 
   .engtitle {
-    font-size: .2rem;
-    line-height: .7375rem;
+    font-size: 0.2rem;
+    line-height: 0.7375rem;
     color: #fff;
-
   }
 }
 
 .professonal {
-  padding: 0 .45rem;
 
   .professonal-title {
-    color: #1185E4;
-    position: relative;
-    .title{
-      font-size: .525rem;
-      font-weight: bold
+    padding-top: .45rem;
+    padding-left: 1.5875rem;
+    color: #1185e4;
+    display: flex;
 
-      
+    .title {
+      font-size: 0.525rem;
+      font-weight: bold;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -0.25rem;
+        width: .0875rem;
+        height: 0.525rem;
+        background-color: #1185e4;
+      }
     }
-    .tips{
-      font-size: .175rem;
+
+    .tips {
+      margin-left: .25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-size: 0.175rem;
     }
-    &::before{
-      content: '';
-      position: absolute;
-      
-      width: .0625rem;
-      height: .525rem;
-      
-    }
+
+
   }
 }
 </style>
