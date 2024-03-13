@@ -46,9 +46,8 @@ export default {
 }
 
 .professonal {
-
   .professonal-title {
-    padding-top: .45rem;
+    padding-top: 0.45rem;
     padding-left: 1.5875rem;
     color: #1185e4;
     display: flex;
@@ -63,21 +62,19 @@ export default {
         position: absolute;
         top: 0;
         left: -0.25rem;
-        width: .0875rem;
+        width: 0.0875rem;
         height: 0.525rem;
         background-color: #1185e4;
       }
     }
 
     .tips {
-      margin-left: .25rem;
+      margin-left: 0.25rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       font-size: 0.175rem;
     }
-
-
   }
 }
 </style>

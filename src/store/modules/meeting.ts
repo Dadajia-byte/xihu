@@ -9,7 +9,7 @@ let useMeetingStore = defineStore('meetingStore', () => {
     num: -1, // num==-1代表全部日期
   })
 
-  let agendaItems = ref<agendaItem[]>()
+  let agendaItems = ref<agendaItem[]>([])
 
   // 获取会议信息
   const getAgenda = async () => {

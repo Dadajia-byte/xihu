@@ -3,69 +3,42 @@
     <Screen></Screen>
     <div class="filter-container">
       <div class="filter-main">
-        <div
-          class="all"
-          :class="{ active: mainIndex === 1 }"  
-        >
-          全部议程
-        </div>
+        <div class="all" :class="{ active: mainIndex === 1 }">全部议程</div>
       </div>
       <div class="filter-date">
-        <div
-          class="filteritem"
-          v-for="(item, index) in dateList"
-          :key="index"
-          :class="{ active: index === activeDateIndex }"
-          @click="setDateActive(index, item)"
-          :style="
-            index === activeDateIndex
-              ? 'background-color:#79C3FF;'
-              : 'background-color:#EDEBEB'
-          "
-        >
+        <div class="filteritem " v-for="(item, index) in dateList" :key="index"
+          :class="{ active: index === activeDateIndex }" @click="setDateActive(index, item)" :style="index === activeDateIndex
+          ? 'background-color:#79C3FF;'
+          : 'background-color:#EDEBEB'
+          ">
           {{ item.date }}
         </div>
       </div>
       <div class="filter-type">
-        <div
-          class="filteritem"
-          v-for="(item, index) in typeList"
-          :key="index"
-          :class="{ active: index === activeTypeIndex }"
-          @click="setTypeActive(index, item)"
-          :style="
-            index === activeTypeIndex
-              ? 'background-color:#79C3FF;'
-              : 'background-color:#EDEBEB'
-          "
-        >
+        <div class="filteritem" v-for="(item, index) in typeList" :key="index"
+          :class="{ active: index === activeTypeIndex }" @click="setTypeActive(index, item)" :style="index === activeTypeIndex
+          ? 'background-color:#79C3FF;'
+          : 'background-color:#EDEBEB'
+          ">
           {{ item.type }}
         </div>
       </div>
     </div>
 
     <div class="agendalist-container" v-show="meetingStore.reqData.date === ''">
-      <div
-        class="agenda-content"
-        v-for="(dateItem, index) in filteredAgendas"
-        :key="index"
-      >
+      <div class="agenda-content wow fadeInUp" v-for="(dateItem, index) in filteredAgendas" :key="index">
         <div class="content-item">
           <div class="date">
             <span>{{ dateItem.date }}</span>
           </div>
-          <div
-            class="cardcontainer"
-            v-for="(events, index) in dateItem.events"
-            :key="index"
-          >
+          <div class="cardcontainer" v-for="(events, index) in dateItem.events" :key="index">
             <el-card body-style="display:flex;">
               <div class="part1">
                 <div style="display: flex">
                   <div class="time">
                     {{
-                      `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
-                    }}
+          `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
+        }}
                   </div>
                   <div class="link">
                     <span>
@@ -113,18 +86,14 @@
           <div class="date" v-show="meetingStore.agendaItems?.length > 0">
             <span>{{ meetingStore.reqData.date }}</span>
           </div>
-          <div
-            class="cardcontainer"
-            v-for="(item, index) in meetingStore.agendaItems"
-            :key="index"
-          >
+          <div class="cardcontainer" v-for="(item, index) in meetingStore.agendaItems" :key="index">
             <el-card body-style="display:flex;">
               <div class="part1">
                 <div style="display: flex">
                   <div class="time">
                     {{
-                      `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}`
-                    }}
+          `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}`
+        }}
                   </div>
                   <div class="link">
                     <span>
@@ -158,24 +127,14 @@
                 </div>
               </div>
               <div class="part3">
-                <el-button
-                  icon="Plus"
-                  type="primary"
-                  v-show="item.isSub == 0"
-                  style="
+                <el-button icon="Plus" type="primary" v-show="item.isSub == 0" style="
                     width: 1.4286rem;
-                    height: .4714rem;
-                    font-size: .2571rem;
-                  "
-                  @click="goSub(item.id)"
-                >
+                    height: 0.4714rem;
+                    font-size: 0.2571rem;
+                  " @click="goSub(item.id)">
                   订阅
                 </el-button>
-                <div
-                  class="subbed"
-                  v-show="item.isSub == 1"
-                  @click="cancelSub(item.id)"
-                >
+                <div class="subbed" v-show="item.isSub == 1" @click="cancelSub(item.id)">
                   已订阅
                 </div>
               </div>
@@ -194,6 +153,7 @@ import Screen from './components/Screen.vue'
 import WOW from 'wow.js'
 import useMeetingStore from '@/store/modules/meeting'
 import { ElMessage } from 'element-plus'
+import { agendaItem } from '@/api/meeting/type'
 
 let meetingStore = useMeetingStore()
 
@@ -222,14 +182,12 @@ const typeList = ref([
 const activeTypeIndex = ref(0)
 const activeDateIndex = ref(0)
 const mainIndex = ref(1) //1为全部议程 -1为我的议程
-
-const filteredAgenda = ref([])
-
-const filterAgendaItem = (dateItem: any) => {
-  filteredAgenda.value = meetingStore.agendaItems?.filter((item) => {
-    item.startTime.includes(dateItem.findFlag)
-  })
-  return filteredAgenda.value
+const filteredAgenda = ref<agendaItem[]>([])
+interface ss {
+  date?: string,
+  show: number,
+  findFlag: string,
+  events: agendaItem[]
 }
 
 
@@ -255,7 +213,7 @@ const filteredAgendas = computed(() => {
   return dates.value
     .map((dateItem: { findFlag: string }) => {
       // 根据 dateItem.findFlag 过滤议程
-      const eventsForDate = meetingStore.agendaItems?.filter((event) =>
+      const eventsForDate = meetingStore.agendaItems?.filter((event: any) =>
         event.startTime.includes(dateItem.findFlag),
       )
       return {
@@ -263,7 +221,7 @@ const filteredAgendas = computed(() => {
         events: eventsForDate,
       }
     })
-    ?.filter((item) => item.events?.length > 0) // 过滤掉没有议程的日期
+    ?.filter((item: any) => item.events?.length > 0) // 过滤掉没有议程的日期
 })
 
 const goSub = async (id: number) => {
@@ -280,7 +238,7 @@ const goSub = async (id: number) => {
         type: 'success',
       })
     })
-    .catch((res) => {
+    .catch((res: any) => {
       console.log(res)
       ElMessage({
         message: res.message,
@@ -313,10 +271,13 @@ onMounted(async () => {
   initWOW()
 
   await initAgenda()
+  console.log(filteredAgendas)
 })
 
 onUnmounted(() => {
   meetingStore.reqData.num = 4
+  meetingStore.reqData.date = ''
+  meetingStore.reqData.type = ''
 })
 </script>
 
@@ -327,12 +288,12 @@ onUnmounted(() => {
   .filter-container {
     margin: 0 auto;
     width: 17.1563rem;
-    padding: .5313rem 0 .875rem;
+    padding: 0.5313rem 0 0.875rem;
 
     .filter-main {
       display: flex;
       width: 17.1563rem;
-      box-shadow: .0125rem .0625rem .0625rem #d5d5d5;
+      box-shadow: 0.0125rem 0.0625rem 0.0625rem #d5d5d5;
 
       .all,
       .admin {
@@ -341,16 +302,16 @@ onUnmounted(() => {
         justify-content: center;
         align-content: center;
         width: 100%;
-        height: .9219rem;
-        font-size: .3125rem;
-        line-height: .9219rem;
+        height: 0.9219rem;
+        font-size: 0.3125rem;
+        line-height: 0.9219rem;
         text-align: center;
         font-weight: bold;
       }
     }
 
     .filter-date {
-      margin: .5rem 0;
+      margin: 0.5rem 0;
       display: flex;
     }
 
@@ -363,10 +324,10 @@ onUnmounted(() => {
       display: flex;
       justify-content: center;
       width: 2.1719rem;
-      height: .6094rem;
-      margin-right: .4219rem;
-      font-size: .25rem;
-      line-height: .6094rem;
+      height: 0.6094rem;
+      margin-right: 0.4219rem;
+      font-size: 0.25rem;
+      line-height: 0.6094rem;
     }
   }
 
@@ -374,9 +335,16 @@ onUnmounted(() => {
     margin: 0 auto;
     width: 17.1563rem;
 
+    .card-container {
+      &:hover {
+        transition: transform ease-in-out .5s;
+        transform: scale(1.2);
+      }
+    }
+
     .date {
-      font-size: .4375rem;
-      line-height: .6094rem;
+      font-size: 0.4375rem;
+      line-height: 0.6094rem;
       position: relative;
       font-style: oblique;
 
@@ -386,7 +354,7 @@ onUnmounted(() => {
         left: 0;
         bottom: -0.0781rem;
         width: 100%;
-        height: .0781rem;
+        height: 0.0781rem;
         background-color: #1185e4;
       }
     }
@@ -395,7 +363,7 @@ onUnmounted(() => {
       flex: 2.5;
 
       .time {
-        font-size: .4063rem;
+        font-size: 0.4063rem;
         font-weight: bold;
         position: relative;
 
@@ -404,25 +372,25 @@ onUnmounted(() => {
           position: absolute;
           left: -0.1563rem;
           top: 0;
-          height: .4063rem;
-          width: .0781rem;
+          height: 0.4063rem;
+          width: 0.0781rem;
           background-color: #1185e4;
         }
       }
 
       .location {
-        font-size: .1875rem;
-        line-height: .5625rem;
+        font-size: 0.1875rem;
+        line-height: 0.5625rem;
       }
 
       .link {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        font-size: .1719rem;
-        line-height: .3125rem;
+        font-size: 0.1719rem;
+        line-height: 0.3125rem;
         text-align: end;
-        margin-left: .2188rem;
+        margin-left: 0.2188rem;
 
         span {
           color: #1185e4;
@@ -435,13 +403,13 @@ onUnmounted(() => {
 
       span {
         display: inline-block;
-        height: .7143rem;
-        line-height: .7143rem;
-        padding: 0rem .4464rem 0rem .2679rem;
-        font-size: .4063rem;
+        height: 0.7143rem;
+        line-height: 0.7143rem;
+        padding: 0rem 0.4464rem 0rem 0.2679rem;
+        font-size: 0.4063rem;
         font-weight: 700;
         background: linear-gradient(to right, #84bded, #fafafa);
-        border-radius: .3571rem;
+        border-radius: 0.3571rem;
       }
     }
 
@@ -449,18 +417,19 @@ onUnmounted(() => {
       flex: 2;
       display: flex;
       justify-items: end;
+
       .subbed {
         width: 1.4286rem;
-        height: .4714rem;
-        line-height: .4143rem;
+        height: 0.4714rem;
+        line-height: 0.4143rem;
         text-align: center;
-        border-radius: .0714rem;
-        border: #fafafa .0286 rem solid;
+        border-radius: 0.0714rem;
+        border: #fafafa 0.0286 rem solid;
       }
     }
 
     .el-card {
-      margin: .4rem 0;
+      margin: 0.4rem 0;
     }
   }
 
@@ -469,5 +438,7 @@ onUnmounted(() => {
     color: #fff;
     font-weight: bold;
   }
+
+
 }
 </style>
