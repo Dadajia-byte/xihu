@@ -1,6 +1,6 @@
 // 对外暴露配置路由(常量路由)
 
-import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs';
+import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs'
 
 export const constantRoutes = [
   {
@@ -119,7 +119,7 @@ export const constantRoutes = [
         meta: {
           title: '海报分享',
           hidden: true,
-        }
+        },
       },
       {
         path: '/AIreport',
@@ -127,10 +127,9 @@ export const constantRoutes = [
         component: () => import('@/views/AI/index.vue'),
         meta: {
           title: 'AI报告',
-          hidden: true
-        }
-      }
-
+          hidden: true,
+        },
+      },
     ],
   },
 

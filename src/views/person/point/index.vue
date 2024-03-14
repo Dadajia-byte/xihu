@@ -140,7 +140,10 @@ import bigshopcard from './compoment/bigshopcard.vue'
 import useUserStore from '@/store/modules/user'
 const userStore = useUserStore()
 
-import { ref } from 'vue'
+import usePointStore from '@/store/modules/point'
+const pointStore = usePointStore()
+
+import { onMounted, ref } from 'vue'
 let TaskisExpand = ref(false)
 let ShopisExpand = ref(false)
 const taskExpand = () => {
@@ -199,6 +202,11 @@ const tableData = [
     change: '+100积分',
   },
 ]
+
+onMounted(()=>{
+  pointStore.getUserPointHistory()
+  console.log('积分明细：',pointStore.userPointHistory); 
+})
 </script>
 
 <style scoped>

@@ -9,7 +9,8 @@
       :ellipsis="false"
       active-text-color="#409EFF"
       router
-      style="font-size: 0.2857rem !important" >
+      style="font-size: 0.2857rem !important"
+    >
       <!-- 菜单组件 -->
       <Menu :menuList="layoutSettingStore.menuList"></Menu>
       <!-- 直播 -->
@@ -26,44 +27,43 @@
           <Histogram />
         </el-icon>
       </el-menu-item>
-      
+
       <div class="loginAbout">
-      <el-button
-        class="log"
-        @click="layoutSettingStore.dialogFormVisible = true"
-        v-if="!layoutSettingStore.isLog"
-      >
-        <el-icon :size="22">
-          <UserFilled />
-        </el-icon>
-        登录|注册
-      </el-button>
-      <img
-        :src="userStore.userData.avatar"
-        v-if="layoutSettingStore.isLog"
-        class="avatar"
-        @click="goPerson"
-      />
-      <el-dropdown v-if="layoutSettingStore.isLog">
-        <div class="el-dropdown-link">
-          {{ userStore.userData.username }}
-          <el-icon class="el-icon--right">
-            <arrow-down />
+        <el-button
+          class="log"
+          @click="layoutSettingStore.dialogFormVisible = true"
+          v-if="!layoutSettingStore.isLog"
+        >
+          <el-icon :size="22">
+            <UserFilled />
           </el-icon>
-        </div>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item @click="goPerson">个人中心</el-dropdown-item>
-          </el-dropdown-menu>
-          <el-dropdown-menu>
-            <el-dropdown-item @click="Logout">退出登录</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-    </div>
+          登录|注册
+        </el-button>
+        <img
+          :src="userStore.userData.avatar"
+          v-if="layoutSettingStore.isLog"
+          class="avatar"
+          @click="goPerson"
+        />
+        <el-dropdown v-if="layoutSettingStore.isLog">
+          <div class="el-dropdown-link">
+            {{ userStore.userData.username }}
+            <el-icon class="el-icon--right">
+              <arrow-down />
+            </el-icon>
+          </div>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="goPerson">个人中心</el-dropdown-item>
+            </el-dropdown-menu>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="Logout">退出登录</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
     </el-menu>
     <!-- 右侧登录用户相关 -->
-    
   </div>
 </template>
 
@@ -80,7 +80,6 @@ import { useRouter } from 'vue-router'
 let $router = useRouter()
 let userStore = useUserStore()
 let layoutSettingStore = useLayoutSettingStore()
-
 
 const Logout = async () => {
   // 退出登录成功后返回首页

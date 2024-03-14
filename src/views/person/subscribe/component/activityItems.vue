@@ -9,7 +9,7 @@
 </template>
 <script setup lang="ts">
 import activitycard from './activitycard.vue'
-import {  onMounted } from 'vue'
+import { onMounted } from 'vue'
 import useActivityStore from '@/store/modules/activity'
 
 let activityStore = useActivityStore()
@@ -18,9 +18,8 @@ const { getActivty } = activityStore
 onMounted(async () => {
   activityStore.filterItem.pageSize = 1000
   await getActivty()
-  activityStore.lists = activityStore.lists.filter(item=>item.isSub==1)
-  console.log('子组件中活动数量:',activityStore.lists.length);
-  
+  activityStore.lists = activityStore.lists.filter((item) => item.isSub == 1)
+  console.log('子组件中活动数量:', activityStore.lists.length)
 })
 </script>
 

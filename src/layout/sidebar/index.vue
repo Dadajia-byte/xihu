@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import judgeLog from '@/utils/judgeLog'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 let $router = useRouter()
 
 const isShow = ref(false)
@@ -40,21 +40,20 @@ const backTop = () => {
 }
 
 const poster = () => {
-  let res =judgeLog()
-  if(res) {
+  let res = judgeLog()
+  if (res) {
     $router.push('/poster')
   }
-
 }
 
 const clockIn = () => {
   judgeLog()
 }
 
-const AiReport=()=>{
-  let res=judgeLog()
-  if(res) {
-  $router.push('/AIreport')
+const AiReport = () => {
+  let res = judgeLog()
+  if (res) {
+    $router.push('/AIreport')
   }
 }
 

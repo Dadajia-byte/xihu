@@ -6,20 +6,21 @@
     <meetingItems
       class="meeting"
       :style="{
-        maxHeight: isExpand ? `${ meetingNum * 2.4375}rem` : '4.875rem',
+        maxHeight: isExpand ? `${meetingNum * 2.4375}rem` : '4.875rem',
       }"
       ref="meeting"
     ></meetingItems>
-      <el-icon class="arrowdown"
-      v-show="(!isExpand) && meetingNum > 6"
-      @click="expand">
-        <ArrowDown />
-      </el-icon>
-
+    <el-icon
+      class="arrowdown"
+      v-show="!isExpand && meetingNum > 6"
+      @click="expand"
+    >
+      <ArrowDown />
+    </el-icon>
 
     <el-icon
       class="arrowup"
-      v-show="(isExpand) && meetingNum > 6"
+      v-show="isExpand && meetingNum > 6"
       @click="collapse"
     >
       <ArrowUp />
@@ -36,8 +37,8 @@
 import meetingItems from './component/meetingItems.vue'
 import activityItems from './component/activityItems.vue'
 
-import useMeetingStore from '@/store/modules/meeting';
-import useActivityStore from '@/store/modules/activity';
+import useMeetingStore from '@/store/modules/meeting'
+import useActivityStore from '@/store/modules/activity'
 let activityStore = useActivityStore()
 let meetingStore = useMeetingStore()
 let meetingNum = ref(0)
@@ -48,20 +49,20 @@ let isExpand = ref(false)
 
 const expand = () => {
   isExpand.value = true
-  
 }
 const collapse = () => {
   isExpand.value = false
 }
 
-onMounted(()=>{
-
-  meetingNum.value=meetingStore.agendaItems?.length as number
+onMounted(() => {
+  meetingNum.value = meetingStore.agendaItems?.length as number
   activityNum.value = activityStore.lists?.length as number
-  console.log(meetingNum.value);
-  
-  console.log(!isExpand && meetingNum.value>6,isExpand && meetingNum.value > 6);
-  
+  console.log(meetingNum.value)
+
+  console.log(
+    !isExpand && meetingNum.value > 6,
+    isExpand && meetingNum.value > 6,
+  )
 })
 </script>
 

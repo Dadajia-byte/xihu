@@ -3,47 +3,77 @@
     <Screen></Screen>
     <div class="filter-container">
       <div class="filter-main">
-        <div class="all" :class="{ active: mainIndex === 1 }" @click="setMainActive">
+        <div
+          class="all"
+          :class="{ active: mainIndex === 1 }"
+          @click="setMainActive"
+        >
           全部议程
         </div>
-        <div class="admin" :class="{ active: mainIndex === -1 }" @click="setMainActive">
+        <div
+          class="admin"
+          :class="{ active: mainIndex === -1 }"
+          @click="setMainActive"
+        >
           我的日程
         </div>
       </div>
       <div class="filter-date">
-        <div class="filteritem" v-for="(item, index) in dateList" :key="index"
-          :class="{ active: index === activeDateIndex }" @click="setDateActive(index, item)" :style="index === activeDateIndex
-            ? 'background-color:#79C3FF;'
-            : 'background-color:#EDEBEB'
-          ">
+        <div
+          class="filteritem"
+          v-for="(item, index) in dateList"
+          :key="index"
+          :class="{ active: index === activeDateIndex }"
+          @click="setDateActive(index, item)"
+          :style="
+            index === activeDateIndex
+              ? 'background-color:#79C3FF;'
+              : 'background-color:#EDEBEB'
+          "
+        >
           {{ item.date }}
         </div>
       </div>
       <div class="filter-type">
-        <div class="filteritem" v-for="(item, index) in typeList" :key="index"
-          :class="{ active: index === activeTypeIndex }" @click="setTypeActive(index, item)" :style="index === activeTypeIndex
-            ? 'background-color:#79C3FF;'
-            : 'background-color:#EDEBEB'
-          ">
+        <div
+          class="filteritem"
+          v-for="(item, index) in typeList"
+          :key="index"
+          :class="{ active: index === activeTypeIndex }"
+          @click="setTypeActive(index, item)"
+          :style="
+            index === activeTypeIndex
+              ? 'background-color:#79C3FF;'
+              : 'background-color:#EDEBEB'
+          "
+        >
           {{ item.type }}
         </div>
       </div>
     </div>
 
     <div class="agendalist-container" v-show="meetingStore.reqData.date === ''">
-      <div class="agenda-content" v-for="(dateItem, index) in filteredAgendas" :key="index">
+      <div
+        class="agenda-content"
+        v-for="(dateItem, index) in filteredAgendas"
+        :key="index"
+      >
         <div class="content-item">
           <div class="date">
             <span>{{ dateItem.date }}</span>
           </div>
-          <div class="cardcontainer" v-for="(events, index) in dateItem.events" :key="index">
+          <div
+            class="cardcontainer"
+            v-for="(events, index) in dateItem.events"
+            :key="index"
+          >
             <el-card body-style="display:flex;">
               <div class="part1">
                 <div style="display: flex">
                   <div class="time">
                     {{
-          `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
-        }}
+                      `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
+                    }}
                   </div>
                   <div class="link">
                     <span>
@@ -91,14 +121,18 @@
           <div class="date">
             <span>{{ meetingStore.reqData.date }}</span>
           </div>
-          <div class="cardcontainer" v-for="(item, index) in meetingStore.agendaItems" :key="index">
+          <div
+            class="cardcontainer"
+            v-for="(item, index) in meetingStore.agendaItems"
+            :key="index"
+          >
             <el-card body-style="display:flex;">
               <div class="part1">
                 <div style="display: flex">
                   <div class="time">
                     {{
-          `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}`
-        }}
+                      `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}`
+                    }}
                   </div>
                   <div class="link">
                     <span>
@@ -132,11 +166,24 @@
                 </div>
               </div>
               <div class="part3">
-                <el-button icon="Plus" type="primary" v-show="item.isSub == 0"
-                  style="width: 1.4286rem; height: 0.4714rem; font-size: 0.2571rem" @click="goSub(item.id)">
+                <el-button
+                  icon="Plus"
+                  type="primary"
+                  v-show="item.isSub == 0"
+                  style="
+                    width: 1.4286rem;
+                    height: 0.4714rem;
+                    font-size: 0.2571rem;
+                  "
+                  @click="goSub(item.id)"
+                >
                   订阅
                 </el-button>
-                <div class="subbed" v-show="item.isSub == 1" @click="cancelSub(item.id)">
+                <div
+                  class="subbed"
+                  v-show="item.isSub == 1"
+                  @click="cancelSub(item.id)"
+                >
                   已订阅
                 </div>
               </div>

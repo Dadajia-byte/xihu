@@ -1,3 +1,9 @@
 export interface reqPointName {
-    pointname: string
+  pointname: string
+}
+
+export interface reqUserPointHistory {
+  time: string,
+  action: string,
+  change: number,
 }

@@ -1,13 +1,7 @@
 <template>
-    <div>
-        这里是海报界面
-    </div>
+  <div>这里是海报界面</div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped>
-
-</style>
+<style scoped></style>

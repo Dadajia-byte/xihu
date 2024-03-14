@@ -4,7 +4,7 @@
     <Tabbar class="tabbar"></Tabbar>
 
     <Main class="main"></Main>
-    
+
     <Sidebar class="sidebar"></Sidebar>
     <Footer class="footer"></Footer>
     <el-dialog

@@ -32,42 +32,38 @@ export default {
   background-color: green;
 
   .title {
-    font-size: .525rem;
+    font-size: 0.525rem;
     font-weight: bold;
-    line-height: .5rem;
+    line-height: 0.5rem;
     color: #fff;
   }
 
   .engtitle {
-    font-size: .2rem;
-    line-height: .7375rem;
+    font-size: 0.2rem;
+    line-height: 0.7375rem;
     color: #fff;
-
   }
 }
 
 .professonal {
-  padding: 0 .45rem;
+  padding: 0 0.45rem;
 
   .professonal-title {
-    color: #1185E4;
+    color: #1185e4;
     position: relative;
-    .title{
-      font-size: .525rem;
-      font-weight: bold
-
-      
+    .title {
+      font-size: 0.525rem;
+      font-weight: bold;
     }
-    .tips{
-      font-size: .175rem;
+    .tips {
+      font-size: 0.175rem;
     }
-    &::before{
+    &::before {
       content: '';
       position: absolute;
-      
-      width: .0625rem;
-      height: .525rem;
-      
+
+      width: 0.0625rem;
+      height: 0.525rem;
     }
   }
 }

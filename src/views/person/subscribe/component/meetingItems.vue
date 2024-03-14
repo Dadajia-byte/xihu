@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted,ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import meetingcard from './meetingcard.vue'
 import useMeetingStore from '@/store/modules/meeting'
 
@@ -17,9 +17,11 @@ let meetingStore = useMeetingStore()
 const { getAgenda } = meetingStore
 
 onMounted(async () => {
-  meetingStore.reqData.date=''
+  meetingStore.reqData.date = ''
   await getAgenda()
-  meetingStore.agendaItems = meetingStore.agendaItems?.filter(item=>item.isSub==1)
+  meetingStore.agendaItems = meetingStore.agendaItems?.filter(
+    (item) => item.isSub == 1,
+  )
 })
 </script>
 
