@@ -1,18 +1,18 @@
 <template>
   <div class="box-card">
     <div class="circle">
-      <div class="point">+100</div>
+      <div class="point">+{{ data.pointValue }}</div>
     </div>
     <div class="task">
-      观看直播
-      <br />
-      (5分钟以上)
+      {{ data.name }}
     </div>
     <div class="finish">去完成</div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps(['data'])
+</script>
 
 <style scoped>
 .box-card {

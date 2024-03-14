@@ -12,13 +12,10 @@ let useLayoutSettingStore = defineStore('settingStore', () => {
   const dialogRegisterVisible = ref(false)
   // 是否登录
   let isLog = ref(false)
-  // 使用语言
-  let choosedLan = ref('中文')
   return {
     dialogFormVisible,
     dialogRegisterVisible,
     isLog,
-    choosedLan,
     menuList,
   }
 })

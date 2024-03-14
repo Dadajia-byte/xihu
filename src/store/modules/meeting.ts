@@ -9,13 +9,15 @@ let useMeetingStore = defineStore('meetingStore', () => {
     num: -1, // num==-1代表全部日期
   })
 
-  let agendaItems = ref<agendaItem[]>()
+  let agendaItems = ref<agendaItem[]>([])
 
   // 获取会议信息
   const getAgenda = async () => {
     let result: agendaResponse = await reqAgenda(reqData)
     if (result.code === 0) {
       // 获取成功
+      console.log(result.data);
+
       agendaItems.value = result.data
       return 'ok'
     } else {

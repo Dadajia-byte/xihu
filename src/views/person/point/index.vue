@@ -6,7 +6,7 @@
       <el-icon class="coin">
         <Coin />
       </el-icon>
-      <div class="number">500</div>
+      <div class="number">{{ userStore.userData.points }}</div>
     </div>
     <!-- 我的积分模块 end -->
 
@@ -22,7 +22,7 @@
       <!-- 积分任务模块实现展开（1000px是动态高度，200px是初始固定高度） start -->
       <bigpointcard
         class="point-task"
-        :style="{ maxHeight: TaskisExpand ? '1000px' : '200px' }"
+        :style="{ maxHeight: TaskisExpand ? '12.5rem' : '2.5rem' }"
       ></bigpointcard>
       <div style="display: flex" v-show="!TaskisExpand" @click="taskExpand">
         <div class="more">查看更多</div>
@@ -55,7 +55,7 @@
       <!-- 积分兑换模块实现展开（1000px是动态高度，650px是初始固定高度）start -->
       <bigshopcard
         class="shop"
-        :style="{ maxHeight: ShopisExpand ? '1000px' : '650px' }"
+        :style="{ maxHeight: ShopisExpand ? '12.5rem' : '8.125rem' }"
       ></bigshopcard>
       <div style="display: flex" v-show="!ShopisExpand" @click="shopExpand">
         <div class="more">查看更多</div>
@@ -88,7 +88,7 @@
         :data="tableData"
         stripe
         true
-        :row-style="{ height: '50px' }"
+        :row-style="{ height: '0.625rem' }"
         class="table"
       >
         <el-table-column prop="time" label="" width="350%" />
@@ -137,6 +137,9 @@
 <script setup lang="ts">
 import bigpointcard from './compoment/bigpointcard.vue'
 import bigshopcard from './compoment/bigshopcard.vue'
+import useUserStore from '@/store/modules/user'
+const userStore = useUserStore()
+
 import { ref } from 'vue'
 let TaskisExpand = ref(false)
 let ShopisExpand = ref(false)

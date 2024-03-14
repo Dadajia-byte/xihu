@@ -45,4 +45,5 @@ export interface userData {
   position: string
   company: string
   birth: string
+  points: number
 }

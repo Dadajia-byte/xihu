@@ -19,7 +19,7 @@ export interface agendaItem {
   title: string
   startTime: number[]
   endTime: number[]
-  activtyType: string
+  activityType: string
   imageUrl: string
   location: string
   description: string

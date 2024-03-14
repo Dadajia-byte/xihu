@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .fade-enter-active {
-  transition: all 2s;
+  transition: all 1s;
 }
 
 .fade-enter-from {

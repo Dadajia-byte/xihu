@@ -6,20 +6,20 @@
     <meetingItems
       class="meeting"
       :style="{
-        maxHeight: isExpand ? `${agendaSubNum * 2.4375}rem` : '4.875rem',
+        maxHeight: isExpand ? `${ meetingNum * 2.4375}rem` : '4.875rem',
       }"
       ref="meeting"
     ></meetingItems>
-    <el-icon
-      class="arrowdown"
-      v-show="!isExpand && agendaSubNum > 6"
-      @click="expand"
-    >
-      <ArrowDown />
-    </el-icon>
+      <el-icon class="arrowdown"
+      v-show="(!isExpand) && meetingNum > 6"
+      @click="expand">
+        <ArrowDown />
+      </el-icon>
+
+
     <el-icon
       class="arrowup"
-      v-show="isExpand && agendaSubNum > 6"
+      v-show="(isExpand) && meetingNum > 6"
       @click="collapse"
     >
       <ArrowUp />
@@ -35,25 +35,34 @@
 <script setup lang="ts">
 import meetingItems from './component/meetingItems.vue'
 import activityItems from './component/activityItems.vue'
+
+import useMeetingStore from '@/store/modules/meeting';
+import useActivityStore from '@/store/modules/activity';
+let activityStore = useActivityStore()
+let meetingStore = useMeetingStore()
+let meetingNum = ref(0)
+let activityNum = ref(0)
+
 import { onMounted, ref } from 'vue'
 let isExpand = ref(false)
 
-const meeting = ref()
-const agendaSubNum = ref(0)
-const activity = ref()
-const activitySubNum = ref(0)
-
-onMounted(() => {
-  agendaSubNum.value = meeting.value.agendaSubNum
-  activitySubNum.value = activity.value.activitySubNum
-})
-
 const expand = () => {
   isExpand.value = true
+  
 }
 const collapse = () => {
   isExpand.value = false
 }
+
+onMounted(()=>{
+
+  meetingNum.value=meetingStore.agendaItems?.length as number
+  activityNum.value = activityStore.lists?.length as number
+  console.log(meetingNum.value);
+  
+  console.log(!isExpand && meetingNum.value>6,isExpand && meetingNum.value > 6);
+  
+})
 </script>
 
 <style scoped>
@@ -96,9 +105,5 @@ const collapse = () => {
   border-radius: 50%;
   text-align: center;
   cursor: pointer;
-
-  &.arrowup {
-    padding: 0 0.025rem 0.025rem 0.0375rem;
-  }
 }
 </style>
