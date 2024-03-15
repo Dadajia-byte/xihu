@@ -1,7 +1,13 @@
 <template>
   <div>
-    <div class="activity ">
-      <span class="divider wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">精彩活动</span>
+    <div class="activity">
+      <span
+        class="divider wow fadeInUp"
+        data-wow-duration="1s"
+        data-wow-delay="0.5s"
+      >
+        精彩活动
+      </span>
       <div class="whole-content">
         <div class="activity-content">
           <div class="bg wow fadeInUp" :style="backgroundStyle"></div>
@@ -13,16 +19,35 @@
               <span>Exciting Activities</span>
             </div>
             <div class="navigation">
-              <div class="navigation-item" v-for="(item, index) in activityList" :key="index"
-                @click="handleSelect(index)" :class="index === activeIndex ? 'active' : ''">
+              <div
+                class="navigation-item"
+                v-for="(item, index) in activityList"
+                :key="index"
+                @click="handleSelect(index)"
+                :class="index === activeIndex ? 'active' : ''"
+              >
                 {{ item.name }}
               </div>
             </div>
           </div>
-          <el-carousel :autoplay="false" height="6.7625rem" @change="handleCarouselChange" indicator-position="none"
-            arrow="never" ref="carouselList">
-            <el-carousel-item v-for="(item, index) in activityList" :key="index" :name="item.title">
-              <div class="carousel-item  wow slideInRight " data-wow-duration="1s" data-wow-delay="0.5s">
+          <el-carousel
+            :autoplay="false"
+            height="6.7625rem"
+            @change="handleCarouselChange"
+            indicator-position="none"
+            arrow="never"
+            ref="carouselList"
+          >
+            <el-carousel-item
+              v-for="(item, index) in activityList"
+              :key="index"
+              :name="item.title"
+            >
+              <div
+                class="carousel-item wow slideInRight"
+                data-wow-duration="1s"
+                data-wow-delay="0.5s"
+              >
                 <div class="name">
                   {{ item.name }}
                 </div>
@@ -183,9 +208,11 @@ const backgroundStyle = computed(() => {
         justify-content: center;
         color: #fff;
         padding-left: 1.2rem;
-        background: linear-gradient(to bottom right,
-            $theme-color-blue,
-            $theme-color-green );
+        background: linear-gradient(
+          to bottom right,
+          $theme-color-blue,
+          $theme-color-green
+        );
         clip-path: polygon(100% 0, 80% 100%, 0 100%, 0 0);
       }
 
@@ -259,17 +286,21 @@ const backgroundStyle = computed(() => {
         width: 2.425rem;
         text-align: center;
         line-height: 0.475rem;
-        background: linear-gradient(to bottom right,
-            $theme-color-blue,
-            $theme-color-green );
+        background: linear-gradient(
+          to bottom right,
+          $theme-color-blue,
+          $theme-color-green
+        );
         cursor: pointer;
         border-radius: 0.475rem;
         transition: background 1s ease-in-out;
 
         &:hover {
-          background: linear-gradient(to bottom left,
-              $theme-color-blue,
-              $theme-color-green );
+          background: linear-gradient(
+            to bottom left,
+            $theme-color-blue,
+            $theme-color-green
+          );
         }
       }
     }

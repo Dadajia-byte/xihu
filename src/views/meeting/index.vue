@@ -2,105 +2,61 @@
   <div class="agenda-page">
     <Screen></Screen>
 
-
     <div class="filter-container">
       <div class="date-container">
         <div class="tip">大会日期：</div>
-        <div class="date" v-for="(item, index) in dateList" :key="index" :class="{ active: index === activeDateIndex }"
-          @click="setDateActive(index, item)">{{ item.date }}</div>
+        <div
+          class="date"
+          v-for="(item, index) in dateList"
+          :key="index"
+          :class="{ active: index === activeDateIndex }"
+          @click="setDateActive(index, item)"
+        >
+          {{ item.date }}
+        </div>
       </div>
     </div>
 
-    <!-- <div class="agenda-container" v-show="meetingStore.reqData.date === ''">
-      <div class="agenda-wrapper">
-        <div class="card" >
-          <div class="header">
-            <div class="timer"><el-icon>
-                <Clock />
-              </el-icon>14:30-16:30</div>
-            <div class="link-wrapper">
-              <div class="link">
-
-                <el-icon>
-                  <ChatDotSquare />
-                </el-icon>
-                主论坛
-
-              </div>
-              <div class="link">
-
-                <el-icon>
-                  <VideoCamera />
-                </el-icon>
-                回放
-
-              </div>
-            </div>
-
-          </div>
-          <div class="title"> 网络安全创新发展高端论坛（无回放）</div>
-          <div class="content">
-            <div class="location">
-              <el-icon>
-                <Location />
-              </el-icon>地点:
-
-            </div>
-          </div>
-          <div class="footer">
-            <div class="type">主论坛</div>
-            <div class="sub"><el-button icon="Plus" type="primary" style="
-                        line-height: .3125rem;
-                        font-size: .2rem;
-                        height: .3125rem;
-                  ">
-                订阅
-              </el-button></div>
-          </div>
-        </div>
-
-      </div>
-      <div class="type-filter"></div>
-
-    </div> -->
-
     <div class="agenda">
       <div class="agenda-container" v-show="meetingStore.reqData.date === ''">
-        <div class="agenda-wrapper" v-for="(dateItem, index) in filteredAgendas" :key="index">
+        <div
+          class="agenda-wrapper"
+          v-for="(dateItem, index) in filteredAgendas"
+          :key="index"
+        >
           <div class="date">
             <span>{{ dateItem.date }}</span>
           </div>
           <div class="card-container">
-            <div class="card" v-for="(events, index) in dateItem.events" :key="index">
-
+            <div
+              class="card"
+              v-for="(events, index) in dateItem.events"
+              :key="index"
+            >
+              <div class="card-wrapper">
               <div class="header">
                 <div class="timer">
                   <el-icon>
                     <Clock />
                   </el-icon>
                   {{
-          `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
-        }}
+                    `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
+                  }}
                 </div>
                 <div class="link-wrapper">
                   <div class="link">
-
                     <el-icon>
                       <ChatDotSquare />
                     </el-icon>
                     {{ events.activityType }}
-
                   </div>
                   <div class="link">
-
                     <el-icon>
                       <VideoCamera />
                     </el-icon>
                     回放
-
                   </div>
                 </div>
-
               </div>
               <div class="title">
                 {{ events.title }}
@@ -111,7 +67,6 @@
                     <Location />
                   </el-icon>
                   地点:{{ events.location }}
-
                 </div>
               </div>
               <div class="footer">
@@ -119,59 +74,65 @@
                   {{ events.activityType }}
                 </div>
                 <div class="sub">
-                  <el-button icon="Plus" type="primary" style="
-                        line-height: .3125rem;
-                        font-size: .2rem;
-                        height: .3125rem;
-                  ">
+                  <el-button
+                    icon="Plus"
+                    type="primary"
+                    style="
+                      line-height: .3125rem;
+                      font-size: .2rem;
+                      height: .3125rem;
+                    "
+                  >
                     订阅
                   </el-button>
                 </div>
               </div>
             </div>
+
+            </div>
           </div>
         </div>
-
-
       </div>
       <div class="agenda-container" v-show="meetingStore.reqData.date !== ''">
         <div class="agenda-wrapper">
-          <div class="date" v-show="meetingStore.agendaItems?.length > 0">
+          <div
+            class="date wow fadeInUp"
+            v-show="meetingStore.agendaItems?.length > 0"
+          >
             <span>{{ meetingStore.reqData.date }}</span>
           </div>
           <div class="card-container">
-            <div class="card" v-for="(events, index) in meetingStore.agendaItems" :key="index">
+            <div
+              class="card wow fadeInUp"
+              v-for="(events, index) in meetingStore.agendaItems"
+              :key="index"
+            >
               <div class="card-content">
                 <div class="header">
                   <div class="timer">
-                  <el-icon>
-                    <Clock />
-                  </el-icon>
-                  {{
-          `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
-        }}
-                </div>
-                <div class="link-wrapper">
-                  <div class="link">
-
                     <el-icon>
-                      <ChatDotSquare />
+                      <Clock />
                     </el-icon>
-                    {{ events.activityType }}
-
+                    {{
+                      `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
+                    }}
                   </div>
-                  <div class="link">
-
-                    <el-icon>
-                      <VideoCamera />
-                    </el-icon>
-                    回放
-
+                  <div class="link-wrapper">
+                    <div class="link">
+                      <el-icon>
+                        <ChatDotSquare />
+                      </el-icon>
+                      {{ events.activityType }}
+                    </div>
+                    <div class="link">
+                      <el-icon>
+                        <VideoCamera />
+                      </el-icon>
+                      回放
+                    </div>
                   </div>
                 </div>
-
               </div>
-            </div>
               <div class="title">
                 {{ events.title }}
               </div>
@@ -181,7 +142,6 @@
                     <Location />
                   </el-icon>
                   地点:{{ events.location }}
-
                 </div>
               </div>
               <div class="footer">
@@ -189,11 +149,15 @@
                   {{ events.activityType }}
                 </div>
                 <div class="sub">
-                  <el-button icon="Plus" type="primary" style="
-                        line-height: .3125rem;
-                        font-size: .2rem;
-                        height: .3125rem;
-                  ">
+                  <el-button
+                    icon="Plus"
+                    type="primary"
+                    style="
+                      line-height: .3125rem;
+                      font-size: .2rem;
+                      height: .3125rem;
+                    "
+                  >
                     订阅
                   </el-button>
                 </div>
@@ -201,31 +165,30 @@
             </div>
           </div>
         </div>
-
-
       </div>
       <div class="type-filter">
         <el-dropdown>
           <span class="el-dropdown-link">
-            {{activeType}} <el-icon class="el-icon--right">
+            {{ activeType }}
+            <el-icon class="el-icon--right">
               <arrow-down />
             </el-icon>
           </span>
 
-
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item v-for="(item, index) in typeList" :key="index"
-                 @click="setTypeActive(index, item)">
+              <el-dropdown-item
+                v-for="(item, index) in typeList"
+                :key="index"
+                @click="setTypeActive(index, item)"
+              >
                 {{ item.type }}
               </el-dropdown-item>
-
             </el-dropdown-menu>
           </template>
         </el-dropdown>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -264,8 +227,10 @@ const typeList = ref([
 
 const activeTypeIndex = ref(0)
 const activeDateIndex = ref(0)
+// @ts-ignore
 const filteredAgenda = ref<agendaItem[]>([])
 const activeType = ref('全部')
+// @ts-ignore
 interface ss {
   date?: string
   show: number
@@ -275,7 +240,7 @@ interface ss {
 
 const setTypeActive = async (index: number, item: any) => {
   activeTypeIndex.value = index
-  activeType.value = item.type 
+  activeType.value = item.type
   meetingStore.reqData.type = item.type === '全部' ? '' : item.type
   await meetingStore.getAgenda()
 }
@@ -376,7 +341,6 @@ onUnmounted(() => {
   padding: .375rem 0 .375rem 1.8125rem;
 
   .date-container {
-
     display: flex;
     align-content: center;
 
@@ -400,20 +364,18 @@ onUnmounted(() => {
       justify-content: center;
       align-content: center;
       cursor: pointer;
-
-
     }
 
     .active {
-      background: linear-gradient(to bottom right,
-          $theme-color-blue,
-          $theme-color-green );
+      background: linear-gradient(
+        to bottom right,
+        $theme-color-blue,
+        $theme-color-green
+      );
       color: #fff;
       font-weight: bold;
     }
   }
-
-
 }
 
 .agenda {
@@ -439,8 +401,8 @@ onUnmounted(() => {
       font-size: .25rem;
       line-height: .5875rem;
     }
-    .el-dropdown-menu__item{
-      font-size: .25rem
+    .el-dropdown-menu__item {
+      font-size: .25rem;
     }
   }
 }
@@ -453,8 +415,8 @@ onUnmounted(() => {
 
   .date {
     margin-top: .3125rem;
-    font-size: 0.4375rem;
-    line-height: 0.6094rem;
+    font-size: .4375rem;
+    line-height: .6094rem;
     position: relative;
     font-style: oblique;
 
@@ -464,7 +426,7 @@ onUnmounted(() => {
       left: 0;
       bottom: -0.0781rem;
       width: 14.1375rem;
-      height: 0.0781rem;
+      height: .0781rem;
       background-color: #1185e4;
     }
   }
@@ -473,12 +435,33 @@ onUnmounted(() => {
     margin-top: .25rem;
     display: flex;
     flex-wrap: wrap;
-    width: 14.1375rem;
-    
-    .card {
-      
+    width: 14.325rem;
+
+    .card{
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: .4125rem;
+        left: .1rem;
+        width: 4.4rem;
+        height: 3rem;
+        border-radius: .0625rem;
+        background: #d5d5d5;
+        transition: background-color 0.3s;
+        z-index: 1;
+      }
+
+      &:hover::after{
+        background: #1185e4;
+      }
+
+    .card-wrapper {
       margin-top: .3125rem;
-      margin-right: .3125rem;
+      margin-right: .375rem;
       padding: .3375rem .1875rem;
       width: 4.4rem;
       height: 3rem;
@@ -488,24 +471,13 @@ onUnmounted(() => {
       position: relative;
       border-radius: .0625rem;
       background: #fff;
-      z-index: 7;
+      z-index: 2  ;
 
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: .125rem;
-        left: .125rem;
-        width: 100%;
-        height: 100%;
-        border-radius: .0625rem;
-        // background: #d5d5d5;
-        z-index: 1;
-      }
+      
 
       .date {
-        font-size: 0.4375rem;
-        line-height: 0.6094rem;
+        font-size: .4375rem;
+        line-height: .6094rem;
         position: relative;
         font-style: oblique;
 
@@ -515,7 +487,7 @@ onUnmounted(() => {
           left: 0;
           bottom: -0.0781rem;
           width: 100%;
-          height: 0.0781rem;
+          height: .0781rem;
           background-color: #1185e4;
         }
       }
@@ -542,7 +514,7 @@ onUnmounted(() => {
           cursor: pointer;
           padding-right: .2rem;
           line-height: .3125rem;
-          color: #1185e4
+          color: #1185e4;
         }
       }
 
@@ -551,7 +523,6 @@ onUnmounted(() => {
         font-size: .375rem;
         font-weight: bold;
         line-height: .4375rem;
-
       }
 
       .content {
@@ -581,15 +552,8 @@ onUnmounted(() => {
           border: .0125rem solid #d5d5d5;
         }
       }
-
-
-
     }
   }
-
-
-
-
-
+  }
 }
 </style>
