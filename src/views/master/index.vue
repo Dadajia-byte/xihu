@@ -13,9 +13,17 @@
         </div>
 
         <div class="professonal-list">
-          <div class="carousel-container wow bounceInUp" data-wow-duration="1s" data-wow-delay="1s">
+          <div
+            class="carousel-container wow bounceInUp"
+            data-wow-duration="1s"
+            data-wow-delay="1s"
+          >
             <div class="master-container" ref="cardlist">
-              <div class="card-container" v-for="(card, index) in cards" :key="index">
+              <div
+                class="card-container"
+                v-for="(card, index) in cards"
+                :key="index"
+              >
                 <div class="card">
                   <img :src="card.url" alt="" />
                 </div>
@@ -23,10 +31,22 @@
                 <span class="description">{{ card.description }}</span>
               </div>
             </div>
-            <el-icon class="left" ref="left" size="0.3125rem" color="#1185E4" @click="handleLeftClick">
+            <el-icon
+              class="left"
+              ref="left"
+              size="0.3125rem"
+              color="#1185E4"
+              @click="handleLeftClick"
+            >
               <ArrowLeftBold />
             </el-icon>
-            <el-icon class="right" ref="right" size="0.3125rem" color="#1185E4" @click="handleRightClick">
+            <el-icon
+              class="right"
+              ref="right"
+              size="0.3125rem"
+              color="#1185E4"
+              @click="handleRightClick"
+            >
               <ArrowRightBold />
             </el-icon>
           </div>
@@ -89,8 +109,6 @@ let offset = 0
 let slideIncrement = 0
 let slideDecrement = cards.length - 1
 
-
-
 const handleRightClick = () => {
   // 这是控制右箭头按钮是否禁用的标志
   right.value.disabled = true
@@ -114,9 +132,11 @@ const handleRightClick = () => {
     if (slideIncrement === cards.length) {
       slideIncrement = 0
       // 重置order
-      Array.from(cardlist.value.children).forEach((element:any, index:number) => {
-        element.style.order = 'initial'
-      })
+      Array.from(cardlist.value.children).forEach(
+        (element: any, index: number) => {
+          element.style.order = 'initial'
+        },
+      )
     }
     right.value.disabled = false
   }, 500)
@@ -157,7 +177,6 @@ const handleLeftClick = () => {
     left.value.disabled = false
   }, 500)
 }
-
 </script>
 <script lang="ts">
 export default {
@@ -186,41 +205,39 @@ export default {
   }
 }
 
+.professonal-title,
+.guest-title {
+  padding-top: 0.45rem;
+  padding-left: 1.5875rem;
+  color: #1185e4;
+  display: flex;
 
-  .professonal-title,.guest-title{
-    padding-top: 0.45rem;
-    padding-left: 1.5875rem;
-    color: #1185e4;
-    display: flex;
+  .title {
+    font-size: 0.525rem;
+    font-weight: bold;
+    position: relative;
 
-    .title {
-      font-size: 0.525rem;
-      font-weight: bold;
-      position: relative;
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -0.25rem;
-        width: 0.0875rem;
-        height: 0.525rem;
-        background-color: #1185e4;
-      }
-    }
-
-    .tips {
-      margin-left: 0.25rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      font-size: 0.175rem;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -0.25rem;
+      width: 0.0875rem;
+      height: 0.525rem;
+      background-color: #1185e4;
     }
   }
 
+  .tips {
+    margin-left: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 0.175rem;
+  }
+}
 
 .carousel-container {
-  
   height: 4.9688rem;
   width: 22.7063rem;
   position: relative;
