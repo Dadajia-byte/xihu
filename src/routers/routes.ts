@@ -1,5 +1,7 @@
 // 对外暴露配置路由(常量路由)
 
+import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs'
+
 export const constantRoutes = [
   {
     // 登录成功后展示数据的路由
@@ -109,6 +111,24 @@ export const constantRoutes = [
             },
           },
         ],
+      },
+      {
+        path: '/poster',
+        name: 'poster',
+        component: () => import('@/views/poster/index.vue'),
+        meta: {
+          title: '海报分享',
+          hidden: true,
+        },
+      },
+      {
+        path: '/AIreport',
+        name: 'AIreport',
+        component: () => import('@/views/AI/index.vue'),
+        meta: {
+          title: 'AI报告',
+          hidden: true,
+        },
       },
     ],
   },

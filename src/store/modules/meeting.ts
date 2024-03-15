@@ -16,6 +16,8 @@ let useMeetingStore = defineStore('meetingStore', () => {
     let result: agendaResponse = await reqAgenda(reqData)
     if (result.code === 0) {
       // 获取成功
+      console.log(result.data)
+
       agendaItems.value = result.data
       return 'ok'
     } else {

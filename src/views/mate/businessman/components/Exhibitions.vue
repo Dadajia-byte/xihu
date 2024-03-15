@@ -40,7 +40,7 @@
   </div>
 </template>
 
-<script setup lang="js">
+<script setup lang="ts">
 import WOW from 'wow.js'
 import { onMounted } from 'vue'
 

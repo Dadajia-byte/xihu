@@ -1,7 +1,7 @@
 <template>
   <div class="underframe">
     <!-- logo -->
-    <img :src="setting.logo(1)" alt="" class="logo" />
+    <img :src="setting.logo(1)" class="logo" />
     <el-menu
       default-active="1"
       mode="horizontal"
@@ -13,7 +13,6 @@
     >
       <!-- 菜单组件 -->
       <Menu :menuList="layoutSettingStore.menuList"></Menu>
-
       <!-- 直播 -->
       <el-menu-item index="8" style="color: #ff0020; font-size: 0.2571rem">
         直播
@@ -28,74 +27,52 @@
           <Histogram />
         </el-icon>
       </el-menu-item>
+
+      <div class="loginAbout">
+        <el-button
+          class="log"
+          @click="layoutSettingStore.dialogFormVisible = true"
+          v-if="!layoutSettingStore.isLog"
+        >
+          <el-icon :size="22">
+            <UserFilled />
+          </el-icon>
+          登录|注册
+        </el-button>
+        <img
+          :src="userStore.userData.avatar"
+          v-if="layoutSettingStore.isLog"
+          class="avatar"
+          @click="goPerson"
+        />
+        <el-dropdown v-if="layoutSettingStore.isLog">
+          <div class="el-dropdown-link">
+            {{ userStore.userData.username }}
+            <el-icon class="el-icon--right">
+              <arrow-down />
+            </el-icon>
+          </div>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="goPerson">个人中心</el-dropdown-item>
+            </el-dropdown-menu>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="Logout">退出登录</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
     </el-menu>
-    <!-- 搜索 -->
-    <div class="search">
-      <el-icon>
-        <Search color="#838383" />
-      </el-icon>
-    </div>
-    <!-- 语言切换 -->
-    <div class="language">
-      <el-dropdown>
-        <span class="el-dropdown-link">
-          {{ layoutSettingStore.choosedLan }}
-          <el-icon class="el-icon--right">
-            <arrow-down />
-          </el-icon>
-        </span>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item @click="chooseLan('中文')">中文</el-dropdown-item>
-          </el-dropdown-menu>
-          <el-dropdown-menu>
-            <el-dropdown-item @click="chooseLan('ENG')">ENG</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-    </div>
     <!-- 右侧登录用户相关 -->
-    <div class="loginAbout">
-      <el-button
-        class="log"
-        @click="layoutSettingStore.dialogFormVisible = true"
-        v-if="!layoutSettingStore.isLog"
-      >
-        <el-icon :size="22">
-          <UserFilled />
-        </el-icon>
-        登录|注册
-      </el-button>
-      <img
-        :src="userStore.userData.avatar"
-        v-if="layoutSettingStore.isLog"
-        class="avatar"
-        @click="goPerson"
-      />
-      <el-dropdown v-if="layoutSettingStore.isLog">
-        <span class="el-dropdown-link">
-          {{ userStore.userData.username }}
-          <el-icon class="el-icon--right">
-            <arrow-down />
-          </el-icon>
-        </span>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item @click="goPerson">个人中心</el-dropdown-item>
-          </el-dropdown-menu>
-          <el-dropdown-menu>
-            <el-dropdown-item @click="Logout">退出登录</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Menu from './Menu.vue'
 import useUserStore from '@/store/modules/user'
+
 import useLayoutSettingStore from '@/store/setting'
+
 import { ElMessage } from 'element-plus'
 import setting from '@/setting'
 import { useRouter } from 'vue-router'
@@ -103,10 +80,6 @@ import { useRouter } from 'vue-router'
 let $router = useRouter()
 let userStore = useUserStore()
 let layoutSettingStore = useLayoutSettingStore()
-
-const chooseLan = (Lan: string) => {
-  return (layoutSettingStore.choosedLan = Lan)
-}
 
 const Logout = async () => {
   // 退出登录成功后返回首页
@@ -155,6 +128,7 @@ export default {
 
   .el-dropdown {
     .el-dropdown-link {
+      width: 2.5rem;
       color: black;
       font-weight: 400;
     }

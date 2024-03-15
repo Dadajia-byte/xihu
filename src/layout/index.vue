@@ -2,7 +2,9 @@
   <div class="layout">
     <!-- 顶部导航栏 -->
     <Tabbar class="tabbar"></Tabbar>
+
     <Main class="main"></Main>
+
     <Sidebar class="sidebar"></Sidebar>
     <Footer class="footer"></Footer>
     <el-dialog

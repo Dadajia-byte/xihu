@@ -9,7 +9,7 @@
       <el-icon size="0.35rem" color="#0b81f0"><Camera /></el-icon>
       <div>打卡分享</div>
     </div>
-    <div class="communication">
+    <div class="communication" @click="AiReport">
       <el-icon size="0.35rem" color="#0b81f0"><ChatLineRound /></el-icon>
       <div>AI交流</div>
     </div>
@@ -27,6 +27,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import judgeLog from '@/utils/judgeLog'
+import { useRouter } from 'vue-router'
+let $router = useRouter()
 
 const isShow = ref(false)
 
@@ -38,11 +40,21 @@ const backTop = () => {
 }
 
 const poster = () => {
-  judgeLog()
+  let res = judgeLog()
+  if (res) {
+    $router.push('/poster')
+  }
 }
 
 const clockIn = () => {
   judgeLog()
+}
+
+const AiReport = () => {
+  let res = judgeLog()
+  if (res) {
+    $router.push('/AIreport')
+  }
 }
 
 onMounted(() => {

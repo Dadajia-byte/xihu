@@ -1,7 +1,7 @@
 <template>
   <div class="subItem">
     <meetingcard
-      v-for="item in subAgenda"
+      v-for="item in meetingStore.agendaItems"
       :key="item.id"
       :data="item"
     ></meetingcard>
@@ -9,25 +9,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import meetingcard from './meetingcard.vue'
 import useMeetingStore from '@/store/modules/meeting'
 
 let meetingStore = useMeetingStore()
 const { getAgenda } = meetingStore
 
-const subAgenda = computed(() => {
-  return meetingStore.agendaItems?.filter((item) => item.isSub == 1)
-})
-
-const agendaSubNum = computed(() => {
-  return subAgenda.value?.length
-})
-
-defineExpose({ agendaSubNum })
 onMounted(async () => {
+  meetingStore.reqData.date = ''
   await getAgenda()
-  console.log('123', agendaSubNum.value)
+  meetingStore.agendaItems = meetingStore.agendaItems?.filter(
+    (item) => item.isSub == 1,
+  )
 })
 </script>
 

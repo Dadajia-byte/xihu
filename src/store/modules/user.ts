@@ -56,6 +56,7 @@ let useUserStore = defineStore('userStore', () => {
     birth: '',
     position: '',
     company: '',
+    points: 0,
   })
 
   // 清空表单的函数
@@ -96,6 +97,7 @@ let useUserStore = defineStore('userStore', () => {
       birth: '',
       position: '',
       company: '',
+      points: 0,
     })
   }
 

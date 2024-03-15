@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Screen from './components/Screen.vue'
 import Exhibitions from './components/Exhibitions.vue'
 </script>

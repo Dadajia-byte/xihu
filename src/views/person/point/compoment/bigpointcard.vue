@@ -1,28 +1,37 @@
 <template>
   <div class="subsItem">
-    <pointcard></pointcard>
-    <div class="line"></div>
-    <pointcard></pointcard>
-    <div class="line"></div>
-    <pointcard></pointcard>
-    <div class="line"></div>
-    <pointcard></pointcard>
-    <div class="line"></div>
-    <pointcard></pointcard>
-    <pointcard></pointcard>
-    <div class="line"></div>
-    <pointcard></pointcard>
-    <div class="line"></div>
-    <pointcard></pointcard>
-    <div class="line"></div>
-    <pointcard></pointcard>
-    <div class="line"></div>
-    <pointcard></pointcard>
+    <div v-for="item in taskList" :key="item.name" class="line">
+      <pointcard :data="item"></pointcard>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { reactive, ref } from 'vue'
 import pointcard from './pointcard.vue'
+
+const taskList = ref([
+  {
+    name: '每日签到',
+    pointValue: 100,
+  },
+  {
+    name: '观看直播',
+    pointValue: 500,
+  },
+  {
+    name: '订阅活动',
+    pointValue: 300,
+  },
+  {
+    name: '订阅会议',
+    pointValue: 300,
+  },
+  {
+    name: '邀请好友',
+    pointValue: 1000,
+  },
+])
 </script>
 
 <style scoped>
@@ -31,10 +40,9 @@ import pointcard from './pointcard.vue'
   display: flex;
   flex-wrap: wrap;
 }
+
 .line {
-  margin-top: 0.5625rem;
-  margin-left: 0.125rem;
-  border-left: 0.025rem solid #e3e5e7;
-  height: 0.875rem;
+  padding-right: 10px;
+  border-right: 0.025rem solid #e3e5e7;
 }
 </style>
