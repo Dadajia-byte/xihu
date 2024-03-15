@@ -24,90 +24,16 @@
           v-for="(dateItem, index) in filteredAgendas"
           :key="index"
         >
-          <div class="date">
+          <div class="date wow fadeInUp">
             <span>{{ dateItem.date }}</span>
           </div>
           <div class="card-container">
             <div
-              class="card"
+              class="card wow fadeInUp"
               v-for="(events, index) in dateItem.events"
               :key="index"
             >
               <div class="card-wrapper">
-              <div class="header">
-                <div class="timer">
-                  <el-icon>
-                    <Clock />
-                  </el-icon>
-                  {{
-                    `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
-                  }}
-                </div>
-                <div class="link-wrapper">
-                  <div class="link">
-                    <el-icon>
-                      <ChatDotSquare />
-                    </el-icon>
-                    {{ events.activityType }}
-                  </div>
-                  <div class="link">
-                    <el-icon>
-                      <VideoCamera />
-                    </el-icon>
-                    回放
-                  </div>
-                </div>
-              </div>
-              <div class="title">
-                {{ events.title }}
-              </div>
-              <div class="content">
-                <div class="location">
-                  <el-icon>
-                    <Location />
-                  </el-icon>
-                  地点:{{ events.location }}
-                </div>
-              </div>
-              <div class="footer">
-                <div class="type">
-                  {{ events.activityType }}
-                </div>
-                <div class="sub">
-                  <el-button
-                    icon="Plus"
-                    type="primary"
-                    style="
-                      line-height: .3125rem;
-                      font-size: .2rem;
-                      height: .3125rem;
-                    "
-                  >
-                    订阅
-                  </el-button>
-                </div>
-              </div>
-            </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="agenda-container" v-show="meetingStore.reqData.date !== ''">
-        <div class="agenda-wrapper">
-          <div
-            class="date wow fadeInUp"
-            v-show="meetingStore.agendaItems?.length > 0"
-          >
-            <span>{{ meetingStore.reqData.date }}</span>
-          </div>
-          <div class="card-container">
-            <div
-              class="card wow fadeInUp"
-              v-for="(events, index) in meetingStore.agendaItems"
-              :key="index"
-            >
-              <div class="card-content">
                 <div class="header">
                   <div class="timer">
                     <el-icon>
@@ -132,7 +58,80 @@
                     </div>
                   </div>
                 </div>
+                <div class="title">
+                  {{ events.title }}
+                </div>
+                <div class="content">
+                  <div class="location">
+                    <el-icon>
+                      <Location />
+                    </el-icon>
+                    地点:{{ events.location }}
+                  </div>
+                </div>
+                <div class="footer">
+                  <div class="type">
+                    {{ events.activityType }}
+                  </div>
+                  <div class="sub">
+                    <el-button
+                      icon="Plus"
+                      type="primary"
+                      style="
+                        line-height: 0.3125rem;
+                        font-size: 0.2rem;
+                        height: 0.3125rem;
+                      "
+                    >
+                      订阅
+                    </el-button>
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="agenda-container" v-show="meetingStore.reqData.date !== ''">
+        <div class="agenda-wrapper">
+          <div
+            class="date wow fadeInUp"
+            v-show="meetingStore.agendaItems?.length > 0"
+          >
+            <span>{{ meetingStore.reqData.date }}</span>
+          </div>
+          <div class="card-container">
+            <div
+              class="card wow fadeInUp"
+              v-for="(events, index) in meetingStore.agendaItems"
+              :key="index"
+            >
+                <div class="card-wrapper">
+                <div class="header">
+                  <div class="timer">
+                    <el-icon>
+                      <Clock />
+                    </el-icon>
+                    {{
+                      `${events.startTime.slice(11, 16)}-${events.endTime.slice(11, 16)}`
+                    }}
+                  </div>
+                  <div class="link-wrapper">
+                    <div class="link">
+                      <el-icon>
+                        <ChatDotSquare />
+                      </el-icon>
+                      {{ events.activityType }}
+                    </div>
+                    <div class="link">
+                      <el-icon>
+                        <VideoCamera />
+                      </el-icon>
+                      回放
+                    </div>
+                  </div>
+                </div>
+              
               <div class="title">
                 {{ events.title }}
               </div>
@@ -153,9 +152,9 @@
                     icon="Plus"
                     type="primary"
                     style="
-                      line-height: .3125rem;
-                      font-size: .2rem;
-                      height: .3125rem;
+                      line-height: 0.3125rem;
+                      font-size: 0.2rem;
+                      height: 0.3125rem;
                     "
                   >
                     订阅
@@ -163,6 +162,7 @@
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -337,29 +337,29 @@ onUnmounted(() => {
 .filter-container {
   width: 100%;
   height: 1.625rem;
-  box-shadow: .0125rem .0625rem .0625rem #d5d5d5;
-  padding: .375rem 0 .375rem 1.8125rem;
+  box-shadow: 0.0125rem 0.0625rem 0.0625rem #d5d5d5;
+  padding: 0.375rem 0 0.375rem 1.8125rem;
 
   .date-container {
     display: flex;
     align-content: center;
 
     .tip {
-      font-size: .375rem;
+      font-size: 0.375rem;
       font-weight: bold;
-      line-height: .875rem;
+      line-height: 0.875rem;
       width: 1.875rem;
-      margin-right: .675rem;
+      margin-right: 0.675rem;
     }
 
     .date {
-      font-size: .375rem;
-      line-height: .625rem;
-      margin: .125rem 0;
-      margin-right: .675rem;
+      font-size: 0.375rem;
+      line-height: 0.625rem;
+      margin: 0.125rem 0;
+      margin-right: 0.675rem;
       width: 2.25rem;
-      border-radius: .875rem;
-      border: .0125rem solid #d5d5d5;
+      border-radius: 0.875rem;
+      border: 0.0125rem solid #d5d5d5;
       display: flex;
       justify-content: center;
       align-content: center;
@@ -383,40 +383,40 @@ onUnmounted(() => {
   width: 100%;
 
   .type-filter {
-    margin-left: .5rem;
-    margin-top: .375rem;
-    height: .5875rem;
+    margin-left: 0.5rem;
+    margin-top: .6875rem;
+    height: 0.5875rem;
     width: 4.45rem;
     display: flex;
     justify-content: space-between;
-    font-size: .375rem;
-    border-radius: .5875rem;
-    border: .0125rem solid #d5d5d5;
+    font-size: 0.375rem;
+    border-radius: 0.5875rem;
+    border: 0.0125rem solid #d5d5d5;
     background: #fff;
     cursor: pointer;
 
     .el-dropdown-link {
-      padding-left: .1875rem;
+      padding-left: 0.1875rem;
       width: 4.45rem;
-      font-size: .25rem;
-      line-height: .5875rem;
+      font-size: 0.25rem;
+      line-height: 0.5875rem;
     }
     .el-dropdown-menu__item {
-      font-size: .25rem;
+      font-size: 0.25rem;
     }
   }
 }
 
 .agenda-container {
-  margin: .375rem 0 .375rem 1.8125rem;
+  margin: 0.375rem 0 0.375rem 1.8125rem;
   width: 14.1375rem;
   display: flex;
   flex-wrap: wrap;
 
   .date {
-    margin-top: .3125rem;
-    font-size: .4375rem;
-    line-height: .6094rem;
+    margin-top: 0.3125rem;
+    font-size: 0.4375rem;
+    line-height: 0.6094rem;
     position: relative;
     font-style: oblique;
 
@@ -426,18 +426,18 @@ onUnmounted(() => {
       left: 0;
       bottom: -0.0781rem;
       width: 14.1375rem;
-      height: .0781rem;
+      height: 0.0781rem;
       background-color: #1185e4;
     }
   }
 
   .card-container {
-    margin-top: .25rem;
+    margin-top: 0.25rem;
     display: flex;
     flex-wrap: wrap;
     width: 14.325rem;
 
-    .card{
+    .card {
       position: relative;
       cursor: pointer;
 
@@ -445,115 +445,113 @@ onUnmounted(() => {
         content: '';
         display: block;
         position: absolute;
-        top: .4125rem;
-        left: .1rem;
+        top: 0.4125rem;
+        left: 0.1rem;
         width: 4.4rem;
         height: 3rem;
-        border-radius: .0625rem;
+        border-radius: 0.0625rem;
         background: #d5d5d5;
         transition: background-color 0.3s;
         z-index: 1;
       }
 
-      &:hover::after{
+      &:hover::after {
         background: #1185e4;
       }
 
-    .card-wrapper {
-      margin-top: .3125rem;
-      margin-right: .375rem;
-      padding: .3375rem .1875rem;
-      width: 4.4rem;
-      height: 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      border-radius: .0625rem;
-      background: #fff;
-      z-index: 2  ;
-
-      
-
-      .date {
-        font-size: .4375rem;
-        line-height: .6094rem;
+      .card-wrapper {
+        margin-top: 0.3125rem;
+        margin-right: 0.375rem;
+        padding: 0.3375rem 0.1875rem;
+        width: 4.4rem;
+        height: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         position: relative;
-        font-style: oblique;
+        border-radius: 0.0625rem;
+        background: #fff;
+        z-index: 2;
 
-        &::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: -0.0781rem;
-          width: 100%;
-          height: .0781rem;
-          background-color: #1185e4;
-        }
-      }
+        .date {
+          font-size: 0.4375rem;
+          line-height: 0.6094rem;
+          position: relative;
+          font-style: oblique;
 
-      .header {
-        display: flex;
-        justify-content: space-between;
-        font-size: .2rem;
-        height: .3125rem;
-
-        .timer {
-          line-height: .3125rem;
-          display: flex;
-          align-items: center;
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -0.0781rem;
+            width: 100%;
+            height: 0.0781rem;
+            background-color: #1185e4;
+          }
         }
 
-        .link-wrapper {
+        .header {
           display: flex;
+          justify-content: space-between;
+          font-size: 0.2rem;
+          height: 0.3125rem;
+
+          .timer {
+            line-height: 0.3125rem;
+            display: flex;
+            align-items: center;
+          }
+
+          .link-wrapper {
+            display: flex;
+          }
+
+          .link {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding-right: 0.2rem;
+            line-height: 0.3125rem;
+            color: #1185e4;
+          }
         }
 
-        .link {
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-          padding-right: .2rem;
-          line-height: .3125rem;
-          color: #1185e4;
+        .title {
+          margin-top: 0.15rem;
+          font-size: 0.375rem;
+          font-weight: bold;
+          line-height: 0.4375rem;
         }
-      }
 
-      .title {
-        margin-top: .15rem;
-        font-size: .375rem;
-        font-weight: bold;
-        line-height: .4375rem;
-      }
+        .content {
+          margin-top: 0.15rem;
+          font-size: 0.2rem;
 
-      .content {
-        margin-top: .15rem;
-        font-size: .2rem;
-
-        .location {
-          display: flex;
-          align-items: center;
+          .location {
+            display: flex;
+            align-items: center;
+          }
         }
-      }
 
-      .footer {
-        margin-top: .3625rem;
-        display: flex;
-        justify-content: space-between;
-        font-size: .25rem;
-        text-align: center;
-        height: .375rem;
-
-        .type {
-          width: 1.35rem;
+        .footer {
+          margin-top: 0.3625rem;
           display: flex;
-          justify-content: center;
-          line-height: .375rem;
-          border-radius: .375rem;
-          border: .0125rem solid #d5d5d5;
+          justify-content: space-between;
+          font-size: 0.25rem;
+          text-align: center;
+          height: 0.375rem;
+
+          .type {
+            width: 1.35rem;
+            display: flex;
+            justify-content: center;
+            line-height: 0.375rem;
+            border-radius: 0.375rem;
+            border: 0.0125rem solid #d5d5d5;
+          }
         }
       }
     }
-  }
   }
 }
 </style>
