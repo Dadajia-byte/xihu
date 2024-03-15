@@ -91,7 +91,8 @@ onMounted(() => {
 .screen-box {
   width: 100vw;
   height: calc(100vh - $layout-header-height);
-  background: linear-gradient(to right, $theme-color-blue, $theme-color-green);
+  background: no-repeat center center;
+  background-image: url('@/assets/images/meeting_images/screenbg1.png'),linear-gradient(to right, $theme-color-blue, $theme-color-green);
   padding: 5% 18% 5%;
 
   .cir-outside {

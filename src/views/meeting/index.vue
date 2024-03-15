@@ -106,7 +106,7 @@
               v-for="(events, index) in meetingStore.agendaItems"
               :key="index"
             >
-                <div class="card-wrapper">
+              <div class="card-wrapper">
                 <div class="header">
                   <div class="timer">
                     <el-icon>
@@ -131,38 +131,38 @@
                     </div>
                   </div>
                 </div>
-              
-              <div class="title">
-                {{ events.title }}
-              </div>
-              <div class="content">
-                <div class="location">
-                  <el-icon>
-                    <Location />
-                  </el-icon>
-                  地点:{{ events.location }}
+
+                <div class="title">
+                  {{ events.title }}
                 </div>
-              </div>
-              <div class="footer">
-                <div class="type">
-                  {{ events.activityType }}
+                <div class="content">
+                  <div class="location">
+                    <el-icon>
+                      <Location />
+                    </el-icon>
+                    地点:{{ events.location }}
+                  </div>
                 </div>
-                <div class="sub">
-                  <el-button
-                    icon="Plus"
-                    type="primary"
-                    style="
-                      line-height: 0.3125rem;
-                      font-size: 0.2rem;
-                      height: 0.3125rem;
-                    "
-                  >
-                    订阅
-                  </el-button>
+                <div class="footer">
+                  <div class="type">
+                    {{ events.activityType }}
+                  </div>
+                  <div class="sub">
+                    <el-button
+                      icon="Plus"
+                      type="primary"
+                      style="
+                        line-height: 0.3125rem;
+                        font-size: 0.2rem;
+                        height: 0.3125rem;
+                      "
+                    >
+                      订阅
+                    </el-button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
@@ -384,7 +384,7 @@ onUnmounted(() => {
 
   .type-filter {
     margin-left: 0.5rem;
-    margin-top: .6875rem;
+    margin-top: 0.6875rem;
     height: 0.5875rem;
     width: 4.45rem;
     display: flex;
