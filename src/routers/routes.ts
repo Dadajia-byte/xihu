@@ -220,6 +220,6 @@ export const constantRoutesMobile = [
           hidden: false, // 是否隐藏 true为隐藏，默认false
         },
       },
-    ]
-  }
+    ],
+  },
 ]

@@ -1,5 +1,5 @@
 <template>
-<router-view v-slot="{ Component }">
+  <router-view v-slot="{ Component }">
     <transition name="fade">
       <!-- 渲染layout一级路由组件的子路由 -->
       <component :is="Component" />
@@ -7,9 +7,7 @@
   </router-view>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .fade-enter-active {

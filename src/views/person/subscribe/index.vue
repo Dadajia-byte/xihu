@@ -6,7 +6,9 @@
     <meetingItems
       class="meeting"
       :style="{
-        maxHeight: isExpand ? `${meetingStore.meetingNum * 2.4375}rem` : '4.875rem',
+        maxHeight: isExpand
+          ? `${meetingStore.meetingNum * 2.4375}rem`
+          : '4.875rem',
       }"
       ref="meeting"
     ></meetingItems>
@@ -24,10 +26,9 @@
       @click="collapse"
     >
       <ArrowUp />
- 
     </el-icon>
     <!-- 议程订阅模块实现展开（1000px是动态高度，350px是初始固定高度）end -->
-        
+
     <div class="content-wrapper">
       <div class="title2">精彩活动订阅</div>
       <activityItems ref="activity"></activityItems>
@@ -44,8 +45,7 @@ import useActivityStore from '@/store/modules/activity'
 let activityStore = useActivityStore()
 let meetingStore = useMeetingStore()
 
-  
-import {  onMounted, ref} from 'vue'
+import { onMounted, ref } from 'vue'
 let isExpand = ref(false)
 
 const expand = () => {
@@ -54,7 +54,6 @@ const expand = () => {
 const collapse = () => {
   isExpand.value = false
 }
-
 </script>
 
 <style scoped>

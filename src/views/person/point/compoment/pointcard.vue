@@ -13,7 +13,7 @@
 <script setup lang="ts">
 defineProps(['data'])
 import usePointStore from '@/store/modules/point'
-import { ElMessage } from 'element-plus';
+import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 let $router = useRouter()
 import useClipboard from 'vue-clipboard3'
@@ -26,27 +26,25 @@ const goToTask = async (data: string) => {
       ElMessage({
         type: 'success',
         message: '已复制链接到剪贴板',
-        duration: 1000
+        duration: 1000,
       })
       pointStore.pointName.pointname = data
       pointStore.finishPoint()
-    }
-    catch {
+    } catch {
       ElMessage({
         type: 'error',
         message: '分享失败',
-        duration: 1000
+        duration: 1000,
       })
     }
-  } else if (data==='订阅活动'||data==='订阅会议') {
-    if(data==='订阅活动') {
+  } else if (data === '订阅活动' || data === '订阅会议') {
+    if (data === '订阅活动') {
       $router.push('/activity')
     } else {
       $router.push('/meeting')
     }
   }
 }
-
 </script>
 
 <style scoped>

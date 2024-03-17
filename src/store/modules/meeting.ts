@@ -17,7 +17,6 @@ let useMeetingStore = defineStore('meetingStore', () => {
   const getAgenda = async () => {
     let result: agendaResponse = await reqAgenda(reqData)
     if (result.code === 0) {
-
       agendaItems.value = result.data
       return 'ok'
     } else {

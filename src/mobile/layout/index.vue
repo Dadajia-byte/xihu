@@ -1,8 +1,8 @@
 <template>
-    <div class="layout">
-        <Main></Main>
-        <BotBar class="botBar"></BotBar>
-    </div>
+  <div class="layout">
+    <Main></Main>
+    <BotBar class="botBar"></BotBar>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -12,11 +12,12 @@ import Main from './main/index.vue'
 
 <style scoped>
 .layout {
-    height: 1000vh;
-    background-color: #f5f9fc;
-    .botBar {
-        position: fixed;
-        bottom: 0;
-    }
+  height: 1000vh;
+  background-color: #f5f9fc;
+  .botBar {
+    position: fixed;
+    bottom: 0;
+    z-index: 10000;
+  }
 }
 </style>

@@ -3,7 +3,9 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 // 检测用户代理（User-Agent）是否为移动设备
 function isMobileDevice() {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent,
+  )
 }
 
 // 根据设备类型选择路由配置
