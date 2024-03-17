@@ -1,8 +1,5 @@
 // 对外暴露配置路由(常量路由)
-
-import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs'
-
-export const constantRoutes = [
+export const constantRoutesPC = [
   {
     // 登录成功后展示数据的路由
     path: '/',
@@ -202,4 +199,27 @@ export const constantRoutes = [
       },
     ],
   },
+]
+
+export const constantRoutesMobile = [
+  {
+    path: '/',
+    component: () => import('@/mobile/layout/index.vue'),
+    meta: {
+      title: '',
+      hidden: false,
+    },
+    redirect: '/home',
+    children: [
+      {
+        path: '/home',
+        component: () => import('@/mobile/views/home/index.vue'),
+        name: 'home',
+        meta: {
+          title: '首页',
+          hidden: false, // 是否隐藏 true为隐藏，默认false
+        },
+      },
+    ]
+  }
 ]

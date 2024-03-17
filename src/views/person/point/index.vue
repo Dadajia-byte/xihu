@@ -203,9 +203,9 @@ const tableData = [
   },
 ]
 
-onMounted(()=>{
+onMounted(() => {
   pointStore.getUserPointHistory()
-  console.log('积分明细：',pointStore.userPointHistory); 
+  console.log('积分明细：', pointStore.userPointHistory)
 })
 </script>
 
