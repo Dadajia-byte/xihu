@@ -15,7 +15,7 @@ export default defineStore('pointStore', () => {
   }
 
   const getUserPointHistory = () => {
-    reqUserHistory().then(res => {
+    reqUserHistory().then((res) => {
       userPointHistory.value = res.data
     })
   }
@@ -24,6 +24,6 @@ export default defineStore('pointStore', () => {
     pointName,
     userPointHistory,
     finishPoint,
-    getUserPointHistory
+    getUserPointHistory,
   }
 })

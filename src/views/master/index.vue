@@ -54,37 +54,88 @@
       </div>
       <div class="guest">
         <div class="guest-title">
-          <div class="title">演唱嘉宾</div>
+          <div class="title">演讲嘉宾</div>
           <div class="tips">嘉宾排名不分先后</div>
         </div>
-        <div class="filter"></div>
+        <div class="guest-container">
+          <div class="filter">
+            <div class="filter-container">
+              <div
+                class="filter-item"
+                v-for="(item, index) in dateList"
+                :key="index"
+                @click="setDateActive(index)"
+                :class="index === activeIndex ? 'active' : ''"
+              >
+                {{ item.date }}
+              </div>
+            </div>
+            <div class="search">
+              <el-input
+                @input="searchGuest(searchText)"
+                v-model="searchText"
+                style="width: 3.5rem; font-size: 0.25rem; line-height: 0.625rem"
+                placeholder="请输入嘉宾姓名"
+                :prefix-icon="Search"
+              />
+            </div>
+          </div>
+          <div class="guest">
+            <div
+              class="guest-item"
+              v-for="(item, index) in masterSotre.masterData"
+              :key="index"
+            >
+              <div class="img-wrapper">
+                <div
+                  class="img"
+                  :style="{
+                    backgroundImage: 'url(' + item.avatar + ')',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center center',
+                  }"
+                ></div>
+              </div>
+              <div class="name">{{ item.guestname }}</div>
+
+              <div class="description">{{ item.description }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { Search } from '@element-plus/icons-vue'
+import useMasterSotre from '@/store/modules/master'
+// import { master } from '@/api/master/type'
+
+const masterSotre = useMasterSotre()
+const activeIndex = ref(0)
+const searchText = ref('')
 const left = ref()
 const right = ref()
 const cards = [
   {
-    url: 'https://obs-xhlj.obs.cn-east-3.myhuaweicloud.com/2023/3/8dadced7bad74bd7b7e692957bc6f1d2.jpg',
+    url: 'https://img2023.gcsis.cn/2023/4/7c46ac80f91542b4a0f6ce2b593f3f19.png',
     name: '1',
     description: '中国信通院安全研究所车联网安全中心主任',
   },
   {
-    url: 'https://obs-xhlj.obs.cn-east-3.myhuaweicloud.com/2023/3/2f791d88ef5c42669d61dfb560ab484e.jpg',
+    url: 'https://img2023.gcsis.cn/2023/4/aa1635e18de24d88b86753e1ca39a05e.png',
     name: '2',
     description: '安恒信息副董事长',
   },
   {
-    url: 'https://obs-xhlj.obs.cn-east-3.myhuaweicloud.com/2023/3/54400aca0eea438f822ebf3a059e43db.jpg',
+    url: 'https://img2023.gcsis.cn/2023/4/1a80708d46f64e079919a2c93a6aa7c4.png',
     name: '3',
     description: '安恒信息副董事长',
   },
   {
-    url: 'https://obs-xhlj.obs.cn-east-3.myhuaweicloud.com/2023/3/82f148791fda423aac58841930ca293c.jpg',
+    url: 'https://img2023.gcsis.cn/2023/4/3976ced942c44672b457895baa4e33e8.png',
     name: '4',
     description: '安恒信息副董事长',
   },
@@ -104,6 +155,13 @@ const cards = [
     description: '安恒信息副董事长',
   },
 ]
+const dateList = ref([
+  { date: '全部' },
+  { date: '5月5日' },
+  { date: '5月6日' },
+  { date: '5月7日' },
+  { date: '5月8日' },
+])
 let cardlist = ref()
 let offset = 0
 let slideIncrement = 0
@@ -177,6 +235,28 @@ const handleLeftClick = () => {
     left.value.disabled = false
   }, 500)
 }
+
+const searchGuest = async (searchText: string) => {
+  masterSotre.getMasterData.guestname = searchText
+  await masterSotre.getMasterInfo()
+}
+const guestInit = async () => {
+  masterSotre.getMasterData.isExpert = '0'
+  masterSotre.getMasterData.date = ''
+  masterSotre.getMasterData.guestname = ''
+  await masterSotre.getMasterInfo()
+}
+const setDateActive = async (index: number) => {
+  activeIndex.value = index
+  masterSotre.getMasterData.isExpert = '0'
+  masterSotre.getMasterData.date =
+    dateList.value[index].date === '全部' ? '' : dateList.value[index].date
+  await masterSotre.getMasterInfo()
+  // console.log(masterSotre.masterData)
+}
+onMounted(async () => {
+  await guestInit()
+})
 </script>
 <script lang="ts">
 export default {
@@ -184,6 +264,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import '../../styles/mixin.scss';
+
 .header {
   width: 100%;
   height: 4.8rem;
@@ -245,6 +327,7 @@ export default {
   justify-content: center;
   margin: 1.2625rem auto;
   overflow: hidden;
+
   .master-container {
     position: absolute;
     height: 4.9688rem;
@@ -267,11 +350,13 @@ export default {
         width: 3.2484rem;
         overflow: hidden;
         clip-path: circle();
+
         img {
           height: 100%;
           width: 100%;
           transition: transform 0.5s ease-in-out;
         }
+
         &:hover img {
           transform: scale(1.1);
         }
@@ -282,6 +367,7 @@ export default {
         font-size: 0.45rem;
         text-align: center;
       }
+
       .description {
         font-size: 0.3rem;
         color: #abaaaa;
@@ -292,8 +378,8 @@ export default {
 
 .el-icon {
   position: absolute;
-  top: 20%;
-  transform: translateY(-20%);
+  top: 33%;
+  transform: translateY(-33%);
   height: 0.7125rem;
   width: 0.7125rem;
   line-height: 0.7125rem;
@@ -306,7 +392,101 @@ export default {
 .left {
   left: -0.0625rem;
 }
+
 .right {
   right: -0.0625rem;
+}
+
+.guest-container {
+  padding-left: 1.5875rem;
+  padding-top: 0.825rem;
+  width: 22.7063rem;
+
+  .filter {
+    display: flex;
+
+    .filter-container {
+      display: flex;
+
+      height: 0.625rem;
+      flex: 6;
+
+      .filter-item {
+        display: flex;
+        justify-content: center;
+        margin-right: 0.375rem;
+        width: 2.225rem;
+        border-radius: 0.625rem;
+        line-height: 0.625rem;
+        font-size: 0.25rem;
+        border: 0.0125rem solid #e6e6e6;
+        box-shadow: 0 0.03125rem 0.0625rem rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+      .active {
+        background: linear-gradient(
+          to bottom right,
+          $theme-color-blue,
+          $theme-color-green
+        );
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+    .search {
+      flex: 4;
+      height: 0.625rem;
+      display: flex;
+      justify-content: end;
+    }
+  }
+
+  .guest {
+    display: flex;
+    flex-wrap: wrap;
+    width: 22.7063rem;
+
+    .guest-item {
+      width: 2.225rem;
+      margin-top: 0.625rem;
+      margin-right: 1.5593rem;
+      .img-wrapper {
+        width: 2.225rem;
+        height: 2.225rem;
+        overflow: hidden;
+        clip-path: circle();
+
+        .img {
+          width: 2.225rem;
+          height: 2.225rem;
+          cursor: pointer;
+          transition: transform 0.5s ease-in-out;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      .name {
+        margin-top: 0.25rem;
+        margin-bottom: 0.125rem;
+        display: flex;
+        justify-content: center;
+        font-size: 0.3125rem;
+      }
+      .description {
+        font-size: 0.2031rem;
+        display: flex;
+        justify-content: center;
+        color: #abaaaa;
+        line-height: 0.3125rem;
+      }
+      &:hover {
+      }
+    }
+  }
+}
+.el-input__wrapper {
+  border-radius: 0.625rem;
 }
 </style>

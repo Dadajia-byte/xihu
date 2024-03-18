@@ -3,7 +3,7 @@ export interface reqPointName {
 }
 
 export interface reqUserPointHistory {
-  time: string,
-  action: string,
-  change: number,
+  time: string
+  action: string
+  change: number
 }

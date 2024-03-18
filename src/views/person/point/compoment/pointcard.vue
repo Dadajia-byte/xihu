@@ -15,10 +15,8 @@ defineProps(['data'])
 import usePointStore from '@/store/modules/point'
 let pointStore = usePointStore()
 
-
-const goToTask = (data:string) => {
-  if(data ==='分享活动') {
-    
+const goToTask = (data: string) => {
+  if (data === '分享活动') {
   }
 }
 </script>
