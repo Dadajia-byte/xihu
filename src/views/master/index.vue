@@ -7,14 +7,14 @@
       </div>
 
       <div class="professonal">
-        <div class="professonal-title">
+        <div class="professonal-title wow slideInLeft">
           <div class="title">专家委员会</div>
           <div class="tips">专家排名不分先后</div>
         </div>
 
         <div class="professonal-list">
           <div
-            class="carousel-container wow bounceInUp"
+            class="carousel-container wow fadeInUp"
             data-wow-duration="1s"
             data-wow-delay="1s"
           >
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="guest">
-        <div class="guest-title">
+        <div class="guest-title wow slideInRight">
           <div class="title">演讲嘉宾</div>
           <div class="tips">嘉宾排名不分先后</div>
         </div>
@@ -61,7 +61,7 @@
           <div class="filter">
             <div class="filter-container">
               <div
-                class="filter-item"
+                class="filter-item wow fadeInUp"
                 v-for="(item, index) in dateList"
                 :key="index"
                 @click="setDateActive(index)"
@@ -74,7 +74,7 @@
               <el-input
                 @input="searchGuest(searchText)"
                 v-model="searchText"
-                style="width: 3.5rem; font-size: 0.25rem; line-height: 0.625rem"
+                style="width: 3.5rem; font-size: 0.25rem; line-height: 0.625rem;  border-radius: 0.625rem;"
                 placeholder="请输入嘉宾姓名"
                 :prefix-icon="Search"
               />
@@ -82,7 +82,7 @@
           </div>
           <div class="guest">
             <div
-              class="guest-item"
+              class="guest-item  wow fadeInUp"
               v-for="(item, index) in masterSotre.masterData"
               :key="index"
             >
@@ -93,6 +93,8 @@
                     backgroundImage: 'url(' + item.avatar + ')',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center center',
+                  
+
                   }"
                 ></div>
               </div>
@@ -111,6 +113,8 @@
 import { ref, onMounted } from 'vue'
 import { Search } from '@element-plus/icons-vue'
 import useMasterSotre from '@/store/modules/master'
+import WOW from 'wow.js'
+
 // import { master } from '@/api/master/type'
 
 const masterSotre = useMasterSotre()
@@ -254,8 +258,21 @@ const setDateActive = async (index: number) => {
   await masterSotre.getMasterInfo()
   // console.log(masterSotre.masterData)
 }
+
+const initWOW = () => {
+  const wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+  })
+  wow.init()
+}
+
 onMounted(async () => {
+  initWOW()
   await guestInit()
+
 })
 </script>
 <script lang="ts">
