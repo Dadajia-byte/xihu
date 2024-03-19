@@ -74,7 +74,12 @@
               <el-input
                 @input="searchGuest(searchText)"
                 v-model="searchText"
-                style="width: 3.5rem; font-size: 0.25rem; line-height: 0.625rem;  border-radius: 0.625rem;"
+                style="
+                  width: 3.5rem;
+                  font-size: 0.25rem;
+                  line-height: 0.625rem;
+                  border-radius: 0.625rem;
+                "
                 placeholder="请输入嘉宾姓名"
                 :prefix-icon="Search"
               />
@@ -82,7 +87,7 @@
           </div>
           <div class="guest">
             <div
-              class="guest-item  wow fadeInUp"
+              class="guest-item wow fadeInUp"
               v-for="(item, index) in masterSotre.masterData"
               :key="index"
             >
@@ -93,8 +98,6 @@
                     backgroundImage: 'url(' + item.avatar + ')',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center center',
-                  
-
                   }"
                 ></div>
               </div>
@@ -272,7 +275,6 @@ const initWOW = () => {
 onMounted(async () => {
   initWOW()
   await guestInit()
-
 })
 </script>
 <script lang="ts">

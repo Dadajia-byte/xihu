@@ -1,14 +1,24 @@
 <template>
   <div>
     <div class="activity">
-      <span class="divider wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+      <span
+        class="divider wow fadeInUp"
+        data-wow-duration="1s"
+        data-wow-delay="0.5s"
+      >
         精彩活动
       </span>
       <div class="whole-content">
         <div class="activity-content">
           <ul>
-            <li v-for="(item,index) in activityList" :key="index">
-              <div class="bg " :style="{backgroundImage: 'url(' + item.backgroundUrl + ')',opacity:item.opacity}"></div>
+            <li v-for="(item, index) in activityList" :key="index">
+              <div
+                class="bg"
+                :style="{
+                  backgroundImage: 'url(' + item.backgroundUrl + ')',
+                  opacity: item.opacity,
+                }"
+              ></div>
             </li>
           </ul>
 
@@ -20,16 +30,35 @@
               <span>Exciting Activities</span>
             </div>
             <div class="navigation">
-              <div class="navigation-item" v-for="(item, index) in activityList" :key="index"
-                @click="handleSelect(index)" :class="index === activeIndex ? 'active' : ''">
+              <div
+                class="navigation-item"
+                v-for="(item, index) in activityList"
+                :key="index"
+                @click="handleSelect(index)"
+                :class="index === activeIndex ? 'active' : ''"
+              >
                 {{ item.name }}
               </div>
             </div>
           </div>
-          <el-carousel :autoplay="false" height="6.7625rem" @change="handleCarouselChange" indicator-position="none"
-            arrow="never" ref="carouselList">
-            <el-carousel-item v-for="(item, index) in activityList" :key="index" :name="item.title">
-              <div class="carousel-item wow slideInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+          <el-carousel
+            :autoplay="false"
+            height="6.7625rem"
+            @change="handleCarouselChange"
+            indicator-position="none"
+            arrow="never"
+            ref="carouselList"
+          >
+            <el-carousel-item
+              v-for="(item, index) in activityList"
+              :key="index"
+              :name="item.title"
+            >
+              <div
+                class="carousel-item wow slideInRight"
+                data-wow-duration="1s"
+                data-wow-delay="0.5s"
+              >
                 <div class="name">
                   {{ item.name }}
                 </div>
@@ -65,7 +94,6 @@ const initWOW = () => {
 }
 onMounted(() => {
   initWOW()
- 
 })
 
 const activityList = ref([
@@ -76,7 +104,7 @@ const activityList = ref([
       '5月5日 18:30 “格致论道”是中国科学院计算机网络信息中心和中国科学院科学传播局联合主办的科学文化讲坛。致力于非凡思想的跨界交流，提倡以"格物致知"的精神探讨科技、教育、生活、未来的发展。',
     backgroundUrl:
       'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
-      opacity:'1',
+    opacity: '1',
   },
   {
     name: '西湖论剑安全特训营',
@@ -85,7 +113,7 @@ const activityList = ref([
       '5月4-6日 西湖论剑安全特训营是国内领先的数字安全人才交流、孵化及实训平台，致力于成为数字时代的“数字安全人才助推器”。以体系化课程、实战化导向为显著特色，服务于数字化转型背景下的政府、企事业单位，为其培养数字安全的管理者、实战人才提供有力支撑，为国家数字安全人才发展持续输出强有力的“燃料”。',
     backgroundUrl:
       'https://www.rmzxb.com.cn/upload/resources/image/2023/05/08/2781135.jpg',
-      opacity:'0',
+    opacity: '0',
   },
   {
     name: '新品发布',
@@ -93,8 +121,7 @@ const activityList = ref([
     content: '',
     backgroundUrl:
       'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
-      opacity:'0',
-
+    opacity: '0',
   },
   {
     name: '第二直播间',
@@ -103,8 +130,7 @@ const activityList = ref([
       '一次掌上场景搭建下的即时性交流；身临其境的参与感，精彩看点的抢先看；行业专家、观点嘉宾在线解读核心观点；更有大会成果密集输出，限定款宠粉福利',
     backgroundUrl:
       'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
-      opacity:'0',
-
+    opacity: '0',
   },
   {
     name: '掌上论剑',
@@ -113,8 +139,7 @@ const activityList = ref([
       '以西湖论剑官网为载体，精心策划“掌上论剑”系列活动，推出“点亮网安，守护城市”、“ 守护每一份网安愿景”等互动活动，《今夜不破防》、《十日谈》、《新时代安全观对话》等亮点节目，打造一档精彩、有趣的掌上论剑特色节目。',
     backgroundUrl:
       'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
-      opacity:'0',
-
+    opacity: '0',
   },
   {
     name: '西湖论剑十周年回顾',
@@ -123,13 +148,11 @@ const activityList = ref([
       '2022年第十届西湖论剑·网络安全大会，十年磨一剑，向世界递出一张具有全球影响力、全国引领力、浙江辨识度的网络安全大会金名片。',
     backgroundUrl:
       'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
-      opacity:'0',
-
+    opacity: '0',
   },
 ])
 
-const currentBackground = ref(activityList.value[0].backgroundUrl)
-const backgroundOpacity = ref(1)
+
 const activeIndex = ref(0)
 const carouselList = ref()
 
@@ -138,19 +161,13 @@ const handleSelect = (index: number) => {
   carouselList.value.setActiveItem(index)
 }
 const handleCarouselChange = (currentIndex: any) => {
-  for(let i = 0; i < activityList.value.length; i++){
+  for (let i = 0; i < activityList.value.length; i++) {
     activityList.value[i].opacity = '0'
   }
   activityList.value[currentIndex].opacity = '1'
 }
 
-//背景样式
-const backgroundStyle = computed(() => {
-  return {
-    backgroundImage: `url(${currentBackground.value})`,
-    opacity: backgroundOpacity.value,
-  }
-})
+
 </script>
 
 <style scoped lang="scss">
@@ -198,9 +215,11 @@ const backgroundStyle = computed(() => {
         justify-content: center;
         color: #fff;
         padding-left: 1.2rem;
-        background: linear-gradient(to bottom right,
-            $theme-color-blue,
-            $theme-color-green );
+        background: linear-gradient(
+          to bottom right,
+          $theme-color-blue,
+          $theme-color-green
+        );
         clip-path: polygon(100% 0, 80% 100%, 0 100%, 0 0);
       }
 
@@ -274,17 +293,21 @@ const backgroundStyle = computed(() => {
         width: 2.425rem;
         text-align: center;
         line-height: 0.475rem;
-        background: linear-gradient(to bottom right,
-            $theme-color-blue,
-            $theme-color-green );
+        background: linear-gradient(
+          to bottom right,
+          $theme-color-blue,
+          $theme-color-green
+        );
         cursor: pointer;
         border-radius: 0.475rem;
         transition: background 1s ease-in-out;
 
         &:hover {
-          background: linear-gradient(to bottom left,
-              $theme-color-blue,
-              $theme-color-green );
+          background: linear-gradient(
+            to bottom left,
+            $theme-color-blue,
+            $theme-color-green
+          );
         }
       }
     }
