@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <Main></Main>
+    <Main class="main"></Main>
     <BotBar class="botBar"></BotBar>
   </div>
 </template>
@@ -10,10 +10,12 @@ import BotBar from './botBar/index.vue'
 import Main from './main/index.vue'
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .layout {
-  height: 1000vh;
   background-color: #f5f9fc;
+  .main {
+    padding-bottom: 10vh;
+  }
   .botBar {
     position: fixed;
     bottom: 0;

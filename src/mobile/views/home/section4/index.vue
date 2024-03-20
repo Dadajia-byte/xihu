@@ -1,96 +1,89 @@
 <template>
-    <div class="container">
-        <div class="tag">
-          <div class="left">
-            重磅嘉宾
-            <div class="gray_sm">
-              嘉宾排名不分先后
-            </div>
-          </div>
-          <div class="right">
-            更多+
-          </div>
-        </div> 
-        <div class="master">
-          <swiper
-      :modules="modules"
-    :slides-per-view="3.5"
-    space-between="10vw"
-
-  >
-    <swiper-slide v-for="item in masterItem" :key="item.name">
-      <div class="top">
-        <div class="image"></div>
-        <div class="bofang" v-show="item.isStream"></div>
+  <div class="container">
+    <div class="tag">
+      <div class="left">
+        重磅嘉宾
+        <div class="gray_sm">嘉宾排名不分先后</div>
       </div>
-      <div class="bottom">
-        <div class="name">{{ item.name }}</div>
-        <div class="des">{{ item.description }}</div>
-      </div>
-    </swiper-slide>
-  </swiper>
-        </div>
+      <div class="right">更多+</div>
     </div>
+    <div class="master">
+      <swiper :modules="modules" :slides-per-view="3.5" space-between="10vw">
+        <swiper-slide v-for="item in masterItem" :key="item.name">
+          <div class="top">
+            <div class="image"></div>
+            <div class="bofang" v-show="item.isStream"></div>
+          </div>
+          <div class="bottom">
+            <div class="name">{{ item.name }}</div>
+            <div class="des">{{ item.description }}</div>
+          </div>
+        </swiper-slide>
+      </swiper>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import {Autoplay,Scrollbar} from 'swiper/modules'
-import 'swiper/scss/pagination';
-const modules = [Autoplay,Scrollbar]
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, Scrollbar } from 'swiper/modules'
+import 'swiper/scss/pagination'
+const modules = [Autoplay, Scrollbar]
 const masterItem = [
   {
     name: '张宇',
-    description:'中国发展研究基金会副理事长、国务院发展研究中心副主任',
-    isStream:true,
-    img:'',
-  },{
+    description: '中国发展研究基金会副理事长、国务院发展研究中心副主任',
+    isStream: true,
+    img: '',
+  },
+  {
     name: '沈昌祥',
-    description:'中国工程院院士',
-    isStream:false,
-    img:'',
+    description: '中国工程院院士',
+    isStream: false,
+    img: '',
   },
   {
     name: '邬贺铨',
-    description:'中国工程院院士',
-    isStream:true,
-    img:'',
+    description: '中国工程院院士',
+    isStream: true,
+    img: '',
   },
   {
     name: '方滨兴',
-    description:'中国工程院院士',
-    isStream:true,
-    img:'',
+    description: '中国工程院院士',
+    isStream: true,
+    img: '',
   },
   {
     name: '郝志强',
-    description:'工业和信息化部教育与考试中心主任、书记',
-    isStream:false,
-    img:'',
+    description: '工业和信息化部教育与考试中心主任、书记',
+    isStream: false,
+    img: '',
   },
   {
     name: '何皓仁',
-    description:'中国信通院安全研究所车联网安全中心主任',
-    isStream:true,
-    img:'',
-  },{
+    description: '中国信通院安全研究所车联网安全中心主任',
+    isStream: true,
+    img: '',
+  },
+  {
     name: '左晓栋',
-    description:'中国科学技术大学网络空间安全学院教授',
-    isSream:false,
-    img:'',
+    description: '中国科学技术大学网络空间安全学院教授',
+    isSream: false,
+    img: '',
   },
   {
     name: '谭晓生',
-    description:'北京赛博英杰科技有限公司董事长',
-    isStream:false,
-    img:'',
+    description: '北京赛博英杰科技有限公司董事长',
+    isStream: false,
+    img: '',
   },
   {
     name: '范渊',
-    description:'安恒信息董事长',
-    isStream:true,
-    img:'',
-  }
+    description: '安恒信息董事长',
+    isStream: true,
+    img: '',
+  },
 ]
 </script>
 
@@ -140,13 +133,11 @@ const masterItem = [
     margin: 0 auto;
     margin-top: 3vh;
     .swiper {
-
       .swiper-slide {
         .top {
           display: flex;
           justify-content: center;
           .image {
-
             width: 22vw;
             height: 22vw;
             border-radius: 11vw;
@@ -165,12 +156,11 @@ const masterItem = [
               position: absolute;
               width: 2.5vw;
               height: 3vw;
-              clip-path: polygon(0 0,100% 50%,0 100%);
+              clip-path: polygon(0 0, 100% 50%, 0 100%);
               background-color: white;
               left: 50%;
               top: 52%;
               transform: translateX(-40%) translateY(-50%);
-
             }
           }
         }
@@ -184,19 +174,19 @@ const masterItem = [
             font-weight: 700;
           }
           .des {
-    width: 85%;
-    margin-top: 1vw;
-    font-size: 2.5vw;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    /* 其他浏览器的多行文本截断设置 */
-    /* 使用最大高度和行高来控制 */
-    max-height: 5vw; /* 假设一行高度为 2.5vw，所以两行的高度为 5vw */
-}
+            width: 85%;
+            margin-top: 1vw;
+            font-size: 2.5vw;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            /* 其他浏览器的多行文本截断设置 */
+            /* 使用最大高度和行高来控制 */
+            max-height: 5vw; /* 假设一行高度为 2.5vw，所以两行的高度为 5vw */
+          }
         }
       }
     }
