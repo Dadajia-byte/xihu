@@ -25,6 +25,7 @@
     "element-plus": "^2.5.5",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
+    "swiper": "^11.0.7",
     "three": "0.121.0",
     "vant": "^3.4.3",
     "vanta": "0.5.24",

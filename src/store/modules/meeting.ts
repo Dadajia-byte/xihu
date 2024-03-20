@@ -11,13 +11,12 @@ let useMeetingStore = defineStore('meetingStore', () => {
 
   let agendaItems = ref<agendaItem[]>([])
 
+  let meetingNum = ref<number>(0)
+
   // 获取会议信息
   const getAgenda = async () => {
     let result: agendaResponse = await reqAgenda(reqData)
     if (result.code === 0) {
-      // 获取成功
-      console.log(result.data)
-
       agendaItems.value = result.data
       return 'ok'
     } else {
@@ -52,6 +51,7 @@ let useMeetingStore = defineStore('meetingStore', () => {
   return {
     reqData,
     agendaItems,
+    meetingNum,
     getAgenda,
     subAgenda,
     cancelAgenda,

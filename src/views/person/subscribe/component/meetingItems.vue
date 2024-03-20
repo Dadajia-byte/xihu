@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, nextTick, onMounted, ref } from 'vue'
 import meetingcard from './meetingcard.vue'
 import useMeetingStore from '@/store/modules/meeting'
 
@@ -22,6 +22,7 @@ onMounted(async () => {
   meetingStore.agendaItems = meetingStore.agendaItems?.filter(
     (item) => item.isSub == 1,
   )
+  meetingStore.meetingNum = meetingStore.agendaItems.length
 })
 </script>
 

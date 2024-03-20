@@ -19,7 +19,6 @@ onMounted(async () => {
   activityStore.filterItem.pageSize = 1000
   await getActivty()
   activityStore.lists = activityStore.lists.filter((item) => item.isSub == 1)
-  console.log('子组件中活动数量:', activityStore.lists.length)
 })
 </script>
 

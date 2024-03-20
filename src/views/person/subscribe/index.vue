@@ -6,13 +6,15 @@
     <meetingItems
       class="meeting"
       :style="{
-        maxHeight: isExpand ? `${meetingNum * 2.4375}rem` : '4.875rem',
+        maxHeight: isExpand
+          ? `${meetingStore.meetingNum * 2.4375}rem`
+          : '4.875rem',
       }"
       ref="meeting"
     ></meetingItems>
     <el-icon
       class="arrowdown"
-      v-show="!isExpand && meetingNum > 6"
+      v-show="!isExpand && meetingStore.meetingNum > 6"
       @click="expand"
     >
       <ArrowDown />
@@ -20,12 +22,13 @@
 
     <el-icon
       class="arrowup"
-      v-show="isExpand && meetingNum > 6"
+      v-show="isExpand && meetingStore.meetingNum > 6"
       @click="collapse"
     >
       <ArrowUp />
     </el-icon>
     <!-- 议程订阅模块实现展开（1000px是动态高度，350px是初始固定高度）end -->
+
     <div class="content-wrapper">
       <div class="title2">精彩活动订阅</div>
       <activityItems ref="activity"></activityItems>
@@ -41,8 +44,6 @@ import useMeetingStore from '@/store/modules/meeting'
 import useActivityStore from '@/store/modules/activity'
 let activityStore = useActivityStore()
 let meetingStore = useMeetingStore()
-let meetingNum = ref(0)
-let activityNum = ref(0)
 
 import { onMounted, ref } from 'vue'
 let isExpand = ref(false)
@@ -53,17 +54,6 @@ const expand = () => {
 const collapse = () => {
   isExpand.value = false
 }
-
-onMounted(() => {
-  meetingNum.value = meetingStore.agendaItems?.length as number
-  activityNum.value = activityStore.lists?.length as number
-  console.log(meetingNum.value)
-
-  console.log(
-    !isExpand && meetingNum.value > 6,
-    isExpand && meetingNum.value > 6,
-  )
-})
 </script>
 
 <style scoped>

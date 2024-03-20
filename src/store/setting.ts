@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { constantRoutes } from '@/routers/routes'
+import { constantRoutesPC } from '@/routers/routes'
 
 let useLayoutSettingStore = defineStore('settingStore', () => {
   // 引入路由（常量路由）
 
-  let menuList = ref(constantRoutes[0].children)
+  let menuList = ref(constantRoutesPC[0].children)
   // 是否显示对话框
   const dialogFormVisible = ref(false)
   // 是否显示注册对话框
