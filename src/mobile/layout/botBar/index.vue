@@ -1,21 +1,37 @@
 <template>
   <div class="container">
-    <div class="home" @touchstart="handleClick('/home',0)" :style="{'color':isActive[0]?'#2378bd':'#bfbfbf'}">
+    <div
+      class="home"
+      @touchstart="handleClick('/home', 0)"
+      :style="{ color: isActive[0] ? '#2378bd' : '#bfbfbf' }"
+    >
       <el-icon><HomeFilled /></el-icon>
       <div>首页</div>
     </div>
-    <div class="activity"  @touchstart="handleClick('/activity',1)" :style="{'color':isActive[1]?'#2378bd':'#bfbfbf'}">
+    <div
+      class="activity"
+      @touchstart="handleClick('/activity', 1)"
+      :style="{ color: isActive[1] ? '#2378bd' : '#bfbfbf' }"
+    >
       <el-icon><List /></el-icon>
       <div>精彩活动</div>
     </div>
-    <div class="meeting"  @touchstart="handleClick('/meeting',5)" >
+    <div class="meeting" @touchstart="handleClick('/meeting', 5)">
       <div class="round">大会议程</div>
     </div>
-    <div class="mate"  @touchstart="handleClick('/mate',2)" :style="{'color':isActive[2]?'#2378bd':'#bfbfbf'}">
+    <div
+      class="mate"
+      @touchstart="handleClick('/mate', 2)"
+      :style="{ color: isActive[2] ? '#2378bd' : '#bfbfbf' }"
+    >
       <el-icon><ChromeFilled /></el-icon>
       <div>展商风采</div>
     </div>
-    <div class="me"  @touchstart="handleClick('/me',3)" :style="{'color':isActive[3]?'#2378bd':'#bfbfbf'}">
+    <div
+      class="me"
+      @touchstart="handleClick('/me', 3)"
+      :style="{ color: isActive[3] ? '#2378bd' : '#bfbfbf' }"
+    >
       <el-icon><UserFilled /></el-icon>
       <div>我的</div>
     </div>
@@ -23,23 +39,18 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-import {ref} from 'vue'
+import { useRouter } from 'vue-router'
+import { ref } from 'vue'
 
-const isActive = ref([
-  true,
-  false,
-  false,
-  false
-])
+const isActive = ref([true, false, false, false])
 
-const $router = useRouter();
-const handleClick = (route:string,num:number)=>{
-  if(num!=5) {
-    isActive.value.forEach((item,index) => {
-      isActive.value[index]=false
-    });
-    isActive.value[num]=true
+const $router = useRouter()
+const handleClick = (route: string, num: number) => {
+  if (num != 5) {
+    isActive.value.forEach((item, index) => {
+      isActive.value[index] = false
+    })
+    isActive.value[num] = true
   }
   $router.push(route)
 }
