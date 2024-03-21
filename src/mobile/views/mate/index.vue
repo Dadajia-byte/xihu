@@ -1,9 +1,21 @@
 <template>
   <div class="container">
     <div class="tip">左右滑动可查看更多展商</div>
-    <swiper :slides-per-view="1.2" :centeredSlides="true" :loop="true" :initial-slide="1" :effect="'coverflow'"
-      :coverflow-effect="coverflowEffect" :modules="modules" class="mySwiper">
-      <swiper-slide v-for="(item, index) in mateItem" :key="index" class="mySwiperSlide">
+    <swiper
+      :slides-per-view="1.2"
+      :centeredSlides="true"
+      :loop="true"
+      :initial-slide="1"
+      :effect="'coverflow'"
+      :coverflow-effect="coverflowEffect"
+      :modules="modules"
+      class="mySwiper"
+    >
+      <swiper-slide
+        v-for="(item, index) in mateItem"
+        :key="index"
+        class="mySwiperSlide"
+      >
         <div class="top">
           <div class="top_content">
             <div class="img"></div>
@@ -22,10 +34,9 @@
 </template>
 
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Swiper, SwiperSlide } from 'swiper/vue'
 import { EffectCoverflow, Navigation, A11y, Autoplay } from 'swiper/modules'
 const modules = [EffectCoverflow, Navigation, A11y, Autoplay]
-
 
 const mateItem = [
   {
@@ -98,9 +109,8 @@ let coverflowEffect = {
   stretch: -75, //每个slide之间的拉伸值，越大slide靠得越紧。
   depth: 400, //slide的位置深度。值越大z轴距离越远，看起来越小。
   modifier: 1.2, //depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
-  slideShadows: false //开启slide阴影。默认 true。
-};
-
+  slideShadows: false, //开启slide阴影。默认 true。
+}
 </script>
 
 <style scoped lang="scss">
@@ -182,9 +192,8 @@ let coverflowEffect = {
             margin-top: 5vw;
             background-color: black;
             width: 95%;
-            height: 60%
+            height: 60%;
           }
-
         }
       }
     }

@@ -21,7 +21,6 @@
           <el-option label="5月8日" value="5月8日" />
         </el-select>
 
-
         <el-select placeholder="全部类型">
           <el-option label="主论坛" value="主论坛" />
           <el-option label="平行论坛" value="平行论坛" />
@@ -29,7 +28,6 @@
           <el-option label="掌上论剑" value="掌上论剑" />
           <el-option label="生态合作论坛" value="生态合作论坛" />
         </el-select>
-
       </el-form-item>
     </el-form>
     <div class="meeting-list" v-for="group in meetingList" :key="group.dayTime">
@@ -57,9 +55,9 @@ const meetingList = [
       {
         title: '格致论道@西湖论剑',
         time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层'
+        pos: '杭州市滨江区文化中心剧场一层',
       },
-    ]
+    ],
   },
   {
     dayTime: '5月6日 上午',
@@ -67,19 +65,19 @@ const meetingList = [
       {
         title: '格致论道@西湖论剑',
         time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层'
+        pos: '杭州市滨江区文化中心剧场一层',
       },
       {
         title: '格致论道@西湖论剑',
         time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层'
+        pos: '杭州市滨江区文化中心剧场一层',
       },
       {
         title: '格致论道@西湖论剑',
         time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层'
+        pos: '杭州市滨江区文化中心剧场一层',
       },
-    ]
+    ],
   },
   {
     dayTime: '5月6日 上午',
@@ -87,19 +85,19 @@ const meetingList = [
       {
         title: '格致论道@西湖论剑',
         time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层'
+        pos: '杭州市滨江区文化中心剧场一层',
       },
       {
         title: '格致论道@西湖论剑',
         time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层'
+        pos: '杭州市滨江区文化中心剧场一层',
       },
       {
         title: '格致论道@西湖论剑',
         time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层'
+        pos: '杭州市滨江区文化中心剧场一层',
       },
-    ]
+    ],
   },
   {
     dayTime: '5月6日 上午',
@@ -107,19 +105,19 @@ const meetingList = [
       {
         title: '格致论道@西湖论剑',
         time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层'
+        pos: '杭州市滨江区文化中心剧场一层',
       },
       {
         title: '格致论道@西湖论剑',
         time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层'
+        pos: '杭州市滨江区文化中心剧场一层',
       },
       {
         title: '格致论道@西湖论剑',
         time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层'
+        pos: '杭州市滨江区文化中心剧场一层',
       },
-    ]
+    ],
   },
 ]
 </script>
@@ -144,7 +142,6 @@ const meetingList = [
     .el-form-item:nth-of-type(1) {
       margin-top: 1vw;
 
-
       .search {
         width: 85%;
         margin: 0 auto;
@@ -153,9 +150,6 @@ const meetingList = [
 
         .el-input {
           height: 10vw;
-
-
-
         }
       }
     }
