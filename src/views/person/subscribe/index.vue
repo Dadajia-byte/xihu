@@ -41,11 +41,9 @@ import meetingItems from './component/meetingItems.vue'
 import activityItems from './component/activityItems.vue'
 
 import useMeetingStore from '@/store/modules/meeting'
-import useActivityStore from '@/store/modules/activity'
-let activityStore = useActivityStore()
 let meetingStore = useMeetingStore()
 
-import { onMounted, ref } from 'vue'
+import {  ref } from 'vue'
 let isExpand = ref(false)
 
 const expand = () => {

@@ -81,7 +81,7 @@
 
 <script setup lang="ts">
 import WOW from 'wow.js'
-import { onMounted, ref, computed } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const initWOW = () => {
   const wow = new WOW({

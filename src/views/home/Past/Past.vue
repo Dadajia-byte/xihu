@@ -105,7 +105,7 @@ const handleRightClick = () => {
     if (slideIncrement === cards.length) {
       slideIncrement = 0
       // 重置order
-      Array.from(cardlist.value.children).forEach((element: any, index) => {
+      Array.from(cardlist.value.children).forEach((element: any) => {
         element.style.order = 'initial'
       })
     }
@@ -119,7 +119,7 @@ const handleLeftClick = () => {
 
   if (slideDecrement < 0) {
     // 重置order
-    Array.from(cardlist.value.children).forEach((element: any, index) => {
+    Array.from(cardlist.value.children).forEach((element: any) => {
       element.style.order = 'initial'
     })
     //重置slideDecrement

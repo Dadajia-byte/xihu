@@ -47,7 +47,7 @@ const isActive = ref([true, false, false, false])
 const $router = useRouter()
 const handleClick = (route: string, num: number) => {
   if (num != 5) {
-    isActive.value.forEach((item, index) => {
+    isActive.value.forEach((_item, index:number) => {
       isActive.value[index] = false
     })
     isActive.value[num] = true

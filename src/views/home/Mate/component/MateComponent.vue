@@ -51,12 +51,7 @@
 import { defineProps, ref, onMounted } from 'vue'
 import WOW from 'wow.js'
 
-defineProps({
-  mateDatas: {
-    type: Array,
-    default: () => {},
-  },
-})
+defineProps(['mateDatas'])
 
 const animateClass = (index: number) => ({
   bounceInLeft: index % 2 === 0,

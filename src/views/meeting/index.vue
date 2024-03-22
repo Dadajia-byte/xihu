@@ -193,12 +193,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, computed, nextTick } from 'vue'
+import { onMounted, onUnmounted, ref, computed,  } from 'vue'
 import Screen from './components/Screen.vue'
 // @ts-ignore
 import WOW from 'wow.js'
 import useMeetingStore from '@/store/modules/meeting'
-import { ElMessage } from 'element-plus'
 import { agendaItem } from '@/api/meeting/type'
 
 let meetingStore = useMeetingStore()
@@ -232,7 +231,7 @@ const filteredAgenda = ref<agendaItem[]>([])
 const activeType = ref('全部')
 // @ts-ignore
 interface ss {
-  date?: string
+  date: string
   show: number
   findFlag: string
   events: agendaItem[]
@@ -259,7 +258,7 @@ const initAgenda = async () => {
 
 const filteredAgendas = computed(() => {
   return dates.value
-    .map((dateItem: { findFlag: string }) => {
+    .map((dateItem) => {
       // 根据 dateItem.findFlag 过滤议程
       const eventsForDate = meetingStore.agendaItems?.filter((event: any) =>
         event.startTime.includes(dateItem.findFlag),
@@ -271,39 +270,6 @@ const filteredAgendas = computed(() => {
     })
     ?.filter((item: any) => item.events?.length > 0) // 过滤掉没有议程的日期
 })
-
-const goSub = async (id: number) => {
-  console.log(id)
-  await meetingStore
-    .subAgenda(id)
-    .then(() => {
-      nextTick(async () => {
-        // 重新请求数据
-        await meetingStore.getAgenda()
-      })
-      ElMessage({
-        message: '订阅成功',
-        type: 'success',
-      })
-    })
-    .catch((res: any) => {
-      console.log(res)
-      ElMessage({
-        message: res.message,
-        type: 'error',
-      })
-    })
-}
-const cancelSub = async (id: number) => {
-  await meetingStore.cancelAgenda(id)
-  nextTick(async () => {
-    await meetingStore.getAgenda()
-    ElMessage({
-      message: '取消订阅成功',
-      type: 'success',
-    })
-  })
-}
 
 const initWOW = () => {
   const wow = new WOW({

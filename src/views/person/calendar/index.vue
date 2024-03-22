@@ -26,7 +26,9 @@
 </template>
 
 <script setup lang="ts">
-const cellStyle = ({ row, column, rowIndex, columnIndex }) => {
+//@ts-ignore
+const cellStyle = ({ _row, _column, rowIndex, columnIndex }) => {
+  //@ts-ignore
   if (rowIndex !== 0 && columnIndex !== 0) {
     return 'font-size: 14px' // 设置除了表头和首列以外的文字大小
   }

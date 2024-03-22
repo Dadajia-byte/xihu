@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="agenda-page">
     <Screen></Screen>
     <div class="filter-container">
@@ -218,13 +218,7 @@ const typeList = ref([
 const activeTypeIndex = ref(0)
 const activeDateIndex = ref(0)
 const mainIndex = ref(1) //1为全部议程 -1为我的议程
-const filteredAgenda = ref<agendaItem[]>([])
-interface ss {
-  date?: string
-  show: number
-  findFlag: string
-  events: agendaItem[]
-}
+
 
 const setTypeActive = async (index: number, item: any) => {
   activeTypeIndex.value = index
@@ -474,4 +468,4 @@ onUnmounted(() => {
     font-weight: bold;
   }
 }
-</style>
+</style> -->
