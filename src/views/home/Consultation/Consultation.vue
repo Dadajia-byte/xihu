@@ -13,7 +13,7 @@
         <el-card body-style="padding:0;     ">
           <div
             class="newsImg"
-            :style="`background:url(${item.imageUrl}) no-repeat center ;`"
+            :style="`background:url(${item.imageUrl}) no-repeat center/cover ;`"
           ></div>
           <div class="title">{{ item.title }}</div>
           <div class="content">

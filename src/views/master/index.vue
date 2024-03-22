@@ -1,11 +1,13 @@
 <template>
   <div>
     <div class="marster">
+      <!-- 头部banner -->
       <div class="header">
         <div class="title">大咖云集</div>
         <div class="engtitle">SPEAKERS</div>
       </div>
 
+      <!-- 专家委员会 -->
       <div class="professonal">
         <div class="professonal-title wow slideInLeft">
           <div class="title">专家委员会</div>
@@ -52,6 +54,8 @@
           </div>
         </div>
       </div>
+
+      <!-- 嘉宾部分 -->
       <div class="guest">
         <div class="guest-title wow slideInRight">
           <div class="title">演讲嘉宾</div>
@@ -441,7 +445,9 @@ export default {
         border: 0.0125rem solid #e6e6e6;
         box-shadow: 0 0.03125rem 0.0625rem rgba(0, 0, 0, 0.1);
         cursor: pointer;
+        transition: color 0.2s ease-in-out;
       }
+
       .active {
         background: linear-gradient(
           to bottom right,
@@ -452,6 +458,7 @@ export default {
         font-weight: bold;
       }
     }
+
     .search {
       flex: 4;
       height: 0.625rem;
@@ -469,6 +476,7 @@ export default {
       width: 2.225rem;
       margin-top: 0.625rem;
       margin-right: 1.5593rem;
+
       .img-wrapper {
         width: 2.225rem;
         height: 2.225rem;
@@ -480,6 +488,7 @@ export default {
           height: 2.225rem;
           cursor: pointer;
           transition: transform 0.5s ease-in-out;
+
           &:hover {
             transform: scale(1.1);
           }
@@ -493,6 +502,7 @@ export default {
         justify-content: center;
         font-size: 0.3125rem;
       }
+
       .description {
         font-size: 0.2031rem;
         display: flex;
@@ -500,11 +510,13 @@ export default {
         color: #abaaaa;
         line-height: 0.3125rem;
       }
+
       &:hover {
       }
     }
   }
 }
+
 .el-input__wrapper {
   border-radius: 0.625rem;
 }

@@ -4,33 +4,57 @@
       <div class="title wow fadeInRight">海报下载</div>
     </div>
     <div class="divider wow fadeInUp">
-      <div class="meetingposter" :class="isActive === 0 ? 'active' : ''" @click="setMeetingActive">
+      <div
+        class="meetingposter"
+        :class="isActive === 0 ? 'active' : ''"
+        @click="setMeetingActive"
+      >
         <el-icon>
           <DataLine />
         </el-icon>
         &nbsp;大会海报
       </div>
-      <div class="guestposter" :class="isActive === 1 ? 'active' : ''" @click="setGuestActive">
-
-
+      <div
+        class="guestposter"
+        :class="isActive === 1 ? 'active' : ''"
+        @click="setGuestActive"
+      >
         <el-icon>
           <DataLine />
-        </el-icon>&nbsp;嘉宾海报
+        </el-icon>
+        &nbsp;嘉宾海报
       </div>
     </div>
     <div class="poster-container" v-show="isActive === 0">
-      <div class="poster wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s" v-for="(item, index) in posterList"
-        :key="index">
-        <div class="poster-img" :style="{ backgroundImage: 'url(' + item.url + ')' }"></div>
+      <div
+        class="poster wow fadeInUp"
+        data-wow-duration="1s"
+        data-wow-delay="0.5s"
+        v-for="(item, index) in posterList"
+        :key="index"
+      >
+        <div
+          class="poster-img"
+          :style="{ backgroundImage: 'url(' + item.url + ')' }"
+        ></div>
         <div class="poster-name">{{ item.name }}</div>
       </div>
-
     </div>
     <div class="guest-container" v-show="isActive === 1">
-      <div class="guest wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s" v-for="(item, index) in guestList"
-        :key="index">
+      <div
+        class="guest wow fadeInUp"
+        data-wow-duration="1s"
+        data-wow-delay="0.5s"
+        v-for="(item, index) in guestList"
+        :key="index"
+      >
         <div class="img-wrapper">
-          <div class="img" :style="{ background: 'url(' + item.url + ')' + 'no-repeat center/cover' }"></div>
+          <div
+            class="img"
+            :style="{
+              background: 'url(' + item.url + ')' + 'no-repeat center/cover',
+            }"
+          ></div>
         </div>
         <div class="name">{{ item.name }}</div>
         <div class="desc">{{ item.description }}</div>
@@ -41,7 +65,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from 'vue'
 import WOW from 'wow.js'
 
 const isActive = ref(0)
@@ -109,7 +133,8 @@ const guestList = ref([
   {
     url: 'https://img2023.gcsis.cn/2023/5/53308d63685642969f18cb679090d166.jpeg',
     name: '郑磊',
-    description: '复旦大学国际关系与公共事务学院教授、上海市一网统管城市数字治理实验室主任',
+    description:
+      '复旦大学国际关系与公共事务学院教授、上海市一网统管城市数字治理实验室主任',
   },
   {
     url: 'https://img2023.gcsis.cn/2023/5/7fa0179beaa44f83b409ff0c9ac6682b.jpeg',
@@ -121,7 +146,6 @@ const guestList = ref([
     name: '范渊',
     description: '安恒信息董事长',
   },
-
 ])
 const setMeetingActive = () => {
   isActive.value = 0
@@ -149,12 +173,13 @@ onMounted(() => {
   height: 7.175rem;
   padding-left: 2.8625rem;
   padding-top: 3.2625rem;
-  background: url('@/assets/images/poster_images/banner.jpeg') no-repeat center center;
+  background: url('@/assets/images/poster_images/banner.jpeg') no-repeat center
+    center;
 
   .title {
     color: #fff;
     font-weight: bold;
-    font-size: .6125rem;
+    font-size: 0.6125rem;
   }
 }
 
@@ -165,15 +190,15 @@ onMounted(() => {
   .meetingposter,
   .guestposter {
     cursor: pointer;
-    margin-right: .1rem;
+    margin-right: 0.1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: .35rem;
+    font-size: 0.35rem;
     height: 1.25rem;
     width: 2.4375rem;
-    transition: color .5s ease-in-out;
+    transition: color 0.5s ease-in-out;
     position: relative;
     color: rgb(139, 132, 132);
 
@@ -183,9 +208,11 @@ onMounted(() => {
       bottom: 0;
       left: 50%;
       width: 0;
-      height: .025rem;
+      height: 0.025rem;
       background-color: #2db1ba;
-      transition: width 0.3s ease, left 0.3s ease;
+      transition:
+        width 0.3s ease,
+        left 0.3s ease;
     }
 
     &.active::after {
@@ -203,31 +230,30 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: .625rem auto 0 auto;
+  margin: 0.625rem auto 0 auto;
   width: 17.625rem;
 
   .poster {
     height: 11.05rem;
     width: 5.6875rem;
-    margin-right: .1875rem;
+    margin-right: 0.1875rem;
     cursor: pointer;
 
     .poster-img {
       height: 10.125rem;
       width: 5.6875rem;
       background: no-repeat center/cover;
-      ;
     }
 
     .poster-name {
       display: flex;
       justify-content: center;
-      height: .925rem;
+      height: 0.925rem;
       width: 5.6875rem;
       font-weight: 500;
-      font-size: .2625rem;
-      line-height: .925rem;
-      transition: color .3s ease-in-out;
+      font-size: 0.2625rem;
+      line-height: 0.925rem;
+      transition: color 0.3s ease-in-out;
     }
 
     &:hover .poster-name {
@@ -240,22 +266,21 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: .625rem auto 0 auto;
+  margin: 0.625rem auto 0 auto;
   width: 18.1875rem;
 
   .guest {
     height: 6.525rem;
     width: 5.6875rem;
-    margin-right: .375rem;
-    margin-top: .375rem;
-    padding: .375rem;
+    margin-right: 0.375rem;
+    margin-top: 0.375rem;
+    padding: 0.375rem;
     display: flex;
     align-content: center;
     flex-direction: column;
 
     background-color: #fff;
-    box-shadow: .05rem .075rem .5rem .05rem rgba(122, 147, 177, .17);
-
+    box-shadow: 0.05rem 0.075rem 0.5rem 0.05rem rgba(122, 147, 177, 0.17);
 
     .img-wrapper {
       margin: 0 auto;
@@ -271,23 +296,22 @@ onMounted(() => {
         width: 3.125rem;
         height: 5.555rem;
         background: no-repeat center/cover;
-        transition: transform .3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
       }
 
       &:hover .img {
-
         transform: scale(1.1);
       }
     }
 
     .name {
-      margin-top: .5rem;
-      margin-bottom: .3rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.3rem;
       display: flex;
       justify-content: center;
-      font-size: .3rem;
-      height: .55rem;
-      line-height: .55rem;
+      font-size: 0.3rem;
+      height: 0.55rem;
+      line-height: 0.55rem;
       position: relative;
 
       &::after {
@@ -296,8 +320,8 @@ onMounted(() => {
         bottom: -0.0625rem;
         left: 50%;
         transform: translateX(-50%);
-        height: .025rem;
-        width: .1875rem;
+        height: 0.025rem;
+        width: 0.1875rem;
         background-color: #2db1ba;
       }
     }
@@ -306,25 +330,25 @@ onMounted(() => {
       display: flex;
       justify-content: center;
       text-align: center;
-      font-size: .2rem;
+      font-size: 0.2rem;
       color: #abaaaa;
-      line-height: .3125rem;
-      height: .625rem;
+      line-height: 0.3125rem;
+      height: 0.625rem;
     }
 
     .download {
-      margin: .0625rem auto 0;
+      margin: 0.0625rem auto 0;
       display: flex;
       justify-content: center;
-      height: .5rem;
+      height: 0.5rem;
       width: 2.1875rem;
-      line-height: .5rem;
-      border-radius: .5rem;
-      border: .025rem solid #2db1ba;
+      line-height: 0.5rem;
+      border-radius: 0.5rem;
+      border: 0.025rem solid #2db1ba;
       color: #2db1ba;
-      font-size: .2rem;
+      font-size: 0.2rem;
       cursor: pointer;
-      transition: background-color .3s ease-in-out;
+      transition: background-color 0.3s ease-in-out;
 
       &:hover {
         background-color: #2db1ba;

@@ -17,46 +17,45 @@
       <div class="tag">直播回放</div>
       <div class="stream">
         <swiper
-       :modules="modules"
-    :slides-per-view="1.3"
-    space-between="10vw"
-    navigation
-    :pagination="{ clickable: true }"
-  >
-    <swiper-slide v-for="item in cardList" :key="item.title" >
-      <div class="cardItem">
-        <div class="top">
-          <div class="title">{{ item.title }}</div>
-          <div class="watch">
-            <el-icon style="padding-right: 0.1vw;font-size: 3.8vw;"><VideoPlay /></el-icon>
-            观看回放
-          </div>
-        </div>
-        <div class="bottom">
-          <div class="pos">
-            <el-icon><LocationInformation /></el-icon>
-            {{ item.pos }}
-          </div>
-          <div class="time">{{ item.time }}</div>
-          <div class="sub">订阅+</div>
-        </div>
-      </div>
-    </swiper-slide>
-
-
+          :modules="modules"
+          :slides-per-view="1.3"
+          space-between="10vw"
+          navigation
+          :pagination="{ clickable: true }"
+        >
+          <swiper-slide v-for="item in cardList" :key="item.title">
+            <div class="cardItem">
+              <div class="top">
+                <div class="title">{{ item.title }}</div>
+                <div class="watch">
+                  <el-icon style="padding-right: 0.1vw; font-size: 3.8vw">
+                    <VideoPlay />
+                  </el-icon>
+                  观看回放
+                </div>
+              </div>
+              <div class="bottom">
+                <div class="pos">
+                  <el-icon><LocationInformation /></el-icon>
+                  {{ item.pos }}
+                </div>
+                <div class="time">{{ item.time }}</div>
+                <div class="sub">订阅+</div>
+              </div>
+            </div>
+          </swiper-slide>
         </swiper>
       </div>
-        
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue';
-import { Swiper, SwiperSlide } from 'swiper/vue';
+import { ref } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 
-import {Autoplay,Pagination} from 'swiper/modules'
-import 'swiper/scss/pagination';
+import { Autoplay, Pagination } from 'swiper/modules'
+import 'swiper/scss/pagination'
 
 const cardList = ref([
   {
@@ -68,15 +67,15 @@ const cardList = ref([
   {
     title: '95后极客青年Talk',
     pos: '线上直播',
-    time: '10:00-10:30'
+    time: '10:00-10:30',
   },
   {
-    title:'当科幻照进现实我们会更安全吗？',
-    pos:'线上直播',
-    time: '13:00-13:30'
-  }
+    title: '当科幻照进现实我们会更安全吗？',
+    pos: '线上直播',
+    time: '13:00-13:30',
+  },
 ])
-const modules = [Autoplay,Pagination]
+const modules = [Autoplay, Pagination]
 </script>
 
 <style scoped lang="scss">
@@ -115,12 +114,12 @@ const modules = [Autoplay,Pagination]
       height: 100%;
       margin: 0 auto;
       margin-top: 2vh;
-      
+
       color: white;
       .swiper {
         height: 100%;
         .swiper-slide {
-          background-color: red;  // 添加背景图片后这里删除
+          background-color: red; // 添加背景图片后这里删除
           height: 80%;
           .cardItem {
             width: 100%;
@@ -159,7 +158,7 @@ const modules = [Autoplay,Pagination]
                 align-items: center;
                 white-space: nowrap;
                 overflow: hidden;
-                text-overflow: ellipsis; 
+                text-overflow: ellipsis;
                 width: 30%;
               }
               .sub {

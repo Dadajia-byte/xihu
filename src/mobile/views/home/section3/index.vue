@@ -2,32 +2,29 @@
   <div class="container">
     <div class="tag">
       精彩活动
-      <div class="right">
-            更多+
-      </div>
+      <div class="right">更多+</div>
     </div>
     <div class="activity">
       <swiper
-      :modules="modules"
-      pagination
-    :slides-per-view="2"
-    space-between="10vw"
-
-  >
-    <swiper-slide v-for="item in cardItem" :key="item.name">
-      <div class="top"></div>
-      <div class="bottom">{{ item.name }}</div>
-    </swiper-slide>
-  </swiper>
+        :modules="modules"
+        pagination
+        :slides-per-view="2"
+        space-between="10vw"
+      >
+        <swiper-slide v-for="item in cardItem" :key="item.name">
+          <div class="top"></div>
+          <div class="bottom">{{ item.name }}</div>
+        </swiper-slide>
+      </swiper>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import {Autoplay,Pagination} from 'swiper/modules'
-import 'swiper/scss/pagination';
-const modules = [Autoplay,Pagination]
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, Pagination } from 'swiper/modules'
+import 'swiper/scss/pagination'
+const modules = [Autoplay, Pagination]
 
 const cardItem = [
   {
@@ -35,20 +32,20 @@ const cardItem = [
     // img: '',
   },
   {
-    name:'西湖论剑安全特训营'
+    name: '西湖论剑安全特训营',
   },
   {
-    name:'新品发布'
+    name: '新品发布',
   },
   {
-    name:'第二直播间'
+    name: '第二直播间',
   },
   {
-    name:'掌上论剑'
+    name: '掌上论剑',
   },
   {
-    name:'西湖论剑十周年回顾'
-  }
+    name: '西湖论剑十周年回顾',
+  },
 ]
 </script>
 

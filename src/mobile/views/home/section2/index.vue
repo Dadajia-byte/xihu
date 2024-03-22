@@ -25,28 +25,26 @@
     </div>
     <div class="car">
       <swiper
-      :modules="modules"
-      pagination
-    :slides-per-view="1"
-    space-between="10vw"
-
-  >
-    <swiper-slide v-for="item in box" :key="item.content">
-      <div class="box">
-        <div class="box_content">{{ item.content }}</div>
-        <div class="box_more">查看详情</div>
-      </div>
-    </swiper-slide>
-
-  </swiper>
+        :modules="modules"
+        pagination
+        :slides-per-view="1"
+        space-between="10vw"
+      >
+        <swiper-slide v-for="item in box" :key="item.content">
+          <div class="box">
+            <div class="box_content">{{ item.content }}</div>
+            <div class="box_more">查看详情</div>
+          </div>
+        </swiper-slide>
+      </swiper>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import {Autoplay,Pagination} from 'swiper/modules'
-import 'swiper/scss/pagination';
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, Pagination } from 'swiper/modules'
+import 'swiper/scss/pagination'
 const box = [
   {
     content: '议题更前沿',
@@ -61,7 +59,7 @@ const box = [
     content: '国际化更深入',
   },
 ]
-const modules = [Autoplay,Pagination]
+const modules = [Autoplay, Pagination]
 </script>
 
 <style scoped lang="scss">
@@ -127,8 +125,8 @@ const modules = [Autoplay,Pagination]
           width: 70%;
 
           height: 100%;
-          clip-path: polygon(0 0,100% 0,90% 100%,0 100%);
-          background-color: #2a76c3;// 加上图片去掉
+          clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+          background-color: #2a76c3; // 加上图片去掉
           color: white;
           .box_content {
             font-size: 3.4vw;

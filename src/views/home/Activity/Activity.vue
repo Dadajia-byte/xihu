@@ -152,7 +152,6 @@ const activityList = ref([
   },
 ])
 
-
 const activeIndex = ref(0)
 const carouselList = ref()
 
@@ -166,8 +165,6 @@ const handleCarouselChange = (currentIndex: any) => {
   }
   activityList.value[currentIndex].opacity = '1'
 }
-
-
 </script>
 
 <style scoped lang="scss">
