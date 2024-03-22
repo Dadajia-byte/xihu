@@ -220,6 +220,42 @@ export const constantRoutesMobile = [
           hidden: false, // 是否隐藏 true为隐藏，默认false
         },
       },
+      {
+        path: '/activity',
+        component: () => import('@/mobile/views/activity/index.vue'),
+        name: 'activity',
+        meta: {
+          title: '精彩活动',
+          hidden: false,
+        },
+      },
+      {
+        path: '/meeting',
+        component: () => import('@/mobile/views/meeting/index.vue'),
+        name: 'meeting',
+        meta: {
+          title: '大会议程',
+          hidden: false,
+        },
+      },
+      {
+        path: '/mate',
+        component: () => import('@/mobile/views/mate/index.vue'),
+        name: 'mate',
+        meta: {
+          title: '展商风采',
+          hidden: false,
+        },
+      },
+      {
+        path: '/me',
+        component: () => import('@/mobile/views/me/index.vue'),
+        name: 'me',
+        meta: {
+          title: '我的',
+          hidden: false,
+        },
+      },
     ],
   },
 ]
