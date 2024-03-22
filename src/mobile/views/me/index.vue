@@ -12,10 +12,11 @@
         <div class="tag">游客</div>
       </div>
       <div class="point">
-        积分：<span>0></span>
+        积分：
+        <span>0></span>
       </div>
       <div class="qiandao">
-        <el-icon style="font-size: 5vw;padding-right: 1vw;">
+        <el-icon style="font-size: 5vw; padding-right: 1vw">
           <Calendar />
         </el-icon>
         每日签到
@@ -24,11 +25,17 @@
     <div class="bottom">
       <div class="card1">
         <div class="item">
-          <svgIcon name="personmes" style="width: 10vw; height: 10vw;padding-bottom: 1vw"></svgIcon>
+          <svgIcon
+            name="personmes"
+            style="width: 10vw; height: 10vw; padding-bottom: 1vw"
+          ></svgIcon>
           个人资料
         </div>
         <div class="item">
-          <svgIcon name="postdown" style="width: 10vw; height: 10vw;padding-bottom: 1vw;"></svgIcon>
+          <svgIcon
+            name="postdown"
+            style="width: 10vw; height: 10vw; padding-bottom: 1vw"
+          ></svgIcon>
           海报下载
         </div>
       </div>
@@ -39,11 +46,17 @@
         </div>
         <div class="items">
           <div class="item">
-            <svgIcon name="meetingsub" style="width: 10vw; height: 10vw;padding-bottom: 1vw"></svgIcon>
+            <svgIcon
+              name="meetingsub"
+              style="width: 10vw; height: 10vw; padding-bottom: 1vw"
+            ></svgIcon>
             议程订阅
           </div>
           <div class="item">
-            <svgIcon name="activity" style="width: 10vw; height: 10vw;padding-bottom: 1vw"></svgIcon>
+            <svgIcon
+              name="activity"
+              style="width: 10vw; height: 10vw; padding-bottom: 1vw"
+            ></svgIcon>
             精彩活动订阅
           </div>
         </div>
@@ -55,19 +68,27 @@
         </div>
         <div class="items">
           <div class="item">
-            <svgIcon name="point" style="width: 10vw; height: 10vw;padding-bottom: 1vw"></svgIcon>
+            <svgIcon
+              name="point"
+              style="width: 10vw; height: 10vw; padding-bottom: 1vw"
+            ></svgIcon>
             积分规则
           </div>
           <div class="item">
-            <svgIcon name="duihuan" style="width: 10vw; height: 10vw;padding-bottom: 1vw"></svgIcon>
+            <svgIcon
+              name="duihuan"
+              style="width: 10vw; height: 10vw; padding-bottom: 1vw"
+            ></svgIcon>
             积分兑换
           </div>
           <div class="item">
-            <svgIcon name="detail" style="width: 10vw; height: 10vw;padding-bottom: 1vw"></svgIcon>
+            <svgIcon
+              name="detail"
+              style="width: 10vw; height: 10vw; padding-bottom: 1vw"
+            ></svgIcon>
             积分明细
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -88,7 +109,6 @@
     background: linear-gradient(to top right, #08d3e1, #004bc0);
     width: 100%;
     color: white;
-
 
     .user {
       scale: 0.9;
@@ -167,7 +187,7 @@
   }
 
   .bottom {
-    div[class^="card"] {
+    div[class^='card'] {
       position: relative;
       top: -10vw;
       width: 90vw;
@@ -217,9 +237,8 @@
         }
 
         .des_title {
-          margin-left: 1vw
+          margin-left: 1vw;
         }
-
       }
 
       .items {
@@ -234,10 +253,8 @@
           align-items: center;
           height: 80%;
           width: 30%;
-
         }
       }
-
     }
   }
 }

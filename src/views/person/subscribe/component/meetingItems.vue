@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import meetingcard from './meetingcard.vue'
 import useMeetingStore from '@/store/modules/meeting'
 

@@ -5,7 +5,7 @@
       :interval="100000"
       height="8.1937rem"
       type="card"
-      class="wow animate__rotateInDownLeft"
+      class="wow slideInLeft"
       data-wow-duration="1s"
       data-wow-delay="1s"
     >
@@ -13,7 +13,7 @@
         <el-card body-style="padding:0;     ">
           <div
             class="newsImg"
-            :style="`background:url(${item.imageUrl}) no-repeat center ;`"
+            :style="`background:url(${item.imageUrl}) no-repeat center/cover ;`"
           ></div>
           <div class="title">{{ item.title }}</div>
           <div class="content">
