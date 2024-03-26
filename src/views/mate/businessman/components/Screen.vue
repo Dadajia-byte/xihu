@@ -34,8 +34,7 @@ const initWOW = () => {
 }
 const vantaEffect = ref()
 const vantaRef = ref()
-const { curStrs, startCoding, } =
-  useCoding('展商风采——助力数字安全')
+const { curStrs, startCoding } = useCoding('展商风采——助力数字安全')
 
 const initVanta = () => {
   vantaEffect.value = rings({

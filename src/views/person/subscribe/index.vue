@@ -43,7 +43,7 @@ import activityItems from './component/activityItems.vue'
 import useMeetingStore from '@/store/modules/meeting'
 let meetingStore = useMeetingStore()
 
-import {  ref } from 'vue'
+import { ref } from 'vue'
 let isExpand = ref(false)
 
 const expand = () => {

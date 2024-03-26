@@ -193,7 +193,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, computed,  } from 'vue'
+import { onMounted, onUnmounted, ref, computed } from 'vue'
 import Screen from './components/Screen.vue'
 // @ts-ignore
 import WOW from 'wow.js'

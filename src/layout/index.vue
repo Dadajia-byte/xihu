@@ -10,19 +10,20 @@
     <el-dialog
       class="dialog"
       v-model="dialogFormVisible"
-      width="850"
+      width="13.75rem"
       :show-close="false"
       style="
-        height: 6.875rem;
-        border-radius: 0.1714rem;
+        height: 8.125rem;
+        border-radius: .1714rem;
         opacity: 0.95;
-        box-shadow: 0rem 0.1143rem 0.3429rem #000000;
+        box-shadow: 0rem .1143rem .3429rem #000000;
         position: relative;
         padding: 0;
         display: flex;
         justify-content: center;
         align-content: center;
         overflow: hidden;
+        background-color: #F2F0F3;
       "
       @close="closeLogin"
     >
@@ -34,21 +35,23 @@
             : 'login-wrapper-show'
         "
       >
-        <div class="login_container">
+
+      <div class="login_container">
           <!-- 头部 -->
           <div class="header">
+            <div class="title">西湖论剑·数字安全大会</div>
             <div class="login">
               <span
-                :class="{ login2: !isAccLog, login1: isAccLog }"
+                :class="{ login1: isAccLog }"
                 @click="isAccLog = true"
               >
-                账号登录
+                账号
               </span>
               <span
-                :class="{ login1: !isAccLog, login2: isAccLog }"
+                :class="{ login2: !isAccLog }"
                 @click="isAccLog = false"
               >
-                手机号登录
+                手机号
               </span>
             </div>
           </div>
@@ -83,7 +86,7 @@
                 </template>
               </el-input>
             </el-form-item>
-            <el-form-item style="margin-bottom: 0.0714rem" prop="captcha">
+            <el-form-item style="margin-bottom: .0714rem" prop="captcha">
               <el-input placeholder="请输入验证码" v-model="accLogForm.captcha">
                 <template #prefix>
                   <el-icon>
@@ -107,7 +110,7 @@
             <el-form-item>
               <el-button
                 type="primary"
-                style="width: 4.7339rem; border-radius: 0.2429rem"
+                style="width: 4.7339rem; border-radius: .2429rem"
                 @click="login"
                 :loading="false"
               >
@@ -164,7 +167,7 @@
                 </template>
               </el-input>
             </el-form-item>
-            <el-form-item style="margin-bottom: 0.0714rem" prop="captcha">
+            <el-form-item style="margin-bottom: .0714rem" prop="captcha">
               <el-input
                 placeholder="请输入验证码"
                 v-model="phoneLogForm.captcha"
@@ -192,7 +195,7 @@
             <el-form-item>
               <el-button
                 type="primary"
-                style="width: 4.7339rem; border-radius: 0.2429rem"
+                style="width: 4.7339rem; border-radius: .2429rem"
                 @click="login"
                 :loading="false"
               >
@@ -202,8 +205,8 @@
           </el-form>
           <!-- 其他登录方式 -->
           <div class="other">
-            <div class="otherLogin">其他登录方式</div>
-            <div style="margin-top: 0.0429rem">@@</div>
+            <div class="otherLogin">更多方式</div>
+            <div style="margin-top: .0429rem">@@</div>
           </div>
           <!-- 底部说明 -->
           <div class="bottom">
@@ -212,7 +215,6 @@
             </div>
           </div>
         </div>
-
         <div
           class="image_bg"
           :class="dialogRegisterVisible === true ? 'register-bg-show' : ''"
@@ -225,19 +227,17 @@
             已有帐号？
           </div>
         </div>
-
-        <div class="register_container">
+      <div class="register_container">
           <div class="register-header">
-            <span style="margin-right: 0.0714rem">注册用户</span>
-            <el-icon>
-              <EditPen />
-            </el-icon>
+            <span style="margin-right: .0714rem">注册用户</span>
+            
           </div>
-          <el-steps
+          <div class="regisnter-content">
+            <el-steps
             :active="activeStep"
             finish-status="success"
             align-center
-            style="margin-top: 0.1875rem"
+            style="margin-top: .1875rem"
           >
             <el-step title="基本信息" />
             <el-step title="密码" />
@@ -259,14 +259,14 @@
                   style="
                     display: flex;
                     align-items: center;
-                    margin-bottom: 0.1875rem;
+                    margin-bottom: .1875rem;
                   "
                 >
                   <div
                     style="
-                      margin-right: 0.2143rem;
-                      font-size: 0.2286rem;
-                      margin-left: 0.375rem;
+                      margin-right: .2143rem;
+                      font-size: .2286rem;
+                      margin-left: .375rem;
                     "
                   >
                     头像
@@ -451,7 +451,16 @@
               </el-button>
             </div>
           </el-form>
+          </div>
+          
         </div>
+     
+
+       
+
+        
+
+        
       </div>
     </el-dialog>
     <!-- 注册对话框 -->
@@ -802,39 +811,45 @@ const closeLogin = () => {
     position: fixed;
     z-index: 9999;
     bottom: 1.25rem;
-    right: 0.375rem;
+    right: .375rem;
   }
 
   .header {
-    margin: calc(1.0857rem - 0.5429rem - 0.2571rem)
-      calc(1.6rem - 0.8571rem - 0.2857rem) 0.5714rem;
+    margin: calc(1.0857rem - .5429rem - .2571rem)
+      calc(1.6rem - .8571rem - .2857rem) .3214rem;
 
+    .title{
+      font-weight: bold;
+      font-size: .375rem;
+      color: #000;
+      margin-bottom: .2875rem
+    }
     .login {
-      border-left: 0.0286rem #0b8eee solid;
-      height: 0.4571rem;
+      height: .4571rem;
       display: flex;
       align-items: center;
     }
 
     .login span {
       cursor: pointer;
+      margin-right: .2571rem;
+      font-size: .2rem;
+      height: .3125rem;
       transition: all 0.3s ease;
       /* 过渡动画效果 */
     }
 
-    .login1,
-    .login2 {
-      padding: 0rem 0.0714rem;
-    }
+   
 
     .login1 {
-      font-size: 0.3429rem;
-      color: #333333;
+      color: #409eff;
+      border-bottom: .025rem #409eff solid;
     }
 
     .login2 {
-      font-size: 0.2571rem;
-      color: #838383;
+      color: #409eff;
+      border-bottom: .025rem #409eff solid;
+
     }
   }
 
@@ -842,21 +857,21 @@ const closeLogin = () => {
     width: 4.7321rem;
 
     .el-input {
-      height: 0.5286rem;
-      border-radius: 0.0857rem;
+      height: .5286rem;
+      border-radius: .0857rem;
     }
 
     .sendCode {
-      padding: 0 0.1429rem;
-      font-size: 0.1714rem;
+      padding: 0 .1429rem;
+      font-size: .1714rem;
       border: none;
     }
   }
 
   .register {
-    font-size: 0.1429rem;
+    font-size: .1429rem;
     width: 4.7321rem;
-    margin: 0.1339rem 0;
+    margin: .1339rem 0;
     text-align: right;
     cursor: pointer;
 
@@ -867,29 +882,58 @@ const closeLogin = () => {
   }
 
   .other {
-    margin-left: 0.3571rem;
-    margin-bottom: 0.1429rem;
-    font-size: 0.1429rem;
-    font-weight: 700;
+    margin-left: .3571rem;
+    margin-bottom: .1429rem;
+    font-size: .1429rem;
+    display: flex;
+    width: 4.375rem;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    .otherLogin{
+      margin: 0 auto;
+      position: relative;
+      &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: #ebeef5;
+        left: -110%;
+        top: 50%;
+      }
+      &::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: #ebeef5;
+        right: -110%;
+        top: 50%;
+      }
+    }
   }
 
   .bottom {
-    margin-left: 0.3571rem;
-    height: 0.2857rem;
-
+    margin-left: .3571rem;
+    height: .2857rem;
+    margin-bottom: .2875rem;
     .explain {
-      font-size: 0.1714rem;
+      font-size: .1714rem;
+      
     }
   }
 
   .login_container {
-    margin: auto 0.5rem auto 0.875rem;
+    background-color: #fff;
+    box-shadow: 0 .0625rem .125rem rgba(0, 0, 0, 0.12);
+    margin: auto .5rem auto .875rem;
     width: 5.425rem;
-    height: 5.4125rem;
+    border-radius: .125rem;
   }
 
   .image_bg {
-    margin-top: 0.3125rem;
+    margin-top: .3125rem;
     width: 6.8125rem;
     background: url('@/assets/images/bg_images/login_bg.png') no-repeat
       center/cover;
@@ -912,11 +956,16 @@ const closeLogin = () => {
   .register-bg-show {
     background-image: url('@/assets/images/bg_images/register_bg.png');
   }
+  .el-dialog__body{
+    position: relative;
+  }
   .login_wrapper {
     display: flex;
     position: absolute;
-    top: 0;
-    padding-top: 0.25rem;
+    overflow: hidden;
+    height: 8.125rem;
+    width: 20rem;
+    right: 0;
   }
 }
 
@@ -924,19 +973,22 @@ const closeLogin = () => {
   display: flex;
   flex-direction: column;
   align-content: center;
-  margin: auto 0.5rem auto 0.875rem;
+  margin: auto .5rem auto .875rem;
+  padding-top: .1875rem;
   width: 5.425rem;
-  height: 5.4125rem;
-
+  height: 6.875rem;
+  background-color: #fff;
+  box-shadow: 0 .0625rem .125rem rgba(0, 0, 0, 0.12);
+  border-radius: .125rem;
   .register-header {
     display: flex;
     align-items: center;
-    padding-left: 0.1429rem;
-    margin: 0.0714rem auto;
+    padding-left: .1429rem;
+    margin: .0714rem auto;
     width: 2rem;
-    font-size: 0.3429rem;
-    border-left: 0.0429rem solid #76b4f5;
-    line-height: 0.3571rem;
+    font-size: .3429rem;
+    border-left: .0429rem solid #76b4f5;
+    line-height: .3571rem;
   }
 }
 
@@ -960,7 +1012,7 @@ img {
 }
 
 div[class^='Step'] {
-  margin-top: 0.2857rem;
+  margin-top: .2857rem;
 }
 
 .Step2,
@@ -980,7 +1032,7 @@ div[class^='Step'] {
 </style>
 <style>
 .avatar-uploader .el-upload {
-  border: 0.0143rem dashed var(--el-border-color);
+  border: .0143rem dashed var(--el-border-color);
   border-radius: 50%;
   cursor: pointer;
   position: relative;
@@ -993,7 +1045,7 @@ div[class^='Step'] {
 }
 
 .el-icon.avatar-uploader-icon {
-  font-size: 0.4rem;
+  font-size: .4rem;
   color: #8c939d;
   width: 2rem;
   height: 2rem;
@@ -1002,10 +1054,10 @@ div[class^='Step'] {
 
 .captcha {
   width: 1.2857rem;
-  height: 0.3571rem;
+  height: .3571rem;
   border: none;
-  line-height: 0.3571rem;
-  font-size: 0.1714rem;
+  line-height: .3571rem;
+  font-size: .1714rem;
   vertical-align: bottom;
 }
 </style>

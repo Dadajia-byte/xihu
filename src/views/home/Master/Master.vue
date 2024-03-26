@@ -141,7 +141,7 @@ const handleLeftClick = () => {
 
   if (slideDecrement < 0) {
     // 重置order
-    Array.from(cardlist.value.children).forEach((element:any) => {
+    Array.from(cardlist.value.children).forEach((element: any) => {
       element.style.order = 'initial'
     })
     //重置slideDecrement

@@ -75,7 +75,7 @@ const newsList = ref([
   flex-direction: column;
 
   .newsImg {
-    height: 4.7625rem;
+    height: 5.0125rem;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
