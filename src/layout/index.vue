@@ -14,16 +14,16 @@
       :show-close="false"
       style="
         height: 8.125rem;
-        border-radius: .1714rem;
+        border-radius: 0.1714rem;
         opacity: 0.95;
-        box-shadow: 0rem .1143rem .3429rem #000000;
+        box-shadow: 0rem 0.1143rem 0.3429rem #000000;
         position: relative;
         padding: 0;
         display: flex;
         justify-content: center;
         align-content: center;
         overflow: hidden;
-        background-color: #F2F0F3;
+        background-color: #f2f0f3;
       "
       @close="closeLogin"
     >
@@ -35,22 +35,15 @@
             : 'login-wrapper-show'
         "
       >
-
-      <div class="login_container">
+        <div class="login_container">
           <!-- 头部 -->
           <div class="header">
             <div class="title">西湖论剑·数字安全大会</div>
             <div class="login">
-              <span
-                :class="{ login1: isAccLog }"
-                @click="isAccLog = true"
-              >
+              <span :class="{ login1: isAccLog }" @click="isAccLog = true">
                 账号
               </span>
-              <span
-                :class="{ login2: !isAccLog }"
-                @click="isAccLog = false"
-              >
+              <span :class="{ login2: !isAccLog }" @click="isAccLog = false">
                 手机号
               </span>
             </div>
@@ -86,7 +79,7 @@
                 </template>
               </el-input>
             </el-form-item>
-            <el-form-item style="margin-bottom: .0714rem" prop="captcha">
+            <el-form-item style="margin-bottom: 0.0714rem" prop="captcha">
               <el-input placeholder="请输入验证码" v-model="accLogForm.captcha">
                 <template #prefix>
                   <el-icon>
@@ -110,7 +103,7 @@
             <el-form-item>
               <el-button
                 type="primary"
-                style="width: 4.7339rem; border-radius: .2429rem"
+                style="width: 4.7339rem; border-radius: 0.2429rem"
                 @click="login"
                 :loading="false"
               >
@@ -167,7 +160,7 @@
                 </template>
               </el-input>
             </el-form-item>
-            <el-form-item style="margin-bottom: .0714rem" prop="captcha">
+            <el-form-item style="margin-bottom: 0.0714rem" prop="captcha">
               <el-input
                 placeholder="请输入验证码"
                 v-model="phoneLogForm.captcha"
@@ -195,7 +188,7 @@
             <el-form-item>
               <el-button
                 type="primary"
-                style="width: 4.7339rem; border-radius: .2429rem"
+                style="width: 4.7339rem; border-radius: 0.2429rem"
                 @click="login"
                 :loading="false"
               >
@@ -206,7 +199,7 @@
           <!-- 其他登录方式 -->
           <div class="other">
             <div class="otherLogin">更多方式</div>
-            <div style="margin-top: .0429rem">@@</div>
+            <div style="margin-top: 0.0429rem">@@</div>
           </div>
           <!-- 底部说明 -->
           <div class="bottom">
@@ -227,240 +220,231 @@
             已有帐号？
           </div>
         </div>
-      <div class="register_container">
+        <div class="register_container">
           <div class="register-header">
-            <span style="margin-right: .0714rem">注册用户</span>
-            
+            <span style="margin-right: 0.0714rem">注册用户</span>
           </div>
           <div class="regisnter-content">
             <el-steps
-            :active="activeStep"
-            finish-status="success"
-            align-center
-            style="margin-top: .1875rem"
-          >
-            <el-step title="基本信息" />
-            <el-step title="密码" />
-            <el-step title="手机号" />
-          </el-steps>
-          <el-form
-            label-position="right"
-            label-width="1.0714rem"
-            :model="regForm"
-            :rules="rules3"
-            ref="registerForm"
-            style="height: 2.5714rem"
-          >
-            <div v-if="activeStep === 0" class="Step1">
-              <!-- 上传头像 -->
-              <el-row>
-                <el-col
-                  :span="8.5"
-                  style="
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: .1875rem;
-                  "
-                >
-                  <div
+              :active="activeStep"
+              finish-status="success"
+              align-center
+              style="margin-top: 0.1875rem"
+            >
+              <el-step title="基本信息" />
+              <el-step title="密码" />
+              <el-step title="手机号" />
+            </el-steps>
+            <el-form
+              label-position="right"
+              label-width="1.0714rem"
+              :model="regForm"
+              :rules="rules3"
+              ref="registerForm"
+              style="height: 2.5714rem"
+            >
+              <div v-if="activeStep === 0" class="Step1">
+                <!-- 上传头像 -->
+                <el-row>
+                  <el-col
+                    :span="8.5"
                     style="
-                      margin-right: .2143rem;
-                      font-size: .2286rem;
-                      margin-left: .375rem;
+                      display: flex;
+                      align-items: center;
+                      margin-bottom: 0.1875rem;
                     "
                   >
-                    头像
-                  </div>
-                  <el-upload
-                    class="avatar-uploader"
-                    action="/dev-api/upload"
-                    :show-file-list="false"
-                    :on-success="handleAvatarSuccess"
-                    :before-upload="beforeAvatarUpload"
-                  >
-                    <img
-                      v-if="regForm.avatar"
-                      :src="regForm.avatar"
-                      class="avatar"
-                    />
-                    <el-icon v-else class="avatar-uploader-icon">
-                      <Plus />
-                    </el-icon>
-                  </el-upload>
-                </el-col>
-                <el-col
-                  :span="12.5"
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                  "
-                >
-                  <el-form-item
-                    label="用户名"
-                    prop="username"
-                    style="width: 4.2857rem"
-                  >
-                    <el-input
-                      placeholder="请设置用户名"
-                      v-model="regForm.username"
-                    >
-                      <template #prefix>
-                        <el-icon>
-                          <User />
-                        </el-icon>
-                      </template>
-                    </el-input>
-                  </el-form-item>
-                  <el-form-item
-                    label="账号"
-                    prop="account"
-                    style="width: 4.2857rem"
-                  >
-                    <el-input
-                      placeholder="请设置账号"
-                      v-model="regForm.account"
-                    >
-                      <template #prefix>
-                        <el-icon>
-                          <Avatar />
-                        </el-icon>
-                      </template>
-                    </el-input>
-                  </el-form-item>
-                </el-col>
-              </el-row>
-            </div>
-            <div
-              v-if="activeStep === 1"
-              class="Step2"
-              style="
-                height: 2.019rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-              "
-            >
-              <el-form-item
-                label="密码"
-                prop="password"
-                style="width: 5.4286rem"
-                label-width="1.25rem"
-              >
-                <el-input
-                  placeholder="请设置密码"
-                  type="password"
-                  show-password
-                  v-model="regForm.password"
-                >
-                  <template #prefix>
-                    <el-icon>
-                      <Key />
-                    </el-icon>
-                  </template>
-                </el-input>
-              </el-form-item>
-              <el-form-item
-                label="确认密码"
-                prop="checkPwd"
-                style="width: 5.4286rem"
-                label-width="1.25rem"
-              >
-                <el-input
-                  placeholder="请再次输入密码"
-                  show-password
-                  type="password"
-                  v-model="regForm.checkPwd"
-                >
-                  <template #prefix>
-                    <el-icon>
-                      <Key />
-                    </el-icon>
-                  </template>
-                </el-input>
-              </el-form-item>
-            </div>
-            <div v-if="activeStep === 2" class="Step3">
-              <el-form-item
-                label="手机号"
-                prop="phone"
-                style="width: 5.4286rem"
-              >
-                <el-input placeholder="请设置手机号" v-model="regForm.phone">
-                  <template #prefix>
-                    <el-icon>
-                      <Phone />
-                    </el-icon>
-                  </template>
-                </el-input>
-              </el-form-item>
-              <el-form-item
-                label="验证码"
-                prop="verifyCode"
-                style="width: 5.4286rem"
-              >
-                <el-input
-                  v-model="regForm.verifyCode"
-                  placeholder="请输入验证码"
-                >
-                  <template #prefix>
-                    <el-icon>
-                      <Bell />
-                    </el-icon>
-                  </template>
-                  <template #suffix>
-                    <el-button
-                      v-show="!isAccLog"
-                      @click="() => sendVerificationCode('2')"
-                      size="small"
-                      :disabled="
-                        isSendingCode['2'].value == true ||
-                        (countdown['2'].value as number) > 0
+                    <div
+                      style="
+                        margin-right: 0.2143rem;
+                        font-size: 0.2286rem;
+                        margin-left: 0.375rem;
                       "
-                      class="sendCode"
                     >
-                      {{
-                        (countdown['2'].value as number) > 0
-                          ? `重新发送(${countdown['2'].value})`
-                          : '发送验证码'
-                      }}
-                    </el-button>
-                  </template>
-                </el-input>
-              </el-form-item>
-            </div>
-            <div class="stepBtn">
-              <el-button
-                :disabled="activeStep === 0"
-                @click="prev"
-                type="success"
-                text
+                      头像
+                    </div>
+                    <el-upload
+                      class="avatar-uploader"
+                      action="/dev-api/upload"
+                      :show-file-list="false"
+                      :on-success="handleAvatarSuccess"
+                      :before-upload="beforeAvatarUpload"
+                    >
+                      <img
+                        v-if="regForm.avatar"
+                        :src="regForm.avatar"
+                        class="avatar"
+                      />
+                      <el-icon v-else class="avatar-uploader-icon">
+                        <Plus />
+                      </el-icon>
+                    </el-upload>
+                  </el-col>
+                  <el-col
+                    :span="12.5"
+                    style="
+                      display: flex;
+                      flex-direction: column;
+                      justify-content: center;
+                    "
+                  >
+                    <el-form-item
+                      label="用户名"
+                      prop="username"
+                      style="width: 4.2857rem"
+                    >
+                      <el-input
+                        placeholder="请设置用户名"
+                        v-model="regForm.username"
+                      >
+                        <template #prefix>
+                          <el-icon>
+                            <User />
+                          </el-icon>
+                        </template>
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item
+                      label="账号"
+                      prop="account"
+                      style="width: 4.2857rem"
+                    >
+                      <el-input
+                        placeholder="请设置账号"
+                        v-model="regForm.account"
+                      >
+                        <template #prefix>
+                          <el-icon>
+                            <Avatar />
+                          </el-icon>
+                        </template>
+                      </el-input>
+                    </el-form-item>
+                  </el-col>
+                </el-row>
+              </div>
+              <div
+                v-if="activeStep === 1"
+                class="Step2"
+                style="
+                  height: 2.019rem;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                "
               >
-                上一步
-              </el-button>
-              <el-button type="success" @click="next" v-if="activeStep !== 2">
-                下一步
-              </el-button>
-              <el-button
-                v-if="activeStep === 2"
-                type="success"
-                @click="register"
-              >
-                确认注册
-              </el-button>
-            </div>
-          </el-form>
+                <el-form-item
+                  label="密码"
+                  prop="password"
+                  style="width: 5.4286rem"
+                  label-width="1.25rem"
+                >
+                  <el-input
+                    placeholder="请设置密码"
+                    type="password"
+                    show-password
+                    v-model="regForm.password"
+                  >
+                    <template #prefix>
+                      <el-icon>
+                        <Key />
+                      </el-icon>
+                    </template>
+                  </el-input>
+                </el-form-item>
+                <el-form-item
+                  label="确认密码"
+                  prop="checkPwd"
+                  style="width: 5.4286rem"
+                  label-width="1.25rem"
+                >
+                  <el-input
+                    placeholder="请再次输入密码"
+                    show-password
+                    type="password"
+                    v-model="regForm.checkPwd"
+                  >
+                    <template #prefix>
+                      <el-icon>
+                        <Key />
+                      </el-icon>
+                    </template>
+                  </el-input>
+                </el-form-item>
+              </div>
+              <div v-if="activeStep === 2" class="Step3">
+                <el-form-item
+                  label="手机号"
+                  prop="phone"
+                  style="width: 5.4286rem"
+                >
+                  <el-input placeholder="请设置手机号" v-model="regForm.phone">
+                    <template #prefix>
+                      <el-icon>
+                        <Phone />
+                      </el-icon>
+                    </template>
+                  </el-input>
+                </el-form-item>
+                <el-form-item
+                  label="验证码"
+                  prop="verifyCode"
+                  style="width: 5.4286rem"
+                >
+                  <el-input
+                    v-model="regForm.verifyCode"
+                    placeholder="请输入验证码"
+                  >
+                    <template #prefix>
+                      <el-icon>
+                        <Bell />
+                      </el-icon>
+                    </template>
+                    <template #suffix>
+                      <el-button
+                        v-show="!isAccLog"
+                        @click="() => sendVerificationCode('2')"
+                        size="small"
+                        :disabled="
+                          isSendingCode['2'].value == true ||
+                          (countdown['2'].value as number) > 0
+                        "
+                        class="sendCode"
+                      >
+                        {{
+                          (countdown['2'].value as number) > 0
+                            ? `重新发送(${countdown['2'].value})`
+                            : '发送验证码'
+                        }}
+                      </el-button>
+                    </template>
+                  </el-input>
+                </el-form-item>
+              </div>
+              <div class="stepBtn">
+                <el-button
+                  :disabled="activeStep === 0"
+                  @click="prev"
+                  type="success"
+                  text
+                >
+                  上一步
+                </el-button>
+                <el-button type="success" @click="next" v-if="activeStep !== 2">
+                  下一步
+                </el-button>
+                <el-button
+                  v-if="activeStep === 2"
+                  type="success"
+                  @click="register"
+                >
+                  确认注册
+                </el-button>
+              </div>
+            </el-form>
           </div>
-          
         </div>
-     
-
-       
-
-        
-
-        
       </div>
     </el-dialog>
     <!-- 注册对话框 -->
@@ -811,45 +795,42 @@ const closeLogin = () => {
     position: fixed;
     z-index: 9999;
     bottom: 1.25rem;
-    right: .375rem;
+    right: 0.375rem;
   }
 
   .header {
-    margin: calc(1.0857rem - .5429rem - .2571rem)
-      calc(1.6rem - .8571rem - .2857rem) .3214rem;
+    margin: calc(1.0857rem - 0.5429rem - 0.2571rem)
+      calc(1.6rem - 0.8571rem - 0.2857rem) 0.3214rem;
 
-    .title{
+    .title {
       font-weight: bold;
-      font-size: .375rem;
+      font-size: 0.375rem;
       color: #000;
-      margin-bottom: .2875rem
+      margin-bottom: 0.2875rem;
     }
     .login {
-      height: .4571rem;
+      height: 0.4571rem;
       display: flex;
       align-items: center;
     }
 
     .login span {
       cursor: pointer;
-      margin-right: .2571rem;
-      font-size: .2rem;
-      height: .3125rem;
+      margin-right: 0.2571rem;
+      font-size: 0.2rem;
+      height: 0.3125rem;
       transition: all 0.3s ease;
       /* 过渡动画效果 */
     }
 
-   
-
     .login1 {
       color: #409eff;
-      border-bottom: .025rem #409eff solid;
+      border-bottom: 0.025rem #409eff solid;
     }
 
     .login2 {
       color: #409eff;
-      border-bottom: .025rem #409eff solid;
-
+      border-bottom: 0.025rem #409eff solid;
     }
   }
 
@@ -857,21 +838,21 @@ const closeLogin = () => {
     width: 4.7321rem;
 
     .el-input {
-      height: .5286rem;
-      border-radius: .0857rem;
+      height: 0.5286rem;
+      border-radius: 0.0857rem;
     }
 
     .sendCode {
-      padding: 0 .1429rem;
-      font-size: .1714rem;
+      padding: 0 0.1429rem;
+      font-size: 0.1714rem;
       border: none;
     }
   }
 
   .register {
-    font-size: .1429rem;
+    font-size: 0.1429rem;
     width: 4.7321rem;
-    margin: .1339rem 0;
+    margin: 0.1339rem 0;
     text-align: right;
     cursor: pointer;
 
@@ -882,18 +863,18 @@ const closeLogin = () => {
   }
 
   .other {
-    margin-left: .3571rem;
-    margin-bottom: .1429rem;
-    font-size: .1429rem;
+    margin-left: 0.3571rem;
+    margin-bottom: 0.1429rem;
+    font-size: 0.1429rem;
     display: flex;
     width: 4.375rem;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    .otherLogin{
+    .otherLogin {
       margin: 0 auto;
       position: relative;
-      &::before{
+      &::before {
         content: '';
         position: absolute;
         width: 100%;
@@ -902,7 +883,7 @@ const closeLogin = () => {
         left: -110%;
         top: 50%;
       }
-      &::after{
+      &::after {
         content: '';
         position: absolute;
         width: 100%;
@@ -915,25 +896,24 @@ const closeLogin = () => {
   }
 
   .bottom {
-    margin-left: .3571rem;
-    height: .2857rem;
-    margin-bottom: .2875rem;
+    margin-left: 0.3571rem;
+    height: 0.2857rem;
+    margin-bottom: 0.2875rem;
     .explain {
-      font-size: .1714rem;
-      
+      font-size: 0.1714rem;
     }
   }
 
   .login_container {
     background-color: #fff;
-    box-shadow: 0 .0625rem .125rem rgba(0, 0, 0, 0.12);
-    margin: auto .5rem auto .875rem;
+    box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.12);
+    margin: auto 0.5rem auto 0.875rem;
     width: 5.425rem;
-    border-radius: .125rem;
+    border-radius: 0.125rem;
   }
 
   .image_bg {
-    margin-top: .3125rem;
+    margin-top: 0.3125rem;
     width: 6.8125rem;
     background: url('@/assets/images/bg_images/login_bg.png') no-repeat
       center/cover;
@@ -956,7 +936,7 @@ const closeLogin = () => {
   .register-bg-show {
     background-image: url('@/assets/images/bg_images/register_bg.png');
   }
-  .el-dialog__body{
+  .el-dialog__body {
     position: relative;
   }
   .login_wrapper {
@@ -973,22 +953,22 @@ const closeLogin = () => {
   display: flex;
   flex-direction: column;
   align-content: center;
-  margin: auto .5rem auto .875rem;
-  padding-top: .1875rem;
+  margin: auto 0.5rem auto 0.875rem;
+  padding-top: 0.1875rem;
   width: 5.425rem;
   height: 6.875rem;
   background-color: #fff;
-  box-shadow: 0 .0625rem .125rem rgba(0, 0, 0, 0.12);
-  border-radius: .125rem;
+  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.12);
+  border-radius: 0.125rem;
   .register-header {
     display: flex;
     align-items: center;
-    padding-left: .1429rem;
-    margin: .0714rem auto;
+    padding-left: 0.1429rem;
+    margin: 0.0714rem auto;
     width: 2rem;
-    font-size: .3429rem;
-    border-left: .0429rem solid #76b4f5;
-    line-height: .3571rem;
+    font-size: 0.3429rem;
+    border-left: 0.0429rem solid #76b4f5;
+    line-height: 0.3571rem;
   }
 }
 
@@ -1012,7 +992,7 @@ img {
 }
 
 div[class^='Step'] {
-  margin-top: .2857rem;
+  margin-top: 0.2857rem;
 }
 
 .Step2,
@@ -1032,7 +1012,7 @@ div[class^='Step'] {
 </style>
 <style>
 .avatar-uploader .el-upload {
-  border: .0143rem dashed var(--el-border-color);
+  border: 0.0143rem dashed var(--el-border-color);
   border-radius: 50%;
   cursor: pointer;
   position: relative;
@@ -1045,7 +1025,7 @@ div[class^='Step'] {
 }
 
 .el-icon.avatar-uploader-icon {
-  font-size: .4rem;
+  font-size: 0.4rem;
   color: #8c939d;
   width: 2rem;
   height: 2rem;
@@ -1054,10 +1034,10 @@ div[class^='Step'] {
 
 .captcha {
   width: 1.2857rem;
-  height: .3571rem;
+  height: 0.3571rem;
   border: none;
-  line-height: .3571rem;
-  font-size: .1714rem;
+  line-height: 0.3571rem;
+  font-size: 0.1714rem;
   vertical-align: bottom;
 }
 </style>

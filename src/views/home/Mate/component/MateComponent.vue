@@ -78,13 +78,12 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .content-wrapper {
-  
   display: flex;
   align-items: stretch;
   width: 100%;
   height: 3.309rem;
   overflow: hidden;
-  transition: height .3s   ease;
+  transition: height 0.3s ease;
   .title {
     width: 3.5812rem;
     display: flex;

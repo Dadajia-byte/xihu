@@ -4,7 +4,7 @@
     <div class="past">
       <div class="past_container">
         <div class="part1">
-          <div class="img1" ></div>
+          <div class="img1"></div>
           <div class="img2"></div>
         </div>
         <div class="part2">
@@ -60,8 +60,6 @@ const cards = [
     url: 'https://picsum.photos/id/1033/50/60',
   },
 ]
-
-
 </script>
 
 <style scoped lang="scss">
@@ -80,12 +78,12 @@ const cards = [
   display: flex;
 
   .part1 {
-    margin-right: .1875rem;
+    margin-right: 0.1875rem;
     width: 5.0625rem;
 
     .img1 {
       height: 3.375rem;
-      margin-bottom: .1875rem;
+      margin-bottom: 0.1875rem;
       background-color: #1185e4;
     }
 
@@ -96,7 +94,7 @@ const cards = [
   }
 
   .part2 {
-    margin-right: .1875rem;
+    margin-right: 0.1875rem;
     width: 11.8688rem;
     height: 6.5125rem;
 
@@ -113,9 +111,8 @@ const cards = [
     position: relative;
     // background: no-repeat center/cover;
 
-
     &:hover::after {
-      content: "查看更多 →";
+      content: '查看更多 →';
       position: absolute;
       top: 50%;
       left: 50%;
@@ -151,16 +148,16 @@ const cards = [
   align-items: center;
   text-align: center;
   color: #1185e4;
-  font-size: .4286rem;
-  margin: .5714rem auto;
+  font-size: 0.4286rem;
+  margin: 0.5714rem auto;
   font-weight: 700;
 
   &::before,
   &::after {
     content: '';
     flex: 1;
-    border-bottom: .0429rem solid #1185e4;
-    margin: 0 .1429rem;
+    border-bottom: 0.0429rem solid #1185e4;
+    margin: 0 0.1429rem;
   }
 }
 </style>

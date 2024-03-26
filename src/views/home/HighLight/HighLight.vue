@@ -1,13 +1,21 @@
 <template>
   <div>
-    <div class="divider wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+    <div
+      class="divider wow fadeInUp"
+      data-wow-duration="1s"
+      data-wow-delay="0.1s"
+    >
       <span style="font-family: Source Han Sans CN">大会亮点</span>
       <span class="divider-tip" style="font-family: Source Han Sans CN">
         Conference Highlights
       </span>
     </div>
 
-    <div class="highlight-contanier wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+    <div
+      class="highlight-contanier wow fadeInUp"
+      data-wow-duration="1s"
+      data-wow-delay="0.1s"
+    >
       <el-row justify="space-around" style="margin-top: 0.1429rem">
         <el-col :span="4">
           <ul>
@@ -56,30 +64,38 @@
         </el-col>
       </el-row>
     </div>
-    <div class="characteristic-container">
+    <div class="characteristic-container wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
       <div class="character-wrapper">
         <ul>
-            <li v-for="(item, index) in characterList" :key="index">
-              <div
-                class="bg"
-                :style="{
-                  backgroundImage: 'url(' + item.imgUrl + ')',
-                  opacity: item.opacity,
-                }"
-              ></div>
-            </li>
-          </ul>
-        <div class="character" v-for="(item, index) in characterList" :key="index" @click="setCharacterActive(index)" :class="activeIndex === index ? 'active':''"> 
+          <li v-for="(item, index) in characterList" :key="index">
+            <div
+              class="bg"
+              :style="{
+                backgroundImage: 'url(' + item.imgUrl + ')',
+                opacity: item.opacity,
+              }"
+            ></div>
+          </li>
+        </ul>
+        <div
+          class="character"
+          v-for="(item, index) in characterList"
+          :key="index"
+          @click="setCharacterActive(index)"
+          :class="activeIndex === index ? 'active' : ''"
+        >
           <div class="icon">
-            <svgIcon :name="item.icon" color="#ffffff" style="width: .875rem;height:.875rem">
- </svgIcon></div>
+            <svgIcon
+              :name="item.icon"
+              color="#ffffff"
+              style="width: 0.875rem; height: 0.875rem"
+            ></svgIcon>
+          </div>
           <div class="desc">
             <div class="title">{{ item.title }}</div>
             <div class="content">{{ item.content }}</div>
           </div>
-
         </div>
-
       </div>
     </div>
   </div>
@@ -102,40 +118,44 @@ import incraeseNum from '@/utils/incraeseNum'
 const characterList = ref([
   {
     title: '议题更前沿',
-    content: '大会主题及议题、展览锚定数字中国建设要求，助力政企单位从政策、技术、人才、产业等各层面落实工作。',
-    imgUrl: 'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
-    icon:'agenda',
-    opacity:'1',
+    content:
+      '大会主题及议题、展览锚定数字中国建设要求，助力政企单位从政策、技术、人才、产业等各层面落实工作。',
+    imgUrl:
+      'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
+    icon: 'agenda',
+    opacity: '1',
   },
   {
     title: '线上更精彩',
     content: '“掌上论剑”将进一步丰富内容，增强互动性、趣味性，线上持续精彩。',
-    imgUrl: 'https://mediabluk.cnr.cn/img/cnr/CNRCDP/2023/0508/a1e09fbb7dcd1683529975154718503010.jpg?auth=5adc574309cd32abc650218d89ce95e0',
-    icon:'online',
-    opacity:'0',
-
+    imgUrl:
+      'https://mediabluk.cnr.cn/img/cnr/CNRCDP/2023/0508/a1e09fbb7dcd1683529975154718503010.jpg?auth=5adc574309cd32abc650218d89ce95e0',
+    icon: 'online',
+    opacity: '0',
   },
   {
     title: '成果更显著',
-    content: '将推出国内首份《2023中国数字安全能力洞察报告》，报告涵盖趋势、科技、人才、实践等多部分内容，引领行业发展方向。',
-    imgUrl: 'https://www.dbappsecurity.com.cn/uploadfile/2019/12/09/20191209101959jBSDNb.jpg',
-    icon:'find',
-    opacity:'0',
-
+    content:
+      '将推出国内首份《2023中国数字安全能力洞察报告》，报告涵盖趋势、科技、人才、实践等多部分内容，引领行业发展方向。',
+    imgUrl:
+      'https://www.dbappsecurity.com.cn/uploadfile/2019/12/09/20191209101959jBSDNb.jpg',
+    icon: 'find',
+    opacity: '0',
   },
   {
     title: '国际化更深入',
-    content: '峰会将通过引入国际组织、设置国际话题等，从全球角度研判数字化进程和趋势。',
-    imgUrl: 'https://th.bing.com/th/id/R.f8a3a8c6c0861f4b80f1bc45c1092cbc?rik=K41O%2fyDLB6aysg&riu=http%3a%2f%2fxj.news.cn%2f2023-05%2f09%2f1129600010_16835994524141n.jpg&ehk=vqYd7i4BLYx9Sj6yQM4R1oEAWhQfDxHt4HbMC%2f2Rg08%3d&risl=&pid=ImgRaw&r=0',
-    icon:'global',
-    opacity:'0',
-
+    content:
+      '峰会将通过引入国际组织、设置国际话题等，从全球角度研判数字化进程和趋势。',
+    imgUrl:
+      'https://th.bing.com/th/id/R.f8a3a8c6c0861f4b80f1bc45c1092cbc?rik=K41O%2fyDLB6aysg&riu=http%3a%2f%2fxj.news.cn%2f2023-05%2f09%2f1129600010_16835994524141n.jpg&ehk=vqYd7i4BLYx9Sj6yQM4R1oEAWhQfDxHt4HbMC%2f2Rg08%3d&risl=&pid=ImgRaw&r=0',
+    icon: 'global',
+    opacity: '0',
   },
 ])
 const activeIndex = ref(0)
 const setCharacterActive = (index: number) => {
   activeIndex.value = index
-  characterList.value.forEach((item:any) => {
+  characterList.value.forEach((item: any) => {
     item.opacity = '0'
   })
   characterList.value[index].opacity = '1'
@@ -191,77 +211,75 @@ onMounted(() => {
   margin: 0 auto;
   width: 17.925rem;
   height: 7.8125rem;
-  margin-bottom: .375rem;
+  margin-bottom: 0.375rem;
   position: relative;
   background-color: #ffffff;
- 
+
   .character-wrapper {
-    
     position: absolute;
-    top:50%;
+    top: 50%;
     transform: translateY(-50%);
     right: 0;
     width: 6.85rem;
-    padding: .5rem 0; 
+    padding: 0.5rem 0;
     z-index: 1;
-    .bg{
-    position: absolute;
-    left: -10.95rem;
-    top: 0;
-    width:12.325rem;
-    height: 7.8125rem;
-    z-index: 2;
-    background-size: cover;
-    background-position: center;
-    transition: opacity 0.3s ease-in-out;
-  }
+    .bg {
+      position: absolute;
+      left: -10.95rem;
+      top: 0;
+      width: 12.325rem;
+      height: 7.8125rem;
+      z-index: 2;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 0.3s ease-in-out;
+    }
     .character {
       cursor: pointer;
       position: relative;
-      background-color: #F1F2F3;
+      background-color: #f1f2f3;
       border-radius: 0.1875rem;
       width: 6.85rem;
       height: 1.5156rem;
-      margin-bottom: .1875rem;
-      padding: .125rem .25rem;
+      margin-bottom: 0.1875rem;
+      padding: 0.125rem 0.25rem;
       display: flex;
       .icon {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex:2;
+        flex: 2;
         text-align: center;
         width: 1.25rem;
         height: 1.25rem;
         line-height: 1.25rem;
       }
 
-      .desc{
+      .desc {
         flex: 8;
         .title {
-        font-weight: 600;
-        font-size: .25rem;
-        line-height: .45rem;
+          font-weight: 600;
+          font-size: 0.25rem;
+          line-height: 0.45rem;
+        }
 
+        .content {
+          font-size: 0.175rem;
+          line-height: 0.3125rem;
+        }
       }
-
-      .content {
-
-        font-size: .175rem;
-        line-height: .3125rem;
-      }
-
-      }
-      
     }
   }
-  .active{
-      background-image: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
-      color: #ffffff;
-      z-index: 3;
-    }
+  .active {
+    background-image: linear-gradient(
+      to bottom right,
+      $theme-color-blue,
+      $theme-color-green
+    );
+    color: #ffffff;
+    z-index: 3;
+  }
 }
-
 
 .divider {
   display: flex;

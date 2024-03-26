@@ -5,7 +5,7 @@
       :interval="100000"
       height="8.1937rem"
       type="card"
-      class="wow slideInLeft"
+      class="wow fadeInUp"
       data-wow-duration="1s"
       data-wow-delay="1s"
     >
