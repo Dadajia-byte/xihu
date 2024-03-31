@@ -76,7 +76,7 @@
             </div>
             <div class="search">
               <el-input
-                @input="searchGuest(searchText)"
+                @input="searchGuest()"
                 v-model="searchText"
                 style="
                   width: 3.5rem;
@@ -92,7 +92,7 @@
           <div class="guest">
             <div
               class="guest-item wow fadeInUp"
-              v-for="(item, index) in masterSotre.masterData"
+              v-for="(item, index) in masterStore.masterData"
               :key="index"
             >
               <div class="img-wrapper">
@@ -119,12 +119,13 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { Search } from '@element-plus/icons-vue'
-import useMasterSotre from '@/store/modules/master'
+import useMasterStore from '@/store/modules/master'
 import WOW from 'wow.js'
+// import {throttle} from 'lodash'
 
 // import { master } from '@/api/master/type'
 
-const masterSotre = useMasterSotre()
+const masterStore = useMasterStore()
 const activeIndex = ref(0)
 const searchText = ref('')
 const left = ref()
@@ -245,23 +246,24 @@ const handleLeftClick = () => {
   }, 500)
 }
 
-const searchGuest = async (searchText: string) => {
-  masterSotre.getMasterData.guestname = searchText
-  await masterSotre.getMasterInfo()
+const searchGuest = async () => {
+  masterStore.getMasterData.guestname = searchText.value
+  await masterStore.getMasterInfo()
 }
+
 const guestInit = async () => {
-  masterSotre.getMasterData.isExpert = '0'
-  masterSotre.getMasterData.date = ''
-  masterSotre.getMasterData.guestname = ''
-  await masterSotre.getMasterInfo()
+  masterStore.getMasterData.isExpert = '0'
+  masterStore.getMasterData.date = ''
+  masterStore.getMasterData.guestname = ''
+  await masterStore.getMasterInfo()
 }
 const setDateActive = async (index: number) => {
   activeIndex.value = index
-  masterSotre.getMasterData.isExpert = '0'
-  masterSotre.getMasterData.date =
+  masterStore.getMasterData.isExpert = '0'
+  masterStore.getMasterData.date =
     dateList.value[index].date === '全部' ? '' : dateList.value[index].date
-  await masterSotre.getMasterInfo()
-  // console.log(masterSotre.masterData)
+  await masterStore.getMasterInfo()
+  // console.log(masterStore.masterData)
 }
 
 const initWOW = () => {

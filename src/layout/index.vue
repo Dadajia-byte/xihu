@@ -771,8 +771,7 @@ const closeLogin = () => {
   background-color: #fafafa;
   position: relative;
   /* 测试属性 start */
-  height: 75rem;
-
+  overflow: hidden;
   /* 测试属性end */
   .tabbar {
     position: fixed;
@@ -788,7 +787,7 @@ const closeLogin = () => {
 
   .main {
     padding-top: 1rem;
-    height: 11.4857rem;
+    margin-bottom: 8rem;
   }
 
   .sidebar {

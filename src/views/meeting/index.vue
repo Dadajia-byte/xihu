@@ -296,10 +296,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.agenda-page {
-  background-color: #e0e1e3;
-}
-
 .filter-container {
   width: 100%;
   height: 1.625rem;

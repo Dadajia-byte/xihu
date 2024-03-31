@@ -3,11 +3,12 @@
     <span class="divider wow fadeInUp">新闻资讯</span>
     <el-carousel
       :interval="100000"
-      height="8.1937rem"
+      height="6.7956rem"
       type="card"
       class="wow fadeInUp"
       data-wow-duration="1s"
       data-wow-delay="1s"
+      indicator-position="none"
     >
       <el-carousel-item v-for="(item, index) in newsList" :key="index">
         <el-card body-style="padding:0;     ">
@@ -75,41 +76,45 @@ const newsList = ref([
   flex-direction: column;
 
   .newsImg {
-    height: 5.0125rem;
+    height: 4.1604rem;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
   }
+
   .title {
-    padding: 0 0.1875rem;
-    height: 1.1438rem;
-    line-height: 1.1438rem;
+    padding: 0 0.1556rem;
+    height: 0.9494rem;
+    line-height: 0.9494rem;
     text-align: start;
-    font-size: 0.4125rem;
+    font-size: 0.3424rem;
     font-weight: bold;
     position: relative;
 
     &::after {
       content: '';
       position: absolute;
-      left: 0.1875rem;
-      bottom: -0.0375rem;
-      width: 0.9375rem;
-      height: 0.0563rem;
+      left: 0.1556rem;
+      bottom: -0.0311rem;
+      width: 0.7781rem;
+      height: 0.0467rem;
       background-color: #1185e4;
     }
   }
+
   .content {
-    font-size: 0.25rem;
-    padding: 0.3655rem 0.1875rem;
-    line-height: 0.4688rem;
-    height: 2.2687rem;
+    font-size: 0.2075rem;
+    padding: 0.3034rem 0.1556rem;
+    line-height: 0.3891rem;
+    height: 1.883rem;
     text-align: start;
   }
+
   .divider {
     display: flex;
     width: 4rem;
     align-items: center;
+    text-align: center;
     color: #1185e4;
     font-size: 0.4286rem;
     margin: 0.5714rem auto;
@@ -125,18 +130,25 @@ const newsList = ref([
   }
 
   .el-carousel {
-    width: 22.8938rem;
+    width: 19.0019rem;
     margin: 0 auto;
   }
 
   .el-card {
-    height: 8.1937rem;
-    border-radius: 0.3125rem;
+    height: 6.8008rem;
+    border-radius: 0.2594rem;
   }
+
   .el-carousel__item {
     margin: 0 auto;
-    height: 8.1937rem;
+    height: 6.8008rem;
     background: transparent;
+  }
+
+  // 轮播图acive相关样式
+  .is-active:hover .title::after {
+    width: 1.875rem; // 假定悬停时宽度为 100%
+    transition: width 0.5s ease-in-out; // 平滑的宽度变化过渡效果
   }
 }
 </style>

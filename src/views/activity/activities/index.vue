@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import List from './List.vue'
+import List from '../activities/List.vue'
 import { onMounted } from 'vue'
 import useActivityStore from '@/store/modules/activity'
 let activityStore = useActivityStore()

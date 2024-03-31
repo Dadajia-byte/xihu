@@ -5,10 +5,7 @@
       data-wow-duration="1s"
       data-wow-delay="0.1s"
     >
-      <span style="font-family: Source Han Sans CN">大会亮点</span>
-      <span class="divider-tip" style="font-family: Source Han Sans CN">
-        Conference Highlights
-      </span>
+      <span class="divider wow fadeInUp">大会亮点</span>
     </div>
 
     <div
@@ -64,7 +61,11 @@
         </el-col>
       </el-row>
     </div>
-    <div class="characteristic-container wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+    <div
+      class="characteristic-container wow fadeInUp"
+      data-wow-duration="1s"
+      data-wow-delay="0.1s"
+    >
       <div class="character-wrapper">
         <ul>
           <li v-for="(item, index) in characterList" :key="index">
@@ -208,27 +209,28 @@ onMounted(() => {
 }
 
 .characteristic-container {
-  margin: 0 auto;
-  width: 17.925rem;
-  height: 7.8125rem;
+  width: 100%;
+  height: 8.4375rem;
   margin-bottom: 0.375rem;
   position: relative;
   background-color: #ffffff;
-
+  box-shadow: 0px 0px 0.125rem 0px rgba(0, 0, 0, 0.1);
   .character-wrapper {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    right: 3.75rem;
     width: 6.85rem;
-    padding: 0.5rem 0;
+    height: 7.8125rem;
     z-index: 1;
     .bg {
       position: absolute;
-      left: -10.95rem;
+      left: -13.45rem;
       top: 0;
-      width: 12.325rem;
-      height: 7.8125rem;
+      width: 14.811rem;
+      height: 8.4375rem;
       z-index: 2;
       background-size: cover;
       background-position: center;
@@ -238,12 +240,11 @@ onMounted(() => {
       cursor: pointer;
       position: relative;
       background-color: #f1f2f3;
-      border-radius: 0.1875rem;
       width: 6.85rem;
       height: 1.5156rem;
-      margin-bottom: 0.1875rem;
       padding: 0.125rem 0.25rem;
       display: flex;
+      transition: all 0.3s ease-in-out;
       .icon {
         display: flex;
         justify-content: center;
@@ -283,19 +284,19 @@ onMounted(() => {
 
 .divider {
   display: flex;
-  flex-direction: column;
+  width: 4rem;
   align-items: center;
-  text-align: center;
-  justify-content: center;
   color: #1185e4;
   font-size: 0.4286rem;
   margin: 0.5714rem auto;
   font-weight: 700;
 
-  .divider-tip {
-    margin-top: 0.125rem;
-    font-size: 0.175rem;
-    font-weight: 500;
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    border-bottom: 0.0429rem solid #1185e4;
+    margin: 0 0.1429rem;
   }
 }
 </style>

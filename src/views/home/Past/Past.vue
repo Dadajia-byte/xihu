@@ -3,18 +3,18 @@
     <span class="divider wow fadeInUp">往届大会</span>
     <div class="past">
       <div class="past_container">
-        <div class="part1">
+        <div class="part1 wow fadeInUp">
           <div class="img1"></div>
           <div class="img2"></div>
         </div>
-        <div class="part2">
+        <div class="part2 wow fadeInUp">
           <div class="img3" style=""></div>
         </div>
-        <div class="part1">
+        <div class="part1 wow fadeInUp">
           <div class="img1"></div>
           <div class="img2"></div>
         </div>
-        <div class="part2">
+        <div class="part2 wow fadeInUp">
           <div class="img3"></div>
         </div>
       </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import WOW from 'wow.js'
 const initWOW = () => {
   const wow = new WOW({

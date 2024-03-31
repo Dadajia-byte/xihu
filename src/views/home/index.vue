@@ -2,7 +2,7 @@
   <div>
     <!-- 轮播图 -->
     <div style="height: 11.4857rem">
-      <el-carousel :interval="5000" arrow="never" height="auto">
+      <el-carousel :interval="5000" arrow="never" style="height: 11.4857rem">
         <el-carousel-item style="height: 11.4857rem">
           <img src="" alt="" />
           图片1
