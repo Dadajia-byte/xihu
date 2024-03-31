@@ -31,12 +31,30 @@ export const constantRoutesPC = [
       },
       {
         path: '/activity',
-        component: () => import('@/views/activity/index.vue'),
         name: 'activity',
+        redirect: '/home',
         meta: {
           title: '精彩活动',
           hidden: false,
         },
+        children: [
+          {
+            path: '/activity/activities',
+            component: () => import('@/views/activity/activities/index.vue'),
+            meta: {
+              title: '精彩活动',
+              hidden: false,
+            },
+          },
+          {
+            path: '/activity/discuss',
+            component: () => import('@/views/activity/discuss/index.vue'),
+            meta: {
+              title: '热门议题',
+              hidden: false,
+            },
+          },
+        ],
       },
       {
         path: '/achivevement',

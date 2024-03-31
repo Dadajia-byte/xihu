@@ -57,11 +57,21 @@
             </el-form-item>
             <el-form-item label="大会类型">
               <el-checkbox-group v-model="form.type">
-                <el-checkbox value="网络安全" name="type">网络安全</el-checkbox>
-                <el-checkbox value="人工智能" name="type">人工智能</el-checkbox>
-                <el-checkbox value="物联网" name="type">物联网</el-checkbox>
-                <el-checkbox value="金融" name="type">金融</el-checkbox>
-                <el-checkbox value="其他" name="type">其他</el-checkbox>
+                <el-checkbox value="网络安全" name="type" label="网络安全">
+                  网络安全
+                </el-checkbox>
+                <el-checkbox value="人工智能" name="type" label="人工智能">
+                  人工智能
+                </el-checkbox>
+                <el-checkbox value="物联网" name="type" label="物联网">
+                  物联网
+                </el-checkbox>
+                <el-checkbox value="金融" name="type" label="金融">
+                  金融
+                </el-checkbox>
+                <el-checkbox value="其他" name="type" label="其他">
+                  其他
+                </el-checkbox>
               </el-checkbox-group>
             </el-form-item>
             <el-form-item label="描述">

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 头部筛选栏 -->
     <div class="header">
       <div class="title wow fadeInRight">海报下载</div>
     </div>
@@ -25,6 +26,8 @@
         &nbsp;嘉宾海报
       </div>
     </div>
+
+    <!-- 海报页面 -->
     <div class="poster-container" v-show="isActive === 0">
       <div
         class="poster wow fadeInUp"
@@ -37,9 +40,32 @@
           class="poster-img"
           :style="{ backgroundImage: 'url(' + item.url + ')' }"
         ></div>
-        <div class="poster-name">{{ item.name }}</div>
+        <div class="poster-name" @click="selectPoster(item)">
+          {{ item.name }}
+        </div>
+
+        <el-dialog
+          v-model="item.dialogVisible"
+          width="5.6875rem"
+          :show-close="false"
+          style="
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+            height: 10.75rem;
+          "
+          :align-center="true"
+        >
+          <div
+            class="preview-img"
+            :style="{ backgroundImage: 'url(' + item.url + ')' }"
+          ></div>
+          <div class="dialogdownload" @click="download(item)">点击下载</div>
+        </el-dialog>
       </div>
     </div>
+
+    <!-- 嘉宾页面 -->
     <div class="guest-container" v-show="isActive === 1">
       <div
         class="guest wow fadeInUp"
@@ -58,7 +84,25 @@
         </div>
         <div class="name">{{ item.name }}</div>
         <div class="desc">{{ item.description }}</div>
-        <div class="download">点击下载</div>
+        <div class="download" @click="selectGuest(item, index)">点击下载</div>
+        <el-dialog
+          v-model="item.dialogVisible"
+          width="5.6875rem"
+          :show-close="false"
+          style="
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+            height: 10.75rem;
+          "
+          :align-center="true"
+        >
+          <div
+            class="preview-img"
+            :style="{ backgroundImage: 'url(' + item.url + ')' }"
+          ></div>
+          <div class="dialogdownload" @click="download(item)">点击下载</div>
+        </el-dialog>
       </div>
     </div>
   </div>
@@ -72,31 +116,39 @@ const isActive = ref(0)
 const posterList = ref([
   {
     name: '数字安全@数字中国',
+    // url: '@/assets/images/bg_imgages/login_bg.png',
     url: 'https://img2023.gcsis.cn/2023/5/a5bcfbeb41004c6090952b57a08b173c.jpg',
+    dialogVisible: false,
   },
   {
     name: '数字中国&安全治理',
     url: 'https://img2023.gcsis.cn/2023/5/b4205433c25e4030861cbfb53dbe1df8.jpg',
+    dialogVisible: false,
   },
   {
     name: '信创软件供应链安全论坛',
     url: 'https://img2023.gcsis.cn/2023/5/8b8ccd6acc5245358d6ba2616e063502.jpg',
+    dialogVisible: false,
   },
   {
     name: '车联网安全论坛',
     url: 'https://img2023.gcsis.cn/2023/5/1626b33553c74615bdcc05eb01553530.jpg',
+    dialogVisible: false,
   },
   {
     name: '工业领域网络和数据安全论坛',
     url: 'https://img2023.gcsis.cn/2023/5/520901df5d8a45f5b50481037b6d876d.jpg',
+    dialogVisible: false,
   },
   {
     name: '网络安全创新发展高端论坛',
     url: 'https://img2023.gcsis.cn/2023/5/d5e71883ab6241af8a73c73cc52bc17a.jpg',
+    dialogVisible: false,
   },
   {
     name: '',
     url: '',
+    dialogVisible: false,
   },
 ])
 const guestList = ref([
@@ -104,47 +156,56 @@ const guestList = ref([
     url: 'https://img2023.gcsis.cn/2023/4/3976ced942c44672b457895baa4e33e8.png',
     name: '刘世锦',
     description: '中国发展研究基金会副理事长、国务院发展研究中心原副主任',
+    dialogVisible: false,
   },
   {
     url: 'https://img2023.gcsis.cn/2023/5/81ea365660294a9bafb0968263d4f0b4.jpeg',
     name: '邬贺铨',
     description: '中国工程院院士',
+    dialogVisible: false,
   },
   {
     url: 'https://img2023.gcsis.cn/2023/5/4e02c7f3e7dd4d67b9cc24cd2d24cc64.jpeg',
     name: '方滨兴',
     description: '中国工程院院士',
+    dialogVisible: false,
   },
   {
     url: 'https://img2023.gcsis.cn/2023/5/d9c75b81f4164adebb6bfd3010ea74f4.jpeg',
     name: '齐同军',
     description: '杭州市数据资源管理局副局长',
+    dialogVisible: false,
   },
   {
     url: 'https://img2023.gcsis.cn/2023/5/36a0ed759c29489ab094a7f5cf733428.jpeg',
     name: '张亮',
     description: '无锡市城市运行管理中心党支部书记、副主任',
+    dialogVisible: false,
   },
   {
     url: 'https://img2023.gcsis.cn/2023/5/8358a2eed7fb471cb60b0d306e10227e.jpeg',
     name: '方坚',
     description: '芜湖市数据资源管理局副局长',
+    dialogVisible: false,
   },
   {
     url: 'https://img2023.gcsis.cn/2023/5/53308d63685642969f18cb679090d166.jpeg',
     name: '郑磊',
     description:
       '复旦大学国际关系与公共事务学院教授、上海市一网统管城市数字治理实验室主任',
+    dialogVisible: false,
   },
   {
     url: 'https://img2023.gcsis.cn/2023/5/7fa0179beaa44f83b409ff0c9ac6682b.jpeg',
     name: '刘博',
     description: '安恒信息首席科学家，高级副总裁',
+    dialogVisible: false,
   },
   {
     url: 'https://img2023.gcsis.cn/2023/5/53308d63685642969f18cb679090d166.jpeg',
     name: '范渊',
     description: '安恒信息董事长',
+    dialogVisible: false,
   },
 ])
 const setMeetingActive = () => {
@@ -152,6 +213,18 @@ const setMeetingActive = () => {
 }
 const setGuestActive = () => {
   isActive.value = 1
+}
+const download = (item: any) => {
+  const a = document.createElement('a')
+  a.download = item.name
+  a.href = item.url + '?response-content-type=application/octet-stream'
+  a.click()
+}
+const selectPoster = (item: any) => {
+  item.dialogVisible = true
+}
+const selectGuest = (item: any) => {
+  item.dialogVisible = true
 }
 const initWOW = () => {
   const wow = new WOW({
@@ -237,15 +310,16 @@ onMounted(() => {
     height: 11.05rem;
     width: 5.6875rem;
     margin-right: 0.1875rem;
-    cursor: pointer;
 
     .poster-img {
       height: 10.125rem;
       width: 5.6875rem;
+      cursor: pointer;
       background: no-repeat center/cover;
     }
 
     .poster-name {
+      cursor: pointer;
       display: flex;
       justify-content: center;
       height: 0.925rem;
@@ -356,5 +430,26 @@ onMounted(() => {
       }
     }
   }
+}
+
+.preview-img {
+  height: 10.125rem;
+  width: 5.6875rem;
+  background: no-repeat center/cover;
+}
+
+.dialogdownload {
+  margin: 0.0625rem auto 0;
+  display: flex;
+  justify-content: center;
+  height: 0.5rem;
+  width: 2.1875rem;
+  line-height: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.025rem solid #2db1ba;
+  color: #ffffff;
+  font-size: 0.2rem;
+  cursor: pointer;
+  background-color: #2db1ba;
 }
 </style>

@@ -4,7 +4,10 @@
       <el-icon size="0.35rem" color="#409eff"><Share /></el-icon>
       <div>海报分享</div>
     </div>
-
+    <!-- <svgIcon
+            name="postdown"
+            style="width: 10vw; height: 10vw; padding-bottom: 1vw"
+          ></svgIcon> -->
     <div class="clockIn" @click="clockIn">
       <el-icon size="0.35rem" color="#0b81f0"><Camera /></el-icon>
       <div>打卡分享</div>
