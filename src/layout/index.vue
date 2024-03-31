@@ -7,12 +7,7 @@
 
     <Sidebar class="sidebar"></Sidebar>
     <Footer class="footer"></Footer>
-    <el-dialog
-      class="dialog"
-      v-model="dialogFormVisible"
-      width="850"
-      :show-close="false"
-      style="
+    <el-dialog class="dialog" v-model="dialogFormVisible" width="850" :show-close="false" style="
         height: 6.875rem;
         border-radius: 0.1714rem;
         opacity: 0.95;
@@ -23,43 +18,25 @@
         justify-content: center;
         align-content: center;
         overflow: hidden;
-      "
-      @close="closeLogin"
-    >
-      <div
-        class="login_wrapper"
-        :class="
-          dialogRegisterVisible === true
-            ? 'register-wrapper-show'
-            : 'login-wrapper-show'
-        "
-      >
+      " @close="closeLogin">
+      <div class="login_wrapper" :class="dialogRegisterVisible === true
+      ? 'register-wrapper-show'
+      : 'login-wrapper-show'
+      ">
         <div class="login_container">
           <!-- 头部 -->
           <div class="header">
             <div class="login">
-              <span
-                :class="{ login2: !isAccLog, login1: isAccLog }"
-                @click="isAccLog = true"
-              >
+              <span :class="{ login2: !isAccLog, login1: isAccLog }" @click="isAccLog = true">
                 账号登录
               </span>
-              <span
-                :class="{ login1: !isAccLog, login2: isAccLog }"
-                @click="isAccLog = false"
-              >
+              <span :class="{ login1: !isAccLog, login2: isAccLog }" @click="isAccLog = false">
                 手机号登录
               </span>
             </div>
           </div>
           <!-- 账号登录表单 -->
-          <el-form
-            label-width=".3571rem"
-            v-show="isAccLog"
-            :rules="rules1"
-            :model="accLogForm"
-            ref="logForm1"
-          >
+          <el-form label-width=".3571rem" v-show="isAccLog" :rules="rules1" :model="accLogForm" ref="logForm1">
             <el-form-item prop="account">
               <el-input placeholder="请输入账号" v-model="accLogForm.account">
                 <template #prefix>
@@ -70,12 +47,7 @@
               </el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input
-                placeholder="请输入密码"
-                type="password"
-                show-password
-                v-model="accLogForm.password"
-              >
+              <el-input placeholder="请输入密码" type="password" show-password v-model="accLogForm.password">
                 <template #prefix>
                   <el-icon>
                     <Lock />
@@ -91,12 +63,7 @@
                   </el-icon>
                 </template>
                 <template #suffix>
-                  <img
-                    :src="captchaUrl"
-                    class="captcha"
-                    @click="refreshCaptcha"
-                    alt="点击重新加载"
-                  />
+                  <img :src="captchaUrl" class="captcha" @click="refreshCaptcha" alt="点击重新加载" />
                 </template>
               </el-input>
             </el-form-item>
@@ -105,29 +72,16 @@
             </div>
             <!-- 登录按钮 -->
             <el-form-item>
-              <el-button
-                type="primary"
-                style="width: 4.7339rem; border-radius: 0.2429rem"
-                @click="login"
-                :loading="false"
-              >
+              <el-button type="primary" style="width: 4.7339rem; border-radius: 0.2429rem" @click="login"
+                :loading="false">
                 登录
               </el-button>
             </el-form-item>
           </el-form>
           <!-- 手机号登录表单 -->
-          <el-form
-            label-width=".3571rem"
-            :rules="rules2"
-            :model="phoneLogForm"
-            v-show="!isAccLog"
-            ref="logForm2"
-          >
+          <el-form label-width=".3571rem" :rules="rules2" :model="phoneLogForm" v-show="!isAccLog" ref="logForm2">
             <el-form-item prop="phone">
-              <el-input
-                placeholder="请输入手机号码"
-                v-model="phoneLogForm.phone"
-              >
+              <el-input placeholder="请输入手机号码" v-model="phoneLogForm.phone">
                 <template #prefix>
                   <el-icon>
                     <Iphone />
@@ -136,51 +90,34 @@
               </el-input>
             </el-form-item>
             <el-form-item prop="verifyCode">
-              <el-input
-                placeholder="请输入短信验证码"
-                v-model="phoneLogForm.verifyCode"
-              >
+              <el-input placeholder="请输入短信验证码" v-model="phoneLogForm.verifyCode">
                 <template #prefix>
                   <el-icon>
                     <Bell />
                   </el-icon>
                 </template>
                 <template #suffix>
-                  <el-button
-                    @click="() => sendVerificationCode('1')"
-                    size="small"
-                    :disabled="
-                      isSendingCode['1'].value == true ||
-                      (countdown['1'].value as number) > 0
-                    "
-                    class="sendCode"
-                  >
+                  <el-button @click="() => sendVerificationCode('1')" size="small" :disabled="isSendingCode['1'].value == true ||
+      (countdown['1'].value as number) > 0
+      " class="sendCode">
                     {{
-                      (countdown['1'].value as number) > 0
-                        ? `重新发送(${countdown['1'].value})`
-                        : '发送验证码'
-                    }}
+      (countdown['1'].value as number) > 0
+        ? `重新发送(${countdown['1'].value})`
+        : '发送验证码'
+    }}
                   </el-button>
                 </template>
               </el-input>
             </el-form-item>
             <el-form-item style="margin-bottom: 0.0714rem" prop="captcha">
-              <el-input
-                placeholder="请输入验证码"
-                v-model="phoneLogForm.captcha"
-              >
+              <el-input placeholder="请输入验证码" v-model="phoneLogForm.captcha">
                 <template #prefix>
                   <el-icon>
                     <Key />
                   </el-icon>
                 </template>
                 <template #suffix>
-                  <img
-                    :src="captchaUrl"
-                    @click="refreshCaptcha"
-                    class="captcha"
-                    alt="点击重新加载"
-                  />
+                  <img :src="captchaUrl" @click="refreshCaptcha" class="captcha" alt="点击重新加载" />
                 </template>
               </el-input>
             </el-form-item>
@@ -190,12 +127,8 @@
             </div>
             <!-- 登录按钮 -->
             <el-form-item>
-              <el-button
-                type="primary"
-                style="width: 4.7339rem; border-radius: 0.2429rem"
-                @click="login"
-                :loading="false"
-              >
+              <el-button type="primary" style="width: 4.7339rem; border-radius: 0.2429rem" @click="login"
+                :loading="false">
                 登录
               </el-button>
             </el-form-item>
@@ -213,15 +146,8 @@
           </div>
         </div>
 
-        <div
-          class="image_bg"
-          :class="dialogRegisterVisible === true ? 'register-bg-show' : ''"
-        >
-          <div
-            class="backLogin"
-            @click="backLogin"
-            v-show="dialogRegisterVisible"
-          >
+        <div class="image_bg" :class="dialogRegisterVisible === true ? 'register-bg-show' : ''">
+          <div class="backLogin" @click="backLogin" v-show="dialogRegisterVisible">
             已有帐号？
           </div>
         </div>
@@ -233,78 +159,43 @@
               <EditPen />
             </el-icon>
           </div>
-          <el-steps
-            :active="activeStep"
-            finish-status="success"
-            align-center
-            style="margin-top: 0.1875rem"
-          >
+          <el-steps :active="activeStep" finish-status="success" align-center style="margin-top: 0.1875rem">
             <el-step title="基本信息" />
             <el-step title="密码" />
             <el-step title="手机号" />
           </el-steps>
-          <el-form
-            label-position="right"
-            label-width="1.0714rem"
-            :model="regForm"
-            :rules="rules3"
-            ref="registerForm"
-            style="height: 2.5714rem"
-          >
+          <el-form label-position="right" label-width="1.0714rem" :model="regForm" :rules="rules3" ref="registerForm"
+            style="height: 2.5714rem">
             <div v-if="activeStep === 0" class="Step1">
               <!-- 上传头像 -->
               <el-row>
-                <el-col
-                  :span="8.5"
-                  style="
+                <el-col :span="8.5" style="
                     display: flex;
                     align-items: center;
                     margin-bottom: 0.1875rem;
-                  "
-                >
-                  <div
-                    style="
+                  ">
+                  <div style="
                       margin-right: 0.2143rem;
                       font-size: 0.2286rem;
                       margin-left: 0.375rem;
-                    "
-                  >
+                    ">
                     头像
                   </div>
-                  <el-upload
-                    class="avatar-uploader"
-                    action="/dev-api/upload"
-                    :show-file-list="false"
-                    :on-success="handleAvatarSuccess"
-                    :before-upload="beforeAvatarUpload"
-                  >
-                    <img
-                      v-if="regForm.avatar"
-                      :src="regForm.avatar"
-                      class="avatar"
-                    />
+                  <el-upload class="avatar-uploader" action="/dev-api/upload" :show-file-list="false"
+                    :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+                    <img v-if="regForm.avatar" :src="regForm.avatar" class="avatar" />
                     <el-icon v-else class="avatar-uploader-icon">
                       <Plus />
                     </el-icon>
                   </el-upload>
                 </el-col>
-                <el-col
-                  :span="12.5"
-                  style="
+                <el-col :span="12.5" style="
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                  "
-                >
-                  <el-form-item
-                    label="用户名"
-                    prop="username"
-                    style="width: 4.2857rem"
-                  >
-                    <el-input
-                      placeholder="请设置用户名"
-                      v-model="regForm.username"
-                    >
+                  ">
+                  <el-form-item label="用户名" prop="username" style="width: 4.2857rem">
+                    <el-input placeholder="请设置用户名" v-model="regForm.username">
                       <template #prefix>
                         <el-icon>
                           <User />
@@ -312,15 +203,8 @@
                       </template>
                     </el-input>
                   </el-form-item>
-                  <el-form-item
-                    label="账号"
-                    prop="account"
-                    style="width: 4.2857rem"
-                  >
-                    <el-input
-                      placeholder="请设置账号"
-                      v-model="regForm.account"
-                    >
+                  <el-form-item label="账号" prop="account" style="width: 4.2857rem">
+                    <el-input placeholder="请设置账号" v-model="regForm.account">
                       <template #prefix>
                         <el-icon>
                           <Avatar />
@@ -331,29 +215,15 @@
                 </el-col>
               </el-row>
             </div>
-            <div
-              v-if="activeStep === 1"
-              class="Step2"
-              style="
+            <div v-if="activeStep === 1" class="Step2" style="
                 height: 2.019rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-              "
-            >
-              <el-form-item
-                label="密码"
-                prop="password"
-                style="width: 5.4286rem"
-                label-width="1.25rem"
-              >
-                <el-input
-                  placeholder="请设置密码"
-                  type="password"
-                  show-password
-                  v-model="regForm.password"
-                >
+              ">
+              <el-form-item label="密码" prop="password" style="width: 5.4286rem" label-width="1.25rem">
+                <el-input placeholder="请设置密码" type="password" show-password v-model="regForm.password">
                   <template #prefix>
                     <el-icon>
                       <Key />
@@ -361,18 +231,8 @@
                   </template>
                 </el-input>
               </el-form-item>
-              <el-form-item
-                label="确认密码"
-                prop="checkPwd"
-                style="width: 5.4286rem"
-                label-width="1.25rem"
-              >
-                <el-input
-                  placeholder="请再次输入密码"
-                  show-password
-                  type="password"
-                  v-model="regForm.checkPwd"
-                >
+              <el-form-item label="确认密码" prop="checkPwd" style="width: 5.4286rem" label-width="1.25rem">
+                <el-input placeholder="请再次输入密码" show-password type="password" v-model="regForm.checkPwd">
                   <template #prefix>
                     <el-icon>
                       <Key />
@@ -382,11 +242,7 @@
               </el-form-item>
             </div>
             <div v-if="activeStep === 2" class="Step3">
-              <el-form-item
-                label="手机号"
-                prop="phone"
-                style="width: 5.4286rem"
-              >
+              <el-form-item label="手机号" prop="phone" style="width: 5.4286rem">
                 <el-input placeholder="请设置手机号" v-model="regForm.phone">
                   <template #prefix>
                     <el-icon>
@@ -395,58 +251,35 @@
                   </template>
                 </el-input>
               </el-form-item>
-              <el-form-item
-                label="验证码"
-                prop="verifyCode"
-                style="width: 5.4286rem"
-              >
-                <el-input
-                  v-model="regForm.verifyCode"
-                  placeholder="请输入验证码"
-                >
+              <el-form-item label="验证码" prop="verifyCode" style="width: 5.4286rem">
+                <el-input v-model="regForm.verifyCode" placeholder="请输入验证码">
                   <template #prefix>
                     <el-icon>
                       <Bell />
                     </el-icon>
                   </template>
                   <template #suffix>
-                    <el-button
-                      v-show="!isAccLog"
-                      @click="() => sendVerificationCode('2')"
-                      size="small"
-                      :disabled="
-                        isSendingCode['2'].value == true ||
-                        (countdown['2'].value as number) > 0
-                      "
-                      class="sendCode"
-                    >
+                    <el-button v-show="!isAccLog" @click="() => sendVerificationCode('2')" size="small" :disabled="isSendingCode['2'].value == true ||
+      (countdown['2'].value as number) > 0
+      " class="sendCode">
                       {{
-                        (countdown['2'].value as number) > 0
-                          ? `重新发送(${countdown['2'].value})`
-                          : '发送验证码'
-                      }}
+      (countdown['2'].value as number) > 0
+        ? `重新发送(${countdown['2'].value})`
+        : '发送验证码'
+    }}
                     </el-button>
                   </template>
                 </el-input>
               </el-form-item>
             </div>
             <div class="stepBtn">
-              <el-button
-                :disabled="activeStep === 0"
-                @click="prev"
-                type="success"
-                text
-              >
+              <el-button :disabled="activeStep === 0" @click="prev" type="success" text>
                 上一步
               </el-button>
               <el-button type="success" @click="next" v-if="activeStep !== 2">
                 下一步
               </el-button>
-              <el-button
-                v-if="activeStep === 2"
-                type="success"
-                @click="register"
-              >
+              <el-button v-if="activeStep === 2" type="success" @click="register">
                 确认注册
               </el-button>
             </div>
@@ -512,6 +345,7 @@ let registerForm = ref()
 interface RefObject {
   [key: string]: Ref<number> | Ref<boolean>
 }
+
 let isSendingCode: RefObject = {
   1: ref(false),
   2: ref(false),
@@ -528,7 +362,7 @@ const sendVerificationCode = (num: string) => {
   countdown[num].value = 60
   // 倒计时效果
   const countdownInterval = setInterval(() => {
-    ;(countdown[num].value as number)--
+    ; (countdown[num].value as number)--
     if ((countdown[num].value as number) <= 0) {
       clearInterval(countdownInterval)
       isSendingCode[num].value = false
@@ -677,7 +511,6 @@ const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {
 const handleAvatarSuccess: UploadProps['onSuccess'] = (response) => {
   // response:即为上传图片post请求服务器返回的数据
   regForm.avatar = response
-  console.log(regForm)
 
   // 图片上传成功，清除对应图片校验结果
   registerForm.value.clearValidate()
@@ -806,8 +639,7 @@ const closeLogin = () => {
   }
 
   .header {
-    margin: calc(1.0857rem - 0.5429rem - 0.2571rem)
-      calc(1.6rem - 0.8571rem - 0.2857rem) 0.5714rem;
+    margin: calc(1.0857rem - 0.5429rem - 0.2571rem) calc(1.6rem - 0.8571rem - 0.2857rem) 0.5714rem;
 
     .login {
       border-left: 0.0286rem #0b8eee solid;
@@ -891,8 +723,7 @@ const closeLogin = () => {
   .image_bg {
     margin-top: 0.3125rem;
     width: 6.8125rem;
-    background: url('@/assets/images/bg_images/login_bg.png') no-repeat
-      center/cover;
+    background: url('@/assets/images/bg_images/login_bg.png') no-repeat center/cover;
     position: relative;
     transition: background-image 0.5s ease-in-out;
 
@@ -903,15 +734,18 @@ const closeLogin = () => {
       bottom: -0.625rem;
       cursor: pointer;
       transition: all 0.5s ease-in-out;
+
       &:hover {
         color: #409eff;
         text-decoration: underline;
       }
     }
   }
+
   .register-bg-show {
     background-image: url('@/assets/images/bg_images/register_bg.png');
   }
+
   .login_wrapper {
     display: flex;
     position: absolute;
@@ -944,6 +778,7 @@ const closeLogin = () => {
   left: 0;
   transition: left 0.3s ease-in-out;
 }
+
 .register-wrapper-show {
   left: -6.8rem;
   transition: left 0.3s ease-in-out;

@@ -1,5 +1,5 @@
 <template>
-  <div class="Poster">
+  <div class="common-layout">
     <el-card>
       <el-container>
         <el-aside width="6.5rem">
@@ -17,8 +17,8 @@
                       <List />
                     </el-icon>
                   </div>
-                  <div class="b_card">宣传海报</div>
-                  <div class="g_card">快速生成指定风格宣传海报</div>
+                  <div class="b_card">宣传文案</div>
+                  <div class="g_card">快速生成指定风格宣传文案</div>
                 </div>
               </div>
               <div class="back1" ref="back1"></div>
@@ -27,35 +27,35 @@
             <el-form-item label="大会名称">
               <el-input v-model="form.name" />
             </el-form-item>
-            <el-form-item label="图片风格">
-              <el-select v-model="form.region" placeholder="请选择图片风格">
+            <el-form-item label="大会区域">
+              <el-select v-model="form.region" placeholder="请选择大会区域">
                 <el-option v-for="region in regions" :key="region" :label="region" :value="region" />
               </el-select>
             </el-form-item>
 
-            <el-form-item label="大会类别">
+            <el-form-item label="大会时间">
+              <el-col :span="11">
+                <el-date-picker v-model="form.date1" type="date" placeholder="开始时间" style="width: 100%" />
+              </el-col>
+              <el-col :span="2" class="text-center">
+                <span class="text-gray-500">-</span>
+              </el-col>
+              <el-col :span="11">
+                <el-date-picker v-model="form.date2" type="date" placeholder="结束时间" style="width: 100%" />
+              </el-col>
+            </el-form-item>
+            <el-form-item label="大会类型">
               <el-checkbox-group v-model="form.type">
-                <el-checkbox value="网络安全" name="type" label="网络安全">
-                  网络安全
-                </el-checkbox>
-                <el-checkbox value="人工智能" name="type" label="人工智能">
-                  人工智能
-                </el-checkbox>
-                <el-checkbox value="物联网" name="type" label="物联网">
-                  物联网
-                </el-checkbox>
-                <el-checkbox value="金融" name="type" label="金融">
-                  金融
-                </el-checkbox>
-                <el-checkbox value="其他" name="type" label="其他">
-                  其他
-                </el-checkbox>
+                <el-checkbox value="网络安全" name="type" label="网络安全">网络安全</el-checkbox>
+                <el-checkbox value="人工智能" name="type" label="人工智能">人工智能</el-checkbox>
+                <el-checkbox value="物联网" name="type" label="物联网">物联网</el-checkbox>
+                <el-checkbox value="金融" name="type" label="金融">金融</el-checkbox>
+                <el-checkbox value="其他" name="type" label="其他">其他</el-checkbox>
               </el-checkbox-group>
             </el-form-item>
             <el-form-item label="描述">
               <el-input v-model="form.description" type="textarea" />
             </el-form-item>
-
             <el-form-item>
               <div style="text-align: center">
                 <el-button class="create-button" type="primary" @click="onSubmit">
@@ -65,14 +65,11 @@
             </el-form-item>
           </el-form>
         </el-aside>
-
-
         <el-main>
           <div class="chat-container">
-            <h2 class="title">生成海报</h2>
-            <div class="messages">
-              <div style="white-space: pre-line"></div>
-              <img :src="'data:image/jpeg;base64,' + itemImg" alt="">
+            <h2 class="title">生成文案</h2>
+            <div class="messages" id="messageContainer" ref="messageContainer">
+              <div style="white-space: pre-line">{{ messages }}</div>
             </div>
           </div>
         </el-main>
@@ -81,11 +78,10 @@
   </div>
 </template>
 
-
-<script setup lang="ts">
-import { posterAPI } from '@/api/ai/index.ts';
-import { ref, reactive } from 'vue'
-const itemImg = ref("")
+<script lang="ts" setup>
+import { ref, onMounted, reactive } from 'vue'
+import useUserStore from '@/store/modules/user'
+let userStore = useUserStore()
 
 const back1 = ref()
 const back2 = ref()
@@ -101,26 +97,87 @@ const hid = () => {
   back2.value.style.rotate = '0deg'
   isStar.value = false
 }
+
 const form = reactive({
   name: '',
   region: '',
+  date1: '',
+  date2: '',
   type: [],
   description: '',
 })
-const regions = ['复古', '简约', '文艺', '科技', '涂鸦']
-const msg = ref("")
-const getPoster = async (text: string) => {
-  const res = await posterAPI(text)
-  console.log(res.data.data.payload.choices.text[0].content)
-  itemImg.value = res.data.data.payload.choices.text[0].content
-};
-const onSubmit = async () => {
-  msg.value = '生成大会的' + form.region + '风格的宣传海报:' + "大会名称" + form.name + ",大会类型" + form.type + ",大会描述" + form.description
-  // msg.value = form.name
-  console.log("发送给后端的信息", msg.value);
-  //发送请求，接收base64转换为图片显示
-  await getPoster(msg.value)
-};
+
+const regions = [
+  '上海',
+  '北京',
+  '广州',
+  '深圳',
+  '杭州',
+  '成都',
+  '天津',
+  '重庆',
+  '武汉',
+  '西安',
+  '长沙',
+  '青岛',
+  '大连',
+  '苏州',
+]
+const ws = ref()
+const sendmessage = ref('')
+const messages = ref('')
+const userid = userStore.userData.account // 请替换为您的实际用户ID
+
+const connect = () => {
+  const url = `ws://8.130.145.109:8080/dev-api/websocket/${userid}`
+  // const url = `ws://localhost:8080/dev-api/websocket/${userid}`;
+  ws.value = new WebSocket(url)
+
+  ws.value.onmessage = onMessage
+}
+
+const scrollToBottom = () => {
+  const messageContainer: any = document.getElementById('messageContainer')
+  messageContainer.scrollTop = messageContainer.scrollHeight
+}
+
+const onMessage = (event: any) => {
+  messages.value = messages.value + event.data
+  // 滚动到底部的操作
+  scrollToBottom()
+}
+
+/* const sendMessage = () => {
+      if (sendmessage.value.trim() !== '') {
+        ws.value.send(sendmessage.value.trim());
+        sendmessage.value = ''; // 清空消息输入框
+      }
+    }; */
+
+const onSubmit = () => {
+  sendmessage.value =
+    '写一份大会的宣传文案:' +
+    form.date1 +
+    '到' +
+    form.date2 +
+    ',大会名称' +
+    form.name +
+    ',大会区域' +
+    form.region +
+    ',大会类型' +
+    form.type +
+    ',大会描述' +
+    form.description
+  // sendmessage.value = form.name
+  if (sendmessage.value.trim() !== '') {
+    ws.value.send(sendmessage.value.trim())
+    sendmessage.value = '' // 清空消息输入框
+    messages.value = '' //清空之前的文案
+  }
+}
+onMounted(() => {
+  connect()
+})
 </script>
 
 <style scoped lang="scss">
@@ -286,12 +343,4 @@ const onSubmit = async () => {
   font-weight: 400;
   margin-bottom: 0.25rem;
 }
-
-// .Poster {
-//   width: 100vw;
-//   height: 100vh;
-//   background: linear-gradient(to bottom, #c2c6ca, #63a2e9);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }</style>
+</style>
