@@ -9,13 +9,13 @@
 
 //     let getCommentData:reqData = reactive({
 //       activityId: 0
-//     }) 
+//     })
 //     const getComment = () => {
 //       reqComment(getCommentData).then((res:commentResponse) => {
 //         commentList.value = res.data
 //       }
 //     }
-  
+
 //     return {
 //       getCommentData,
 //       getComment,

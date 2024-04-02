@@ -37,29 +37,6 @@ const initWOW = () => {
 onMounted(() => {
   initWOW()
 })
-const cards = [
-  {
-    url: 'https://picsum.photos/id/1033/50/60',
-  },
-  {
-    url: 'https://picsum.photos/id/1033/50/60',
-  },
-  {
-    url: 'https://picsum.photos/id/1033/50/60',
-  },
-  {
-    url: 'https://picsum.photos/id/1033/50/60',
-  },
-  {
-    url: 'https://picsum.photos/id/1033/50/60',
-  },
-  {
-    url: 'https://picsum.photos/id/1033/50/60',
-  },
-  {
-    url: 'https://picsum.photos/id/1033/50/60',
-  },
-]
 </script>
 
 <style scoped lang="scss">

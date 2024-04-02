@@ -1,7 +1,8 @@
-<template></template>
+<!-- <template></template>
 
-<script>
+<script setup lang="ts"></script>
 export default {}
 </script>
 
-<style></style>
+<style>
+</style> -->
