@@ -13,7 +13,7 @@ import useUserStore from './store/modules/user'
 import useLayoutSettingStore from './store/setting'
 let layoutSettingStore = useLayoutSettingStore(pinia)
 let userStore = useUserStore(pinia)
-import { GET_TOKEN } from './utils/token'
+import { GET_TOKEN, REMOVE_TOKEN } from './utils/token'
 // 全局前置守卫
 router.beforeEach(async (to, _from, next) => {
   NProgress.start()
@@ -21,9 +21,15 @@ router.beforeEach(async (to, _from, next) => {
   let token = GET_TOKEN()
   if (token) {
     // 这里有bug，只是判断有无token，万一token错误或者过期
-    await userStore.userInfo()
-    layoutSettingStore.isLog = true
-    next()
+    await userStore.userInfo().then(() => {
+      layoutSettingStore.isLog = true
+      next()
+    }).catch(() => {
+      REMOVE_TOKEN()
+      layoutSettingStore.isLog = false
+      next({ path: '/home' })
+    })
+
   } else {
     // 若未登录
     if (/^\/person/.test(to.path)) {
