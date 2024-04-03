@@ -5,6 +5,7 @@
       class="timeline-container wow fadeInUp"
       data-wow-duration="1s"
       data-wow-delay="0.1s"
+      style="background-color: transparent;box-shadow: none;border: none;"
     >
       <div class="timeline">
         <div

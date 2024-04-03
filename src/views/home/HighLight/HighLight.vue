@@ -1,19 +1,11 @@
 <template>
   <div>
-    <div
-      class="divider wow fadeInUp"
-      data-wow-duration="1s"
-      data-wow-delay="0.1s"
-    >
+    <div class="divider wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
       <span class="divider wow fadeInUp">大会亮点</span>
     </div>
 
-    <div
-      class="highlight-contanier wow fadeInUp"
-      data-wow-duration="1s"
-      data-wow-delay="0.1s"
-    >
-      <el-row justify="space-around" style="margin-top: 0.1429rem">
+    <div class="highlight-contanier wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+      <el-row justify="space-around" style="margin-top: .1429rem">
         <el-col :span="4">
           <ul>
             <li class="li1">
@@ -61,36 +53,20 @@
         </el-col>
       </el-row>
     </div>
-    <div
-      class="characteristic-container wow fadeInUp"
-      data-wow-duration="1s"
-      data-wow-delay="0.1s"
-    >
+    <div class="characteristic-container wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
       <div class="character-wrapper">
         <ul>
           <li v-for="(item, index) in characterList" :key="index">
-            <div
-              class="bg"
-              :style="{
-                backgroundImage: 'url(' + item.imgUrl + ')',
-                opacity: item.opacity,
-              }"
-            ></div>
+            <div class="bg" :style="{
+          backgroundImage: 'url(' + item.imgUrl + ')',
+          opacity: item.opacity,
+        }"></div>
           </li>
         </ul>
-        <div
-          class="character"
-          v-for="(item, index) in characterList"
-          :key="index"
-          @click="setCharacterActive(index)"
-          :class="activeIndex === index ? 'active' : ''"
-        >
+        <div class="character" v-for="(item, index) in characterList" :key="index" @click="setCharacterActive(index)"
+          :class="activeIndex === index ? 'active' : ''">
           <div class="icon">
-            <svgIcon
-              :name="item.icon"
-              color="#ffffff"
-              style="width: 0.875rem; height: 0.875rem"
-            ></svgIcon>
+            <svgIcon :name="item.icon" color="#ffffff" style="width: .8125rem; height: .8125rem"></svgIcon>
           </div>
           <div class="desc">
             <div class="title">{{ item.title }}</div>
@@ -184,26 +160,26 @@ onMounted(() => {
 @import '@/styles/mixin';
 
 .highlight-contanier {
-  margin-bottom: 0.85rem;
+  margin-bottom: .85rem;
 
   .el-col {
     text-align: center;
 
     .li1 {
-      font-size: 0.3571rem;
+      font-size: .3571rem;
       font-weight: 400;
       @include linear-txt;
     }
 
     .number {
       display: inline-block;
-      font-size: 0.875rem;
+      font-size: .875rem;
     }
   }
 
   .li2 {
-    font-size: 0.2286rem;
-    line-height: 0.4286rem;
+    font-size: .2286rem;
+    line-height: .4286rem;
     color: black;
   }
 }
@@ -211,23 +187,25 @@ onMounted(() => {
 .characteristic-container {
   width: 100%;
   height: 8.4375rem;
-  margin-bottom: 0.375rem;
+  margin-bottom: .375rem;
   position: relative;
   background-color: #ffffff;
-  box-shadow: 0px 0px 0.125rem 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px .125rem 0px rgba(0, 0, 0, 0.1);
+
   .character-wrapper {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    right: 3.75rem;
-    width: 6.85rem;
+    right: 3.5rem;
+    width: 7.475rem;
     height: 7.8125rem;
     z-index: 1;
+
     .bg {
       position: absolute;
-      left: -13.45rem;
+      left: -13.625rem;
       top: 0;
       width: 14.811rem;
       height: 8.4375rem;
@@ -236,15 +214,18 @@ onMounted(() => {
       background-position: center;
       transition: opacity 0.3s ease-in-out;
     }
+
     .character {
       cursor: pointer;
       position: relative;
       background-color: #f1f2f3;
-      width: 6.85rem;
-      height: 1.5156rem;
-      padding: 0.125rem 0.25rem;
+      width: 7.475rem;
+
+      height: 1.6906rem;
+      padding: .125rem .25rem .125rem .0625rem;
       display: flex;
       transition: all 0.3s ease-in-out;
+
       .icon {
         display: flex;
         justify-content: center;
@@ -258,25 +239,29 @@ onMounted(() => {
 
       .desc {
         flex: 8;
+
         .title {
           font-weight: 600;
-          font-size: 0.25rem;
-          line-height: 0.45rem;
+          font-size: .375rem;
+          line-height: .675rem;
+          margin-bottom: .0625rem;
         }
 
         .content {
-          font-size: 0.175rem;
-          line-height: 0.3125rem;
+          font-size: .175rem;
+          line-height: .25rem;
         }
       }
     }
   }
+
   .active {
-    background-image: linear-gradient(
-      to bottom right,
-      $theme-color-blue,
-      $theme-color-green
-    );
+    background-image: linear-gradient(to right,
+        #457FCA,
+        #48C6EF,
+
+
+      );
     color: #ffffff;
     z-index: 3;
   }
@@ -287,16 +272,16 @@ onMounted(() => {
   width: 4rem;
   align-items: center;
   color: #1185e4;
-  font-size: 0.4286rem;
-  margin: 0.5714rem auto;
+  font-size: .4286rem;
+  margin: .5714rem auto;
   font-weight: 700;
 
   &::before,
   &::after {
     content: '';
     flex: 1;
-    border-bottom: 0.0429rem solid #1185e4;
-    margin: 0 0.1429rem;
+    border-bottom: .0429rem solid #1185e4;
+    margin: 0 .1429rem;
   }
 }
 </style>

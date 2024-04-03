@@ -84,7 +84,7 @@
         </div>
         <div class="name">{{ item.name }}</div>
         <div class="desc">{{ item.description }}</div>
-        <div class="download" @click="selectGuest(item, index)">点击下载</div>
+        <div class="download" @click="selectGuest(item)">点击下载</div>
         <el-dialog
           v-model="item.dialogVisible"
           width="5.6875rem"
