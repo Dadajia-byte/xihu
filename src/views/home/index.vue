@@ -15,7 +15,7 @@
           图片3——当然可以任意张图片
         </el-carousel-item>
       </el-carousel>
-      <el-card class="box-card">
+      <!-- <el-card class="box-card">
         <el-card class="container-card">
           <el-row>
             <el-col :span="3" style="height: 0.8571rem">
@@ -64,7 +64,7 @@
             </el-col>
           </el-row>
         </el-card>
-      </el-card>
+      </el-card> -->
     </div>
     <DateAgenda></DateAgenda>
     <HighLight></HighLight>

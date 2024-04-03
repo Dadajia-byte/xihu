@@ -15,20 +15,14 @@
         <div class="topic-detail">
           <div class="topic-title">
             <div class="title-icon">
-              <svgIcon
-                name="hot"
-                style="width: 0.75rem; height: 0.75rem"
-              ></svgIcon>
+              <svgIcon name="hot" style="width: 0.75rem; height: 0.75rem"></svgIcon>
             </div>
 
             <span>当前话题:</span>
           </div>
           <div class="title">
             <div class="icon">
-              <svgIcon
-                name="topic2"
-                style="width: 0.675rem; height: 0.675rem"
-              ></svgIcon>
+              <svgIcon name="topic2" style="width: 0.675rem; height: 0.675rem"></svgIcon>
             </div>
             <span>
               {{ topicList[activeIndex].topicName }}
@@ -40,54 +34,29 @@
           </div>
         </div>
         <div class="my-reply">
-          <el-avatar
-            class="header-img"
-            :size="40"
-            :src="comment.myHeader"
-          ></el-avatar>
+          <el-avatar class="header-img" :size="40" :src="userStore.userData.avatar"></el-avatar>
           <div class="reply-info">
-            <el-input
-              v-model="inputReply"
-              style="width: 95%"
-              placeholder="输入评论..."
-              @focus="showReplyBtn"
-            />
+            <el-input v-model="inputReply" style="width: 95%" placeholder="输入评论..." @focus="showReplyBtn" />
           </div>
           <div class="reply-btn-box">
-            <el-button
-              class="reply-btn"
-              size=""
-              @click="sendComment"
-              type="primary"
-            >
+            <el-button class="reply-btn" size="" @click="sendComment" type="primary">
               发表评论
             </el-button>
           </div>
         </div>
-        <div
-          v-for="(item, i) in comment.comments"
-          :key="i"
-          class="author-title reply-father"
-        >
-          <el-avatar
-            class="header-img"
-            :size="40"
-            :src="item.headImg"
-          ></el-avatar>
+        <div v-for="(item, i) in comment.comments" :key="i" class="author-title reply-father">
+          <el-avatar class="header-img" :size="40" :src="item.headImg"></el-avatar>
           <div class="author-info">
             <span class="author-name">{{ item.name }}</span>
             <span class="author-time">{{ item.time }}</span>
           </div>
           <div class="icon-btn" style="right: 0.25rem">
             <div class="comment" @click="replyMainComment(i)">
-              <el-icon>
-                <ChatDotRound />
-              </el-icon>
+              <svgIcon name="comment" ></svgIcon>
             </div>
-            <div class="like">
-              <el-icon>
-                <Star />
-              </el-icon>
+            <div class="like" @click="commentLike(i)">
+              <svgIcon :name="comment.comments[i].isLike ? 'liked':'like' "></svgIcon>
+
               {{ item.like }}
             </div>
           </div>
@@ -98,25 +67,19 @@
           </div>
           <div class="reply-box">
             <div v-for="(reply, j) in item.reply" :key="j" class="author-title">
-              <el-avatar
-                class="header-img"
-                :size="40"
-                :src="reply.fromHeadImg"
-              ></el-avatar>
+              <el-avatar class="header-img" :size="40" :src="reply.fromHeadImg"></el-avatar>
               <div class="author-info">
                 <span class="author-name">{{ reply.from }}</span>
                 <span class="author-time">{{ reply.time }}</span>
               </div>
               <div class="icon-btn">
                 <div class="comment" @click="replyMainComment(i)">
-                  <el-icon>
-                    <ChatDotRound />
-                  </el-icon>
+                  <svgIcon name="comment" ></svgIcon>
+
                 </div>
-                <div class="like">
-                  <el-icon>
-                    <Star />
-                  </el-icon>
+                <div class="like"  @click="replyLike(i,j)">
+                  <svgIcon :name="comment.comments[i].reply[j].isLike  ? 'liked':'like' "></svgIcon>
+
                   {{ reply.like }}
                 </div>
               </div>
@@ -130,26 +93,12 @@
             </div>
           </div>
           <div v-show="replyCommentShow(i)" class="my-reply my-comment-reply">
-            <el-avatar
-              class="header-img"
-              :size="40"
-              :src="comment.myHeader"
-            ></el-avatar>
+            <el-avatar class="header-img" :size="40" :src="userStore.userData.avatar"></el-avatar>
             <div class="reply-info">
-              <el-input
-                v-model="commentReply"
-                style="width: 95%"
-                placeholder="输入评论..."
-                @focus="showReplyBtn"
-              />
+              <el-input v-model="commentReply" style="width: 95%" placeholder="输入评论..." @focus="showReplyBtn" />
             </div>
             <div class="reply-btn-box" v-show="btnShow">
-              <el-button
-                class="reply-btn"
-                size=""
-                @click="sendReply(i, tempbranch)"
-                type="primary"
-              >
+              <el-button class="reply-btn" size="" @click="sendReply(i, tempbranch)" type="primary">
                 发表评论
               </el-button>
             </div>
@@ -162,10 +111,7 @@
         <div class="topic-title">话题</div>
         <div class="topic-item" v-for="(item, index) in topicList" :key="index">
           <div class="topic-icon">
-            <svgIcon
-              name="topic"
-              style="width: 0.3125rem; height: 0.3125rem"
-            ></svgIcon>
+            <svgIcon name="topic" style="width: 0.3125rem; height: 0.3125rem"></svgIcon>
           </div>
           <div class="topic-content">
             <div class="content" @click="selectTopic(index)">
@@ -183,8 +129,12 @@
 
 <script setup lang="ts">
 import commentList from './data/index'
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
+import useUserStore from '@/store/modules/user'
+import judgeLog from '@/utils/judgeLog'
+
+// 更新时间
 const time = ref(
   new Date().toLocaleDateString('zh-CN', {
     year: 'numeric',
@@ -192,6 +142,8 @@ const time = ref(
     day: 'numeric',
   }),
 )
+let userStore = useUserStore()
+
 const activeIndex = ref(0)
 const inputReply = ref('')
 const commentReply = ref('')
@@ -257,31 +209,50 @@ const topicList = ref([
 ])
 
 const comment = computed(() => commentList[activeIndex.value])
+// 选择议题
 const selectTopic = (index: number) => {
   comment.value.comments.forEach((item: any) => (item.inputShow = false))
   activeIndex.value = index
 }
+const commentLike = (main:number) => {
+  comment.value.comments[main].isLike ? 
+    comment.value.comments[main].like-- :
+    comment.value.comments[main].like++
+  comment.value.comments[main].isLike = ! comment.value.comments[main].isLike
+}
+const replyLike = (main:number,branch:number) => {
+
+  comment.value.comments[main].reply[branch].isLike ? 
+    comment.value.comments[main].reply[branch].like-- :
+    comment.value.comments[main].reply[branch].like++
+  comment.value.comments[main].reply[branch].isLike = !comment.value.comments[main].reply[branch].isLike
+
+}
 // 主用户增添评论
 const sendComment = () => {
-  if (!inputReply.value) {
-    ElMessage({
-      type: 'error',
-      message: '评论不能为空',
-    })
-  } else {
-    comment.value.comments.push({
-      name: comment.value.myName,
-      id: comment.value.myId,
-      headImg: comment.value.myHeader,
-      content: inputReply.value,
-      time: new Date().toLocaleString(),
-      commentNum: 0,
-      like: 0,
-      inputShow: false,
-      reply: [],
-    })
+  let res = judgeLog()
+  if (res) {
+    if (!inputReply.value) {
+      ElMessage({
+        type: 'error',
+        message: '评论不能为空',
+      })
+    } else {
+      comment.value.comments.push({
+        name: userStore.userData.username,
+        id: 111,//userStore.userData.id,
+        headImg: userStore.userData.avatar,
+        content: inputReply.value,
+        time: new Date().toLocaleString(),
+        commentNum: 0,
+        like: 0,
+        isLike:false,
+        inputShow: false,
+        reply: [],
+      })
 
-    inputReply.value = ''
+      inputReply.value = ''
+    }
   }
 }
 // 按钮相关
@@ -299,51 +270,53 @@ const replyMainComment = (index: number) => {
 const replyCommentShow = (index: number) => {
   return comment.value.comments[index].inputShow
 }
-// const replyComment = (main: number, branch: number) => {
-//   comment.value.comments.forEach((item: any) => (item.inputShow = false))
-//   comment.value.comments[main].inputShow = true
-//   tempbranch.value = branch
-// }
+
 // 发送次评论
 const sendReply = (main: number, branch: number) => {
-  if (!commentReply.value) {
-    ElMessage({
-      type: 'error',
-      message: '评论不能为空',
-    })
-  } else {
-    comment.value.comments[main].reply.push({
-      from: comment.value.myName,
-      fromId: comment.value.myId,
-      fromHeadImg: comment.value.myHeader,
-      to:
-        branch === -1
-          ? comment.value.myName
-          : comment.value.comments[main].reply[branch].from,
-      toId:
-        branch === -1
-          ? comment.value.myId
-          : comment.value.comments[main].reply[branch].fromId,
-      content: commentReply.value,
-      time: new Date().toLocaleString('zh-CN', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-      }),
-      commentNum: 0,
-      like: 0,
-      inputShow: false,
-    })
-    branch === -1
-      ? comment.value.comments[main].commentNum++
-      : comment.value.comments[main].reply[branch].commentNum++
-    commentReply.value = ''
+  let res = judgeLog()
+  if (res) {
+    if (!commentReply.value) {
+      ElMessage({
+        type: 'error',
+        message: '评论不能为空',
+      })
+    } else {
+      comment.value.comments[main].reply.push({
+        from: userStore.userData.username,
+        fromId: 111,//userStore.userData.id
+        fromHeadImg: userStore.userData.avatar,
+        to:
+          branch === -1
+            ? comment.value.myName
+            : comment.value.comments[main].reply[branch].from,
+        toId:
+          branch === -1
+            ? comment.value.myId
+            : comment.value.comments[main].reply[branch].fromId,
+        content: commentReply.value,
+        time: new Date().toLocaleString('zh-CN', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+        }),
+        commentNum: 0,
+        like: 0,
+        isLike: false,
+        inputShow: false,
+      })
+      branch === -1
+        ? comment.value.comments[main].commentNum++
+        : comment.value.comments[main].reply[branch].commentNum++
+      commentReply.value = ''
+    }
   }
 }
-
+onMounted(() => {
+  userStore.userInfo()
+})
 // const dateStr = (date: any) => {
 //   let time = new Date().getTime()
 //   //去掉 js 时间戳后三位，与php 时间戳保持一致
@@ -413,13 +386,13 @@ const sendReply = (main: number, branch: number) => {
 
   .comment-container {
     flex: 7;
-    margin-left: 0.625rem;
+    margin-left: .75rem;
   }
 
   .topic-panel {
     align-self: start;
     margin-left: 0.25rem;
-    margin-right: 0.625rem;
+    margin-right: .75rem;
     width: 2.5rem;
     flex: 3;
     background-color: #fff;
@@ -558,7 +531,7 @@ const sendReply = (main: number, branch: number) => {
       height: 40px;
       line-height: 20px;
 
-      > span {
+      >span {
         display: block;
         cursor: pointer;
         overflow: hidden;
@@ -597,18 +570,21 @@ const sendReply = (main: number, branch: number) => {
 
       .like {
         flex: 1;
+        cursor: pointer;
       }
     }
 
     .talk-box {
-      margin: 0 0.625rem;
+      margin: 0 .625rem;
 
-      > p {
+      >p {
         margin: 0;
+        font-size: .25rem;
+
       }
 
       .reply {
-        font-size: 16px;
+        font-size: .25rem;
         color: #000;
       }
     }

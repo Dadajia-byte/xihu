@@ -25,7 +25,7 @@ export const constantRoutesPC = [
         component: () => import('@/views/meeting/index.vue'),
         name: 'meeting',
         meta: {
-          title: '大会云集',
+          title: '大会议程',
           hidden: false,
         },
       },
