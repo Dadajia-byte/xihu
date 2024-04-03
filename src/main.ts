@@ -12,11 +12,12 @@ import 'video.js/dist/video-js.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import 'swiper/scss'
 import App from './App.vue'
-
+import * as echarts from 'echarts'
 const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn,
 })
+
 // 注册全局组件
 import gloablComponent from './components/index'
 app.use(gloablComponent)
@@ -28,6 +29,8 @@ app.use(routers)
 // 引入pinia
 import pinia from './store'
 app.use(pinia)
+
+app.config.globalProperties.$echarts = echarts
 
 // 引入路由鉴权
 import './permission'
