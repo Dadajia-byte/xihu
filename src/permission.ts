@@ -24,11 +24,11 @@ router.beforeEach(async (to, _from, next) => {
     await userStore.userInfo().then(() => {
       layoutSettingStore.isLog = true
       next()
-    }).catch(() => { // 如果 token 过期
+    }).catch(() => {
       REMOVE_TOKEN()
+      layoutSettingStore.isLog = false
       next({ path: '/home' })
     })
-
 
   } else {
     // 若未登录

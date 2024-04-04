@@ -1,11 +1,26 @@
 <template>
   <div>
     <el-card class="box-card">
-      <el-form label-width="2.14rem" ref="form" style="width: 7rem" :model="userStore.userData">
-        <el-upload class="avatar-uploader" action="/dev-api/upload" :show-file-list="false"
-          :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload"
-          style="margin-left: 3.125rem; margin-bottom: 0.25rem" :disabled="!isEdit">
-          <img v-if="userStore.userData.avatar" :src="userStore.userData.avatar" class="avatar" />
+      <el-form
+        label-width="2.14rem"
+        ref="form"
+        style="width: 7rem"
+        :model="userStore.userData"
+      >
+        <el-upload
+          class="avatar-uploader"
+          action="/dev-api/upload"
+          :show-file-list="false"
+          :on-success="handleAvatarSuccess"
+          :before-upload="beforeAvatarUpload"
+          style="margin-left: 3.125rem; margin-bottom: 0.25rem"
+          :disabled="!isEdit"
+        >
+          <img
+            v-if="userStore.userData.avatar"
+            :src="userStore.userData.avatar"
+            class="avatar"
+          />
           <el-icon v-else class="avatar-uploader-icon">
             <Plus />
           </el-icon>
@@ -22,7 +37,10 @@
         </el-form-item>
         <el-form-item label="用户名:">
           <div v-show="!isEdit">{{ userStore.userData.username }}</div>
-          <el-input v-if="isEdit" v-model="userStore.userData.username"></el-input>
+          <el-input
+            v-if="isEdit"
+            v-model="userStore.userData.username"
+          ></el-input>
         </el-form-item>
         <el-form-item label="性别:">
           <el-radio-group v-model="userStore.userData.sex" :disabled="!isEdit">
@@ -41,14 +59,23 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="生日:">
-          <el-date-picker v-model="userStore.userData.birth" type="date" placeholder="Pick a date" style="width: 100%"
-            :disabled="!isEdit" />
+          <el-date-picker
+            v-model="userStore.userData.birth"
+            type="date"
+            placeholder="Pick a date"
+            style="width: 100%"
+            :disabled="!isEdit"
+          />
         </el-form-item>
         <el-form-item label="职业">
           <div v-show="!isEdit">
             {{ userStore.userData.position || '暂无信息' }}
           </div>
-          <el-select v-show="isEdit" placeholder="请选择你的职业" v-model="userStore.userData.position">
+          <el-select
+            v-show="isEdit"
+            placeholder="请选择你的职业"
+            v-model="userStore.userData.position"
+          >
             <el-option label="政府机构工作人员" value="政府机构工作人员" />
             <el-option label="企业职员" value="企业职员" />
             <el-option label="教育工作者" value="教育工作者" />
@@ -64,16 +91,28 @@
           <div v-show="!isEdit">
             {{ userStore.userData.company || '暂无信息' }}
           </div>
-          <el-input v-if="isEdit" v-model="userStore.userData.company" placeholder="请填写公司/单位"></el-input>
+          <el-input
+            v-if="isEdit"
+            v-model="userStore.userData.company"
+            placeholder="请填写公司/单位"
+          ></el-input>
         </el-form-item>
         <el-form-item label="邮箱:">
           <div v-show="!isEdit">
             {{ userStore.userData.email || '暂无信息' }}
           </div>
-          <el-input v-model="userStore.userData.email" v-if="isEdit" placeholder="请填写你的邮箱"></el-input>
+          <el-input
+            v-model="userStore.userData.email"
+            v-if="isEdit"
+            placeholder="请填写你的邮箱"
+          ></el-input>
         </el-form-item>
       </el-form>
-      <el-button v-show="!isEdit" @click="isEdit = true" style="margin-left: 3.75rem">
+      <el-button
+        v-show="!isEdit"
+        @click="isEdit = true"
+        style="margin-left: 3.75rem"
+      >
         更改信息
       </el-button>
       <el-button v-show="isEdit" style="margin-left: 3.75rem" @click="cancel">

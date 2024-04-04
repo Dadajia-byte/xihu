@@ -22,7 +22,7 @@
       <el-icon
         class="left"
         ref="left"
-        size="0.3125rem"
+        size="25px"
         color="#1185E4"
         @click="handleLeftClick"
       >
@@ -31,7 +31,7 @@
       <el-icon
         class="right"
         ref="right"
-        size="0.3125rem"
+        size="25px"
         color="#1185E4"
         @click="handleRightClick"
       >
@@ -75,7 +75,7 @@ const cards = [
     description: '安恒信息副董事长',
   },
   {
-    url: 'https://img2023.gcsis.cn/2023/4/3976ced942c44672b457895baa4e33e8.png',
+    url: 'https://img2023.gcsis.cn/2023/4976ced942c44672b457895baa4e33e8.png',
     name: '4',
     description: '安恒信息副董事长',
   },
@@ -141,7 +141,7 @@ const handleLeftClick = () => {
 
   if (slideDecrement < 0) {
     // 重置order
-    Array.from(cardlist.value.children).forEach((element:any) => {
+    Array.from(cardlist.value.children).forEach((element: any) => {
       element.style.order = 'initial'
     })
     //重置slideDecrement
@@ -156,7 +156,7 @@ const handleLeftClick = () => {
   setTimeout(() => {
     //触发动画
     cardlist.value.style.transition = 'transform ease-in-out 500ms'
-    cardlist.value.style.transform = `translateX(0px)`
+    cardlist.value.style.transform = `translateX(0rem)`
   }, 1)
 
   setTimeout(() => {
@@ -174,17 +174,18 @@ const handleLeftClick = () => {
 
 <style scoped lang="scss">
 .carousel-container {
-  height: 7.9688rem;
-  width: 22.7063rem;
+  height: 6.6131rem; // 637.504 * 0.83
+  width: 18.8472rem; // 1816.504 * 0.83
   position: relative;
   display: flex;
   justify-content: center;
   margin: 0 auto;
   overflow: hidden;
+
   .master-container {
     position: absolute;
-    height: 7.9688rem;
-    width: 21.7875rem;
+    height: 6.6131rem; // 637.504 * 0.83
+    width: 18.0836rem; // 1743 * 0.83
     display: flex;
     justify-content: flex-start;
     align-content: center;
@@ -196,29 +197,32 @@ const handleLeftClick = () => {
       justify-content: flex-start;
       align-content: center;
       text-align: center;
-      padding: 0 0.5625rem;
+      padding: 0 0.4669rem; // 45 * 0.83
 
       .card {
-        height: 5.025rem;
-        width: 4.3312rem;
+        height: 4.1707rem; // 402 * 0.83
+        width: 3.5946rem; // 346.496 * 0.83
         overflow: hidden;
+
         img {
           height: 100%;
           width: 100%;
           transition: transform 0.5s ease-in-out;
         }
+
         &:hover img {
           transform: scale(1.1);
         }
       }
 
       .name {
-        margin: 0.225rem 0;
-        font-size: 0.45rem;
+        margin: 0.1867rem 0; // 18 * 0.83
+        font-size: 0.3735rem; // 36 * 0.83
         text-align: center;
       }
+
       .description {
-        font-size: 0.3rem;
+        font-size: 0.249rem; // 24 * 0.83
         color: #abaaaa;
       }
     }
@@ -229,37 +233,38 @@ const handleLeftClick = () => {
   position: absolute;
   top: 33%;
   transform: translateY(-33%);
-  height: 0.7125rem;
-  width: 0.7125rem;
-  line-height: 0.7125rem;
-  font-size: 0.7125rem;
+  height: 0.5914rem; // 57 * 0.83
+  width: 0.5914rem; // 57 * 0.83
+  line-height: 0.5914rem; // 57 * 0.83
+  font-size: 0.5914rem; // 57 * 0.83
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .left {
-  left: -0.0625rem;
+  left: -0.0519rem; // -5 * 0.83
 }
+
 .right {
-  right: -0.0625rem;
+  right: -0.0519rem; // -5 * 0.83
 }
 .divider {
   display: flex;
-  width: 4rem;
+  width: 320px;
   align-items: center;
   text-align: center;
   color: #1185e4;
-  font-size: 0.4286rem;
-  margin: 0.5714rem auto;
+  font-size: 34.288px;
+  margin: 45.712px auto;
   font-weight: 700;
 
   &::before,
   &::after {
     content: '';
     flex: 1;
-    border-bottom: 0.0429rem solid #1185e4;
-    margin: 0 0.1429rem;
+    border-bottom: 3.432px solid #1185e4;
+    margin: 0 11.432px;
   }
 }
 </style>

@@ -2,9 +2,10 @@
   <div class="date-agenda">
     <span class="divider wow fadeInUp">大会议程</span>
     <el-card
-      class="timeline-container wow animate__backInUp"
+      class="timeline-container wow fadeInUp"
       data-wow-duration="1s"
       data-wow-delay="0.1s"
+      style="background-color: transparent;box-shadow: none;border: none;"
     >
       <div class="timeline">
         <div

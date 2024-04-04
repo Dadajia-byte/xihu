@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import {  ref } from 'vue'
+import { ref } from 'vue'
 import pointcard from './pointcard.vue'
 
 const taskList = ref([

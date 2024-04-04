@@ -13,7 +13,7 @@
           <ul>
             <li v-for="(item, index) in activityList" :key="index">
               <div
-                class="bg"
+                class="bg wow fadeInUp"
                 :style="{
                   backgroundImage: 'url(' + item.backgroundUrl + ')',
                   opacity: item.opacity,

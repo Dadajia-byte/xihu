@@ -193,7 +193,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, computed,  } from 'vue'
+import { onMounted, onUnmounted, ref, computed } from 'vue'
 import Screen from './components/Screen.vue'
 // @ts-ignore
 import WOW from 'wow.js'
@@ -296,10 +296,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.agenda-page {
-  background-color: #e0e1e3;
-}
-
 .filter-container {
   width: 100%;
   height: 1.625rem;

@@ -2,7 +2,7 @@
   <div>
     <!-- 轮播图 -->
     <div style="height: 11.4857rem">
-      <el-carousel :interval="5000" arrow="never" height="auto">
+      <el-carousel :interval="5000" arrow="never" style="height: 11.4857rem">
         <el-carousel-item style="height: 11.4857rem">
           <img src="" alt="" />
           图片1
@@ -15,7 +15,7 @@
           图片3——当然可以任意张图片
         </el-carousel-item>
       </el-carousel>
-      <el-card class="box-card">
+      <!-- <el-card class="box-card">
         <el-card class="container-card">
           <el-row>
             <el-col :span="3" style="height: 0.8571rem">
@@ -64,9 +64,10 @@
             </el-col>
           </el-row>
         </el-card>
-      </el-card>
+      </el-card> -->
     </div>
     <DateAgenda></DateAgenda>
+    <HighLight></HighLight>
     <Activity></Activity>
     <Consultation></Consultation>
     <Master></Master>
@@ -82,6 +83,7 @@ import Activity from './Activity/Activity.vue'
 import Master from './Master/Master.vue'
 import Mate from './Mate/Mate.vue'
 import Past from './Past/Past.vue'
+import HighLight from './HighLight/HighLight.vue'
 import { ref, onMounted } from 'vue'
 import WOW from 'wow.js'
 let num1 = ref(1)

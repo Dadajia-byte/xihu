@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import List from './List.vue'
+import List from '../activities/List.vue'
 import { onMounted } from 'vue'
 import useActivityStore from '@/store/modules/activity'
 let activityStore = useActivityStore()
@@ -80,11 +80,9 @@ onMounted(() => {
       }
 
       .in-l {
-        background: linear-gradient(
-          to right,
-          $theme-color-blue,
-          $theme-color-green
-        );
+        background: linear-gradient(to right,
+            $theme-color-blue,
+            $theme-color-green );
         color: white;
         position: relative;
         left: 10%;
