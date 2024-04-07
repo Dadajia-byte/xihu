@@ -1,8 +1,12 @@
 <template>
   <div>
-    <div class="divider wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-      <span class="divider wow fadeInUp">大会亮点</span>
-    </div>
+    <span class="divider wow fadeInUp">
+      <div class="content">
+        <span style="font-size:  .8125rem; " class="head">H</span>
+        <div class="content2">igh Lights 大会亮点</div>
+      </div>
+    </span>
+    
 
     <div class="highlight-contanier wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
       <el-row justify="space-around" style="margin-top: .1429rem">
@@ -66,13 +70,15 @@
         <div class="character" v-for="(item, index) in characterList" :key="index" @click="setCharacterActive(index)"
           :class="activeIndex === index ? 'active' : ''">
           <div class="icon">
-            <svgIcon :name="item.icon" color="#ffffff" style="width: .8125rem; height: .8125rem"></svgIcon>
+            <svgIcon :name="item.icon" color="#ffffff" style="width: .9375rem; height: .9375rem"></svgIcon>
           </div>
           <div class="desc">
             <div class="title">{{ item.title }}</div>
             <div class="content">{{ item.content }}</div>
           </div>
         </div>
+        <div class="bg1"></div>
+        <div class="bg2"></div>
       </div>
     </div>
   </div>
@@ -99,7 +105,7 @@ const characterList = ref([
       '大会主题及议题、展览锚定数字中国建设要求，助力政企单位从政策、技术、人才、产业等各层面落实工作。',
     imgUrl:
       'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
-    icon: 'agenda',
+    icon: 'qianyan',
     opacity: '1',
   },
   {
@@ -107,7 +113,7 @@ const characterList = ref([
     content: '“掌上论剑”将进一步丰富内容，增强互动性、趣味性，线上持续精彩。',
     imgUrl:
       'https://mediabluk.cnr.cn/img/cnr/CNRCDP/2023/0508/a1e09fbb7dcd1683529975154718503010.jpg?auth=5adc574309cd32abc650218d89ce95e0',
-    icon: 'online',
+    icon: 'online1',
     opacity: '0',
   },
   {
@@ -116,7 +122,7 @@ const characterList = ref([
       '将推出国内首份《2023中国数字安全能力洞察报告》，报告涵盖趋势、科技、人才、实践等多部分内容，引领行业发展方向。',
     imgUrl:
       'https://www.dbappsecurity.com.cn/uploadfile/2019/12/09/20191209101959jBSDNb.jpg',
-    icon: 'find',
+    icon: 'result',
     opacity: '0',
   },
   {
@@ -125,7 +131,7 @@ const characterList = ref([
       '峰会将通过引入国际组织、设置国际话题等，从全球角度研判数字化进程和趋势。',
     imgUrl:
       'https://th.bing.com/th/id/R.f8a3a8c6c0861f4b80f1bc45c1092cbc?rik=K41O%2fyDLB6aysg&riu=http%3a%2f%2fxj.news.cn%2f2023-05%2f09%2f1129600010_16835994524141n.jpg&ehk=vqYd7i4BLYx9Sj6yQM4R1oEAWhQfDxHt4HbMC%2f2Rg08%3d&risl=&pid=ImgRaw&r=0',
-    icon: 'global',
+    icon: 'global1',
     opacity: '0',
   },
 ])
@@ -192,6 +198,57 @@ onMounted(() => {
   background-color: #ffffff;
   box-shadow: 0px 0px .125rem 0px rgba(0, 0, 0, 0.1);
 
+  .bg1 {
+    position: absolute;
+
+    height: 1.625rem;
+    width: 1.625rem;
+    z-index: 5;
+    top: .25rem;
+    right: -2.375rem;
+    background: url('/src/assets/images/bg_images/highlight_bg1.png') no-repeat center/contain;
+    animation: rotate 10s linear infinite;
+    -webkit-animation: rotate 10s linear infinite;
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0);
+      }
+
+
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+  }
+
+  .bg2 {
+    position: absolute;
+    height: 3.75rem;
+    width: 3.75rem;
+    z-index: 5;
+    top: 2.5rem;
+    right: -5rem;
+    transform: rotate(90deg);
+    background: url('/src/assets/images/bg_images/highlight_bg2.png') no-repeat center/contain;
+    animation: rotate 10s linear infinite;
+    -webkit-animation: rotate 10s linear infinite;
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0);
+      }
+
+
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
   .character-wrapper {
     position: absolute;
     display: flex;
@@ -202,6 +259,7 @@ onMounted(() => {
     width: 7.475rem;
     height: 7.8125rem;
     z-index: 1;
+
 
     .bg {
       position: absolute;
@@ -228,6 +286,7 @@ onMounted(() => {
 
       .icon {
         display: flex;
+        padding-top: .0625rem;
         justify-content: center;
         align-items: center;
         flex: 2;
@@ -256,32 +315,53 @@ onMounted(() => {
   }
 
   .active {
-    background-image: linear-gradient(to right,
-        #457FCA,
-        #48C6EF,
-
-
-      );
+    background-image: linear-gradient(to right, #457fca, #48c6ef);
     color: #ffffff;
     z-index: 3;
   }
 }
 
 .divider {
+  overflow: hidden;
+  height: 1.875rem;
   display: flex;
-  width: 4rem;
-  align-items: center;
-  color: #1185e4;
-  font-size: .4286rem;
+  justify-content: center;
+  align-items: end;
+  font-size: .5786rem;
   margin: .5714rem auto;
   font-weight: 700;
+  font-family: sybold;
+  position: relative;
+  .content {
+    position: absolute;
+    display:flex;
+    align-items: end;
+    height: .8125rem;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    .content2{
+      @include linear-txt;
+      line-height: .875rem;
 
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    border-bottom: .0429rem solid #1185e4;
-    margin: 0 .1429rem;
+    }
   }
+
+  .head {
+    position: relative;
+    color:#457fca;
+    padding-bottom: .1125rem;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.125rem;
+      height: .125rem;
+      width: .75rem;
+      border-radius: .25rem;
+      background: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
+    }
+  }
+
 }
 </style>

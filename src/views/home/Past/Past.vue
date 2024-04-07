@@ -1,21 +1,27 @@
 <template>
   <div>
-    <span class="divider wow fadeInUp">往届大会</span>
+    <span class="divider wow fadeInUp">
+      <div class="content">
+        <span style="font-size:  .8125rem; " class="head">P</span>
+        <div class="content2">ast Agendas 过去大会</div>
+      </div>
+    </span>
     <div class="past">
       <div class="past_container">
         <div class="part1 wow fadeInUp">
-          <div class="img1"></div>
-          <div class="img2"></div>
+          <div class="img1" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda6.jpg) ;"></div>
+          <div class="img2" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda3.jpg) ;"></div>
         </div>
         <div class="part2 wow fadeInUp">
-          <div class="img3" style=""></div>
+          <div class="img3" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda2.jpg)"></div>
         </div>
         <div class="part1 wow fadeInUp">
-          <div class="img1"></div>
-          <div class="img2"></div>
+          <div class="img1" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda1.jpeg) ;">
+          </div>
+          <div class="img2" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda4.jpg) ;"></div>
         </div>
         <div class="part2 wow fadeInUp">
-          <div class="img3"></div>
+          <div class="img3" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda5.jpg) ;"></div>
         </div>
       </div>
     </div>
@@ -42,7 +48,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .past {
   width: 100%;
-  height: 6.5125rem;
+  height: 7.6375rem;
   overflow: hidden;
   position: relative;
 }
@@ -55,29 +61,29 @@ onMounted(() => {
   display: flex;
 
   .part1 {
-    margin-right: 0.1875rem;
-    width: 5.0625rem;
+    margin-right: .1875rem;
+    width: 5.6875rem;
 
     .img1 {
-      height: 3.375rem;
-      margin-bottom: 0.1875rem;
+      height: 3.725rem;
+      margin-bottom: .1875rem;
       background-color: #1185e4;
     }
 
     .img2 {
-      height: 3.375rem;
+      height: 3.725rem;
       background-color: #1185e4;
     }
   }
 
   .part2 {
-    margin-right: 0.1875rem;
+    margin-right: .1875rem;
     width: 11.8688rem;
-    height: 6.5125rem;
+    height: 7.6375rem;
 
     .img3 {
       background-color: #1185e4;
-      height: 6.5125rem;
+      height: 7.6375rem;
     }
   }
 
@@ -86,7 +92,7 @@ onMounted(() => {
   .img3 {
     cursor: pointer;
     position: relative;
-    // background: no-repeat center/cover;
+    background: no-repeat center/cover;
 
     &:hover::after {
       content: '查看更多 →';
@@ -105,7 +111,7 @@ onMounted(() => {
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(72, 198, 239, 0.5);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -120,21 +126,46 @@ onMounted(() => {
 }
 
 .divider {
+  overflow: hidden;
+  height: 1.875rem;
   display: flex;
-  width: 4rem;
-  align-items: center;
-  text-align: center;
-  color: #1185e4;
-  font-size: 0.4286rem;
-  margin: 0.5714rem auto;
+  justify-content: center;
+  align-items: end;
+  font-size: .5786rem;
+  margin: .5714rem auto;
   font-weight: 700;
+  font-family: sybold;
+  position: relative;
+  .content {
+    position: absolute;
+    display:flex;
+    align-items: end;
+    height: .8125rem;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    .content2{
+      @include linear-txt;
+      line-height: .875rem;
 
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    border-bottom: 0.0429rem solid #1185e4;
-    margin: 0 0.1429rem;
+    }
   }
+
+  .head {
+    position: relative;
+    color:#457fca;
+    padding-bottom: .1125rem;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.125rem;
+      height: .125rem;
+      width: .75rem;
+      border-radius: .25rem;
+      background: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
+    }
+  }
+
 }
 </style>

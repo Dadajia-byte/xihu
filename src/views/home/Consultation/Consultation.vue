@@ -1,21 +1,16 @@
 <template>
   <div class="main">
-    <span class="divider wow fadeInUp">新闻资讯</span>
-    <el-carousel
-      :interval="100000"
-      height="6.7956rem"
-      type="card"
-      class="wow fadeInUp"
-      data-wow-duration="1s"
-      data-wow-delay="1s"
-      indicator-position="none"
-    >
+    <span class="divider wow fadeInUp">
+      <div class="content1">
+        <span style="font-size:  .8125rem; " class="head">N</span>
+        <div class="content2">ews 新闻资讯</div>
+      </div>
+    </span>
+    <el-carousel :interval="100000" height="6.7956rem" type="card" class="wow fadeInUp" data-wow-duration="1s"
+      data-wow-delay="1s" indicator-position="none">
       <el-carousel-item v-for="(item, index) in newsList" :key="index">
         <el-card body-style="padding:0;     ">
-          <div
-            class="newsImg"
-            :style="`background:url(${item.imageUrl}) no-repeat center/cover ;`"
-          ></div>
+          <div class="newsImg" :style="`background:url(${item.imageUrl}) no-repeat center/cover ;`"></div>
           <div class="title">{{ item.title }}</div>
           <div class="content">
             <span>{{ item.content }}</span>
@@ -111,23 +106,48 @@ const newsList = ref([
   }
 
   .divider {
-    display: flex;
-    width: 4rem;
-    align-items: center;
-    text-align: center;
-    color: #1185e4;
-    font-size: 0.4286rem;
-    margin: 0.5714rem auto;
-    font-weight: 700;
+  overflow: hidden;
+  height: 1.875rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  font-size: .5786rem;
+  margin: .5714rem auto;
+  font-weight: 700;
+  font-family: sybold;
+  position: relative;
+  .content1 {
+    position: absolute;
+    display:flex;
+    align-items: end;
+    height: .8125rem;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    .content2{
+      @include linear-txt;
+      line-height: .875rem;
 
-    &::before,
-    &::after {
-      content: '';
-      flex: 1;
-      border-bottom: 0.0429rem solid #1185e4;
-      margin: 0 0.1429rem;
     }
   }
+
+  .head {
+    position: relative;
+    color:#457fca;
+    padding-bottom: .1125rem;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.125rem;
+      height: .125rem;
+      width: .75rem;
+      border-radius: .25rem;
+      background: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
+    }
+  }
+
+}
 
   .el-carousel {
     width: 19.0019rem;

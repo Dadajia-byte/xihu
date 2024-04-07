@@ -4,7 +4,12 @@
     data-wow-duration="1.5s"
     data-wow-delay="0.1s"
   >
-    <span class="divider">大咖云集</span>
+  <span class="divider wow fadeInUp">
+      <div class="content">
+        <span style="font-size:  .8125rem; " class="head">E</span>
+        <div class="content2">xpert 大咖云集</div>
+      </div>
+    </span>
     <div
       class="carousel-container wow bounceInUp"
       data-wow-duration="1s"
@@ -60,39 +65,39 @@ onMounted(() => {
 
 const cards = [
   {
-    url: 'https://img2023.gcsis.cn/2023/4/7c46ac80f91542b4a0f6ce2b593f3f19.png',
-    name: '1',
+    url: '/src/assets/images/guest_images/guest1.png',
+    name: '范渊',
+    description: '安恒信息董事长',
+  },
+  {
+    url: '/src/assets/images/guest_images/guest2.png',
+    name: '柯皓仁',
     description: '中国信通院安全研究所车联网安全中心主任',
   },
   {
-    url: 'https://img2023.gcsis.cn/2023/4/aa1635e18de24d88b86753e1ca39a05e.png',
-    name: '2',
-    description: '安恒信息副董事长',
+    url: '/src/assets/images/guest_images/guest3.png',
+    name: '方滨兴',
+    description: '中国工程院院士',
   },
   {
-    url: 'https://img2023.gcsis.cn/2023/4/1a80708d46f64e079919a2c93a6aa7c4.png',
-    name: '3',
-    description: '安恒信息副董事长',
+    url: '/src/assets/images/guest_images/guest4.png',
+    name: '刘世锦',
+    description: '国务院发展研究中心原副主任、中国发展研究基金会副理事长',
   },
   {
-    url: 'https://img2023.gcsis.cn/2023/4976ced942c44672b457895baa4e33e8.png',
-    name: '4',
-    description: '安恒信息副董事长',
+    url: '/src/assets/images/guest_images/guest5.png',
+    name: '郝志强',
+    description: '工业和信息化部教育与考试中心主任、书记',
   },
   {
-    url: 'https://picsum.photos/id/1033/50/60',
-    name: '5',
-    description: '安恒信息副董事长',
+    url: '/src/assets/images/guest_images/guest6.png',
+    name: '谭晓生',
+    description: '北京赛博英杰科技有限公司董事长',
   },
   {
-    url: 'https://picsum.photos/id/1033/50/60',
-    name: '6',
-    description: '安恒信息副董事长',
-  },
-  {
-    url: 'https://picsum.photos/id/1033/50/60',
-    name: '7',
-    description: '安恒信息副董事长',
+    url: '/src/assets/images/guest_images/guest7.png',
+    name: '左晓栋',
+    description: '中国科学技术大学网络空间安全学院教授、科技人文高等研究院副院长',
   },
 ]
 
@@ -223,6 +228,7 @@ const handleLeftClick = () => {
 
       .description {
         font-size: 0.249rem; // 24 * 0.83
+        line-height: .3125rem;
         color: #abaaaa;
       }
     }
@@ -250,21 +256,46 @@ const handleLeftClick = () => {
   right: -0.0519rem; // -5 * 0.83
 }
 .divider {
+  overflow: hidden;
+  height: 1.875rem;
   display: flex;
-  width: 320px;
-  align-items: center;
-  text-align: center;
-  color: #1185e4;
-  font-size: 34.288px;
-  margin: 45.712px auto;
+  justify-content: center;
+  align-items: end;
+  font-size: .5786rem;
+  margin: .5714rem auto;
   font-weight: 700;
+  font-family: sybold;
+  position: relative;
+  .content {
+    position: absolute;
+    display:flex;
+    align-items: end;
+    height: .8125rem;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    .content2{
+      @include linear-txt;
+      line-height: .875rem;
 
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    border-bottom: 3.432px solid #1185e4;
-    margin: 0 11.432px;
+    }
   }
+
+  .head {
+    position: relative;
+    color:#457fca;
+    padding-bottom: .1125rem;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.125rem;
+      height: .125rem;
+      width: .75rem;
+      border-radius: .25rem;
+      background: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
+    }
+  }
+
 }
 </style>

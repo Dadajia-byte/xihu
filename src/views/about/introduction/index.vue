@@ -84,8 +84,9 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  color: #fff;
   height: 7.025rem;
-  background-color: gray;
+  background: url('/src/assets/images/bg_images/meetingabout.png') no-repeat center/cover; 
   .title {
     font-size: 0.525rem;
     font-weight: bold;

@@ -15,14 +15,20 @@
         <div class="topic-detail">
           <div class="topic-title">
             <div class="title-icon">
-              <svgIcon name="hot" style="width: 0.75rem; height: 0.75rem"></svgIcon>
+              <svgIcon
+                name="hot"
+                style="width: .5625rem; height: .5625rem"
+              ></svgIcon>
             </div>
 
             <span>当前话题:</span>
           </div>
           <div class="title">
             <div class="icon">
-              <svgIcon name="topic2" style="width: 0.675rem; height: 0.675rem"></svgIcon>
+              <svgIcon
+                name="topic2"
+                style="width: .675rem; height: .675rem"
+              ></svgIcon>
             </div>
             <span>
               {{ topicList[activeIndex].topicName }}
@@ -30,32 +36,56 @@
           </div>
 
           <div class="topic-desc">
-            &nbsp;&nbsp;{{ topicList[activeIndex].topicDesc }}
+            {{ topicList[activeIndex].topicDesc }}
           </div>
         </div>
         <div class="my-reply">
-          <el-avatar class="header-img" :size="40" :src="userStore.userData.avatar"></el-avatar>
+          <el-avatar
+            class="header-img"
+            :size="40"
+            :src="userStore.userData.avatar"
+          ></el-avatar>
           <div class="reply-info">
-            <el-input v-model="inputReply" style="width: 95%" placeholder="输入评论..." @focus="showReplyBtn" />
+            <el-input
+              v-model="inputReply"
+              style="width: 95%"
+              placeholder="输入评论..."
+              @focus="showReplyBtn"
+            />
           </div>
           <div class="reply-btn-box">
-            <el-button class="reply-btn" size="" @click="sendComment" type="primary">
+            <el-button
+              class="reply-btn"
+              size=""
+              @click="sendComment"
+              type="primary"
+            >
               发表评论
             </el-button>
           </div>
         </div>
-        <div v-for="(item, i) in comment.comments" :key="i" class="author-title reply-father">
-          <el-avatar class="header-img" :size="40" :src="item.headImg"></el-avatar>
+        <div
+          v-for="(item, i) in comment.comments"
+          :key="i"
+          class="author-title reply-father"
+        >
+          <el-avatar
+            class="header-img"
+            :size="40"
+            :src="item.headImg"
+          ></el-avatar>
           <div class="author-info">
             <span class="author-name">{{ item.name }}</span>
             <span class="author-time">{{ item.time }}</span>
           </div>
-          <div class="icon-btn" style="right: 0.25rem">
+          <div class="icon-btn" style="right: .25rem">
             <div class="comment" @click="replyMainComment(i)">
-              <svgIcon name="comment" ></svgIcon>
+              <svgIcon name="comment"></svgIcon>
             </div>
             <div class="like" @click="commentLike(i)">
-              <svgIcon :name="comment.comments[i].isLike ? 'liked':'like' "></svgIcon>
+              <svgIcon
+                :name="comment.comments[i].isLike ? 'liked' : 'like'"
+              ></svgIcon>
 
               {{ item.like }}
             </div>
@@ -67,18 +97,25 @@
           </div>
           <div class="reply-box">
             <div v-for="(reply, j) in item.reply" :key="j" class="author-title">
-              <el-avatar class="header-img" :size="40" :src="reply.fromHeadImg"></el-avatar>
+              <el-avatar
+                class="header-img"
+                :size="40"
+                :src="reply.fromHeadImg"
+              ></el-avatar>
               <div class="author-info">
                 <span class="author-name">{{ reply.from }}</span>
                 <span class="author-time">{{ reply.time }}</span>
               </div>
               <div class="icon-btn">
                 <div class="comment" @click="replyMainComment(i)">
-                  <svgIcon name="comment" ></svgIcon>
-
+                  <svgIcon name="comment"></svgIcon>
                 </div>
-                <div class="like"  @click="replyLike(i,j)">
-                  <svgIcon :name="comment.comments[i].reply[j].isLike  ? 'liked':'like' "></svgIcon>
+                <div class="like" @click="replyLike(i, j)">
+                  <svgIcon
+                    :name="
+                      comment.comments[i].reply[j].isLike ? 'liked' : 'like'
+                    "
+                  ></svgIcon>
 
                   {{ reply.like }}
                 </div>
@@ -93,12 +130,26 @@
             </div>
           </div>
           <div v-show="replyCommentShow(i)" class="my-reply my-comment-reply">
-            <el-avatar class="header-img" :size="40" :src="userStore.userData.avatar"></el-avatar>
+            <el-avatar
+              class="header-img"
+              :size="40"
+              :src="userStore.userData.avatar"
+            ></el-avatar>
             <div class="reply-info">
-              <el-input v-model="commentReply" style="width: 95%" placeholder="输入评论..." @focus="showReplyBtn" />
+              <el-input
+                v-model="commentReply"
+                style="width: 95%"
+                placeholder="输入评论..."
+                @focus="showReplyBtn"
+              />
             </div>
             <div class="reply-btn-box" v-show="btnShow">
-              <el-button class="reply-btn" size="" @click="sendReply(i, tempbranch)" type="primary">
+              <el-button
+                class="reply-btn"
+                size=""
+                @click="sendReply(i, tempbranch)"
+                type="primary"
+              >
                 发表评论
               </el-button>
             </div>
@@ -111,7 +162,10 @@
         <div class="topic-title">话题</div>
         <div class="topic-item" v-for="(item, index) in topicList" :key="index">
           <div class="topic-icon">
-            <svgIcon name="topic" style="width: 0.3125rem; height: 0.3125rem"></svgIcon>
+            <svgIcon
+              name="topic"
+              style="width: .3125rem; height: .3125rem"
+            ></svgIcon>
           </div>
           <div class="topic-content">
             <div class="content" @click="selectTopic(index)">
@@ -214,19 +268,18 @@ const selectTopic = (index: number) => {
   comment.value.comments.forEach((item: any) => (item.inputShow = false))
   activeIndex.value = index
 }
-const commentLike = (main:number) => {
-  comment.value.comments[main].isLike ? 
-    comment.value.comments[main].like-- :
-    comment.value.comments[main].like++
-  comment.value.comments[main].isLike = ! comment.value.comments[main].isLike
+const commentLike = (main: number) => {
+  comment.value.comments[main].isLike
+    ? comment.value.comments[main].like--
+    : comment.value.comments[main].like++
+  comment.value.comments[main].isLike = !comment.value.comments[main].isLike
 }
-const replyLike = (main:number,branch:number) => {
-
-  comment.value.comments[main].reply[branch].isLike ? 
-    comment.value.comments[main].reply[branch].like-- :
-    comment.value.comments[main].reply[branch].like++
-  comment.value.comments[main].reply[branch].isLike = !comment.value.comments[main].reply[branch].isLike
-
+const replyLike = (main: number, branch: number) => {
+  comment.value.comments[main].reply[branch].isLike
+    ? comment.value.comments[main].reply[branch].like--
+    : comment.value.comments[main].reply[branch].like++
+  comment.value.comments[main].reply[branch].isLike =
+    !comment.value.comments[main].reply[branch].isLike
 }
 // 主用户增添评论
 const sendComment = () => {
@@ -240,13 +293,13 @@ const sendComment = () => {
     } else {
       comment.value.comments.push({
         name: userStore.userData.username,
-        id: 111,//userStore.userData.id,
+        id: 111, //userStore.userData.id,
         headImg: userStore.userData.avatar,
         content: inputReply.value,
         time: new Date().toLocaleString(),
         commentNum: 0,
         like: 0,
-        isLike:false,
+        isLike: false,
         inputShow: false,
         reply: [],
       })
@@ -283,7 +336,7 @@ const sendReply = (main: number, branch: number) => {
     } else {
       comment.value.comments[main].reply.push({
         from: userStore.userData.username,
-        fromId: 111,//userStore.userData.id
+        fromId: 111, //userStore.userData.id
         fromHeadImg: userStore.userData.avatar,
         to:
           branch === -1
@@ -356,11 +409,11 @@ onMounted(() => {
   align-items: center;
 
   .title {
-    margin: 0.25rem auto;
-    font-size: 0.7rem;
+    margin: .25rem auto;
+    font-size: .7rem;
     font-weight: bold;
-    line-height: 0.875rem;
-    height: 0.875rem;
+    line-height: .875rem;
+    height: .875rem;
     color: #1185e4;
   }
 
@@ -382,49 +435,49 @@ onMounted(() => {
 
 .body {
   display: flex;
-  margin-top: 0.25rem;
+  margin-top: .25rem;
 
   .comment-container {
-    flex: 7;
-    margin-left: .75rem;
+    flex: 8;
+    margin-left: 1.25rem;
   }
 
   .topic-panel {
     align-self: start;
-    margin-left: 0.25rem;
+    margin-left: .25rem;
     margin-right: .75rem;
     width: 2.5rem;
-    flex: 3;
+    flex: 2;
     background-color: #fff;
-    border-radius: 0.25rem;
-    box-shadow: 0px 0px 0.125rem 0.0125rem rgba(0, 0, 0, 0.1);
-    padding: 0.25rem;
+    border-radius: .0625rem;
+    box-shadow: 0px 0px .125rem .0125rem rgba(0, 0, 0, 0.1);
+    padding: .25rem;
 
     .topic-title {
-      height: 0.7rem;
-      line-height: 0.7rem;
-      font-size: 0.45rem;
+      height: .7rem;
+      line-height: .7rem;
+      font-size: .45rem;
       font-weight: 600;
     }
 
     .topic-item {
-      height: 0.875rem;
-      padding: 0.125rem 0;
-      margin-bottom: 0.25rem;
+      height: .875rem;
+      padding: .125rem 0;
+      margin-bottom: .1875rem;
       display: flex;
 
       .topic-icon {
-        width: 0.3125rem;
+        width: .3125rem;
         text-align: center;
-        margin-right: 0.125rem;
+        margin-right: .125rem;
       }
 
       .content {
         cursor: pointer;
-        font-size: 0.3125rem;
-        line-height: 0.3125rem;
-        height: 0.3125rem;
-        margin-bottom: 0.0625rem;
+        font-size: .25rem;
+        line-height: .3125rem;
+        height: .3125rem;
+        margin-bottom: .0625rem;
 
         &:hover {
           color: #1fb7ed;
@@ -433,9 +486,9 @@ onMounted(() => {
       }
 
       .data {
-        font-size: 0.2rem;
-        line-height: 0.375rem;
-        height: 0.375rem;
+        font-size: .2rem;
+        line-height: .375rem;
+        height: .375rem;
         color: #abaaaa;
       }
 
@@ -448,36 +501,38 @@ onMounted(() => {
 
 .comment-container {
   background-color: #fff;
-  box-shadow: 0px 0px 0.125rem 0.025rem rgba(0, 0, 0, 0.1);
-  border-radius: 0.25rem;
+  box-shadow: 0px 0px .125rem .025rem rgba(0, 0, 0, 0.1);
+  border-radius: .0625rem;
 
   .topic-detail {
-    padding: 0.25rem;
+    padding: .375rem;
 
     .topic-title {
       display: flex;
-      font-size: 0.675rem;
+      font-size: .45rem;
       font-weight: 700;
-      line-height: 0.75rem;
-      height: 0.875rem;
+      line-height: .5625rem;
+      height: .625rem;
       color: #1185e4;
     }
 
     .topic-desc {
-      line-height: 0.3125rem;
-      font-size: 0.25rem;
+      color: #807e7e;
+      line-height: .375rem;
+      font-size: .225rem;
     }
 
     .title {
       display: flex;
-      font-size: 0.5rem;
-      line-height: 0.675rem;
-      height: 0.675rem;
+      font-size: .475rem;
+      
+      line-height: .675rem;
+      height: .675rem;
     }
   }
 
   .my-reply {
-    padding: 0.25rem;
+    padding: .25rem;
     display: flex;
     background-color: #fafbfc;
 
@@ -489,7 +544,7 @@ onMounted(() => {
     .reply-info {
       display: flex;
       align-items: center;
-      margin-left: 0.0625rem;
+      margin-left: .0625rem;
       width: 90%;
 
       @media screen and (max-width: 1200px) {
@@ -516,7 +571,7 @@ onMounted(() => {
   }
 
   .author-title {
-    padding: 0.25rem;
+    padding: .25rem;
     position: relative;
 
     .header-img {
@@ -531,7 +586,7 @@ onMounted(() => {
       height: 40px;
       line-height: 20px;
 
-      >span {
+      > span {
         display: block;
         cursor: pointer;
         overflow: hidden;
@@ -554,7 +609,7 @@ onMounted(() => {
       width: 1.25rem;
       position: absolute;
       display: flex;
-      top: 0.25rem;
+      top: .25rem;
       right: 0;
       padding: 0 !important;
 
@@ -577,10 +632,9 @@ onMounted(() => {
     .talk-box {
       margin: 0 .625rem;
 
-      >p {
+      > p {
         margin: 0;
         font-size: .25rem;
-
       }
 
       .reply {

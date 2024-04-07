@@ -291,11 +291,11 @@ export default {
 
 .header {
   width: 100%;
-  height: 4.8rem;
+  height: 7.025rem;
   padding-left: 1.325rem;
-  padding-top: 1.75rem;
-  background-color: green;
-
+  padding-top: 2.375rem;
+  background: url('/src/assets/images/bg_images/guest.png') no-repeat center/cover  ;
+  
   .title {
     font-size: 0.525rem;
     font-weight: bold;

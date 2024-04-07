@@ -21,15 +21,17 @@ router.beforeEach(async (to, _from, next) => {
   let token = GET_TOKEN()
   if (token) {
     // 这里有bug，只是判断有无token，万一token错误或者过期
-    await userStore.userInfo().then(() => {
-      layoutSettingStore.isLog = true
-      next()
-    }).catch(() => {
-      REMOVE_TOKEN()
-      layoutSettingStore.isLog = false
-      next({ path: '/home' })
-    })
-
+    await userStore
+      .userInfo()
+      .then(() => {
+        layoutSettingStore.isLog = true
+        next()
+      })
+      .catch(() => {
+        REMOVE_TOKEN()
+        layoutSettingStore.isLog = false
+        next({ path: '/home' })
+      })
   } else {
     // 若未登录
     if (/^\/person/.test(to.path)) {

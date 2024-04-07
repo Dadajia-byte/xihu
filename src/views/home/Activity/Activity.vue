@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="activity">
-      <span
-        class="divider wow fadeInUp"
-        data-wow-duration="1s"
-        data-wow-delay="0.5s"
-      >
-        精彩活动
-      </span>
+      <span class="divider wow fadeInUp">
+      <div class="content">
+        <span style="font-size:  .8125rem; " class="head">E</span>
+        <div class="content2">xciting Activities 精彩活动</div>
+      </div>
+    </span>
       <div class="whole-content">
         <div class="activity-content">
           <ul>
@@ -103,7 +102,7 @@ const activityList = ref([
     content:
       '5月5日 18:30 “格致论道”是中国科学院计算机网络信息中心和中国科学院科学传播局联合主办的科学文化讲坛。致力于非凡思想的跨界交流，提倡以"格物致知"的精神探讨科技、教育、生活、未来的发展。',
     backgroundUrl:
-      'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
+      '/src/assets/images/home_activity/1.png',
     opacity: '1',
   },
   {
@@ -112,7 +111,7 @@ const activityList = ref([
     content:
       '5月4-6日 西湖论剑安全特训营是国内领先的数字安全人才交流、孵化及实训平台，致力于成为数字时代的“数字安全人才助推器”。以体系化课程、实战化导向为显著特色，服务于数字化转型背景下的政府、企事业单位，为其培养数字安全的管理者、实战人才提供有力支撑，为国家数字安全人才发展持续输出强有力的“燃料”。',
     backgroundUrl:
-      'https://www.rmzxb.com.cn/upload/resources/image/2023/05/08/2781135.jpg',
+      '/src/assets/images/home_activity/2.png',
     opacity: '0',
   },
   {
@@ -120,7 +119,7 @@ const activityList = ref([
     title: '',
     content: '',
     backgroundUrl:
-      'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
+      '/src/assets/images/home_activity/3.png',
     opacity: '0',
   },
   {
@@ -129,7 +128,7 @@ const activityList = ref([
     content:
       '一次掌上场景搭建下的即时性交流；身临其境的参与感，精彩看点的抢先看；行业专家、观点嘉宾在线解读核心观点；更有大会成果密集输出，限定款宠粉福利',
     backgroundUrl:
-      'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
+      '/src/assets/images/home_activity/4.png',
     opacity: '0',
   },
   {
@@ -138,7 +137,7 @@ const activityList = ref([
     content:
       '以西湖论剑官网为载体，精心策划“掌上论剑”系列活动，推出“点亮网安，守护城市”、“ 守护每一份网安愿景”等互动活动，《今夜不破防》、《十日谈》、《新时代安全观对话》等亮点节目，打造一档精彩、有趣的掌上论剑特色节目。',
     backgroundUrl:
-      'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
+      '/src/assets/images/home_activity/4.png',
     opacity: '0',
   },
   {
@@ -147,7 +146,7 @@ const activityList = ref([
     content:
       '2022年第十届西湖论剑·网络安全大会，十年磨一剑，向世界递出一张具有全球影响力、全国引领力、浙江辨识度的网络安全大会金名片。',
     backgroundUrl:
-      'https://img2022.gcsis.cn/storage/media/1158/LUQLhqVmmnJh7pkTMIAaReQkH25feJMvVIzVIBmn.jpg',
+      '/src/assets/images/home_activity/6.png',
     opacity: '0',
   },
 ])
@@ -171,22 +170,47 @@ const handleCarouselChange = (currentIndex: any) => {
 @import '../../../styles/mixin.scss';
 
 .divider {
+  overflow: hidden;
+  height: 1.875rem;
   display: flex;
-  width: 4rem;
-  align-items: center;
-  text-align: center;
-  color: #1185e4;
-  font-size: 0.4286rem;
-  margin: 0.5714rem auto;
+  justify-content: center;
+  align-items: end;
+  font-size: .5786rem;
+  margin: .5714rem auto;
   font-weight: 700;
+  font-family: sybold;
+  position: relative;
+  .content {
+    position: absolute;
+    display:flex;
+    align-items: end;
+    height: .8125rem;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    .content2{
+      @include linear-txt;
+      line-height: .875rem;
 
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    border-bottom: 0.0429rem solid #1185e4;
-    margin: 0 0.1429rem;
+    }
   }
+
+  .head {
+    position: relative;
+    color:#457fca;
+    padding-bottom: .1125rem;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.125rem;
+      height: .125rem;
+      width: .75rem;
+      border-radius: .25rem;
+      background: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
+    }
+  }
+
 }
 
 .activity {

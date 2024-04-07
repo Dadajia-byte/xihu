@@ -1,21 +1,64 @@
 <template>
   <div>
-    <span class="divider">合作伙伴</span>
-    <Mate :mateDatas="mateDatas"></Mate>
+    <span class="divider">
+      <div class="content"><span style="font-size:  .8125rem;" class="head">C</span>ooperative Partner 合作伙伴</div>
+    </span>
+    <div class="mate-container">
+
+      <div class="type">
+        <div class="type-item" v-for="(item, index) in mateDatas" :key="index" @click="setActive(index)" :class="activeIndex === index ? 'active':''">{{ item.title }}</div>
+      </div>
+      <div class="logo-container">
+        <transition name="fade" mode="out-in">
+        <div class="swiper-container" :key="activeIndex">
+          <swiper :modules="modules"  :slides-per-view="5" :autoplay="{ delay: 2000, disableOnInteraction: false }" effect="fade" :fadeEffect="{ crossFade: true }">
+          <swiper-slide v-for="(logo,index) in mateDatas[activeIndex].logoData" :key="index" style="">
+            <div class="img">
+                <img :src="`${logo.logoUrl}`" alt="">
+              </div>
+          </swiper-slide>
+          
+        </swiper>
+        </div>
+      </transition>
+      </div>
+    </div>
+
+
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import Mate from './component/MateComponent.vue'
+import { ref,onMounted } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, Pagination} from 'swiper/modules'
+import WOW from 'wow.js'
+import 'swiper/scss/pagination'
 
+const initWOW = () => {
+  const wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+  })
+  wow.init()
+}
+onMounted(() => {
+  initWOW()
+})
+const modules = [Autoplay, Pagination]
+const activeIndex = ref(0)
+const setActive = (index: number) => {
+  activeIndex.value = index
+}
 const mateDatas = ref([
   {
     title: '战略合作媒体',
     logoData: [
       {
         logoUrl:
-          'https://img2023.gcsis.cn/2023/4/60234dda9f664775a5b991bd8412dca1.png',
+          '/src/assets/images/mate_images/xinhua.png',
         companyUrl: '',
       },
     ],
@@ -100,47 +143,92 @@ const mateDatas = ref([
     logoData: [
       {
         logoUrl:
-          'https://img2023.gcsis.cn/2023/4/ae832a31047749299bd504e6070d487a.png',
+          '/src/assets/images/mate_images/ecology/anbotong.png',
         companyUrl: '',
       },
       {
         logoUrl:
-          'https://img2023.gcsis.cn/2023/4/94df6244d6b04a91b3e8545844bce830.png',
+          '/src/assets/images/mate_images/ecology/anheng.png',
         companyUrl: '',
       },
       {
         logoUrl:
-          'https://img2023.gcsis.cn/2023/4/d79ec14ff65b4af19b8439659668fd19.png',
+          '/src/assets/images/mate_images/ecology/baode.png',
         companyUrl: '',
       },
       {
         logoUrl:
-          'https://img2023.gcsis.cn/2023/4/73bd035a85dd43a988a928d0557818d4.png',
+          '/src/assets/images/mate_images/ecology/cosic.png',
         companyUrl: '',
       },
       {
         logoUrl:
-          'https://img2023.gcsis.cn/2023/4/5739d4caa7214beaa27cc66d10644a62.png',
+          '/src/assets/images/mate_images/ecology/huizhi.png',
         companyUrl: '',
       },
       {
         logoUrl:
-          'https://img2023.gcsis.cn/2023/4/d86aad180ee14acb95d1df723414aec2.png',
+          '/src/assets/images/mate_images/ecology/leyan.png',
         companyUrl: '',
       },
       {
         logoUrl:
-          'https://img2023.gcsis.cn/2023/4/2e88c33068c04d31a5bb9599c22382a0.png',
+          '/src/assets/images/mate_images/ecology/lianruan.png',
         companyUrl: '',
       },
       {
         logoUrl:
-          'https://img2023.gcsis.cn/2023/4/a39af7377bbb4860809ab761137bc8ea.png',
+          '/src/assets/images/mate_images/ecology/lihua.png',
         companyUrl: '',
       },
       {
         logoUrl:
-          'https://img2023.gcsis.cn/2023/4/bce6aa664cd44e76af59ba89e4d4f04d.png',
+          '/src/assets/images/mate_images/ecology/qiyang.png',
+        companyUrl: '',
+      },
+      {
+        logoUrl:
+          '/src/assets/images/mate_images/ecology/seagate.png',
+        companyUrl: '',
+      },
+      {
+        logoUrl:
+          '/src/assets/images/mate_images/ecology/shangyuan.png',
+        companyUrl: '',
+      },
+      {
+        logoUrl:
+          '/src/assets/images/mate_images/ecology/suma.png',
+        companyUrl: '',
+      },
+      {
+        logoUrl:
+          '/src/assets/images/mate_images/ecology/wahaha.png',
+        companyUrl: '',
+      },
+      {
+        logoUrl:
+          '/src/assets/images/mate_images/ecology/wangsu.png',
+        companyUrl: '',
+      },
+      {
+        logoUrl:
+          '/src/assets/images/mate_images/ecology/wuzhou.png',
+        companyUrl: '',
+      },
+      {
+        logoUrl:
+          '/src/assets/images/mate_images/ecology/xiaodao.png',
+        companyUrl: '',
+      },
+      {
+        logoUrl:
+          '/src/assets/images/mate_images/ecology/xinhan.png',
+        companyUrl: '',
+      },
+      {
+        logoUrl:
+          '/src/assets/images/mate_images/ecology/zhonger.png',
         companyUrl: '',
       },
     ],
@@ -150,21 +238,88 @@ const mateDatas = ref([
 
 <style scoped lang="scss">
 .divider {
+  height: 1.875rem;
   display: flex;
-  width: 4rem;
-  align-items: center;
-  text-align: center;
+  justify-content: center;
+  align-items: end;
   color: #1185e4;
-  font-size: 0.4286rem;
-  margin: 0.5714rem auto;
+  font-size: .5786rem;
+  margin: .5714rem auto;
   font-weight: 700;
+  font-family: sybold;
+  position: relative;
 
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    border-bottom: 0.0429rem solid #1185e4;
-    margin: 0 0.1429rem;
+  .content {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
   }
+
+  .head {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.125rem;
+      height: .125rem;
+      width: .75rem;
+      border-radius: .25rem;
+      background: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
+    }
+  }
+
+}
+//transition
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+.mate-container {
+  height: 3.75rem;
+  background-color: #fff;
+  margin: 0 auto;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  padding: .25rem;
+
+  .type {
+    font-size: .25rem;
+    width: 3.5812rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .active{
+      font-size: .3125rem;
+    }
+    .type-item{
+      cursor: pointer;
+      transition: font-size .3s ease-in-out;
+
+    }
+  }
+
+  .logo-container {
+    width: 17.1rem;
+
+
+    .img {
+      height: 3.25rem;
+
+    width: 3.42rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      max-height: 80%;
+      max-width: 80%;
+    } 
+  }
+}
 }
 </style>

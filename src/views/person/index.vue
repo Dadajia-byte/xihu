@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <el-card class="box-card">
+    <div class="bg"></div>
+    <el-card class="box-card"  style="background-color: transparent; box-shadow: none; border: none">
       <el-row>
         <el-col class="left" :span="5">
           <el-card>
@@ -84,7 +85,18 @@ const Logout = async () => {
 body {
   background-color: #f9f9f9;
 }
-
+.container {
+  position: relative;
+  .bg{
+    z-index: -1;
+    position: absolute;
+    top: -1.875rem;
+    width: 100%;
+    height: 13.75rem;
+    background: url('/src/assets/images/bg_images/person.png') no-repeat center/cover; 
+    opacity: .5;
+  }
+}
 .box-card {
   width: 80%;
   margin: 1.875rem auto 0;
@@ -104,11 +116,11 @@ body {
 
     .username {
       width: fit-content;
-      margin: 0.1875rem auto 0.375rem;
+      margin: .1875rem auto .375rem;
     }
 
     .logout {
-      margin: 0.25rem 0.375rem 0;
+      margin: .25rem .375rem 0;
     }
   }
 }

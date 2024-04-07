@@ -361,7 +361,7 @@ body {
   width: 100%;
   overflow: hidden;
   height: 7.5rem;
-  background: blue; // 缺少背景图片
+  background: url('/src/assets/images/bg_images/guide.png') no-repeat center/cover; 
   .title {
     font-size: 0.625rem;
     margin-top: 2.75rem;

@@ -1,19 +1,13 @@
 <template>
   <div>
     <!-- 轮播图 -->
-    <div style="height: 11.4857rem">
-      <el-carousel :interval="5000" arrow="never" style="height: 11.4857rem">
-        <el-carousel-item style="height: 11.4857rem">
-          <img src="" alt="" />
-          图片1
+    <div style="height: 12.7357rem">
+      <el-carousel :interval="5000" arrow="never" style="height: 12.7357rem">
+        <el-carousel-item style="height: 12.7357rem">
+          <!-- <img src="/src/assets/images/bg_images/home1.png" alt="" /> -->
+          <div style="background: url('/src/assets/images/bg_images/home1.png') no-repeat center/cover;height: 100%; width: 100%;"></div>
         </el-carousel-item>
-        <el-carousel-item style="height: 11.4857rem">
-          <img src="" alt="" />
-        </el-carousel-item>
-        <el-carousel-item style="height: 11.4857rem">
-          <img src="" alt="" />
-          图片3——当然可以任意张图片
-        </el-carousel-item>
+
       </el-carousel>
       <!-- <el-card class="box-card">
         <el-card class="container-card">

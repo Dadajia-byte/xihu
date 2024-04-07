@@ -1,7 +1,12 @@
 <template>
   <div class="exhibitor-page">
     <Screen></Screen>
-    <iframe src="https://roma.720yun.com/vr/ce1c0d20bffcf1f9" frameborder="no" width="100%" height="1000"></iframe>
+    <iframe
+      src="https://roma.720yun.com/vr/ce1c0d20bffcf1f9"
+      frameborder="no"
+      width="100%"
+      height="1000"
+    ></iframe>
 
     <Exhibitions></Exhibitions>
   </div>

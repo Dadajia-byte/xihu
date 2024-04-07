@@ -1,27 +1,29 @@
 <template>
   <div class="container">
     <div class="poster" @click="poster">
-      <el-icon size="0.35rem" color="#409eff"><Share /></el-icon>
-      <div>海报分享</div>
+      <svgIcon name="share" style="width: .45rem; height: .45rem;"></svgIcon>
+      <div class="content">海报分享</div>
     </div>
-    <!-- <svgIcon
-            name="postdown"
-            style="width: 10vw; height: 10vw; padding-bottom: 1vw"
-          ></svgIcon> -->
+
     <div class="clockIn" @click="clockIn">
-      <el-icon size="0.35rem" color="#0b81f0"><Camera /></el-icon>
-      <div>打卡分享</div>
+      <el-icon size=".35rem" color="#0b81f0">
+        <Camera />
+      </el-icon>
+      <div class="content">打卡分享</div>
     </div>
     <div class="communication" @click="AiReport">
-      <el-icon size="0.35rem" color="#0b81f0"><ChatLineRound /></el-icon>
-      <div>AI交流</div>
+      <svgIcon name="ai2" style="width: .45rem; height: .45rem;"></svgIcon>
+
+      <div class="content">AI体验</div>
     </div>
     <div class="about">
-      <el-icon size="0.45rem" color="#0b81f0"><MoreFilled /></el-icon>
+      <el-icon size=".45rem" color="#0b81f0">
+        <MoreFilled />
+      </el-icon>
     </div>
     <transition name="fade">
       <div class="backTop" @click="backTop" ref="bt" v-if="isShow">
-        <div class="trangle"></div>
+        <svgIcon name="toTop" style="width: 0.35rem; height: .35rem;"></svgIcon>
       </div>
     </transition>
   </div>
@@ -72,12 +74,15 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
 .container {
   display: flex;
   flex-direction: column;
   cursor: pointer;
   transition: all 0.5s;
+
+
   .clockIn,
   .backTop,
   .about,
@@ -87,25 +92,30 @@ onMounted(() => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 0.875rem;
-    height: 0.875rem;
+    width: .875rem;
+    height: .875rem;
     background-color: white;
     border-radius: 50%;
-    box-shadow: 0.0625rem 0.0625rem 0.0625rem rgba(0, 0, 0, 0.1);
+    box-shadow: .0625rem .0625rem .0625rem rgba(0, 0, 0, 0.1);
     transition: all 0.2s;
-    margin: 0.1rem;
+    margin: .1rem;
+
     &:hover {
       background-color: #f2f6fc;
       scale: 1.05;
     }
   }
 
+  .content {
+  }
+
   .backTop {
     scale: 0.8;
+
     .trangle {
       background-color: #409eff;
-      width: 0.4375rem;
-      height: 0.3125rem;
+      width: .4375rem;
+      height: .3125rem;
       clip-path: polygon(50% 0, 100% 100%, 0 100%);
     }
   }
@@ -113,10 +123,12 @@ onMounted(() => {
   .clockIn,
   .communication,
   .poster {
+
     div {
-      padding-top: 0.05rem;
-      font-size: 0.15rem;
-      color: #409eff;
+      padding-top: .05rem;
+      font-size: .15rem;
+      @include linear-txt;
+
     }
   }
 
@@ -129,6 +141,7 @@ onMounted(() => {
 .fade-leave-active {
   transition: opacity 0.5s ease !important;
 }
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0 !important;
