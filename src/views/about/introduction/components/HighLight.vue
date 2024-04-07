@@ -78,7 +78,13 @@
                 大会主题及议题、展览锚定数字中国建设要求，助力政企单位从政策、技术、人才、产业等各层面落实工作。
               </div>
             </div>
-            <div class="img" style="background: url('/src/assets/images/meetingabout/1.jpg') no-repeat center/cover;"></div>
+            <div
+              class="img"
+              style="
+                background: url('/src/assets/images/meetingabout/1.jpg')
+                  no-repeat center/cover;
+              "
+            ></div>
           </div>
         </el-col>
         <el-col :span="12">
@@ -93,7 +99,13 @@
                 “掌上论剑”将进一步丰富内容，增强互动性、趣味性，线上持续精彩。
               </div>
             </div>
-            <div class="img" style="background: url('/src/assets/images/meetingabout/2.jpg') no-repeat center/cover;"></div>
+            <div
+              class="img"
+              style="
+                background: url('/src/assets/images/meetingabout/2.jpg')
+                  no-repeat center/cover;
+              "
+            ></div>
           </div>
         </el-col>
       </el-row>
@@ -110,7 +122,13 @@
                 将推出国内首份《2023中国数字安全能力洞察报告》，报告涵盖趋势、科技、人才、实践等多部分内容，引领行业发展方向。
               </div>
             </div>
-            <div class="img" style="background: url('/src/assets/images/meetingabout/4.jpg') no-repeat center/cover"></div>
+            <div
+              class="img"
+              style="
+                background: url('/src/assets/images/meetingabout/4.jpg')
+                  no-repeat center/cover;
+              "
+            ></div>
           </div>
         </el-col>
         <el-col :span="12">
@@ -125,7 +143,13 @@
                 峰会将通过引入国际组织、设置国际话题等，从全球角度研判数字化进程和趋势。
               </div>
             </div>
-            <div class="img" style="background: url('/src/assets/images/meetingabout/3.jpg') no-repeat center/cover"></div>
+            <div
+              class="img"
+              style="
+                background: url('/src/assets/images/meetingabout/3.jpg')
+                  no-repeat center/cover;
+              "
+            ></div>
           </div>
         </el-col>
       </el-row>

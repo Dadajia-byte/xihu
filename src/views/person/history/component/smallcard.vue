@@ -1,25 +1,26 @@
 <template>
-  <div class="box-card" :style="`background: url('${historyData.img}') no-repeat;background-size: 4rem 2.1875rem;`">
-    <div class="name">{{historyData.title}}</div>
+  <div
+    class="box-card"
+    :style="`background: url('${historyData.img}') no-repeat;background-size: 4rem 2.1875rem;`"
+  >
+    <div class="name">{{ historyData.title }}</div>
     <el-icon class="televsion"><Monitor /></el-icon>
-    <div class="progress">观看至{{historyData.progress}}%</div>
+    <div class="progress">观看至{{ historyData.progress }}%</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {defineProps} from 'vue';
+import { defineProps } from 'vue'
 defineProps({
-  historyData:{
-    type:Object,
-    default:()=>({}),
+  historyData: {
+    type: Object,
+    default: () => ({}),
   },
 })
 </script>
 
 <style scoped>
 .box-card {
-
-  
   display: flex;
   flex-direction: column;
   margin-top: 0.1875rem;

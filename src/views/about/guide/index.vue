@@ -362,7 +362,6 @@ body {
   overflow: hidden;
   height: 7.5rem;
   background: url('/src/assets/images/bg_images/guide.png') no-repeat
-  
     center/cover;
   .title {
     color: #fff;

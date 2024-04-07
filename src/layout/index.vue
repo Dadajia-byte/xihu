@@ -1010,14 +1010,12 @@ div[class^='Step'] {
   border-color: rgb(52, 158, 250);
 }
 ::v-deep .el-step__title.is-success {
-    font-weight: bold;
-    color: rgb(52, 158, 250);
+  font-weight: bold;
+  color: rgb(52, 158, 250);
 }
 ::v-deep .el-step__description.is-success {
-    color: rgb(52, 158, 250);
+  color: rgb(52, 158, 250);
 }
-
-  
 </style>
 <style>
 .avatar-uploader .el-upload {
@@ -1050,9 +1048,4 @@ div[class^='Step'] {
   vertical-align: bottom;
 }
 /* // 修改element-ui的el-step样式 */
-
-
-
-
-
 </style>

@@ -162,7 +162,7 @@ const handleCarouselChange = (currentIndex: any) => {
 
 <style scoped lang="scss">
 @import '../../../styles/mixin.scss';
-.main{
+.main {
   position: relative;
   z-index: 1;
 }

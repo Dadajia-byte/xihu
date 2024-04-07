@@ -15,9 +15,17 @@
         </div>
 
         <div class="professonal-list">
-          <div class="carousel-container wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
+          <div
+            class="carousel-container wow fadeInUp"
+            data-wow-duration="1s"
+            data-wow-delay="1s"
+          >
             <div class="master-container" ref="cardlist">
-              <div class="card-container" v-for="(card, index) in cards" :key="index">
+              <div
+                class="card-container"
+                v-for="(card, index) in cards"
+                :key="index"
+              >
                 <div class="card">
                   <img :src="card.url" alt="" />
                 </div>
@@ -25,10 +33,22 @@
                 <span class="description">{{ card.description }}</span>
               </div>
             </div>
-            <el-icon class="left" ref="left" size="0.3125rem" color="#1185E4" @click="handleLeftClick">
+            <el-icon
+              class="left"
+              ref="left"
+              size="0.3125rem"
+              color="#1185E4"
+              @click="handleLeftClick"
+            >
               <ArrowLeftBold />
             </el-icon>
-            <el-icon class="right" ref="right" size="0.3125rem" color="#1185E4" @click="handleRightClick">
+            <el-icon
+              class="right"
+              ref="right"
+              size="0.3125rem"
+              color="#1185E4"
+              @click="handleRightClick"
+            >
               <ArrowRightBold />
             </el-icon>
           </div>
@@ -44,28 +64,46 @@
         <div class="guest-container">
           <div class="filter">
             <div class="filter-container">
-              <div class="filter-item wow fadeInUp" v-for="(item, index) in dateList" :key="index"
-                @click="setDateActive(index)" :class="index === activeIndex ? 'active' : ''">
+              <div
+                class="filter-item wow fadeInUp"
+                v-for="(item, index) in dateList"
+                :key="index"
+                @click="setDateActive(index)"
+                :class="index === activeIndex ? 'active' : ''"
+              >
                 {{ item.date }}
               </div>
             </div>
             <div class="search">
-              <el-input @input="searchGuest()" v-model="searchText" style="
+              <el-input
+                @input="searchGuest()"
+                v-model="searchText"
+                style="
                   width: 3.5rem;
                   font-size: 0.25rem;
                   line-height: 0.625rem;
                   border-radius: 0.625rem;
-                " placeholder="请输入嘉宾姓名" :prefix-icon="Search" />
+                "
+                placeholder="请输入嘉宾姓名"
+                :prefix-icon="Search"
+              />
             </div>
           </div>
           <div class="guest">
-            <div class="guest-item wow fadeInUp" v-for="(item, index) in masterStore.masterData" :key="index">
+            <div
+              class="guest-item wow fadeInUp"
+              v-for="(item, index) in masterStore.masterData"
+              :key="index"
+            >
               <div class="img-wrapper">
-                <div class="img" :style="{
-                backgroundImage: 'url(' + item.avatar + ')',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center center',
-              }"></div>
+                <div
+                  class="img"
+                  :style="{
+                    backgroundImage: 'url(' + item.avatar + ')',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center center',
+                  }"
+                ></div>
               </div>
               <div class="name">{{ item.guestname }}</div>
 
@@ -96,7 +134,8 @@ const cards = [
   {
     url: '/src/assets/images/master/1.png',
     name: '左晓栋',
-    description: '中国科学技术大学网络空间安全学院教授、科技人文高等研究院副院长',
+    description:
+      '中国科学技术大学网络空间安全学院教授、科技人文高等研究院副院长',
   },
   {
     url: '/src/assets/images/master/2.jpg',
@@ -143,7 +182,6 @@ const cards = [
     name: '叶红',
     description: '中国信息协会信息安全专业委员会主任',
   },
-
 ]
 const dateList = ref([
   { date: '全部' },
@@ -272,7 +310,8 @@ export default {
   height: 7.025rem;
   padding-left: 1.325rem;
   padding-top: 2.375rem;
-  background: url('/src/assets/images/bg_images/guest.png') no-repeat center/cover;
+  background: url('/src/assets/images/bg_images/guest.png') no-repeat
+    center/cover;
 
   .title {
     font-size: 0.525rem;
@@ -365,13 +404,13 @@ export default {
 
       .name {
         margin: 0.225rem 0;
-        font-size: .3125rem;
+        font-size: 0.3125rem;
         text-align: center;
       }
 
       .description {
-        font-size: .2rem;
-        line-height: .25rem;
+        font-size: 0.2rem;
+        line-height: 0.25rem;
         color: #abaaaa;
       }
     }
@@ -428,9 +467,11 @@ export default {
       }
 
       .active {
-        background: linear-gradient(to bottom right,
-            $theme-color-blue,
-            $theme-color-green );
+        background: linear-gradient(
+          to bottom right,
+          $theme-color-blue,
+          $theme-color-green
+        );
         color: #fff;
         font-weight: bold;
       }
@@ -488,7 +529,8 @@ export default {
         line-height: 0.3125rem;
       }
 
-      &:hover {}
+      &:hover {
+      }
     }
   }
 }

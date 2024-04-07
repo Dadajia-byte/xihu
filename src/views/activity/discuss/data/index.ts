@@ -19,7 +19,8 @@ let commentList = ref([
         id: 19870621,
         headImg:
           'https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg',
-        content: '真是一个紧迫的议题。现在全球竞争这么激烈，数字安全策略不仅关系到经济发展，更是国家安全的重要组成部分',
+        content:
+          '真是一个紧迫的议题。现在全球竞争这么激烈，数字安全策略不仅关系到经济发展，更是国家安全的重要组成部分',
         time: '2024年3月20日 19:48',
         commentNum: 2,
         like: 15,
@@ -33,7 +34,8 @@ let commentList = ref([
               'https://ae01.alicdn.com/kf/H94c78935ffa64e7e977544d19ecebf06L.jpg',
             to: '咸鱼不会飞',
             toId: 19870621,
-            content: '没错，看到华为在全球的挑战，真希望我们的数字安全可以得到更多重视',
+            content:
+              '没错，看到华为在全球的挑战，真希望我们的数字安全可以得到更多重视',
             time: '2024年3月20日 20:43',
             commentNum: 1,
             like: 15,
@@ -89,7 +91,8 @@ let commentList = ref([
         id: 20190830,
         headImg:
           'https://ae01.alicdn.com/kf/Hdd856ae4c81545d2b51fa0c209f7aa28Z.jpg',
-        content: '看到这样的分析很振奋人心，希望我们的数字基础设施可以越来越强大',
+        content:
+          '看到这样的分析很振奋人心，希望我们的数字基础设施可以越来越强大',
         time: '2024年3月27日  11:43',
         commentNum: 0,
         like: 5,
@@ -103,7 +106,8 @@ let commentList = ref([
               'https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg',
             to: '数字游侠',
             toId: 19891221,
-            content: '基础设施建设只是第一步，重要的是如何运用这些基础设施服务于经济和人民生活',
+            content:
+              '基础设施建设只是第一步，重要的是如何运用这些基础设施服务于经济和人民生活',
             time: '2024年3月30日 16:10',
             commentNum: 25,
             like: 5,
@@ -230,7 +234,8 @@ let commentList = ref([
         id: 19870621,
         headImg:
           'https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg',
-        content: '人工智能的安全性确实不能忽视，看到Tay的故事后我觉得监管必不可少，但也不能限制了创新，这个平衡点挺难把握的',
+        content:
+          '人工智能的安全性确实不能忽视，看到Tay的故事后我觉得监管必不可少，但也不能限制了创新，这个平衡点挺难把握的',
         time: '2024年3月16日 18:43',
         commentNum: 2,
         like: 15,
@@ -357,7 +362,8 @@ let commentList = ref([
               'https://ae01.alicdn.com/kf/H94c78935ffa64e7e977544d19ecebf06L.jpg',
             to: '数字游侠',
             toId: 19870621,
-            content: '我更担心的是，如果AI学到了错误的东西，它可能会带来很大的危害',
+            content:
+              '我更担心的是，如果AI学到了错误的东西，它可能会带来很大的危害',
             time: '2024年2月19日 15:21',
             commentNum: 1,
             like: 15,

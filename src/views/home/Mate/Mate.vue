@@ -235,7 +235,7 @@ const mateDatas = ref([
 </script>
 
 <style scoped lang="scss">
-.mate{
+.mate {
   position: relative;
 }
 .divider {
@@ -297,19 +297,20 @@ const mateDatas = ref([
   height: 3.75rem;
   background-color: #fff;
   margin: 0 auto;
-  box-shadow: .0125rem .0125rem .125rem .0125rem rgba(0, 0, 0, 0.05);
+  box-shadow: 0.0125rem 0.0125rem 0.125rem 0.0125rem rgba(0, 0, 0, 0.05);
   display: flex;
   .type {
     color: #fff;
-    background: url('/src/assets/images/bg_images/homemateBG.png') no-repeat center/cover;
-    font-size: .3125rem;
+    background: url('/src/assets/images/bg_images/homemateBG.png') no-repeat
+      center/cover;
+    font-size: 0.3125rem;
     width: 3.5812rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     .active {
-      font-size: .375rem;
+      font-size: 0.375rem;
     }
     .type-item {
       cursor: pointer;
@@ -318,7 +319,7 @@ const mateDatas = ref([
   }
 
   .logo-container {
-    padding: .25rem 0;
+    padding: 0.25rem 0;
     width: 17.1rem;
     .img {
       height: 3.25rem;
@@ -328,7 +329,7 @@ const mateDatas = ref([
       display: flex;
       justify-content: center;
       align-items: center;
-      
+
       img {
         max-height: 80%;
         max-width: 80%;

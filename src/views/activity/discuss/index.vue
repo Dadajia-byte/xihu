@@ -1,9 +1,8 @@
 <template>
-  <div class="main" >
+  <div class="main">
     <div class="bg"></div>
     <!-- header -->
     <div class="header">
-      
       <div class="title">话题风向标</div>
 
       <div class="wordle" id="wordle">
@@ -19,7 +18,7 @@
             <div class="title-icon">
               <svgIcon
                 name="hot"
-                style="width: .5625rem; height: .5625rem"
+                style="width: 0.5625rem; height: 0.5625rem"
               ></svgIcon>
             </div>
 
@@ -29,7 +28,7 @@
             <div class="icon">
               <svgIcon
                 name="topic2"
-                style="width: .675rem; height: .675rem"
+                style="width: 0.675rem; height: 0.675rem"
               ></svgIcon>
             </div>
             <span>
@@ -80,7 +79,7 @@
             <span class="author-name">{{ item.name }}</span>
             <span class="author-time">{{ item.time }}</span>
           </div>
-          <div class="icon-btn" style="right: .25rem">
+          <div class="icon-btn" style="right: 0.25rem">
             <div class="comment" @click="replyMainComment(i)">
               <svgIcon name="comment"></svgIcon>
             </div>
@@ -166,7 +165,7 @@
           <div class="topic-icon">
             <svgIcon
               name="topic"
-              style="width: .3125rem; height: .3125rem"
+              style="width: 0.3125rem; height: 0.3125rem"
             ></svgIcon>
           </div>
           <div class="topic-content">
@@ -189,7 +188,7 @@ import { ref, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import useUserStore from '@/store/modules/user'
 import judgeLog from '@/utils/judgeLog'
-import * as echarts from 'echarts';
+import * as echarts from 'echarts'
 // 更新时间
 const time = ref(
   new Date().toLocaleDateString('zh-CN', {
@@ -402,83 +401,84 @@ onMounted(() => {
 //     )
 //   }
 // }
-const defaultSeries = [{
-	type: 'wordCloud',
-	/**
-	 * 绘制词云的形状, 值为回调函数 或 关键字, 默认 circle
-	 *  关键字:
-	 * 
-	 * circle（圆形）  词的数量不太多的时候，效果不明显，它会趋向于画一个椭圆
-	 * cardioid（苹果形或心形曲线）
-	 * diamond（菱形 正方形）
-	 * triangle-forward（三角形-向前）
-	 * triangle（三角形-直立）
-	 * pentagon（五边形）
-	 * star（星形）
-	 */
-	shape: 'circle',
-	// 保持 maskImage 的纵横比或形状的纵横比为 1：1
-	keepAspect: false,
-	/**
-	 * 词云轮廓图，支持为 HTMLImageElement, HTMLCanvasElement，不支持路径字符串, 不包含白色区域; 可选选项
-	 * shape选项将随着云的形状增长而继续应用
-	 * 有形状限制的时候，最好用背景图来实现，而且这个背景图一定要放base64的，不然词云画不出来
-	 */
-	// maskImage: maskImage,
- 
-	// 词云整个图表放置的位置 和 尺寸大小
-	left: 'center',
-	top: 'center',
-	width: '100%',
-	height: '100%',
-	right: null,
-	bottom: null,
-	// 词云文本大小范围,  默认为最小12像素，最大60像素
-	sizeRange: [12, 60],
-	// 词云文字旋转范围和步长。 文本将通过旋转在[-90，90]范围内随机旋转步骤45
-	// 如果都设置为 0 , 则是水平显示
-	rotationRange: [0, 0],
-	rotationStep: 45,
-	/**
-	 * 词间距, 距离越大，单词之间的间距越大, 单位像素
-	 * 这里间距太小的话，会出现大词把小词套住的情况，比如一个大的口字，中间会有比较大的空隙，这时候他会把一些很小的字放在口字里面，这样的话，鼠标就无法选中里面的那个小字
-	 */
-	gridSize: 16,
-	// 设置为true可以使单词部分在画布之外绘制, 允许绘制大于画布大小的单词
-	drawOutOfBound: false,
-	/**
-	 * 布局的时候是否有动画
-	 * 注意：禁用时，当单词较多时，将导致UI阻塞。
-	 */
-	layoutAnimation: true,
-	// 这是全局的文字样式，相对应的还可以对每个词设置字体样式
-	textStyle: {
-		fontFamily: 'sans-serif',
-		fontWeight: 'bold',
-		// 颜色可以用一个函数来返回字符串
-		color: function () {
-          // 随机颜色
-          return (
-            'rgb(' +
-            [
-              Math.round(Math.random() * 160),
-              Math.round(Math.random() * 160),
-              Math.round(Math.random() * 160),
-            ].join(',') +
-            ')'
-          )
-        },
-	},
-	// 鼠标hover的特效样式
-	emphasis: {
-		focus: 'self',
-		textStyle: {
-			textShadowBlur: 10,
-			textShadowColor: '#999'
-		}
-	},
- 
-	/**
+const defaultSeries = [
+  {
+    type: 'wordCloud',
+    /**
+     * 绘制词云的形状, 值为回调函数 或 关键字, 默认 circle
+     *  关键字:
+     *
+     * circle（圆形）  词的数量不太多的时候，效果不明显，它会趋向于画一个椭圆
+     * cardioid（苹果形或心形曲线）
+     * diamond（菱形 正方形）
+     * triangle-forward（三角形-向前）
+     * triangle（三角形-直立）
+     * pentagon（五边形）
+     * star（星形）
+     */
+    shape: 'circle',
+    // 保持 maskImage 的纵横比或形状的纵横比为 1：1
+    keepAspect: false,
+    /**
+     * 词云轮廓图，支持为 HTMLImageElement, HTMLCanvasElement，不支持路径字符串, 不包含白色区域; 可选选项
+     * shape选项将随着云的形状增长而继续应用
+     * 有形状限制的时候，最好用背景图来实现，而且这个背景图一定要放base64的，不然词云画不出来
+     */
+    // maskImage: maskImage,
+
+    // 词云整个图表放置的位置 和 尺寸大小
+    left: 'center',
+    top: 'center',
+    width: '100%',
+    height: '100%',
+    right: null,
+    bottom: null,
+    // 词云文本大小范围,  默认为最小12像素，最大60像素
+    sizeRange: [12, 60],
+    // 词云文字旋转范围和步长。 文本将通过旋转在[-90，90]范围内随机旋转步骤45
+    // 如果都设置为 0 , 则是水平显示
+    rotationRange: [0, 0],
+    rotationStep: 45,
+    /**
+     * 词间距, 距离越大，单词之间的间距越大, 单位像素
+     * 这里间距太小的话，会出现大词把小词套住的情况，比如一个大的口字，中间会有比较大的空隙，这时候他会把一些很小的字放在口字里面，这样的话，鼠标就无法选中里面的那个小字
+     */
+    gridSize: 16,
+    // 设置为true可以使单词部分在画布之外绘制, 允许绘制大于画布大小的单词
+    drawOutOfBound: false,
+    /**
+     * 布局的时候是否有动画
+     * 注意：禁用时，当单词较多时，将导致UI阻塞。
+     */
+    layoutAnimation: true,
+    // 这是全局的文字样式，相对应的还可以对每个词设置字体样式
+    textStyle: {
+      fontFamily: 'sans-serif',
+      fontWeight: 'bold',
+      // 颜色可以用一个函数来返回字符串
+      color: function () {
+        // 随机颜色
+        return (
+          'rgb(' +
+          [
+            Math.round(Math.random() * 160),
+            Math.round(Math.random() * 160),
+            Math.round(Math.random() * 160),
+          ].join(',') +
+          ')'
+        )
+      },
+    },
+    // 鼠标hover的特效样式
+    emphasis: {
+      focus: 'self',
+      textStyle: {
+        textShadowBlur: 10,
+        textShadowColor: '#999',
+      },
+    },
+
+    /**
 	 * 词云数据，必须是一个数组，每个数组项必须有name和value属性
 	 * 设置单个文本的样式：  textStyle 
 	 * 
@@ -489,70 +489,71 @@ const defaultSeries = [{
 					}
 				},
 	 */
-	data: [  { name: '5G技术', value: 10000 },
-  { name: '加密货币', value: 9600 },
-  { name: '网络侵权', value: 9200 },
-  { name: '云计算安全', value: 8800 },
-  { name: '数据隐私', value: 8400 },
-  { name: '身份验证', value: 8000 },
-  { name: '网络攻击', value: 7600 },
-  { name: '风险管理', value: 7200 },
-  { name: '合规标准', value: 6800 },
-  { name: '加密技术', value: 6400 },
-  { name: '人才培养', value: 6000 },
-  { name: '云服务供应商', value: 5600 },
-  { name: '黑客行为', value: 5200 },
-  { name: '安全漏洞', value: 4800 },
-  { name: '混合云', value: 4400 },
-  { name: '网络审计', value: 4000 },
-  { name: '教育培训', value: 3600 },
-  { name: '安全政策', value: 3200 },
-  { name: '法律法规', value: 2800 },
-  { name: '国际合作', value: 2400 },
-  { name: '金融风险', value: 2000 },
-  { name: '智能合约', value: 1600 },
-  { name: 'AI伦理', value: 1200 },
-  { name: '恶意软件', value: 800 },
-  { name: '网络监管', value: 400 },
-  { name: '信息泄露', value: 3600 },
-  { name: '安全协议', value: 3200 },
-  { name: '应急措施', value: 2800 },
-  { name: '技术创新', value: 2400 },
-  { name: '防御策略', value: 2000 },
-  { name: '数字化转型', value: 1600 },
-  // { name: '区块链技术', value: 6600 },
-  // { name: '数据加密', value: 6400 },
-  // { name: '网络间谍', value: 6200 },
-  // { name: '网络防护', value: 6000 },
-  // { name: '安全框架', value: 5800 },
-  // { name: '监控系统', value: 5600 },
-  // { name: '数据保护法', value: 5400 },
-  // { name: '网络犯罪', value: 5200 },
-  // { name: '信息安全意识', value: 5000 },
-			],
-}]
+    data: [
+      { name: '5G技术', value: 10000 },
+      { name: '加密货币', value: 9600 },
+      { name: '网络侵权', value: 9200 },
+      { name: '云计算安全', value: 8800 },
+      { name: '数据隐私', value: 8400 },
+      { name: '身份验证', value: 8000 },
+      { name: '网络攻击', value: 7600 },
+      { name: '风险管理', value: 7200 },
+      { name: '合规标准', value: 6800 },
+      { name: '加密技术', value: 6400 },
+      { name: '人才培养', value: 6000 },
+      { name: '云服务供应商', value: 5600 },
+      { name: '黑客行为', value: 5200 },
+      { name: '安全漏洞', value: 4800 },
+      { name: '混合云', value: 4400 },
+      { name: '网络审计', value: 4000 },
+      { name: '教育培训', value: 3600 },
+      { name: '安全政策', value: 3200 },
+      { name: '法律法规', value: 2800 },
+      { name: '国际合作', value: 2400 },
+      { name: '金融风险', value: 2000 },
+      { name: '智能合约', value: 1600 },
+      { name: 'AI伦理', value: 1200 },
+      { name: '恶意软件', value: 800 },
+      { name: '网络监管', value: 400 },
+      { name: '信息泄露', value: 3600 },
+      { name: '安全协议', value: 3200 },
+      { name: '应急措施', value: 2800 },
+      { name: '技术创新', value: 2400 },
+      { name: '防御策略', value: 2000 },
+      { name: '数字化转型', value: 1600 },
+      // { name: '区块链技术', value: 6600 },
+      // { name: '数据加密', value: 6400 },
+      // { name: '网络间谍', value: 6200 },
+      // { name: '网络防护', value: 6000 },
+      // { name: '安全框架', value: 5800 },
+      // { name: '监控系统', value: 5600 },
+      // { name: '数据保护法', value: 5400 },
+      // { name: '网络犯罪', value: 5200 },
+      // { name: '信息安全意识', value: 5000 },
+    ],
+  },
+]
 function DrawWordCloud() {
-	// 词云
-	let mychart = echarts.init(document.getElementById("wordle")) // 可以设置主题色'dark'
-	mychart.setOption({
-    series:defaultSeries
-	})
+  // 词云
+  let mychart = echarts.init(document.getElementById('wordle')) // 可以设置主题色'dark'
+  mychart.setOption({
+    series: defaultSeries,
+  })
 }
-
-
 </script>
 
 <style lang="scss" scoped>
-.main{
+.main {
   position: relative;
-  .bg{
+  .bg {
     z-index: 0;
     position: absolute;
-    top:7.5rem;
+    top: 7.5rem;
     right: -2.5rem;
     width: 15rem;
     height: 18.75rem;
-    background: url('/src/assets/images/bg_images/huati_bg.png') no-repeat center/cover;
+    background: url('/src/assets/images/bg_images/huati_bg.png') no-repeat
+      center/cover;
   }
 }
 .header {
@@ -564,11 +565,11 @@ function DrawWordCloud() {
   .title {
     @include linear-txt;
 
-    margin: .25rem auto;
-    font-size: .7rem;
+    margin: 0.25rem auto;
+    font-size: 0.7rem;
     font-weight: bold;
-    line-height: .875rem;
-    height: .875rem;
+    line-height: 0.875rem;
+    height: 0.875rem;
   }
 
   .wordle {
@@ -589,9 +590,9 @@ function DrawWordCloud() {
 
 .body {
   position: relative;
-  z-index:1;
+  z-index: 1;
   display: flex;
-  margin-top: .25rem;
+  margin-top: 0.25rem;
 
   .comment-container {
     flex: 8;
@@ -600,40 +601,40 @@ function DrawWordCloud() {
 
   .topic-panel {
     align-self: start;
-    margin-left: .25rem;
-    margin-right: .75rem;
+    margin-left: 0.25rem;
+    margin-right: 0.75rem;
     width: 2.5rem;
     flex: 2;
     background-color: #fff;
-    border-radius: .0625rem;
-    box-shadow: 0px 0px .125rem .0125rem rgba(0, 0, 0, 0.1);
-    padding: .25rem;
+    border-radius: 0.0625rem;
+    box-shadow: 0px 0px 0.125rem 0.0125rem rgba(0, 0, 0, 0.1);
+    padding: 0.25rem;
 
     .topic-title {
-      height: .7rem;
-      line-height: .7rem;
-      font-size: .45rem;
+      height: 0.7rem;
+      line-height: 0.7rem;
+      font-size: 0.45rem;
       font-weight: 600;
     }
 
     .topic-item {
-      height: .875rem;
-      padding: .125rem 0;
-      margin-bottom: .1875rem;
+      height: 0.875rem;
+      padding: 0.125rem 0;
+      margin-bottom: 0.1875rem;
       display: flex;
 
       .topic-icon {
-        width: .3125rem;
+        width: 0.3125rem;
         text-align: center;
-        margin-right: .125rem;
+        margin-right: 0.125rem;
       }
 
       .content {
         cursor: pointer;
-        font-size: .25rem;
-        line-height: .3125rem;
-        height: .3125rem;
-        margin-bottom: .0625rem;
+        font-size: 0.25rem;
+        line-height: 0.3125rem;
+        height: 0.3125rem;
+        margin-bottom: 0.0625rem;
 
         &:hover {
           color: #1fb7ed;
@@ -642,9 +643,9 @@ function DrawWordCloud() {
       }
 
       .data {
-        font-size: .2rem;
-        line-height: .375rem;
-        height: .375rem;
+        font-size: 0.2rem;
+        line-height: 0.375rem;
+        height: 0.375rem;
         color: #abaaaa;
       }
 
@@ -657,38 +658,38 @@ function DrawWordCloud() {
 
 .comment-container {
   background-color: #fff;
-  box-shadow: 0px 0px .125rem .025rem rgba(0, 0, 0, 0.1);
-  border-radius: .0625rem;
+  box-shadow: 0px 0px 0.125rem 0.025rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.0625rem;
 
   .topic-detail {
-    padding: .375rem;
+    padding: 0.375rem;
 
     .topic-title {
       display: flex;
-      font-size: .45rem;
+      font-size: 0.45rem;
       font-weight: 700;
-      line-height: .5625rem;
-      height: .625rem;
+      line-height: 0.5625rem;
+      height: 0.625rem;
       color: #1185e4;
     }
 
     .topic-desc {
       color: #807e7e;
-      line-height: .375rem;
-      font-size: .225rem;
+      line-height: 0.375rem;
+      font-size: 0.225rem;
     }
 
     .title {
       display: flex;
-      font-size: .475rem;
+      font-size: 0.475rem;
 
-      line-height: .675rem;
-      height: .675rem;
+      line-height: 0.675rem;
+      height: 0.675rem;
     }
   }
 
   .my-reply {
-    padding: .25rem;
+    padding: 0.25rem;
     display: flex;
     background-color: #fafbfc;
 
@@ -700,7 +701,7 @@ function DrawWordCloud() {
     .reply-info {
       display: flex;
       align-items: center;
-      margin-left: .0625rem;
+      margin-left: 0.0625rem;
       width: 90%;
 
       @media screen and (max-width: 1200px) {
@@ -727,7 +728,7 @@ function DrawWordCloud() {
   }
 
   .author-title {
-    padding: .25rem;
+    padding: 0.25rem;
     position: relative;
 
     .header-img {
@@ -765,7 +766,7 @@ function DrawWordCloud() {
       width: 1.25rem;
       position: absolute;
       display: flex;
-      top: .25rem;
+      top: 0.25rem;
       right: 0;
       padding: 0 !important;
 
@@ -786,15 +787,15 @@ function DrawWordCloud() {
     }
 
     .talk-box {
-      margin: 0 .625rem;
+      margin: 0 0.625rem;
 
       > p {
         margin: 0;
-        font-size: .25rem;
+        font-size: 0.25rem;
       }
 
       .reply {
-        font-size: .25rem;
+        font-size: 0.25rem;
         color: #000;
       }
     }

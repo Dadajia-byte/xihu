@@ -13,7 +13,7 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import 'swiper/scss'
 import App from './App.vue'
 import * as echarts from 'echarts'
-import 'echarts-wordcloud';
+import 'echarts-wordcloud'
 const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn,

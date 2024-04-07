@@ -115,7 +115,6 @@ const initWOW = () => {
 </script>
 
 <style lang="scss" scoped>
-
 .el-carousel__item:nth-child(2n) {
   background-color: #99a9bf;
 }
@@ -132,8 +131,8 @@ const initWOW = () => {
   transform: translateX(-50%);
   top: -3.1429rem;
   background-color: rgba($color: #ffffff, $alpha: 0.3);
-  border-radius: .1429rem;
-  box-shadow: 0 .0429rem .0857rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.1429rem;
+  box-shadow: 0 0.0429rem 0.0857rem 0 rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,24 +141,24 @@ const initWOW = () => {
 .container-card {
   width: 14.5286rem;
   height: 2.4286rem;
-  border-radius: .1857rem;
-  font-size: .2rem;
+  border-radius: 0.1857rem;
+  font-size: 0.2rem;
 
   .highlight {
     text-align: left;
-    border-left: .0286rem solid #1185e4;
+    border-left: 0.0286rem solid #1185e4;
 
     li {
-      margin: .0714rem .1429rem;
+      margin: 0.0714rem 0.1429rem;
 
       &:nth-child(1) {
-        font-size: .2571rem;
+        font-size: 0.2571rem;
         font-weight: 700;
         color: black;
       }
 
       &:nth-child(2) {
-        font-size: .2429rem;
+        font-size: 0.2429rem;
         color: #1185e4;
         font-style: italic;
         font-weight: 350;
@@ -170,19 +169,19 @@ const initWOW = () => {
   .highlight-bar {
     position: relative;
     width: 100%; // 使容器宽度充满父元素
-    height: .5714rem; // 容器高度
+    height: 0.5714rem; // 容器高度
     background-color: #1185e4;
 
     // 使用伪元素创建三角形
     &::before {
       content: '';
       position: absolute;
-      left: .0143rem;
+      left: 0.0143rem;
       top: 0;
       width: 0;
       height: 0;
-      border-top: .5714rem solid #1185e4; // 三角形高度和颜色
-      border-left: .3571rem solid transparent; // 三角形宽度
+      border-top: 0.5714rem solid #1185e4; // 三角形高度和颜色
+      border-left: 0.3571rem solid transparent; // 三角形宽度
       transform: translateX(-100%); // 将三角形完全移动到容器的左边界
     }
   }
@@ -191,7 +190,7 @@ const initWOW = () => {
     text-align: center;
 
     .li1 {
-      font-size: .3571rem;
+      font-size: 0.3571rem;
       font-weight: 700;
     }
 
@@ -227,8 +226,8 @@ const initWOW = () => {
   }
 
   .li2 {
-    font-size: .2286rem;
-    line-height: .4286rem;
+    font-size: 0.2286rem;
+    line-height: 0.4286rem;
     color: black;
   }
 }
