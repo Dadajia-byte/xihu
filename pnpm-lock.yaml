@@ -21,7 +21,7 @@ dependencies:
     specifier: ^5.5.0
     version: 5.5.0
   echarts-wordcloud:
-    specifier: 2.1.0
+    specifier: ^2.1.0
     version: 2.1.0(echarts@5.5.0)
   element-plus:
     specifier: ^2.5.5

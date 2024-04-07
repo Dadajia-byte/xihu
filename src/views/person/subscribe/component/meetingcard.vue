@@ -90,7 +90,7 @@ defineProps(['data'])
 .type-box {
   display: flex;
   justify-content: flex-end;
-  margin-top: -0.4375rem;
+  margin-top: -0.5625rem;
   margin-right: 0.1625rem;
 }
 </style>

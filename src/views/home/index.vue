@@ -1,24 +1,24 @@
 <template>
-  <div>
+  <div class="home">
     <!-- 轮播图 -->
-    <div style="height: 11.4857rem">
-      <el-carousel :interval="5000" arrow="never" style="height: 11.4857rem">
-        <el-carousel-item style="height: 11.4857rem">
-          <img src="" alt="" />
-          图片1
-        </el-carousel-item>
-        <el-carousel-item style="height: 11.4857rem">
-          <img src="" alt="" />
-        </el-carousel-item>
-        <el-carousel-item style="height: 11.4857rem">
-          <img src="" alt="" />
-          图片3——当然可以任意张图片
+    <div style="height: 12.7357rem">
+      <el-carousel :interval="5000" arrow="never" style="height: 12.7357rem">
+        <el-carousel-item style="height: 12.7357rem">
+          <!-- <img src="/src/assets/images/bg_images/home1.png" alt="" /> -->
+          <div
+            style="
+              background: url('/src/assets/images/bg_images/home1.png')
+                no-repeat center/cover;
+              height: 100%;
+              width: 100%;
+            "
+          ></div>
         </el-carousel-item>
       </el-carousel>
       <!-- <el-card class="box-card">
         <el-card class="container-card">
           <el-row>
-            <el-col :span="3" style="height: 0.8571rem">
+            <el-col :span="3" style="height: .8571rem">
               <ul class="highlight">
                 <li>大会亮点</li>
                 <li>HIGHLIGHTS</li>
@@ -26,12 +26,12 @@
             </el-col>
             <el-col
               :span="21"
-              style="position: relative; top: -0.2857rem; left: 0.2857rem"
+              style="position: relative; top: -0.2857rem; left: .2857rem"
             >
               <div class="highlight-bar"></div>
             </el-col>
           </el-row>
-          <el-row justify="space-around" style="margin-top: 0.1429rem">
+          <el-row justify="space-around" style="margin-top: .1429rem">
             <el-col :span="4">
               <ul>
                 <li class="li1">{{ num1 }}+</li>

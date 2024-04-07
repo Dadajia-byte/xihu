@@ -1,6 +1,12 @@
 <template>
   <div class="main">
-    <span class="divider wow fadeInUp">新闻资讯</span>
+    <div class="bg"></div>
+    <span class="divider wow fadeInUp">
+      <div class="content1">
+        <span style="font-size: 0.8125rem" class="head">N</span>
+        <div class="content2">ews 新闻资讯</div>
+      </div>
+    </span>
     <el-carousel
       :interval="100000"
       height="6.7956rem"
@@ -43,30 +49,28 @@ onMounted(() => {
 })
 const newsList = ref([
   {
-    imageUrl:
-      'https://img2023.gcsis.cn/2023/5/0ceb338a21e043a69ba41e0b164ea739.jpg',
+    imageUrl: '/src/assets/images/home_news/2.jpg',
+    title: '2023西湖论剑·数字安全大会在杭举行',
+    content:
+      '人民网杭州5月7日电 (张帆)今天，以“数字安全@数字中国”为主题的2023西湖论剑·数字安全大会(原西湖论剑·网络安全大会)在杭州举行。大会围绕“数字安全赋能数字中国”开展百余场专题报告..',
+  },
+  {
+    imageUrl: '/src/assets/images/home_news/1.png',
     title: '大家都关心的嘉宾PPT下载指南来啦!',
     content:
       '指路贴来啦!大家都关心的嘉宾PPT下载指南在这里!一图解锁西湖论剑官网&小程序下载路径，看众多专家真知灼见，干货满满，引领行业思辨!',
   },
   {
-    imageUrl:
-      'https://img2023.gcsis.cn/2023/5/0ceb338a21e043a69ba41e0b164ea739.jpg',
-    title: '大家都关心的嘉宾PPT下载指南来啦!',
-    content:
-      '指路贴来啦!大家都关心的嘉宾PPT下载指南在这里!一图解锁西湖论剑官网&小程序下载路径，看众多专家真知灼见，干货满满，引领行业思辨!',
-  },
-  {
-    imageUrl:
-      'https://obs-xhlj.obs.cn-east-3.myhuaweicloud.com/2023/5/15d0f956397444c3ad5d8c2c14b2f800.jpg',
+    imageUrl: '/src/assets/images/home_news/4.jpg',
     title: '2023西湖论剑·数字安全大会举办',
     content:
       '央广网杭州5月8日消息(记者 姜頔)自山下而仰山巅谓之高远，自山前而窥山后谓之深远，自近山而望远山谓之平远。5月7日，以“数字安全@数字中国”为主题的2023西湖论剑·数字安全大会在杭州成功举办。',
   },
   {
-    imageUrl: '',
-    title: '',
-    content: '',
+    imageUrl: '/src/assets/images/home_news/3.png',
+    title: '西湖论剑暨安恒信息年度新品发布会在杭州举行',
+    content:
+      '人民网杭州4月19日电 （叶宾得）今天，西湖论剑暨安恒信息首次年度新品发布会在杭州举行，发布会以“新·见未来 实·现梦想”为主题，介绍安恒“MSS+数据安全”两大战略新进展、发布新产品...',
   },
 ])
 </script>
@@ -74,7 +78,17 @@ const newsList = ref([
 <style scoped lang="scss">
 .main {
   flex-direction: column;
+  position: relative;
 
+  .bg {
+    position: absolute;
+    width: 12.5rem;
+    height: 25rem;
+    top: -1.25rem;
+    right: 0;
+    background: url('/src/assets/images/bg_images/homebg1.png') no-repeat
+      center/cover;
+  }
   .newsImg {
     height: 4.1604rem;
     background-size: contain;
@@ -111,21 +125,48 @@ const newsList = ref([
   }
 
   .divider {
+    overflow: hidden;
+    height: 1.875rem;
     display: flex;
-    width: 4rem;
-    align-items: center;
-    text-align: center;
-    color: #1185e4;
-    font-size: 0.4286rem;
+    justify-content: center;
+    align-items: end;
+    font-size: 0.5786rem;
     margin: 0.5714rem auto;
     font-weight: 700;
+    font-family: sybold;
+    position: relative;
+    .content1 {
+      position: absolute;
+      display: flex;
+      align-items: end;
+      height: 0.8125rem;
+      left: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      .content2 {
+        @include linear-txt;
+        line-height: 0.875rem;
+      }
+    }
 
-    &::before,
-    &::after {
-      content: '';
-      flex: 1;
-      border-bottom: 0.0429rem solid #1185e4;
-      margin: 0 0.1429rem;
+    .head {
+      position: relative;
+      color: #457fca;
+      padding-bottom: 0.1125rem;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.125rem;
+        height: 0.125rem;
+        width: 0.75rem;
+        border-radius: 0.25rem;
+        background: linear-gradient(
+          to bottom right,
+          $theme-color-blue,
+          $theme-color-green
+        );
+      }
     }
   }
 
@@ -136,7 +177,7 @@ const newsList = ref([
 
   .el-card {
     height: 6.8008rem;
-    border-radius: 0.2594rem;
+    border-radius: 0.0719rem;
   }
 
   .el-carousel__item {

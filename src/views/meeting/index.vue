@@ -298,7 +298,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .filter-container {
   width: 100%;
-  height: 1.625rem;
+  height: 1.5rem;
   box-shadow: 0.0125rem 0.0625rem 0.0625rem #d5d5d5;
   padding: 0.375rem 0 0.375rem 1.8125rem;
 
@@ -307,7 +307,7 @@ onUnmounted(() => {
     align-content: center;
 
     .tip {
-      font-size: 0.375rem;
+      font-size: 0.3125rem;
       font-weight: bold;
       line-height: 0.875rem;
       width: 1.875rem;
@@ -315,7 +315,7 @@ onUnmounted(() => {
     }
 
     .date {
-      font-size: 0.375rem;
+      font-size: 0.275rem;
       line-height: 0.625rem;
       margin: 0.125rem 0;
       margin-right: 0.675rem;
@@ -480,7 +480,7 @@ onUnmounted(() => {
 
         .title {
           margin-top: 0.15rem;
-          font-size: 0.375rem;
+          font-size: 0.3125rem;
           font-weight: bold;
           line-height: 0.4375rem;
         }

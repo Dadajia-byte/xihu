@@ -1,11 +1,16 @@
 <template>
   <div class="date-agenda">
-    <span class="divider wow fadeInUp">大会议程</span>
+    <span class="divider wow fadeInUp">
+      <div class="content">
+        <span style="font-size: 0.8125rem" class="head">A</span>
+        <div class="content2">genda 大会议程</div>
+      </div>
+    </span>
     <el-card
       class="timeline-container wow fadeInUp"
       data-wow-duration="1s"
       data-wow-delay="0.1s"
-      style="background-color: transparent;box-shadow: none;border: none;"
+      style="background-color: transparent; box-shadow: none; border: none"
     >
       <div class="timeline">
         <div
@@ -19,7 +24,7 @@
             class="timeline-content"
             :style="
               index === activeIndex
-                ? 'background-color:#1185e4;'
+                ? 'background:linear-gradient(to right, #457fca, #48c6ef);'
                 : 'background-color:#fff'
             "
           >
@@ -42,7 +47,8 @@
       <div
         class="box-card"
         style="width: 13.5714rem; height: 1.2857rem"
-        v-for="item in meetingStore.agendaItems"
+        v-for="(item, index) in meetingStore.agendaItems"
+        :key="index"
       >
         <div class="item1">
           <div>
@@ -50,7 +56,13 @@
               `${item.startTime.slice(11, 16)}-${item.endTime.slice(11, 16)}`
             }}
           </div>
-          <div>{{ item.location }}</div>
+          <div class="location">
+            <svgIcon
+              name="location"
+              style="width: 0.1429rem; height: 0.1429rem"
+            ></svgIcon>
+            {{ item.location }}
+          </div>
         </div>
         <div class="item2">
           <span>{{ item.title }}</span>
@@ -60,7 +72,12 @@
             icon="Plus"
             type="primary"
             v-show="item.isSub == 0"
-            style="width: 1.4286rem; height: 0.4714rem; font-size: 0.2571rem"
+            style="
+              width: 1.4286rem;
+              height: 0.4714rem;
+              font-size: 0.2571rem;
+              background: linear-gradient(to right, #457fca, #48c6ef);
+            "
             @click="goSub(item.id)"
           >
             订阅
@@ -153,22 +170,50 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
+@import '/src/styles/mixin.scss';
 .divider {
+  overflow: hidden;
+  height: 1.875rem;
   display: flex;
-  width: 4rem;
-  align-items: center;
-  text-align: center;
-  color: #1185e4;
-  font-size: 0.4286rem;
+  justify-content: center;
+  align-items: end;
+  font-size: 0.5786rem;
   margin: 0.5714rem auto;
   font-weight: 700;
+  font-family: sybold;
+  position: relative;
+  .content {
+    position: absolute;
+    display: flex;
+    align-items: end;
+    height: 0.8125rem;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    .content2 {
+      @include linear-txt;
+      line-height: 0.875rem;
+    }
+  }
 
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    border-bottom: 0.0429rem solid #1185e4;
-    margin: 0 0.1429rem;
+  .head {
+    position: relative;
+    color: #457fca;
+    padding-bottom: 0.1125rem;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.125rem;
+      height: 0.125rem;
+      width: 0.75rem;
+      border-radius: 0.25rem;
+      background: linear-gradient(
+        to bottom right,
+        $theme-color-blue,
+        $theme-color-green
+      );
+    }
   }
 }
 
@@ -225,15 +270,15 @@ onMounted(async () => {
           height: 0;
           border-left: 0.2857rem solid transparent;
           border-right: 0.2857rem solid transparent;
-          border-top: 0.3571rem solid #1185e4; // Arrow color
+          border-top: 0.3571rem solid #457fca; // Arrow color
         }
       }
 
       .timeline-content {
         display: inline-block;
-        width: 1.7143rem;
+        width: 2.0893rem;
         padding: 0.0714rem 0.1429rem;
-        border-radius: 0.2143rem;
+        border-radius: 0.0643rem;
         box-shadow: 0 0.0286rem 0.0571rem rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
 
@@ -259,7 +304,10 @@ onMounted(async () => {
     box-shadow: 0rem 0.0429rem 0.0857rem rgba(0, 0, 0, 0.15);
     border-radius: 0.0714rem;
     margin: 0.1429rem auto 0.2857rem;
-
+    .location {
+      padding-left: 0.125rem;
+      display: flex;
+    }
     .item1 {
       flex: 3;
 

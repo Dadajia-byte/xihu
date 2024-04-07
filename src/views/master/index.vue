@@ -132,39 +132,55 @@ const left = ref()
 const right = ref()
 const cards = [
   {
-    url: 'https://img2023.gcsis.cn/2023/4/7c46ac80f91542b4a0f6ce2b593f3f19.png',
-    name: '1',
-    description: '中国信通院安全研究所车联网安全中心主任',
+    url: '/src/assets/images/master/1.png',
+    name: '左晓栋',
+    description:
+      '中国科学技术大学网络空间安全学院教授、科技人文高等研究院副院长',
   },
   {
-    url: 'https://img2023.gcsis.cn/2023/4/aa1635e18de24d88b86753e1ca39a05e.png',
-    name: '2',
-    description: '安恒信息副董事长',
+    url: '/src/assets/images/master/2.jpg',
+    name: '崔光耀',
+    description: '《中国信息安全》杂志原主编',
   },
   {
-    url: 'https://img2023.gcsis.cn/2023/4/1a80708d46f64e079919a2c93a6aa7c4.png',
-    name: '3',
-    description: '安恒信息副董事长',
+    url: '/src/assets/images/master/3.jpg',
+    name: '顾炳中',
+    description: '中国计算机用户协会理事长',
   },
   {
-    url: 'https://img2023.gcsis.cn/2023/4/3976ced942c44672b457895baa4e33e8.png',
-    name: '4',
-    description: '安恒信息副董事长',
+    url: '/src/assets/images/master/4.jpg',
+    name: '李新友',
+    description: '国家信息中心研究员',
   },
   {
-    url: 'https://picsum.photos/id/1033/50/60',
-    name: '5',
-    description: '安恒信息副董事长',
+    url: '/src/assets/images/master/5.jpg',
+    name: '曲胜',
+    description: '中国能源研究会能源网络安全技术研究中心常务副主任',
   },
   {
-    url: 'https://picsum.photos/id/1033/50/60',
-    name: '6',
-    description: '安恒信息副董事长',
+    url: '/src/assets/images/master/6.jpg',
+    name: '王秉政',
+    description: '全国信安标委成员',
   },
   {
-    url: 'https://picsum.photos/id/1033/50/60',
-    name: '7',
-    description: '安恒信息副董事长',
+    url: '/src/assets/images/master/7.jpg',
+    name: '许玉娜',
+    description: '中国网络安全产业联盟副秘书长',
+  },
+  {
+    url: '/src/assets/images/master/8.jpg',
+    name: '严明',
+    description: '国计算机学会计算机安全专委会荣誉主任',
+  },
+  {
+    url: '/src/assets/images/master/9.jpg',
+    name: '姚力',
+    description: 'CNCERT 博士',
+  },
+  {
+    url: '/src/assets/images/master/10.jpg',
+    name: '叶红',
+    description: '中国信息协会信息安全专业委员会主任',
   },
 ]
 const dateList = ref([
@@ -291,10 +307,11 @@ export default {
 
 .header {
   width: 100%;
-  height: 4.8rem;
+  height: 7.025rem;
   padding-left: 1.325rem;
-  padding-top: 1.75rem;
-  background-color: green;
+  padding-top: 2.375rem;
+  background: url('/src/assets/images/bg_images/guest.png') no-repeat
+    center/cover;
 
   .title {
     font-size: 0.525rem;
@@ -387,12 +404,13 @@ export default {
 
       .name {
         margin: 0.225rem 0;
-        font-size: 0.45rem;
+        font-size: 0.3125rem;
         text-align: center;
       }
 
       .description {
-        font-size: 0.3rem;
+        font-size: 0.2rem;
+        line-height: 0.25rem;
         color: #abaaaa;
       }
     }
@@ -473,16 +491,16 @@ export default {
     width: 22.7063rem;
 
     .guest-item {
-      width: 2.225rem;
+      width: 2.75rem;
       margin-top: 0.625rem;
-      margin-right: 1.5593rem;
+      margin-right: 1.0343rem;
 
       .img-wrapper {
         width: 2.225rem;
         height: 2.225rem;
         overflow: hidden;
         clip-path: circle();
-
+        margin: 0 auto;
         .img {
           width: 2.225rem;
           height: 2.225rem;

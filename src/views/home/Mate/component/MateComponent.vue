@@ -21,11 +21,9 @@
               v-for="(logo, index) in mateData.logoData"
               :key="index"
             >
-              <div
-                class="img"
-                :style="`background:url(${logo.logoUrl}) no-repeat center ;backgroundSize :cover;`"
-                alt=""
-              ></div>
+              <div class="img">
+                <img :src="`${logo.logoUrl}`" alt="" />
+              </div>
             </div>
           </div>
         </div>
@@ -84,6 +82,7 @@ onMounted(() => {
   height: 3.309rem;
   overflow: hidden;
   transition: height 0.3s ease;
+
   .title {
     width: 3.5812rem;
     display: flex;
@@ -114,9 +113,15 @@ onMounted(() => {
     align-items: center;
     height: 3.309rem;
     width: calc(100% / 5);
+
     .img {
-      height: 100%;
-      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-height: 80%;
+        max-width: 80%;
+      }
     }
   }
 }

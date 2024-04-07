@@ -149,6 +149,7 @@ export default {
   }
 
   .loginAbout {
+    margin-left: 2.5rem;
     display: flex;
     align-items: center;
   }
