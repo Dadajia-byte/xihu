@@ -2,8 +2,10 @@
 // 引入element-plus提供的全部图标组件
 import * as ElementPlusIcons from '@element-plus/icons-vue'
 import SvgIcon from './SvgIcon/index.vue'
+import TitleBg from './TitleBg/index.vue'
 const allGlobalComponents: any = {
   SvgIcon,
+  TitleBg,
 }
 
 // 对外暴露插件对象

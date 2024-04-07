@@ -80,11 +80,9 @@ onMounted(() => {
       }
 
       .in-l {
-        background: linear-gradient(
-          to right,
-          $theme-color-blue,
-          $theme-color-green
-        );
+        background: linear-gradient(to right,
+            $theme-color-blue,
+            $theme-color-green );
         color: white;
         position: relative;
         left: 10%;
