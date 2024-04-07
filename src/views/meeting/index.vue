@@ -307,7 +307,7 @@ onUnmounted(() => {
     align-content: center;
 
     .tip {
-      font-size: .3125rem;
+      font-size: 0.3125rem;
       font-weight: bold;
       line-height: 0.875rem;
       width: 1.875rem;
@@ -315,8 +315,8 @@ onUnmounted(() => {
     }
 
     .date {
-      font-size: .275rem;
-      line-height: .625rem;
+      font-size: 0.275rem;
+      line-height: 0.625rem;
       margin: 0.125rem 0;
       margin-right: 0.675rem;
       width: 2.25rem;
@@ -480,7 +480,7 @@ onUnmounted(() => {
 
         .title {
           margin-top: 0.15rem;
-          font-size: .3125rem;
+          font-size: 0.3125rem;
           font-weight: bold;
           line-height: 0.4375rem;
         }

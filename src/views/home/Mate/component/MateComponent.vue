@@ -1,20 +1,38 @@
 <template>
-  <div class="mate-container wow" :class="animateClass(index)" data-wow-duration="1s" data-wow-delay="0.7s"
-    v-for="(mateData, index) in mateDatas" :key="index">
+  <div
+    class="mate-container wow"
+    :class="animateClass(index)"
+    data-wow-duration="1s"
+    data-wow-delay="0.7s"
+    v-for="(mateData, index) in mateDatas"
+    :key="index"
+  >
     <el-card :body-style="{ padding: '0px' }">
-      <div class="content-wrapper" ref="matewrapper" :style="{ height: expandedIndex === index ? '100%' : '3.309rem' }">
+      <div
+        class="content-wrapper"
+        ref="matewrapper"
+        :style="{ height: expandedIndex === index ? '100%' : '3.309rem' }"
+      >
         <div class="title">{{ mateData.title }}</div>
         <div class="logo-wrapper">
           <div class="logo-container">
-            <div class="logo" v-for="(logo, index) in mateData.logoData" :key="index">
+            <div
+              class="logo"
+              v-for="(logo, index) in mateData.logoData"
+              :key="index"
+            >
               <div class="img">
-                <img :src="`${logo.logoUrl}`" alt="">
+                <img :src="`${logo.logoUrl}`" alt="" />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="fold" @click="handleFold(index)" v-show="mateData.logoData.length > 5">
+      <div
+        class="fold"
+        @click="handleFold(index)"
+        v-show="mateData.logoData.length > 5"
+      >
         {{ expandedIndex === index ? '点击收起' : '查看更多' }}
         <el-icon v-show="expandedIndex === index ? false : true">
           <ArrowDown />
@@ -97,14 +115,13 @@ onMounted(() => {
     width: calc(100% / 5);
 
     .img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img{
-      max-height: 80%;
-      max-width: 80%;
-    }  
-    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-height: 80%;
+        max-width: 80%;
+      }
     }
   }
 }

@@ -31,8 +31,8 @@ defineProps(['data'])
   background-size: 4rem 2.25rem;
   display: flex;
   flex-direction: column;
-  margin-top: 0.1875rem;
-  margin-left: 0.3125rem;
+  margin-top: .1875rem;
+  margin-left: .3125rem;
   width: 4rem;
   height: 2.25rem;
   transition: transform 0.3s;
@@ -41,9 +41,9 @@ defineProps(['data'])
   transform: scale(1.1); /* 鼠标悬浮时放大1.1倍 */
 }
 .name {
-  margin-top: 0.125rem;
-  margin-left: 0.125rem;
-  font-size: 0.1625rem;
+  margin-top: .125rem;
+  margin-left: .125rem;
+  font-size: .1625rem;
   color: white;
 }
 .time-location-box {
@@ -52,45 +52,45 @@ defineProps(['data'])
 }
 .time {
   margin-top: 1.6625rem;
-  margin-left: 0.025rem;
-  font-size: 0.1375rem;
+  margin-left: .025rem;
+  font-size: .1375rem;
   color: white;
 }
 .clock {
-  font-size: 0.2rem;
+  font-size: .2rem;
   margin-top: 1.625rem;
-  margin-left: 0.125rem;
+  margin-left: .125rem;
   color: white;
 }
 .location {
-  font-size: 0.2rem;
+  font-size: .2rem;
   margin-top: -0.2125rem;
   margin-left: 2.0625rem;
   color: white;
 }
 .place {
   margin-top: -0.1625rem;
-  margin-left: 0.025rem;
-  font-size: 0.1375rem;
+  margin-left: .025rem;
+  font-size: .1375rem;
   color: white;
 }
 .location-box {
   display: flex;
   justify-content: flex-end;
-  margin-right: 0.1875rem;
+  margin-right: .1875rem;
 }
 .type {
-  font-size: 0.1375rem;
+  font-size: .1375rem;
   background-color: #1185e4;
   width: auto;
-  padding: 0.05rem 0.075rem 0.0375rem 0.075rem;
+  padding: .05rem .075rem .0375rem .075rem;
   color: white;
-  border-radius: 0.375rem;
+  border-radius: .375rem;
 }
 .type-box {
   display: flex;
   justify-content: flex-end;
-  margin-top: -0.4375rem;
-  margin-right: 0.1625rem;
+  margin-top: -0.5625rem;
+  margin-right: .1625rem;
 }
 </style>

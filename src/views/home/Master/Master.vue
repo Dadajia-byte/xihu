@@ -4,9 +4,9 @@
     data-wow-duration="1.5s"
     data-wow-delay="0.1s"
   >
-  <span class="divider wow fadeInUp">
+    <span class="divider wow fadeInUp">
       <div class="content">
-        <span style="font-size:  .8125rem; " class="head">E</span>
+        <span style="font-size: 0.8125rem" class="head">E</span>
         <div class="content2">xpert 大咖云集</div>
       </div>
     </span>
@@ -97,7 +97,8 @@ const cards = [
   {
     url: '/src/assets/images/guest_images/guest7.png',
     name: '左晓栋',
-    description: '中国科学技术大学网络空间安全学院教授、科技人文高等研究院副院长',
+    description:
+      '中国科学技术大学网络空间安全学院教授、科技人文高等研究院副院长',
   },
 ]
 
@@ -228,7 +229,7 @@ const handleLeftClick = () => {
 
       .description {
         font-size: 0.249rem; // 24 * 0.83
-        line-height: .3125rem;
+        line-height: 0.3125rem;
         color: #abaaaa;
       }
     }
@@ -261,41 +262,43 @@ const handleLeftClick = () => {
   display: flex;
   justify-content: center;
   align-items: end;
-  font-size: .5786rem;
-  margin: .5714rem auto;
+  font-size: 0.5786rem;
+  margin: 0.5714rem auto;
   font-weight: 700;
   font-family: sybold;
   position: relative;
   .content {
     position: absolute;
-    display:flex;
+    display: flex;
     align-items: end;
-    height: .8125rem;
+    height: 0.8125rem;
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
-    .content2{
+    .content2 {
       @include linear-txt;
-      line-height: .875rem;
-
+      line-height: 0.875rem;
     }
   }
 
   .head {
     position: relative;
-    color:#457fca;
-    padding-bottom: .1125rem;
+    color: #457fca;
+    padding-bottom: 0.1125rem;
     &::before {
       content: '';
       position: absolute;
       left: 0;
       bottom: -0.125rem;
-      height: .125rem;
-      width: .75rem;
-      border-radius: .25rem;
-      background: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
+      height: 0.125rem;
+      width: 0.75rem;
+      border-radius: 0.25rem;
+      background: linear-gradient(
+        to bottom right,
+        $theme-color-blue,
+        $theme-color-green
+      );
     }
   }
-
 }
 </style>

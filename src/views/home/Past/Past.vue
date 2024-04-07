@@ -2,26 +2,55 @@
   <div>
     <span class="divider wow fadeInUp">
       <div class="content">
-        <span style="font-size:  .8125rem; " class="head">P</span>
-        <div class="content2">ast Agendas 过去大会</div>
+        <span style="font-size: 0.8125rem" class="head">W</span>
+        <div class="content2">onderful Moment 精彩瞬间</div>
       </div>
     </span>
     <div class="past">
       <div class="past_container">
         <div class="part1 wow fadeInUp">
-          <div class="img1" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda6.jpg) ;"></div>
-          <div class="img2" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda3.jpg) ;"></div>
+          <div
+            class="img1"
+            style="
+              background-image: url(/src/assets/images/pastagenda_images/pastagenda6.jpg);
+            "
+          ></div>
+          <div
+            class="img2"
+            style="
+              background-image: url(/src/assets/images/pastagenda_images/pastagenda3.jpg);
+            "
+          ></div>
         </div>
         <div class="part2 wow fadeInUp">
-          <div class="img3" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda2.jpg)"></div>
+          <div
+            class="img3"
+            style="
+              background-image: url(/src/assets/images/pastagenda_images/pastagenda2.jpg);
+            "
+          ></div>
         </div>
         <div class="part1 wow fadeInUp">
-          <div class="img1" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda1.jpeg) ;">
-          </div>
-          <div class="img2" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda4.jpg) ;"></div>
+          <div
+            class="img1"
+            style="
+              background-image: url(/src/assets/images/pastagenda_images/pastagenda1.jpeg);
+            "
+          ></div>
+          <div
+            class="img2"
+            style="
+              background-image: url(/src/assets/images/pastagenda_images/pastagenda4.jpg);
+            "
+          ></div>
         </div>
         <div class="part2 wow fadeInUp">
-          <div class="img3" style="background-image: url(/src/assets/images/pastagenda_images/pastagenda5.jpg) ;"></div>
+          <div
+            class="img3"
+            style="
+              background-image: url(/src/assets/images/pastagenda_images/pastagenda5.jpg);
+            "
+          ></div>
         </div>
       </div>
     </div>
@@ -61,12 +90,12 @@ onMounted(() => {
   display: flex;
 
   .part1 {
-    margin-right: .1875rem;
+    margin-right: 0.1875rem;
     width: 5.6875rem;
 
     .img1 {
       height: 3.725rem;
-      margin-bottom: .1875rem;
+      margin-bottom: 0.1875rem;
       background-color: #1185e4;
     }
 
@@ -77,7 +106,7 @@ onMounted(() => {
   }
 
   .part2 {
-    margin-right: .1875rem;
+    margin-right: 0.1875rem;
     width: 11.8688rem;
     height: 7.6375rem;
 
@@ -131,41 +160,43 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: end;
-  font-size: .5786rem;
-  margin: .5714rem auto;
+  font-size: 0.5786rem;
+  margin: 0.5714rem auto;
   font-weight: 700;
   font-family: sybold;
   position: relative;
   .content {
     position: absolute;
-    display:flex;
+    display: flex;
     align-items: end;
-    height: .8125rem;
+    height: 0.8125rem;
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
-    .content2{
+    .content2 {
       @include linear-txt;
-      line-height: .875rem;
-
+      line-height: 0.875rem;
     }
   }
 
   .head {
     position: relative;
-    color:#457fca;
-    padding-bottom: .1125rem;
+    color: #457fca;
+    padding-bottom: 0.1125rem;
     &::before {
       content: '';
       position: absolute;
       left: 0;
       bottom: -0.125rem;
-      height: .125rem;
-      width: .75rem;
-      border-radius: .25rem;
-      background: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
+      height: 0.125rem;
+      width: 0.75rem;
+      border-radius: 0.25rem;
+      background: linear-gradient(
+        to bottom right,
+        $theme-color-blue,
+        $theme-color-green
+      );
     }
   }
-
 }
 </style>

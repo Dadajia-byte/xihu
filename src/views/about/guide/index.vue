@@ -361,14 +361,19 @@ body {
   width: 100%;
   overflow: hidden;
   height: 7.5rem;
-  background: url('/src/assets/images/bg_images/guide.png') no-repeat center/cover; 
+  background: url('/src/assets/images/bg_images/guide.png') no-repeat
+  
+    center/cover;
   .title {
+    color: #fff;
     font-size: 0.625rem;
     margin-top: 2.75rem;
     font-weight: 600;
     margin-left: 2.25rem;
   }
   .en {
+    color: #fff;
+
     font-weight: 300;
     font-size: 0.4rem;
     margin-top: 0.25rem;

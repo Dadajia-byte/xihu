@@ -14,7 +14,7 @@
       :show-close="false"
       style="
         height: 7.5rem;
-        border-radius: .0625rem;
+        border-radius: 0.0625rem;
         opacity: 0.95;
         box-shadow: 0rem 0.1143rem 0.3429rem #000000;
         position: relative;
@@ -243,7 +243,7 @@
               ref="registerForm"
               style="height: 2.5714rem"
             >
-            <div v-if="activeStep === 0" class="Step3">
+              <div v-if="activeStep === 0" class="Step3">
                 <el-form-item
                   label="手机号"
                   prop="phone"
@@ -292,7 +292,7 @@
                   </el-input>
                 </el-form-item>
               </div>
-              
+
               <div
                 v-if="activeStep === 1"
                 class="Step2"
@@ -388,7 +388,6 @@
                       justify-content: center;
                       align-items: center;
                       height: 2.019rem;
-
                     "
                   >
                     <el-form-item
@@ -430,17 +429,17 @@
                 <el-button
                   :disabled="activeStep === 0"
                   @click="prev"
-                  type="success"
+                  type="primary"
                   text
                 >
                   上一步
                 </el-button>
-                <el-button type="success" @click="next" v-if="activeStep !== 2">
+                <el-button type="primary" @click="next" v-if="activeStep !== 2">
                   下一步
                 </el-button>
                 <el-button
                   v-if="activeStep === 2"
-                  type="success"
+                  type="primary"
                   @click="register"
                 >
                   确认注册
@@ -770,7 +769,7 @@ const closeLogin = () => {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .layout {
   background-color: #fafafa;
   position: relative;
@@ -916,7 +915,7 @@ const closeLogin = () => {
     background-color: rgba(69, 127, 202, 0.21);
   }
   .login_container {
-    padding: .875rem 0 1.25rem .3125rem ;
+    padding: 0.875rem 0 1.25rem 0.3125rem;
     background-color: #fff;
     width: 5.8rem;
   }
@@ -932,7 +931,7 @@ const closeLogin = () => {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      bottom: .625rem;
+      bottom: 0.625rem;
       cursor: pointer;
       transition: all 0.5s ease-in-out;
       &:hover {
@@ -940,7 +939,6 @@ const closeLogin = () => {
         text-decoration: underline;
       }
     }
-    
   }
   .register-bg-show {
     background-image: url('@/assets/images/bg_images/register_bg.png');
@@ -948,7 +946,6 @@ const closeLogin = () => {
   .el-dialog__body {
     position: relative;
   }
-  
 }
 
 .register_container {
@@ -957,7 +954,7 @@ const closeLogin = () => {
   align-content: center;
   width: 5.8rem;
   height: 8.125rem;
-  padding-top: .625rem;
+  padding-top: 0.625rem;
   background-color: #fff;
   .register-header {
     display: flex;
@@ -1008,6 +1005,19 @@ div[class^='Step'] {
 
   width: 2.5714rem;
 }
+::v-deep .el-step__head.is-success {
+  color: rgb(52, 158, 250);
+  border-color: rgb(52, 158, 250);
+}
+::v-deep .el-step__title.is-success {
+    font-weight: bold;
+    color: rgb(52, 158, 250);
+}
+::v-deep .el-step__description.is-success {
+    color: rgb(52, 158, 250);
+}
+
+  
 </style>
 <style>
 .avatar-uploader .el-upload {
@@ -1039,4 +1049,10 @@ div[class^='Step'] {
   font-size: 0.1714rem;
   vertical-align: bottom;
 }
+/* // 修改element-ui的el-step样式 */
+
+
+
+
+
 </style>

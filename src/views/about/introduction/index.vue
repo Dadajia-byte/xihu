@@ -86,7 +86,8 @@ export default {
 .header {
   color: #fff;
   height: 7.025rem;
-  background: url('/src/assets/images/bg_images/meetingabout.png') no-repeat center/cover; 
+  background: url('/src/assets/images/bg_images/meetingabout.png') no-repeat
+    center/cover;
   .title {
     font-size: 0.525rem;
     font-weight: bold;

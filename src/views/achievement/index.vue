@@ -230,7 +230,7 @@ onMounted(() => {
     width: 100%;
     height: 8rem;
     background-size: cover;
-    background-image: url(https://www.gcsis.cn/uploadfile/547ca0d0c56746a5925e36c09b6fc872.jpg);
+    background-image: url('/src/assets/images/bg_images/result.jpg');
     padding: 3%;
 
     h1 {

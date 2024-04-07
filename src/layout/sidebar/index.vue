@@ -1,18 +1,17 @@
 <template>
   <div class="container">
     <div class="poster" @click="poster">
-      <svgIcon name="share" style="width: .45rem; height: .45rem;"></svgIcon>
+      <svgIcon name="share" style="width: 0.45rem; height: 0.45rem"></svgIcon>
       <div class="content">海报分享</div>
     </div>
 
     <div class="clockIn" @click="clockIn">
-      <el-icon size=".35rem" color="#0b81f0">
-        <Camera />
-      </el-icon>
+      <svgIcon name="shot" style="width: 0.45rem; height: 0.45rem"></svgIcon>
+
       <div class="content">打卡分享</div>
     </div>
     <div class="communication" @click="AiReport">
-      <svgIcon name="ai2" style="width: .45rem; height: .45rem;"></svgIcon>
+      <svgIcon name="ai2" style="width: 0.45rem; height: 0.45rem"></svgIcon>
 
       <div class="content">AI体验</div>
     </div>
@@ -23,7 +22,7 @@
     </div>
     <transition name="fade">
       <div class="backTop" @click="backTop" ref="bt" v-if="isShow">
-        <svgIcon name="toTop" style="width: 0.35rem; height: .35rem;"></svgIcon>
+        <svgIcon name="toTop" style="width: 0.35rem; height: 0.35rem"></svgIcon>
       </div>
     </transition>
   </div>
@@ -75,13 +74,11 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-
 .container {
   display: flex;
   flex-direction: column;
   cursor: pointer;
   transition: all 0.5s;
-
 
   .clockIn,
   .backTop,
@@ -92,13 +89,13 @@ onMounted(() => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: .875rem;
-    height: .875rem;
+    width: 0.875rem;
+    height: 0.875rem;
     background-color: white;
     border-radius: 50%;
-    box-shadow: .0625rem .0625rem .0625rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0.0625rem 0.0625rem 0.0625rem rgba(0, 0, 0, 0.1);
     transition: all 0.2s;
-    margin: .1rem;
+    margin: 0.1rem;
 
     &:hover {
       background-color: #f2f6fc;
@@ -114,8 +111,8 @@ onMounted(() => {
 
     .trangle {
       background-color: #409eff;
-      width: .4375rem;
-      height: .3125rem;
+      width: 0.4375rem;
+      height: 0.3125rem;
       clip-path: polygon(50% 0, 100% 100%, 0 100%);
     }
   }
@@ -123,12 +120,10 @@ onMounted(() => {
   .clockIn,
   .communication,
   .poster {
-
     div {
-      padding-top: .05rem;
-      font-size: .15rem;
+      padding-top: 0.05rem;
+      font-size: 0.15rem;
       @include linear-txt;
-
     }
   }
 

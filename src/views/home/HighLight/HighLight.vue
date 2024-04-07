@@ -2,14 +2,17 @@
   <div>
     <span class="divider wow fadeInUp">
       <div class="content">
-        <span style="font-size:  .8125rem; " class="head">H</span>
+        <span style="font-size: 0.8125rem" class="head">H</span>
         <div class="content2">igh Lights 大会亮点</div>
       </div>
     </span>
-    
 
-    <div class="highlight-contanier wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-      <el-row justify="space-around" style="margin-top: .1429rem">
+    <div
+      class="highlight-contanier wow fadeInUp"
+      data-wow-duration="1s"
+      data-wow-delay="0.1s"
+    >
+      <el-row justify="space-around" style="margin-top: 0.1429rem">
         <el-col :span="4">
           <ul>
             <li class="li1">
@@ -57,20 +60,36 @@
         </el-col>
       </el-row>
     </div>
-    <div class="characteristic-container wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+    <div
+      class="characteristic-container wow fadeInUp"
+      data-wow-duration="1s"
+      data-wow-delay="0.1s"
+    >
       <div class="character-wrapper">
         <ul>
           <li v-for="(item, index) in characterList" :key="index">
-            <div class="bg" :style="{
-          backgroundImage: 'url(' + item.imgUrl + ')',
-          opacity: item.opacity,
-        }"></div>
+            <div
+              class="bg"
+              :style="{
+                backgroundImage: 'url(' + item.imgUrl + ')',
+                opacity: item.opacity,
+              }"
+            ></div>
           </li>
         </ul>
-        <div class="character" v-for="(item, index) in characterList" :key="index" @click="setCharacterActive(index)"
-          :class="activeIndex === index ? 'active' : ''">
+        <div
+          class="character"
+          v-for="(item, index) in characterList"
+          :key="index"
+          @click="setCharacterActive(index)"
+          :class="activeIndex === index ? 'active' : ''"
+        >
           <div class="icon">
-            <svgIcon :name="item.icon" color="#ffffff" style="width: .9375rem; height: .9375rem"></svgIcon>
+            <svgIcon
+              :name="item.icon"
+              color="#ffffff"
+              style="width: 0.9375rem; height: 0.9375rem"
+            ></svgIcon>
           </div>
           <div class="desc">
             <div class="title">{{ item.title }}</div>
@@ -166,26 +185,26 @@ onMounted(() => {
 @import '@/styles/mixin';
 
 .highlight-contanier {
-  margin-bottom: .85rem;
+  margin-bottom: 0.85rem;
 
   .el-col {
     text-align: center;
 
     .li1 {
-      font-size: .3571rem;
+      font-size: 0.3571rem;
       font-weight: 400;
       @include linear-txt;
     }
 
     .number {
       display: inline-block;
-      font-size: .875rem;
+      font-size: 0.875rem;
     }
   }
 
   .li2 {
-    font-size: .2286rem;
-    line-height: .4286rem;
+    font-size: 0.2286rem;
+    line-height: 0.4286rem;
     color: black;
   }
 }
@@ -193,10 +212,10 @@ onMounted(() => {
 .characteristic-container {
   width: 100%;
   height: 8.4375rem;
-  margin-bottom: .375rem;
+  margin-bottom: 0.375rem;
   position: relative;
   background-color: #ffffff;
-  box-shadow: 0px 0px .125rem 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0.125rem 0px rgba(0, 0, 0, 0.1);
 
   .bg1 {
     position: absolute;
@@ -204,9 +223,10 @@ onMounted(() => {
     height: 1.625rem;
     width: 1.625rem;
     z-index: 5;
-    top: .25rem;
+    top: 0.25rem;
     right: -2.375rem;
-    background: url('/src/assets/images/bg_images/highlight_bg1.png') no-repeat center/contain;
+    background: url('/src/assets/images/bg_images/highlight_bg1.png') no-repeat
+      center/contain;
     animation: rotate 10s linear infinite;
     -webkit-animation: rotate 10s linear infinite;
 
@@ -215,13 +235,10 @@ onMounted(() => {
         transform: rotate(0);
       }
 
-
-
       100% {
         transform: rotate(360deg);
       }
     }
-
   }
 
   .bg2 {
@@ -232,7 +249,8 @@ onMounted(() => {
     top: 2.5rem;
     right: -5rem;
     transform: rotate(90deg);
-    background: url('/src/assets/images/bg_images/highlight_bg2.png') no-repeat center/contain;
+    background: url('/src/assets/images/bg_images/highlight_bg2.png') no-repeat
+      center/contain;
     animation: rotate 10s linear infinite;
     -webkit-animation: rotate 10s linear infinite;
 
@@ -240,8 +258,6 @@ onMounted(() => {
       0% {
         transform: rotate(0);
       }
-
-
 
       100% {
         transform: rotate(360deg);
@@ -259,7 +275,6 @@ onMounted(() => {
     width: 7.475rem;
     height: 7.8125rem;
     z-index: 1;
-
 
     .bg {
       position: absolute;
@@ -280,13 +295,13 @@ onMounted(() => {
       width: 7.475rem;
 
       height: 1.6906rem;
-      padding: .125rem .25rem .125rem .0625rem;
+      padding: 0.125rem 0.25rem 0.125rem 0.0625rem;
       display: flex;
       transition: all 0.3s ease-in-out;
 
       .icon {
         display: flex;
-        padding-top: .0625rem;
+        padding-top: 0.0625rem;
         justify-content: center;
         align-items: center;
         flex: 2;
@@ -301,14 +316,14 @@ onMounted(() => {
 
         .title {
           font-weight: 600;
-          font-size: .375rem;
-          line-height: .675rem;
-          margin-bottom: .0625rem;
+          font-size: 0.375rem;
+          line-height: 0.675rem;
+          margin-bottom: 0.0625rem;
         }
 
         .content {
-          font-size: .175rem;
-          line-height: .25rem;
+          font-size: 0.175rem;
+          line-height: 0.25rem;
         }
       }
     }
@@ -327,41 +342,43 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: end;
-  font-size: .5786rem;
-  margin: .5714rem auto;
+  font-size: 0.5786rem;
+  margin: 0.5714rem auto;
   font-weight: 700;
   font-family: sybold;
   position: relative;
   .content {
     position: absolute;
-    display:flex;
+    display: flex;
     align-items: end;
-    height: .8125rem;
+    height: 0.8125rem;
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
-    .content2{
+    .content2 {
       @include linear-txt;
-      line-height: .875rem;
-
+      line-height: 0.875rem;
     }
   }
 
   .head {
     position: relative;
-    color:#457fca;
-    padding-bottom: .1125rem;
+    color: #457fca;
+    padding-bottom: 0.1125rem;
     &::before {
       content: '';
       position: absolute;
       left: 0;
       bottom: -0.125rem;
-      height: .125rem;
-      width: .75rem;
-      border-radius: .25rem;
-      background: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
+      height: 0.125rem;
+      width: 0.75rem;
+      border-radius: 0.25rem;
+      background: linear-gradient(
+        to bottom right,
+        $theme-color-blue,
+        $theme-color-green
+      );
     }
   }
-
 }
 </style>

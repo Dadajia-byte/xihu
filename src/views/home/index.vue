@@ -1,18 +1,24 @@
 <template>
-  <div>
+  <div class="home">
     <!-- 轮播图 -->
     <div style="height: 12.7357rem">
       <el-carousel :interval="5000" arrow="never" style="height: 12.7357rem">
         <el-carousel-item style="height: 12.7357rem">
           <!-- <img src="/src/assets/images/bg_images/home1.png" alt="" /> -->
-          <div style="background: url('/src/assets/images/bg_images/home1.png') no-repeat center/cover;height: 100%; width: 100%;"></div>
+          <div
+            style="
+              background: url('/src/assets/images/bg_images/home1.png')
+                no-repeat center/cover;
+              height: 100%;
+              width: 100%;
+            "
+          ></div>
         </el-carousel-item>
-
       </el-carousel>
       <!-- <el-card class="box-card">
         <el-card class="container-card">
           <el-row>
-            <el-col :span="3" style="height: 0.8571rem">
+            <el-col :span="3" style="height: .8571rem">
               <ul class="highlight">
                 <li>大会亮点</li>
                 <li>HIGHLIGHTS</li>
@@ -20,12 +26,12 @@
             </el-col>
             <el-col
               :span="21"
-              style="position: relative; top: -0.2857rem; left: 0.2857rem"
+              style="position: relative; top: -0.2857rem; left: .2857rem"
             >
               <div class="highlight-bar"></div>
             </el-col>
           </el-row>
-          <el-row justify="space-around" style="margin-top: 0.1429rem">
+          <el-row justify="space-around" style="margin-top: .1429rem">
             <el-col :span="4">
               <ul>
                 <li class="li1">{{ num1 }}+</li>
@@ -109,6 +115,7 @@ const initWOW = () => {
 </script>
 
 <style lang="scss" scoped>
+
 .el-carousel__item:nth-child(2n) {
   background-color: #99a9bf;
 }
@@ -125,8 +132,8 @@ const initWOW = () => {
   transform: translateX(-50%);
   top: -3.1429rem;
   background-color: rgba($color: #ffffff, $alpha: 0.3);
-  border-radius: 0.1429rem;
-  box-shadow: 0 0.0429rem 0.0857rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: .1429rem;
+  box-shadow: 0 .0429rem .0857rem 0 rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,24 +142,24 @@ const initWOW = () => {
 .container-card {
   width: 14.5286rem;
   height: 2.4286rem;
-  border-radius: 0.1857rem;
-  font-size: 0.2rem;
+  border-radius: .1857rem;
+  font-size: .2rem;
 
   .highlight {
     text-align: left;
-    border-left: 0.0286rem solid #1185e4;
+    border-left: .0286rem solid #1185e4;
 
     li {
-      margin: 0.0714rem 0.1429rem;
+      margin: .0714rem .1429rem;
 
       &:nth-child(1) {
-        font-size: 0.2571rem;
+        font-size: .2571rem;
         font-weight: 700;
         color: black;
       }
 
       &:nth-child(2) {
-        font-size: 0.2429rem;
+        font-size: .2429rem;
         color: #1185e4;
         font-style: italic;
         font-weight: 350;
@@ -163,19 +170,19 @@ const initWOW = () => {
   .highlight-bar {
     position: relative;
     width: 100%; // 使容器宽度充满父元素
-    height: 0.5714rem; // 容器高度
+    height: .5714rem; // 容器高度
     background-color: #1185e4;
 
     // 使用伪元素创建三角形
     &::before {
       content: '';
       position: absolute;
-      left: 0.0143rem;
+      left: .0143rem;
       top: 0;
       width: 0;
       height: 0;
-      border-top: 0.5714rem solid #1185e4; // 三角形高度和颜色
-      border-left: 0.3571rem solid transparent; // 三角形宽度
+      border-top: .5714rem solid #1185e4; // 三角形高度和颜色
+      border-left: .3571rem solid transparent; // 三角形宽度
       transform: translateX(-100%); // 将三角形完全移动到容器的左边界
     }
   }
@@ -184,7 +191,7 @@ const initWOW = () => {
     text-align: center;
 
     .li1 {
-      font-size: 0.3571rem;
+      font-size: .3571rem;
       font-weight: 700;
     }
 
@@ -220,8 +227,8 @@ const initWOW = () => {
   }
 
   .li2 {
-    font-size: 0.2286rem;
-    line-height: 0.4286rem;
+    font-size: .2286rem;
+    line-height: .4286rem;
     color: black;
   }
 }

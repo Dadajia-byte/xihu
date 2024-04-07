@@ -1,37 +1,54 @@
 <template>
-  <div>
-    <span class="divider">
-      <div class="content"><span style="font-size:  .8125rem;" class="head">C</span>ooperative Partner 合作伙伴</div>
+  <div class="mate">
+    <span class="divider wow fadeInUp">
+      <div class="content">
+        <span style="font-size: 0.8125rem" class="head">C</span>
+        <div class="content2">ooperative Mate 合作伙伴</div>
+      </div>
     </span>
     <div class="mate-container">
-
       <div class="type">
-        <div class="type-item" v-for="(item, index) in mateDatas" :key="index" @click="setActive(index)" :class="activeIndex === index ? 'active':''">{{ item.title }}</div>
+        <div
+          class="type-item"
+          v-for="(item, index) in mateDatas"
+          :key="index"
+          @click="setActive(index)"
+          :class="activeIndex === index ? 'active' : ''"
+        >
+          {{ item.title }}
+        </div>
       </div>
       <div class="logo-container">
         <transition name="fade" mode="out-in">
-        <div class="swiper-container" :key="activeIndex">
-          <swiper :modules="modules"  :slides-per-view="5" :autoplay="{ delay: 2000, disableOnInteraction: false }" effect="fade" :fadeEffect="{ crossFade: true }">
-          <swiper-slide v-for="(logo,index) in mateDatas[activeIndex].logoData" :key="index" style="">
-            <div class="img">
-                <img :src="`${logo.logoUrl}`" alt="">
-              </div>
-          </swiper-slide>
-          
-        </swiper>
-        </div>
-      </transition>
+          <div class="swiper-container" :key="activeIndex">
+            <swiper
+              :modules="modules"
+              :slides-per-view="5"
+              :autoplay="{ delay: 2000, disableOnInteraction: false }"
+              effect="fade"
+              :fadeEffect="{ crossFade: true }"
+            >
+              <swiper-slide
+                v-for="(logo, index) in mateDatas[activeIndex].logoData"
+                :key="index"
+                style=""
+              >
+                <div class="img">
+                  <img :src="`${logo.logoUrl}`" alt="" />
+                </div>
+              </swiper-slide>
+            </swiper>
+          </div>
+        </transition>
       </div>
     </div>
-
-
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref,onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay, Pagination} from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import WOW from 'wow.js'
 import 'swiper/scss/pagination'
 
@@ -57,8 +74,7 @@ const mateDatas = ref([
     title: '战略合作媒体',
     logoData: [
       {
-        logoUrl:
-          '/src/assets/images/mate_images/xinhua.png',
+        logoUrl: '/src/assets/images/mate_images/xinhua.png',
         companyUrl: '',
       },
     ],
@@ -142,93 +158,75 @@ const mateDatas = ref([
     title: '生态合作媒体',
     logoData: [
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/anbotong.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/anbotong.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/anheng.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/anheng.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/baode.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/baode.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/cosic.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/cosic.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/huizhi.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/huizhi.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/leyan.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/leyan.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/lianruan.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/lianruan.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/lihua.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/lihua.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/qiyang.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/qiyang.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/seagate.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/seagate.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/shangyuan.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/shangyuan.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/suma.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/suma.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/wahaha.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/wahaha.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/wangsu.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/wangsu.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/wuzhou.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/wuzhou.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/xiaodao.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/xiaodao.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/xinhan.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/xinhan.png',
         companyUrl: '',
       },
       {
-        logoUrl:
-          '/src/assets/images/mate_images/ecology/zhonger.png',
+        logoUrl: '/src/assets/images/mate_images/ecology/zhonger.png',
         companyUrl: '',
       },
     ],
@@ -237,89 +235,105 @@ const mateDatas = ref([
 </script>
 
 <style scoped lang="scss">
+.mate{
+  position: relative;
+}
 .divider {
+  overflow: hidden;
   height: 1.875rem;
   display: flex;
   justify-content: center;
   align-items: end;
-  color: #1185e4;
-  font-size: .5786rem;
-  margin: .5714rem auto;
+  font-size: 0.5786rem;
+  margin: 0.5714rem auto;
   font-weight: 700;
   font-family: sybold;
   position: relative;
-
   .content {
     position: absolute;
+    display: flex;
+    align-items: end;
+    height: 0.8125rem;
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
+    .content2 {
+      @include linear-txt;
+      line-height: 0.875rem;
+    }
   }
 
   .head {
     position: relative;
-
+    color: #457fca;
+    padding-bottom: 0.1125rem;
     &::before {
       content: '';
       position: absolute;
       left: 0;
       bottom: -0.125rem;
-      height: .125rem;
-      width: .75rem;
-      border-radius: .25rem;
-      background: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
+      height: 0.125rem;
+      width: 0.75rem;
+      border-radius: 0.25rem;
+      background: linear-gradient(
+        to bottom right,
+        $theme-color-blue,
+        $theme-color-green
+      );
     }
   }
-
 }
 //transition
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s ease-in-out;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 .mate-container {
+  width: 100%;
   height: 3.75rem;
   background-color: #fff;
   margin: 0 auto;
-  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: .0125rem .0125rem .125rem .0125rem rgba(0, 0, 0, 0.05);
   display: flex;
-  padding: .25rem;
-
   .type {
-    font-size: .25rem;
+    color: #fff;
+    background: url('/src/assets/images/bg_images/homemateBG.png') no-repeat center/cover;
+    font-size: .3125rem;
     width: 3.5812rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    .active{
-      font-size: .3125rem;
+    .active {
+      font-size: .375rem;
     }
-    .type-item{
+    .type-item {
       cursor: pointer;
-      transition: font-size .3s ease-in-out;
-
+      transition: font-size 0.3s ease-in-out;
     }
   }
 
   .logo-container {
+    padding: .25rem 0;
     width: 17.1rem;
-
-
     .img {
       height: 3.25rem;
+      // box-shadow: .0125rem .0125rem .125rem .0125rem rgba(0, 0, 0, 0.05);
 
-    width: 3.42rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img{
-      max-height: 80%;
-      max-width: 80%;
-    } 
+      width: 3.42rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      img {
+        max-height: 80%;
+        max-width: 80%;
+      }
+    }
   }
-}
 }
 </style>
