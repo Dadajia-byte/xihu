@@ -185,8 +185,6 @@
 <script setup lang="ts">
 import commentList from './data/index'
 import { ref, computed, onMounted } from 'vue'
-import commentList from './data/index'
-import { ref, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import useUserStore from '@/store/modules/user'
 import judgeLog from '@/utils/judgeLog'
@@ -309,8 +307,6 @@ const sendComment = () => {
 
       inputReply.value = ''
     }
-      inputReply.value = ''
-    }
   }
 }
 // 按钮相关
@@ -318,11 +314,8 @@ const showReplyBtn = () => {
   btnShow.value = true
 }
 
-
 // 回复主评论
 const replyMainComment = (index: number) => {
-  comment.value.comments.forEach((item: any) => (item.inputShow = false))
-  comment.value.comments[index].inputShow = true
   comment.value.comments.forEach((item: any) => (item.inputShow = false))
   comment.value.comments[index].inputShow = true
   tempbranch.value = -1
@@ -330,9 +323,7 @@ const replyMainComment = (index: number) => {
 // 回复次评论
 const replyCommentShow = (index: number) => {
   return comment.value.comments[index].inputShow
-  return comment.value.comments[index].inputShow
 }
-
 
 // 发送次评论
 const sendReply = (main: number, branch: number) => {
@@ -706,16 +697,7 @@ function DrawWordCloud() {
       display: inline-block;
       vertical-align: top;
     }
-    .header-img {
-      display: inline-block;
-      vertical-align: top;
-    }
 
-    .reply-info {
-      display: flex;
-      align-items: center;
-      margin-left: 0.0625rem;
-      width: 90%;
     .reply-info {
       display: flex;
       align-items: center;
@@ -726,16 +708,7 @@ function DrawWordCloud() {
         width: 80%;
       }
     }
-      @media screen and (max-width: 1200px) {
-        width: 80%;
-      }
-    }
 
-    .reply-btn-box {
-      display: flex;
-      align-items: center;
-    }
-  }
     .reply-btn-box {
       display: flex;
       align-items: center;
@@ -744,13 +717,7 @@ function DrawWordCloud() {
 
   .my-comment-reply {
     margin-left: 50px;
-  .my-comment-reply {
-    margin-left: 50px;
 
-    .reply-input {
-      width: flex;
-    }
-  }
     .reply-input {
       width: flex;
     }
@@ -759,13 +726,7 @@ function DrawWordCloud() {
   .author-title:not(:last-child) {
     border-bottom: 1px solid rgba(178, 186, 194, 0.3);
   }
-  .author-title:not(:last-child) {
-    border-bottom: 1px solid rgba(178, 186, 194, 0.3);
-  }
 
-  .author-title {
-    padding: 0.25rem;
-    position: relative;
   .author-title {
     padding: 0.25rem;
     position: relative;
@@ -774,17 +735,7 @@ function DrawWordCloud() {
       display: inline-block;
       vertical-align: top;
     }
-    .header-img {
-      display: inline-block;
-      vertical-align: top;
-    }
 
-    .author-info {
-      display: inline-block;
-      margin-left: 5px;
-      width: 60%;
-      height: 40px;
-      line-height: 20px;
     .author-info {
       display: inline-block;
       margin-left: 5px;
@@ -805,16 +756,7 @@ function DrawWordCloud() {
         font-size: 18px;
         font-weight: bold;
       }
-      .author-name {
-        color: #000;
-        font-size: 18px;
-        font-weight: bold;
-      }
 
-      .author-time {
-        font-size: 14px;
-      }
-    }
       .author-time {
         font-size: 14px;
       }
@@ -827,18 +769,7 @@ function DrawWordCloud() {
       top: 0.25rem;
       right: 0;
       padding: 0 !important;
-    .icon-btn {
-      width: 1.25rem;
-      position: absolute;
-      display: flex;
-      top: 0.25rem;
-      right: 0;
-      padding: 0 !important;
 
-      @media screen and (max-width: 1200px) {
-        width: 20%;
-        padding: 7px;
-      }
       @media screen and (max-width: 1200px) {
         width: 20%;
         padding: 7px;
@@ -848,16 +779,7 @@ function DrawWordCloud() {
         flex: 1;
         cursor: pointer;
       }
-      .comment {
-        flex: 1;
-        cursor: pointer;
-      }
 
-      .like {
-        flex: 1;
-        cursor: pointer;
-      }
-    }
       .like {
         flex: 1;
         cursor: pointer;
@@ -878,10 +800,6 @@ function DrawWordCloud() {
       }
     }
 
-    .reply-box {
-      margin: 10px 0 0 50px;
-      // background-color: #efefef;
-    }
     .reply-box {
       margin: 10px 0 0 50px;
       // background-color: #efefef;
