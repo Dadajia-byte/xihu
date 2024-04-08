@@ -7,8 +7,12 @@
       </div>
     </span>
 
-    <div class="highlight-contanier wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-      <el-row justify="space-around" style="margin-top: .1429rem">
+    <div
+      class="highlight-contanier wow fadeInUp"
+      data-wow-duration="1s"
+      data-wow-delay="0.1s"
+    >
+      <el-row justify="space-around" style="margin-top: 0.1429rem">
         <el-col :span="4">
           <ul>
             <li class="li1">
@@ -56,18 +60,30 @@
         </el-col>
       </el-row>
     </div>
-    <div class="characteristic-container wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+    <div
+      class="characteristic-container wow fadeInUp"
+      data-wow-duration="1s"
+      data-wow-delay="0.1s"
+    >
       <div class="character-wrapper">
         <ul>
           <li v-for="(item, index) in characterList" :key="index">
-            <div class="bg" :style="{
-          backgroundImage: 'url(' + item.imgUrl + ')',
-          opacity: item.opacity,
-        }"></div>
+            <div
+              class="bg"
+              :style="{
+                backgroundImage: 'url(' + item.imgUrl + ')',
+                opacity: item.opacity,
+              }"
+            ></div>
           </li>
         </ul>
-        <div class="character" v-for="(item, index) in characterList" :key="index" @click="setCharacterActive(index)"
-          :class="activeIndex === index ? 'active' : ''">
+        <div
+          class="character"
+          v-for="(item, index) in characterList"
+          :key="index"
+          @click="setCharacterActive(index)"
+          :class="activeIndex === index ? 'active' : ''"
+        >
           <div class="icon">
             <svgIcon
               :name="item.icon"
@@ -169,26 +185,26 @@ onMounted(() => {
 @import '@/styles/mixin';
 
 .highlight-contanier {
-  margin-bottom: .85rem;
+  margin-bottom: 0.85rem;
 
   .el-col {
     text-align: center;
 
     .li1 {
-      font-size: .3571rem;
+      font-size: 0.3571rem;
       font-weight: 400;
       @include linear-txt;
     }
 
     .number {
       display: inline-block;
-      font-size: .875rem;
+      font-size: 0.875rem;
     }
   }
 
   .li2 {
-    font-size: .2286rem;
-    line-height: .4286rem;
+    font-size: 0.2286rem;
+    line-height: 0.4286rem;
     color: black;
   }
 }
@@ -196,7 +212,7 @@ onMounted(() => {
 .characteristic-container {
   width: 100%;
   height: 8.4375rem;
-  margin-bottom: .375rem;
+  margin-bottom: 0.375rem;
   position: relative;
   background-color: #ffffff;
   box-shadow: 0px 0px 0.125rem 0px rgba(0, 0, 0, 0.1);
@@ -262,7 +278,6 @@ onMounted(() => {
     height: 7.8125rem;
     z-index: 1;
 
-
     .bg {
       position: absolute;
       left: -13.625rem;
@@ -276,7 +291,6 @@ onMounted(() => {
       transition: opacity 0.3s ease-in-out;
     }
 
-
     .character {
       cursor: pointer;
       position: relative;
@@ -287,7 +301,6 @@ onMounted(() => {
       padding: 0.125rem 0.25rem 0.125rem 0.0625rem;
       display: flex;
       transition: all 0.3s ease-in-out;
-
 
       .icon {
         display: flex;
@@ -304,7 +317,6 @@ onMounted(() => {
       .desc {
         flex: 8;
 
-
         .title {
           font-weight: 600;
           font-size: 0.375rem;
@@ -319,7 +331,6 @@ onMounted(() => {
       }
     }
   }
-
 
   .active {
     background-image: linear-gradient(to right, #457fca, #48c6ef);

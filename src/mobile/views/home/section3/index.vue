@@ -12,7 +12,7 @@
         space-between="10vw"
       >
         <swiper-slide v-for="item in cardItem" :key="item.name">
-          <div class="top"></div>
+          <div class="top" :style="`background:url(${item.img}) no-repeat center/cover`" ></div>
           <div class="bottom">{{ item.name }}</div>
         </swiper-slide>
       </swiper>
@@ -29,22 +29,32 @@ const modules = [Autoplay, Pagination]
 const cardItem = [
   {
     name: '格致论道',
-    // img: '',
+    img: '/src/assets/images/home_activity/1.png',
   },
   {
     name: '西湖论剑安全特训营',
+    img: '/src/assets/images/home_activity/2.png',
+
   },
   {
     name: '新品发布',
+    img: '/src/assets/images/home_activity/3.png',
+
   },
   {
     name: '第二直播间',
+    img: '/src/assets/images/home_activity/4.png',
+
   },
   {
     name: '掌上论剑',
+    img: '/src/assets/images/home_activity/4.png',
+
   },
   {
     name: '西湖论剑十周年回顾',
+    img: '/src/assets/images/home_activity/6.png',
+
   },
 ]
 </script>
