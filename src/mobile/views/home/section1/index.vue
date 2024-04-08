@@ -1,16 +1,10 @@
 <template>
   <div class="container">
     <section class="sec1">
-      <el-carousel trigger="click">
-        <el-carousel-item style="background-color: red">
-          <h1>item1</h1>
+      <el-carousel trigger="click" indicator-position="none"> 
+        <el-carousel-item style="background: url(/src/assets/images/bg_images/home1.png) no-repeat center/contain">
         </el-carousel-item>
-        <el-carousel-item style="background-color: blue">
-          <h1>item2</h1>
-        </el-carousel-item>
-        <el-carousel-item style="background-color: green">
-          <h1>item3</h1>
-        </el-carousel-item>
+
       </el-carousel>
     </section>
     <section class="sec2">
@@ -24,7 +18,7 @@
           :pagination="{ clickable: true }"
         >
           <swiper-slide v-for="item in cardList" :key="item.title">
-            <div class="cardItem">
+            <div class="cardItem" :style="`background:url(${item.imgUrl}) no-repeat center/cover`">
               <div class="top">
                 <div class="title">{{ item.title }}</div>
                 <div class="watch">
@@ -62,17 +56,20 @@ const cardList = ref([
     title: '格致论道@西湖论剑',
     pos: '杭州市xxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     time: '18:00-21:00',
-    // imgUrl:'' // 这里添加背景图片
+    imgUrl:'/src/assets/images/home_activity/1.png' 
   },
   {
     title: '95后极客青年Talk',
     pos: '线上直播',
     time: '10:00-10:30',
+    imgUrl:'/src/assets/images/mobile/history2.png' 
+
   },
   {
     title: '当科幻照进现实我们会更安全吗？',
     pos: '线上直播',
     time: '13:00-13:30',
+    imgUrl:'/src/assets/images/mobile/history3.png' 
   },
 ])
 const modules = [Autoplay, Pagination]

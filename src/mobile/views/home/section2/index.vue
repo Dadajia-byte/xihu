@@ -31,7 +31,7 @@
         space-between="10vw"
       >
         <swiper-slide v-for="item in box" :key="item.content">
-          <div class="box">
+          <div class="box" :style="`background:url(${item.img}) no-repeat center/cover`">
             <div class="box_content">{{ item.content }}</div>
             <div class="box_more">查看详情</div>
           </div>
@@ -48,15 +48,23 @@ import 'swiper/scss/pagination'
 const box = [
   {
     content: '议题更前沿',
+    img:'/src/assets/images/meetingabout/1.jpg',
+
   },
   {
     content: '线上更精彩',
+    img:'/src/assets/images/meetingabout/2.jpg',
+
   },
   {
     content: '成功更显著',
+    img:'/src/assets/images/meetingabout/3.jpg',
+
   },
   {
     content: '国际化更深入',
+    img:'/src/assets/images/meetingabout/4.jpg',
+
   },
 ]
 const modules = [Autoplay, Pagination]
@@ -120,13 +128,13 @@ const modules = [Autoplay, Pagination]
         width: 85%;
         height: 85%;
         margin: 0 auto;
-        background-color: red; //加上图片去掉
+        background:  linear-gradient(to right, #2a76c3, #3ec9d2); //加上图片去掉
         .box {
           width: 70%;
 
           height: 100%;
           clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
-          background-color: #2a76c3; // 加上图片去掉
+          // background-color: ; // 加上图片去掉
           color: white;
           .box_content {
             font-size: 3.4vw;

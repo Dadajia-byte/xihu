@@ -123,7 +123,7 @@ export default {
 .footer {
   height: 6.7rem;
   width: 100%;
-  background: linear-gradient(to right, rgb(0, 113, 206), rgb(106, 183, 245));
+  background: linear-gradient(to right, #457fca, #48c6ef);
 
   .row1 {
     padding-top: 0.6571rem;

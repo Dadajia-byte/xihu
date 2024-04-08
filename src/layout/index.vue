@@ -24,11 +24,17 @@
         align-content: center;
         overflow: hidden;
         background-color: #f2f0f3;
-      " @close="closeLogin">
-      <div class="login_wrapper" :class="dialogRegisterVisible === true
-      ? 'register-wrapper-show'
-      : 'login-wrapper-show'
-      ">
+      "
+      @close="closeLogin"
+    >
+      <div
+        class="login_wrapper"
+        :class="
+          dialogRegisterVisible === true
+            ? 'register-wrapper-show'
+            : 'login-wrapper-show'
+        "
+      >
         <div class="login_container">
           <!-- 头部 -->
           <div class="header">
@@ -43,7 +49,13 @@
             </div>
           </div>
           <!-- 账号登录表单 -->
-          <el-form label-width=".3571rem" v-show="isAccLog" :rules="rules1" :model="accLogForm" ref="logForm1">
+          <el-form
+            label-width=".3571rem"
+            v-show="isAccLog"
+            :rules="rules1"
+            :model="accLogForm"
+            ref="logForm1"
+          >
             <el-form-item prop="account">
               <el-input placeholder="请输入账号" v-model="accLogForm.account">
                 <template #prefix>
@@ -54,7 +66,12 @@
               </el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input placeholder="请输入密码" type="password" show-password v-model="accLogForm.password">
+              <el-input
+                placeholder="请输入密码"
+                type="password"
+                show-password
+                v-model="accLogForm.password"
+              >
                 <template #prefix>
                   <el-icon>
                     <Lock />
@@ -70,7 +87,12 @@
                   </el-icon>
                 </template>
                 <template #suffix>
-                  <img :src="captchaUrl" class="captcha" @click="refreshCaptcha" alt="点击重新加载" />
+                  <img
+                    :src="captchaUrl"
+                    class="captcha"
+                    @click="refreshCaptcha"
+                    alt="点击重新加载"
+                  />
                 </template>
               </el-input>
             </el-form-item>
@@ -79,16 +101,29 @@
             </div>
             <!-- 登录按钮 -->
             <el-form-item>
-              <el-button type="primary" style="width: 4.7339rem; border-radius: 0.2429rem" @click="login"
-                :loading="false">
+              <el-button
+                type="primary"
+                style="width: 4.7339rem; border-radius: 0.2429rem"
+                @click="login"
+                :loading="false"
+              >
                 登录
               </el-button>
             </el-form-item>
           </el-form>
           <!-- 手机号登录表单 -->
-          <el-form label-width=".3571rem" :rules="rules2" :model="phoneLogForm" v-show="!isAccLog" ref="logForm2">
+          <el-form
+            label-width=".3571rem"
+            :rules="rules2"
+            :model="phoneLogForm"
+            v-show="!isAccLog"
+            ref="logForm2"
+          >
             <el-form-item prop="phone">
-              <el-input placeholder="请输入手机号码" v-model="phoneLogForm.phone">
+              <el-input
+                placeholder="请输入手机号码"
+                v-model="phoneLogForm.phone"
+              >
                 <template #prefix>
                   <el-icon>
                     <Iphone />
@@ -97,34 +132,51 @@
               </el-input>
             </el-form-item>
             <el-form-item prop="verifyCode">
-              <el-input placeholder="请输入短信验证码" v-model="phoneLogForm.verifyCode">
+              <el-input
+                placeholder="请输入短信验证码"
+                v-model="phoneLogForm.verifyCode"
+              >
                 <template #prefix>
                   <el-icon>
                     <Bell />
                   </el-icon>
                 </template>
                 <template #suffix>
-                  <el-button @click="() => sendVerificationCode('1')" size="small" :disabled="isSendingCode['1'].value == true ||
-      (countdown['1'].value as number) > 0
-      " class="sendCode">
+                  <el-button
+                    @click="() => sendVerificationCode('1')"
+                    size="small"
+                    :disabled="
+                      isSendingCode['1'].value == true ||
+                      (countdown['1'].value as number) > 0
+                    "
+                    class="sendCode"
+                  >
                     {{
-      (countdown['1'].value as number) > 0
-        ? `重新发送(${countdown['1'].value})`
-        : '发送验证码'
-    }}
+                      (countdown['1'].value as number) > 0
+                        ? `重新发送(${countdown['1'].value})`
+                        : '发送验证码'
+                    }}
                   </el-button>
                 </template>
               </el-input>
             </el-form-item>
             <el-form-item style="margin-bottom: 0.0714rem" prop="captcha">
-              <el-input placeholder="请输入验证码" v-model="phoneLogForm.captcha">
+              <el-input
+                placeholder="请输入验证码"
+                v-model="phoneLogForm.captcha"
+              >
                 <template #prefix>
                   <el-icon>
                     <Key />
                   </el-icon>
                 </template>
                 <template #suffix>
-                  <img :src="captchaUrl" @click="refreshCaptcha" class="captcha" alt="点击重新加载" />
+                  <img
+                    :src="captchaUrl"
+                    @click="refreshCaptcha"
+                    class="captcha"
+                    alt="点击重新加载"
+                  />
                 </template>
               </el-input>
             </el-form-item>
@@ -134,8 +186,12 @@
             </div>
             <!-- 登录按钮 -->
             <el-form-item>
-              <el-button type="primary" style="width: 4.7339rem; border-radius: 0.2429rem" @click="login"
-                :loading="false">
+              <el-button
+                type="primary"
+                style="width: 4.7339rem; border-radius: 0.2429rem"
+                @click="login"
+                :loading="false"
+              >
                 登录
               </el-button>
             </el-form-item>
@@ -152,8 +208,15 @@
             </div>
           </div>
         </div>
-        <div class="image_bg" :class="dialogRegisterVisible === true ? 'register-bg-show' : ''">
-          <div class="backLogin" @click="backLogin" v-show="dialogRegisterVisible">
+        <div
+          class="image_bg"
+          :class="dialogRegisterVisible === true ? 'register-bg-show' : ''"
+        >
+          <div
+            class="backLogin"
+            @click="backLogin"
+            v-show="dialogRegisterVisible"
+          >
             已有帐号？
           </div>
         </div>
@@ -239,9 +302,20 @@
                   flex-direction: column;
                   justify-content: center;
                   align-items: center;
-                ">
-                <el-form-item label="密码" prop="password" style="width: 5.4286rem" label-width="1.25rem">
-                  <el-input placeholder="请设置密码" type="password" show-password v-model="regForm.password">
+                "
+              >
+                <el-form-item
+                  label="密码"
+                  prop="password"
+                  style="width: 5.4286rem"
+                  label-width="1.25rem"
+                >
+                  <el-input
+                    placeholder="请设置密码"
+                    type="password"
+                    show-password
+                    v-model="regForm.password"
+                  >
                     <template #prefix>
                       <el-icon>
                         <Key />
@@ -249,8 +323,18 @@
                     </template>
                   </el-input>
                 </el-form-item>
-                <el-form-item label="确认密码" prop="checkPwd" style="width: 5.4286rem" label-width="1.25rem">
-                  <el-input placeholder="请再次输入密码" show-password type="password" v-model="regForm.checkPwd">
+                <el-form-item
+                  label="确认密码"
+                  prop="checkPwd"
+                  style="width: 5.4286rem"
+                  label-width="1.25rem"
+                >
+                  <el-input
+                    placeholder="请再次输入密码"
+                    show-password
+                    type="password"
+                    v-model="regForm.checkPwd"
+                  >
                     <template #prefix>
                       <el-icon>
                         <Key />
@@ -440,7 +524,7 @@ const sendVerificationCode = (num: string) => {
   countdown[num].value = 60
   // 倒计时效果
   const countdownInterval = setInterval(() => {
-    ; (countdown[num].value as number)--
+    ;(countdown[num].value as number)--
     if ((countdown[num].value as number) <= 0) {
       clearInterval(countdownInterval)
       isSendingCode[num].value = false
@@ -718,7 +802,8 @@ const closeLogin = () => {
   }
 
   .header {
-    margin: calc(1.0857rem - 0.5429rem - 0.2571rem) calc(1.6rem - 0.8571rem - 0.2857rem) 0.3214rem;
+    margin: calc(1.0857rem - 0.5429rem - 0.2571rem)
+      calc(1.6rem - 0.8571rem - 0.2857rem) 0.3214rem;
 
     .title {
       font-weight: bold;
