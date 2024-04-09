@@ -8,7 +8,6 @@ const allGlobalComponents: any = {
   Load,
   SvgIcon,
   TitleBg,
-
 }
 
 // 对外暴露插件对象

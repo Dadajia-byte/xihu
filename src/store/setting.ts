@@ -18,7 +18,7 @@ let useLayoutSettingStore = defineStore('settingStore', () => {
     dialogRegisterVisible,
     isLog,
     menuList,
-    isLoading
+    isLoading,
   }
 })
 
