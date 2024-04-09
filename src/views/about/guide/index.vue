@@ -627,6 +627,7 @@ body {
 
   .section5 {
     position: relative;
+    height: 8rem;
     .card {
       position: absolute;
       width: 8.75rem;
