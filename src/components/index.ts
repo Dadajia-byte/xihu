@@ -3,9 +3,12 @@
 import * as ElementPlusIcons from '@element-plus/icons-vue'
 import SvgIcon from './SvgIcon/index.vue'
 import TitleBg from './TitleBg/index.vue'
+import Load from './Load/index.vue'
 const allGlobalComponents: any = {
+  Load,
   SvgIcon,
   TitleBg,
+
 }
 
 // 对外暴露插件对象

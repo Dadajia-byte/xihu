@@ -11,7 +11,10 @@
       <swiper :modules="modules" :slides-per-view="3.5" space-between="10vw">
         <swiper-slide v-for="item in masterItem" :key="item.name">
           <div class="top">
-            <div class="image" :style="`background:url(${item.img}) no-repeat center/cover`"></div>
+            <div
+              class="image"
+              :style="`background:url(${item.img}) no-repeat center/cover`"
+            ></div>
             <div class="bofang" v-show="item.isStream"></div>
           </div>
           <div class="bottom">

@@ -16,6 +16,7 @@ let userStore = useUserStore(pinia)
 import { GET_TOKEN, REMOVE_TOKEN } from './utils/token'
 // 全局前置守卫
 router.beforeEach(async (to, _from, next) => {
+  layoutSettingStore.isLoading = true
   NProgress.start()
   document.title = `${setting.title}-${to.meta.title}`
   let token = GET_TOKEN()
@@ -47,6 +48,7 @@ router.beforeEach(async (to, _from, next) => {
 // 全局后置守卫
 router.afterEach((_to, _from) => {
   NProgress.done()
+  layoutSettingStore.isLoading = false
 })
 
 // 第一个问题：任意路由切换实现进度条业务 ——— nprogress

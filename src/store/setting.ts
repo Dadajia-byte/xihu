@@ -12,11 +12,13 @@ let useLayoutSettingStore = defineStore('settingStore', () => {
   const dialogRegisterVisible = ref(false)
   // 是否登录
   let isLog = ref(false)
+  let isLoading = ref(true)
   return {
     dialogFormVisible,
     dialogRegisterVisible,
     isLog,
     menuList,
+    isLoading
   }
 })
 
