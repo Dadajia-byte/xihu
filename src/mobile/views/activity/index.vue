@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="activity_card" v-for="(item, index) in lists" :key="index">
-      <div class="image" :style="`background:url(${item.imgUrl}) no-repeat center/cover`"></div>
+      <div
+        class="image"
+        :style="`background:url(${item.imgUrl}) no-repeat center/cover`"
+      ></div>
       <div class="title">{{ item.title }}</div>
       <div class="content">{{ item.content }}</div>
     </div>

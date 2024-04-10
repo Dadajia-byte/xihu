@@ -81,6 +81,8 @@
                         line-height: 0.3125rem;
                         font-size: 0.2rem;
                         height: 0.3125rem;
+                        background: linear-gradient(to right, #457fca, #48c6ef);
+
                       "
                     >
                       订阅
@@ -155,6 +157,7 @@
                         line-height: 0.3125rem;
                         font-size: 0.2rem;
                         height: 0.3125rem;
+                        background: linear-gradient(to bottom right, #457fca, #48c6ef);
                       "
                     >
                       订阅
@@ -343,7 +346,7 @@ onUnmounted(() => {
 .agenda {
   display: flex;
   width: 100%;
-
+  justify-content: center;
   .type-filter {
     margin-left: 0.5rem;
     margin-top: 0.6875rem;
@@ -369,6 +372,7 @@ onUnmounted(() => {
   }
 }
 
+
 .agenda-container {
   margin: 0.375rem 0 0.375rem 1.8125rem;
   width: 14.1375rem;
@@ -389,7 +393,7 @@ onUnmounted(() => {
       bottom: -0.0781rem;
       width: 14.1375rem;
       height: 0.0781rem;
-      background-color: #1185e4;
+      background: linear-gradient(to right, #457fca, #48c6ef);
     }
   }
 
@@ -418,7 +422,7 @@ onUnmounted(() => {
       }
 
       &:hover::after {
-        background: #1185e4;
+        background: linear-gradient(to right, #457fca, #48c6ef);
       }
 
       .card-wrapper {
@@ -504,6 +508,7 @@ onUnmounted(() => {
           height: 0.375rem;
 
           .type {
+            font-size: .2rem;
             width: 1.35rem;
             display: flex;
             justify-content: center;

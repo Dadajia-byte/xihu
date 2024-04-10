@@ -145,6 +145,24 @@ export const constantRoutesPC = [
           hidden: true,
         },
       },
+      {
+        path: '/shot',
+        name: 'shot',
+        component: () => import('@/views/shot/index.vue'),
+        meta: {
+          title: '打卡拍照',
+          hidden: true,
+        },
+      },
+      {
+        path: '/onlinebuy',
+        name: 'onlinebuy',
+        component: () => import('@/views/onlinebuy/index.vue'),
+        meta: {
+          title: '线上购票',
+          hidden: true,
+        },
+      },
     ],
   },
 

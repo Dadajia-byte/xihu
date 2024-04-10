@@ -210,7 +210,6 @@
         </div>
         <div
           class="image_bg"
-          :class="dialogRegisterVisible === true ? 'register-bg-show' : ''"
         >
           <div
             class="backLogin"
@@ -929,7 +928,8 @@ const closeLogin = () => {
   .image_bg {
     width: 8.7rem;
     background: url('@/assets/images/bg_images/login_bg.png') no-repeat
-      center/cover;
+      center;
+    background-size: 65%;
     position: relative;
     transition: background-image 0.5s ease-in-out;
 

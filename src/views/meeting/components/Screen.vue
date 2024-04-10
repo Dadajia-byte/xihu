@@ -93,9 +93,10 @@ onMounted(() => {
   height: calc(100vh - $layout-header-height);
   background: no-repeat center center;
   background-image: url('@/assets/images/meeting_images/screenbg1.png'),
-    linear-gradient(to right, $theme-color-blue, $theme-color-green);
+    linear-gradient(to right bottom, #1185e4, #2db1ba);
   padding: 5% 18% 5%;
-
+// $theme-color-blue: #1185e4;
+// $theme-color-green: #2db1ba;
   .cir-outside {
     @include cover;
     border: 0.0167rem solid rgba(222, 222, 222, 0.588);
