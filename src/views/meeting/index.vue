@@ -82,7 +82,6 @@
                         font-size: 0.2rem;
                         height: 0.3125rem;
                         background: linear-gradient(to right, #457fca, #48c6ef);
-
                       "
                     >
                       订阅
@@ -157,7 +156,11 @@
                         line-height: 0.3125rem;
                         font-size: 0.2rem;
                         height: 0.3125rem;
-                        background: linear-gradient(to bottom right, #457fca, #48c6ef);
+                        background: linear-gradient(
+                          to bottom right,
+                          #457fca,
+                          #48c6ef
+                        );
                       "
                     >
                       订阅
@@ -372,7 +375,6 @@ onUnmounted(() => {
   }
 }
 
-
 .agenda-container {
   margin: 0.375rem 0 0.375rem 1.8125rem;
   width: 14.1375rem;
@@ -508,7 +510,7 @@ onUnmounted(() => {
           height: 0.375rem;
 
           .type {
-            font-size: .2rem;
+            font-size: 0.2rem;
             width: 1.35rem;
             display: flex;
             justify-content: center;

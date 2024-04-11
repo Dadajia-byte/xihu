@@ -20,11 +20,7 @@
 
       <div class="content">立即购票</div>
     </div>
-    <div class="about">
-      <el-icon size=".45rem" color="#0b81f0">
-        <MoreFilled />
-      </el-icon>
-    </div>
+    
     <transition name="fade">
       <div class="backTop" @click="backTop" ref="bt" v-if="isShow">
         <svgIcon name="toTop" style="width: 0.35rem; height: 0.35rem"></svgIcon>
@@ -60,7 +56,6 @@ const clockIn = () => {
   if (res) {
     $router.push('/shot')
   }
-
 }
 
 const AiReport = () => {
@@ -117,8 +112,6 @@ onMounted(() => {
       scale: 1.05;
     }
   }
-
-
 
   .backTop {
     scale: 0.8;

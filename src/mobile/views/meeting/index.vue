@@ -32,7 +32,12 @@
     </el-form>
     <div class="meeting-list" v-for="group in meetingList" :key="group.dayTime">
       <div class="dayTime">{{ group.dayTime }}</div>
-      <div class="meeting" v-for="item in group.items" :key="item.title" :style="`background:url(${item.img}) no-repeat center/cover`">
+      <div
+        class="meeting"
+        v-for="item in group.items"
+        :key="item.title"
+        :style="`background:url(${item.img}) no-repeat center/cover`"
+      >
         <div class="meeting_top">
           <div class="meeting_title">{{ item.title }}</div>
           <div class="huifang">观看回放</div>
@@ -68,9 +73,7 @@ const meetingList = [
         time: '10:00-10:30',
         pos: '线上直播',
         img: '/src/assets/images/mobile/Agenda2.png',
-
       },
-
     ],
   },
   {
@@ -81,21 +84,18 @@ const meetingList = [
         time: '13:00-13:30',
         pos: '线上直播',
         img: '/src/assets/images/mobile/Agenda3.png',
-
       },
       {
         title: '人工智能会颠覆安全行业吗？',
         time: '15:00-15:30',
         pos: '线上直播',
         img: '/src/assets/images/mobile/Agenda4.png',
-
       },
       {
         title: '反诈直播间@西湖论剑',
         time: '15:30-16:30',
         pos: '线上直播',
         img: '/src/assets/images/mobile/Agenda5.png',
-
       },
     ],
   },
@@ -107,16 +107,13 @@ const meetingList = [
         time: '09:00-12:00',
         pos: '杭州洲际酒店·杭州厅',
         img: '/src/assets/images/mobile/Agenda6.png',
-
       },
       {
         title: '生态合作伙伴分论坛',
         time: '09:00-22:00',
         pos: '杭州英冠索菲特酒店',
         img: '/src/assets/images/mobile/Agenda7.png',
-
       },
-
     ],
   },
   {
@@ -127,16 +124,13 @@ const meetingList = [
         time: '08:30-12:10',
         pos: ' 杭州洲际酒店·国际厅1厅',
         img: '/src/assets/images/mobile/Agenda8.png',
-
       },
       {
         title: '商用密码应用论坛',
         time: '09:00-12:00',
         pos: '杭州洲际酒店·国际厅2厅',
         img: '/src/assets/images/mobile/Agenda9.png',
-
       },
-
     ],
   },
 ]
@@ -147,7 +141,8 @@ const meetingList = [
   // background: url();
   // background-size: cover;
   overflow: hidden;
-  background: url(/src/assets/images/bg_images/homemateBG.png) no-repeat center/cover;
+  background: url(/src/assets/images/bg_images/homemateBG.png) no-repeat
+    center/cover;
 
   .title {
     font-size: 7vw;
