@@ -20,7 +20,7 @@
 
       <div class="content">立即购票</div>
     </div>
-    
+
     <transition name="fade">
       <div class="backTop" @click="backTop" ref="bt" v-if="isShow">
         <svgIcon name="toTop" style="width: 0.35rem; height: 0.35rem"></svgIcon>

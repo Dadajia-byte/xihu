@@ -1,6 +1,6 @@
 <template>
   <div class="agenda-page">
-    <Screen></Screen>
+    <Screen @updateType="handleUpdate"></Screen>
 
     <div class="filter-container">
       <div class="date-container">
@@ -242,7 +242,12 @@ interface ss {
   findFlag: string
   events: agendaItem[]
 }
+const handleUpdate = (newValue: number) =>{
 
+  meetingStore.reqData.type = typeList.value[newValue+1].type
+  activeType.value = typeList.value[newValue+1].type
+  meetingStore.getAgenda()
+}
 const setTypeActive = async (index: number, item: any) => {
   activeTypeIndex.value = index
   activeType.value = item.type

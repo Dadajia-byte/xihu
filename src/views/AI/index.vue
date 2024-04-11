@@ -94,7 +94,9 @@
           <div class="chat-container">
             <h2 class="title">生成文案</h2>
             <div class="messages" id="messageContainer" ref="messageContainer">
-              <div class="content" style="white-space: pre-line">{{ messages }}</div>
+              <div class="content" style="white-space: pre-line">
+                {{ messages }}
+              </div>
             </div>
           </div>
         </el-main>
@@ -206,10 +208,10 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-.common-layout{
+.common-layout {
   background: url('/src/assets/images/bg_images/imgwall.png') no-repeat
     center/cover;
-    padding-bottom: .375rem;
+  padding-bottom: 0.375rem;
 }
 .el-card {
   width: 90%;
@@ -348,8 +350,9 @@ onMounted(() => {
   flex: 2;
   font-size: 0.3rem; /* 添加字体大小样式 */
 }
-.content{
-  line-height: .3125rem;
+.content {
+  font-size: .275rem;
+  line-height:.4rem;
 }
 .title {
   text-align: center;

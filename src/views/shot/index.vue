@@ -1,12 +1,12 @@
 <template>
   <div class="shot">
     <div class="imgwall">
-      <div class="header">
+      <div class="header wow fadeInUp">
         <div class="left">
           <div class="icon">
             <svgIcon
               name="camera"
-              style="height: .45rem; width: .45rem"
+              style="height: 0.45rem; width: 0.45rem"
             ></svgIcon>
           </div>
           <div class="title">打卡拍照墙</div>
@@ -19,7 +19,7 @@
             :show-file-list="false"
             :on-success="handleImgUpload"
           >
-            <el-button type="primary" style="height: .45rem">
+            <el-button type="primary" style="height: 0.45rem">
               点击上传
             </el-button>
           </el-upload>
@@ -27,7 +27,7 @@
       </div>
       <div class="img_container">
         <div
-          class="img_item"
+          class="img_item wow fadeInUp"
           v-for="(item, index) in PictureStore.imgList"
           :key="index"
           :style="`background:url(${item.imageUrl}) no-repeat center/cover`"
@@ -43,7 +43,8 @@
         <img width="100%" :src="dialogImageUrl" alt="" />
       </el-dialog>
     </div>
-    <div class="bg"></div>
+    <div class="bg1"></div>
+    <div class="bg2"></div>
   </div>
 </template>
 
@@ -52,8 +53,19 @@ import { ref, onMounted } from 'vue'
 import usePictureStore from '@/store/modules/picture'
 import { ElMessage } from 'element-plus'
 import type { UploadProps } from 'element-plus'
+import WOW from 'wow.js'
+
 let PictureStore = usePictureStore()
 
+const initWOW = () => {
+  const wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+  })
+  wow.init()
+}
 // 预览窗格相关
 const dialogVisible = ref(false)
 const dialogImageUrl = ref('')
@@ -98,7 +110,9 @@ const initImg = async () => {
   await PictureStore.getPictureList()
 }
 onMounted(async () => {
+  initWOW()
   await initImg()
+
 })
 </script>
 
@@ -106,17 +120,24 @@ onMounted(async () => {
 .shot {
   min-height: 18.75rem;
   position: relative;
-  
 
-  .bg {
+  .bg1 {
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20%;
+    height: 30%;
+    background: url('/src/assets/images/bg_images/imgwall2.png') no-repeat center/cover;
+  }
+  .bg2 {
     z-index: 1;
     position: absolute;
     left: 0;
-    top: 0;
-    width: 6.25rem;
-    height: 12.5rem;
-    background: url('/src/assets/images/bg_images/imgwall.png') no-repeat
-    center;
+    bottom: 0;
+    width: 20%;
+    height: 30%;
+    background: url('/src/assets/images/bg_images/imgwall1.png') no-repeat center/cover;
   }
 }
 
@@ -125,12 +146,12 @@ onMounted(async () => {
   z-index: 5;
   width: 22.5rem;
   // box-shadow: 0px 0px .125rem .025rem rgba(0, 0, 0, 0.1);
-  border-radius: .0625rem;
-  margin: .3125rem auto;
+  border-radius: 0.0625rem;
+  margin: 0.3125rem auto;
   // background-color: #fff;
 
   .header {
-    padding: .25rem .25rem 0 .25rem;
+    padding: 0.25rem 0.25rem 0 0.25rem;
     display: flex;
     justify-content: space-between;
 
@@ -138,19 +159,19 @@ onMounted(async () => {
       display: flex;
     }
 
-    .right{
-      margin-right: .3125rem;
+    .right {
+      margin-right: 0.3125rem;
     }
     .icon {
-      margin-left: .3125rem;
+      margin-left: 0.3125rem;
       position: relative;
 
       &::before {
         position: absolute;
         left: -0.25rem;
         content: '';
-        width: .125rem;
-        height: .45rem;
+        width: .0625rem;
+        height: 0.45rem;
         background: linear-gradient(
           to bottom,
           $theme-color-blue,
@@ -160,16 +181,16 @@ onMounted(async () => {
     }
 
     .title {
-      margin-left: .125rem;
+      margin-left: 0.125rem;
       @include linear-txt;
-      font-size: .45rem;
+      font-size: 0.45rem;
       font-weight: bold;
     }
   }
 
   .img_container {
     width: 22.5rem;
-    padding: .125rem .25rem .25rem .25rem;
+    padding: 0.125rem 0.25rem 0.25rem 0.25rem;
     display: flex;
     flex-wrap: wrap;
 
@@ -177,10 +198,10 @@ onMounted(async () => {
       box-sizing: border-box;
       width: 5.1875rem;
       height: 6.875rem;
-      margin-right: .3125rem;
-      margin-bottom: .3125rem;
+      margin-right: 0.3125rem;
+      margin-bottom: 0.3125rem;
       background: skyblue;
-      box-shadow: 0px 0px .0625rem .025rem rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 0px 0.0625rem 0.025rem rgba(0, 0, 0, 0.1);
       position: relative;
     }
 
@@ -196,7 +217,7 @@ onMounted(async () => {
       justify-content: center;
       align-items: center;
       color: #fff;
-      font-size: .45rem;
+      font-size: 0.45rem;
       cursor: pointer;
       transition: opacity 0.3s ease-out;
 

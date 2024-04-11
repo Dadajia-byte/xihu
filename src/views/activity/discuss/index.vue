@@ -18,7 +18,7 @@
             <div class="title-icon">
               <svgIcon
                 name="hot"
-                style="width: 0.5625rem; height: 0.5625rem"
+                style="width: .5625rem; height: .5625rem"
               ></svgIcon>
             </div>
 
@@ -28,7 +28,7 @@
             <div class="icon">
               <svgIcon
                 name="topic2"
-                style="width: 0.675rem; height: 0.675rem"
+                style="width: .675rem; height: .675rem"
               ></svgIcon>
             </div>
             <span>
@@ -79,7 +79,7 @@
             <span class="author-name">{{ item.name }}</span>
             <span class="author-time">{{ item.time }}</span>
           </div>
-          <div class="icon-btn" style="right: 0.25rem">
+          <div class="icon-btn" style="right: .25rem">
             <div class="comment" @click="replyMainComment(i)">
               <svgIcon name="comment"></svgIcon>
             </div>
@@ -165,7 +165,7 @@
           <div class="topic-icon">
             <svgIcon
               name="topic"
-              style="width: 0.3125rem; height: 0.3125rem"
+              style="width: .3125rem; height: .3125rem"
             ></svgIcon>
           </div>
           <div class="topic-content">
@@ -539,7 +539,7 @@ function DrawWordCloud() {
   .bg {
     z-index: 0;
     position: absolute;
-    top: 0;
+    top: 20%;
     right: 0;
     width: 100%;
     height: 100%;
@@ -556,11 +556,11 @@ function DrawWordCloud() {
   .title {
     @include linear-txt;
 
-    margin: 0.25rem auto;
-    font-size: 0.7rem;
+    margin: .25rem auto;
+    font-size: .7rem;
     font-weight: bold;
-    line-height: 0.875rem;
-    height: 0.875rem;
+    line-height: .875rem;
+    height: .875rem;
   }
 
   .wordle {
@@ -583,7 +583,7 @@ function DrawWordCloud() {
   position: relative;
   z-index: 1;
   display: flex;
-  margin-top: 0.25rem;
+  margin-top: .25rem;
 
   .comment-container {
     flex: 8;
@@ -592,40 +592,40 @@ function DrawWordCloud() {
 
   .topic-panel {
     align-self: start;
-    margin-left: 0.25rem;
-    margin-right: 0.75rem;
+    margin-left: .25rem;
+    margin-right: .75rem;
     width: 2.5rem;
     flex: 2;
     background-color: #fff;
-    border-radius: 0.0625rem;
-    box-shadow: 0px 0px 0.125rem 0.0125rem rgba(0, 0, 0, 0.1);
-    padding: 0.25rem;
+    border-radius: .0625rem;
+    box-shadow: 0px 0px .125rem .0125rem rgba(0, 0, 0, 0.1);
+    padding: .25rem;
 
     .topic-title {
-      height: 0.7rem;
-      line-height: 0.7rem;
-      font-size: 0.45rem;
+      height: .7rem;
+      line-height: .7rem;
+      font-size: .45rem;
       font-weight: 600;
     }
 
     .topic-item {
-      height: 0.875rem;
-      padding: 0.125rem 0;
-      margin-bottom: 0.1875rem;
+      height: .875rem;
+      padding: .125rem 0;
+      margin-bottom: .1875rem;
       display: flex;
 
       .topic-icon {
-        width: 0.3125rem;
+        width: .3125rem;
         text-align: center;
-        margin-right: 0.125rem;
+        margin-right: .125rem;
       }
 
       .content {
         cursor: pointer;
-        font-size: 0.25rem;
-        line-height: 0.3125rem;
-        height: 0.3125rem;
-        margin-bottom: 0.0625rem;
+        font-size: .25rem;
+        line-height: .3125rem;
+        height: .3125rem;
+        margin-bottom: .0625rem;
 
         &:hover {
           color: #1fb7ed;
@@ -634,9 +634,9 @@ function DrawWordCloud() {
       }
 
       .data {
-        font-size: 0.2rem;
-        line-height: 0.375rem;
-        height: 0.375rem;
+        font-size: .2rem;
+        line-height: .375rem;
+        height: .375rem;
         color: #abaaaa;
       }
 
@@ -649,38 +649,38 @@ function DrawWordCloud() {
 
 .comment-container {
   background-color: #fff;
-  box-shadow: 0px 0px 0.125rem 0.025rem rgba(0, 0, 0, 0.1);
-  border-radius: 0.0625rem;
+  box-shadow: 0px 0px .125rem .025rem rgba(0, 0, 0, 0.1);
+  border-radius: .0625rem;
 
   .topic-detail {
-    padding: 0.375rem;
+    padding: .375rem;
 
     .topic-title {
       display: flex;
-      font-size: 0.45rem;
+      font-size: .45rem;
       font-weight: 700;
-      line-height: 0.5625rem;
-      height: 0.625rem;
+      line-height: .5625rem;
+      height: .625rem;
       color: #1185e4;
     }
 
     .topic-desc {
       color: #807e7e;
-      line-height: 0.375rem;
-      font-size: 0.225rem;
+      line-height: .375rem;
+      font-size: .225rem;
     }
 
     .title {
       display: flex;
-      font-size: 0.475rem;
+      font-size: .475rem;
 
-      line-height: 0.675rem;
-      height: 0.675rem;
+      line-height: .675rem;
+      height: .675rem;
     }
   }
 
   .my-reply {
-    padding: 0.25rem;
+    padding: .25rem;
     display: flex;
     background-color: #fafbfc;
 
@@ -692,7 +692,7 @@ function DrawWordCloud() {
     .reply-info {
       display: flex;
       align-items: center;
-      margin-left: 0.0625rem;
+      margin-left: .0625rem;
       width: 90%;
 
       @media screen and (max-width: 1200px) {
@@ -719,7 +719,7 @@ function DrawWordCloud() {
   }
 
   .author-title {
-    padding: 0.25rem;
+    padding: .25rem;
     position: relative;
 
     .header-img {
@@ -757,7 +757,7 @@ function DrawWordCloud() {
       width: 1.25rem;
       position: absolute;
       display: flex;
-      top: 0.25rem;
+      top: .25rem;
       right: 0;
       padding: 0 !important;
 
@@ -778,15 +778,15 @@ function DrawWordCloud() {
     }
 
     .talk-box {
-      margin: 0 0.625rem;
+      margin: 0 .625rem;
 
       > p {
         margin: 0;
-        font-size: 0.25rem;
+        font-size: .25rem;
       }
 
       .reply {
-        font-size: 0.25rem;
+        font-size: .25rem;
         color: #000;
       }
     }

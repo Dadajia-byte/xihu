@@ -2,7 +2,7 @@
   <div class="date-agenda">
     <span class="divider wow fadeInUp">
       <div class="content">
-        <span style="font-size: 0.8125rem" class="head">A</span>
+        <span style="font-size: .8125rem" class="head">A</span>
         <div class="content2">genda 大会议程</div>
       </div>
     </span>
@@ -59,7 +59,7 @@
           <div class="location">
             <svgIcon
               name="location"
-              style="width: 0.1429rem; height: 0.1429rem"
+              style="width: .1429rem; height: .1429rem"
             ></svgIcon>
             {{ item.location }}
           </div>
@@ -74,8 +74,8 @@
             v-show="item.isSub == 0"
             style="
               width: 1.4286rem;
-              height: 0.4714rem;
-              font-size: 0.2571rem;
+              height: .4714rem;
+              font-size: .2571rem;
               background: linear-gradient(to right, #457fca, #48c6ef);
             "
             @click="goSub(item.id)"
@@ -170,15 +170,16 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
-@import '/src/styles/mixin.scss';
+
+
 .divider {
   overflow: hidden;
   height: 1.875rem;
   display: flex;
   justify-content: center;
   align-items: end;
-  font-size: 0.5786rem;
-  margin: 0.5714rem auto;
+  font-size: .5786rem;
+  margin: .5714rem auto;
   font-weight: 700;
   font-family: sybold;
   position: relative;
@@ -186,28 +187,28 @@ onMounted(async () => {
     position: absolute;
     display: flex;
     align-items: end;
-    height: 0.8125rem;
+    height: .8125rem;
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
     .content2 {
       @include linear-txt;
-      line-height: 0.875rem;
+      line-height: .875rem;
     }
   }
 
   .head {
     position: relative;
     color: #457fca;
-    padding-bottom: 0.1125rem;
+    padding-bottom: .1125rem;
     &::before {
       content: '';
       position: absolute;
       left: 0;
       bottom: -0.125rem;
-      height: 0.125rem;
-      width: 0.75rem;
-      border-radius: 0.25rem;
+      height: .125rem;
+      width: .75rem;
+      border-radius: .25rem;
       background: linear-gradient(
         to bottom right,
         $theme-color-blue,
@@ -249,7 +250,7 @@ onMounted(async () => {
       position: absolute;
       top: 50%;
       width: 100%;
-      height: 0.0286rem;
+      height: .0286rem;
       background-color: #1185e4;
       z-index: 1;
     }
@@ -268,29 +269,29 @@ onMounted(async () => {
           transform: translateX(-50%);
           width: 0;
           height: 0;
-          border-left: 0.2857rem solid transparent;
-          border-right: 0.2857rem solid transparent;
-          border-top: 0.3571rem solid #457fca; // Arrow color
+          border-left: .2857rem solid transparent;
+          border-right: .2857rem solid transparent;
+          border-top: .3571rem solid #457fca; // Arrow color
         }
       }
 
       .timeline-content {
         display: inline-block;
         width: 2.0893rem;
-        padding: 0.0714rem 0.1429rem;
-        border-radius: 0.0643rem;
-        box-shadow: 0 0.0286rem 0.0571rem rgba(0, 0, 0, 0.1);
+        padding: .0714rem .1429rem;
+        border-radius: .0643rem;
+        box-shadow: 0 .0286rem .0571rem rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
 
         .date {
-          font-size: 0.2571rem;
-          padding: 0.0714rem 0.0286rem;
+          font-size: .2571rem;
+          padding: .0714rem .0286rem;
         }
 
         .day {
-          font-size: 0.3429rem;
+          font-size: .3429rem;
           font-weight: bold;
-          padding: 0.0714rem 0.0286rem;
+          padding: .0714rem .0286rem;
         }
       }
     }
@@ -301,30 +302,30 @@ onMounted(async () => {
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    box-shadow: 0rem 0.0429rem 0.0857rem rgba(0, 0, 0, 0.15);
-    border-radius: 0.0714rem;
-    margin: 0.1429rem auto 0.2857rem;
+    box-shadow: 0rem .0429rem .0857rem rgba(0, 0, 0, 0.15);
+    border-radius: .0714rem;
+    margin: .1429rem auto .2857rem;
     .location {
-      padding-left: 0.125rem;
+      padding-left: .125rem;
       display: flex;
     }
     .item1 {
       flex: 3;
 
       div {
-        margin-left: 0.3571rem;
+        margin-left: .3571rem;
 
         &:nth-child(1) {
-          padding-left: 0.1rem;
-          font-size: 0.3714rem;
+          padding-left: .1rem;
+          font-size: .3714rem;
           font-weight: 700;
-          border-left: #1185e4 solid 0.0429rem;
+          border-left: #1185e4 solid .0429rem;
         }
 
         &:nth-child(2) {
-          padding-top: 0.1143rem;
+          padding-top: .1143rem;
           text-align: center;
-          font-size: 0.1429rem;
+          font-size: .1429rem;
           color: black;
         }
       }
@@ -335,14 +336,14 @@ onMounted(async () => {
 
       span {
         display: inline-block;
-        margin-left: 0.5714rem;
-        height: 0.5714rem;
-        line-height: 0.5714rem;
-        padding: 0rem 0.3571rem 0rem 0.2143rem;
-        font-size: 0.3714rem;
+        margin-left: .5714rem;
+        height: .5714rem;
+        line-height: .5714rem;
+        padding: 0rem .3571rem 0rem .2143rem;
+        font-size: .3714rem;
         font-weight: 700;
         background: linear-gradient(to right, #84bded, #fafafa);
-        border-radius: 0.2857rem;
+        border-radius: .2857rem;
       }
     }
 
@@ -352,11 +353,11 @@ onMounted(async () => {
 
       .subbed {
         width: 1.4286rem;
-        height: 0.4714rem;
-        line-height: 0.4143rem;
+        height: .4714rem;
+        line-height: .4143rem;
         text-align: center;
-        border-radius: 0.0714rem;
-        border: #fafafa 0.0286rem solid;
+        border-radius: .0714rem;
+        border: #fafafa .0286rem solid;
       }
     }
   }

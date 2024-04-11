@@ -4,9 +4,10 @@
     data-wow-duration="1.5s"
     data-wow-delay="0.1s"
   >
+  <div class="bg"></div>
     <span class="divider wow fadeInUp">
       <div class="content">
-        <span style="font-size: 0.8125rem" class="head">E</span>
+        <span style="font-size: .8125rem" class="head">E</span>
         <div class="content2">xpert 大咖云集</div>
       </div>
     </span>
@@ -179,6 +180,24 @@ const handleLeftClick = () => {
 </script>
 
 <style scoped lang="scss">
+
+// .master{
+//   position: relative;
+//   .bg{
+//     position: absolute;
+//     height: 12.5rem;
+//     width: 12.5rem;
+//     right: -3.75rem;
+//     bottom: 0;
+//     z-index: 0;
+//     background: url(/src/assets/images/bg_images/homebg3.png) no-repeat center/contain;
+//   }
+// }
+
+
+
+
+
 .carousel-container {
   height: 6.6131rem; // 637.504 * 0.83
   width: 18.8472rem; // 1816.504 * 0.83
@@ -203,7 +222,7 @@ const handleLeftClick = () => {
       justify-content: flex-start;
       align-content: center;
       text-align: center;
-      padding: 0 0.4669rem; // 45 * 0.83
+      padding: 0 .4669rem; // 45 * 0.83
 
       .card {
         height: 4.1707rem; // 402 * 0.83
@@ -222,14 +241,14 @@ const handleLeftClick = () => {
       }
 
       .name {
-        margin: 0.1867rem 0; // 18 * 0.83
-        font-size: 0.3735rem; // 36 * 0.83
+        margin: .1867rem 0; // 18 * 0.83
+        font-size: .3735rem; // 36 * 0.83
         text-align: center;
       }
 
       .description {
-        font-size: 0.249rem; // 24 * 0.83
-        line-height: 0.3125rem;
+        font-size: .249rem; // 24 * 0.83
+        line-height: .3125rem;
         color: #abaaaa;
       }
     }
@@ -240,10 +259,10 @@ const handleLeftClick = () => {
   position: absolute;
   top: 33%;
   transform: translateY(-33%);
-  height: 0.5914rem; // 57 * 0.83
-  width: 0.5914rem; // 57 * 0.83
-  line-height: 0.5914rem; // 57 * 0.83
-  font-size: 0.5914rem; // 57 * 0.83
+  height: .5914rem; // 57 * 0.83
+  width: .5914rem; // 57 * 0.83
+  line-height: .5914rem; // 57 * 0.83
+  font-size: .5914rem; // 57 * 0.83
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
@@ -262,8 +281,8 @@ const handleLeftClick = () => {
   display: flex;
   justify-content: center;
   align-items: end;
-  font-size: 0.5786rem;
-  margin: 0.5714rem auto;
+  font-size: .5786rem;
+  margin: .5714rem auto;
   font-weight: 700;
   font-family: sybold;
   position: relative;
@@ -271,28 +290,28 @@ const handleLeftClick = () => {
     position: absolute;
     display: flex;
     align-items: end;
-    height: 0.8125rem;
+    height: .8125rem;
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
     .content2 {
       @include linear-txt;
-      line-height: 0.875rem;
+      line-height: .875rem;
     }
   }
 
   .head {
     position: relative;
     color: #457fca;
-    padding-bottom: 0.1125rem;
+    padding-bottom: .1125rem;
     &::before {
       content: '';
       position: absolute;
       left: 0;
       bottom: -0.125rem;
-      height: 0.125rem;
-      width: 0.75rem;
-      border-radius: 0.25rem;
+      height: .125rem;
+      width: .75rem;
+      border-radius: .25rem;
       background: linear-gradient(
         to bottom right,
         $theme-color-blue,
