@@ -43,7 +43,6 @@
           <el-carousel
             :autoplay="false"
             height="6.7625rem"
-            @change="handleCarouselChange"
             indicator-position="none"
             arrow="never"
             ref="carouselList"
@@ -80,7 +79,7 @@
 
 <script setup lang="ts">
 import WOW from 'wow.js'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref,nextTick } from 'vue'
 
 const initWOW = () => {
   const wow = new WOW({
@@ -148,20 +147,28 @@ const activityList = ref([
 const activeIndex = ref(0)
 const carouselList = ref()
 
-const handleSelect = (index: number) => {
-  activeIndex.value = index
+const handleSelect = async (index: number) => {
   carouselList.value.setActiveItem(index)
-}
-const handleCarouselChange = (currentIndex: any) => {
+  
+  activeIndex.value = index
+  
   for (let i = 0; i < activityList.value.length; i++) {
     activityList.value[i].opacity = '0'
   }
-  activityList.value[currentIndex].opacity = '1'
+  activityList.value[index].opacity = '1'
+  await nextTick()
+  
+
+
+ 
+  
+ 
 }
+
 </script>
 
 <style scoped lang="scss">
-@import '../../../styles/mixin.scss';
+
 .main {
   position: relative;
   z-index: 1;

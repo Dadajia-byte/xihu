@@ -351,8 +351,8 @@ onMounted(() => {
   font-size: 0.3rem; /* 添加字体大小样式 */
 }
 .content {
-  font-size: .275rem;
-  line-height:.4rem;
+  font-size: 0.275rem;
+  line-height: 0.4rem;
 }
 .title {
   text-align: center;

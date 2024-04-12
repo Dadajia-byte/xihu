@@ -5,7 +5,12 @@
         <div class="title">线上购票</div>
       </div>
       <div class="ticket_container">
-        <div class="ticket_item" v-for="(item, index) in ticket" :key="index" @click="setActive(index)">
+        <div
+          class="ticket_item"
+          v-for="(item, index) in ticket"
+          :key="index"
+          @click="setActive(index)"
+        >
           <div class="top" v-show="index === activeIndex">当前选择</div>
           <div class="type">{{ item.type }}</div>
           <div class="price">{{ item.price }}</div>
@@ -34,30 +39,32 @@ const setActive = (index: number) => {
 const ticket = ref([
   {
     type: '贵宾票',
-    price: '¥200',
+    price: '¥199',
     goal: ' 行业领袖、企业高层管理人员、政府代表、研究机构负责人等高端用户',
-    service: '享有快速通道办理入会手续。可参加贵宾专属的圆桌论坛和闭门会议。提供专属贵宾休息区，配备全天候茶歇服务。',
+    service:
+      '享有快速通道办理入会手续。可参加贵宾专属的圆桌论坛和闭门会议。提供专属贵宾休息区，配备全天候茶歇服务。',
   },
   {
     type: '校园票',
-    price: '¥30',
+    price: '¥29',
     goal: ' 专为在校学生设计，以支持和鼓励学生群体参与数字安全领域的学习和交流',
-    service: '参与大会的所有公开讲座和展览。接触国内外知名网络安全专家，为学术研究和职业发展搭建桥梁。获得大会指定的学习资料和会议记录。',
-
+    service:
+      '参与大会的所有公开讲座和展览。接触国内外知名网络安全专家，为学术研究和职业发展搭建桥梁。获得大会指定的学习资料和会议记录。',
   },
   {
     type: '技术票',
-    price: '¥100',
+    price: '¥99',
     goal: '对数字安全感兴趣的公众人士，希望了解最新行业动态、技术趋势',
-    service: '准入大会的公共区域，参与主题演讲和技术展示。提供大会日程手册，方便安排参会日程。参与互动讲座和技术研讨会，与行业同好深入交流。机会参加由赞助商提供的产品体验和技术演练。',
-
+    service:
+      '准入大会的公共区域，参与主题演讲和技术展示。提供大会日程手册，方便安排参会日程。参与互动讲座和技术研讨会，与行业同好深入交流。机会参加由赞助商提供的产品体验和技术演练。',
   },
 ])
 </script>
 
 <style lang="scss" scoped>
 .ticket {
-  background: url('/src/assets/images/bg_images/imgwall.png') no-repeat center/cover;
+  background: url('/src/assets/images/bg_images/imgwall.png') no-repeat
+    center/cover;
   padding-bottom: 1rem;
 
   .header {
@@ -78,36 +85,33 @@ const ticket = ref([
     display: flex;
     justify-content: center;
     padding: 0.625rem;
-    .desc{
-      padding: .125rem;
-    
-  
-      span{
-        font-size: .25rem;
-        margin-left: .625rem;
-        margin-bottom: .125rem;
-        line-height: .45rem;
-        height: .45rem;
+    .desc {
+      padding: 0.125rem;
+
+      span {
+        font-size: 0.25rem;
+        margin-left: 0.625rem;
+        margin-bottom: 0.125rem;
+        line-height: 0.45rem;
+        height: 0.45rem;
       }
-      .goal{
+      .goal {
         margin: 0 auto;
         width: 80%;
-        font-size: .2rem;
-        line-height: .25rem;
-        margin-bottom: .25rem;
-        color:#abaaab;
+        font-size: 0.2rem;
+        line-height: 0.25rem;
+        margin-bottom: 0.25rem;
+        color: #abaaab;
       }
-      .service{
+      .service {
         margin: 0 auto;
         width: 80%;
-        font-size: .2rem;
-        line-height: .25rem;
-        color:#abaaab;
-        margin-bottom: .5rem;
-
-
+        font-size: 0.2rem;
+        line-height: 0.25rem;
+        color: #abaaab;
+        margin-bottom: 0.5rem;
+      }
     }
-  }
 
     .ticket_item {
       cursor: pointer;
@@ -119,8 +123,8 @@ const ticket = ref([
       height: 7.5rem;
       margin-right: 0.3125rem;
       position: relative;
-      box-shadow: 0px 0px .125rem 0px #abaaab;
-     
+      box-shadow: 0px 0px 0.125rem 0px #abaaab;
+
       .top {
         display: flex;
         justify-content: center;
@@ -148,9 +152,9 @@ const ticket = ref([
         color: #002691;
         display: flex;
         justify-content: center;
-        font-size: .675rem;
+        font-size: 0.675rem;
         font-weight: bold;
-        margin: .3125rem 0;
+        margin: 0.3125rem 0;
       }
 
       .buy {
@@ -158,7 +162,7 @@ const ticket = ref([
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: .25rem;
+        font-size: 0.25rem;
         margin: 0 auto;
         height: 0.625rem;
         width: 2.5rem;

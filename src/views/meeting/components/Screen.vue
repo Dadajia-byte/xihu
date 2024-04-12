@@ -14,7 +14,7 @@
           <div class="let-after"></div>
         </div>
       </div>
-      <FloatCard 
+      <FloatCard
         class="f-c"
         content="主论坛"
         style="left: 37%; top: 0; --i: 0s"
@@ -25,47 +25,43 @@
         content="平行论坛"
         style="left: 13%; bottom: 0; --i: 1s"
         @click="update(1)"
-
       ></FloatCard>
       <FloatCard
         class="f-c"
         content="科普论坛"
         style="right: 13%; bottom: 0; --i: 2s"
         @click="update(2)"
-
       ></FloatCard>
       <FloatCard
         class="f-c"
         content="掌上论剑"
         style="right: -5%; top: 30%; --i: 3s"
         @click="update(3)"
-
       ></FloatCard>
       <FloatCard
         class="f-c"
         content="生态合作论坛"
         style="left: -5%; top: 30%; --i: 4s"
         @click="update(4)"
-
       ></FloatCard>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref,defineEmits } from 'vue'
+import { onMounted, ref, defineEmits } from 'vue'
 import FloatCard from './FloatCard.vue'
 
-const emit = defineEmits(['updateType']);
-const update = (index:number) =>{
-  emit('updateType', index);
+const emit = defineEmits(['updateType'])
+const update = (index: number) => {
+  emit('updateType', index)
 }
 
 const wait = (ms: number) => {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 const click = () => {
-console.log('wobeidianjile');
+  console.log('wobeidianjile')
 }
 const title = ['大会议程', '西湖论剑·数字安全大会']
 let titleIndex = 0

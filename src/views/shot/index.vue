@@ -112,7 +112,6 @@ const initImg = async () => {
 onMounted(async () => {
   initWOW()
   await initImg()
-
 })
 </script>
 
@@ -128,7 +127,8 @@ onMounted(async () => {
     top: 0;
     width: 20%;
     height: 30%;
-    background: url('/src/assets/images/bg_images/imgwall2.png') no-repeat center/cover;
+    background: url('/src/assets/images/bg_images/imgwall2.png') no-repeat
+      center/cover;
   }
   .bg2 {
     z-index: 1;
@@ -137,7 +137,8 @@ onMounted(async () => {
     bottom: 0;
     width: 20%;
     height: 30%;
-    background: url('/src/assets/images/bg_images/imgwall1.png') no-repeat center/cover;
+    background: url('/src/assets/images/bg_images/imgwall1.png') no-repeat
+      center/cover;
   }
 }
 
@@ -170,7 +171,7 @@ onMounted(async () => {
         position: absolute;
         left: -0.25rem;
         content: '';
-        width: .0625rem;
+        width: 0.0625rem;
         height: 0.45rem;
         background: linear-gradient(
           to bottom,

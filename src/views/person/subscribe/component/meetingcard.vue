@@ -1,7 +1,7 @@
 <template>
   <div
     class="box-card"
-    :style="{ background: `url(${data.imageUrl}) no-repeat` }"
+    :style="{ background: `url(${data.imageUrl}) no-repeat`,backgroundSize:'cover' }"
   >
     <div class="name">{{ data.title }}</div>
     <div class="time-location-box">

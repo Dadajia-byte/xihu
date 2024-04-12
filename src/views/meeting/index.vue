@@ -242,10 +242,9 @@ interface ss {
   findFlag: string
   events: agendaItem[]
 }
-const handleUpdate = (newValue: number) =>{
-
-  meetingStore.reqData.type = typeList.value[newValue+1].type
-  activeType.value = typeList.value[newValue+1].type
+const handleUpdate = (newValue: number) => {
+  meetingStore.reqData.type = typeList.value[newValue + 1].type
+  activeType.value = typeList.value[newValue + 1].type
   meetingStore.getAgenda()
 }
 const setTypeActive = async (index: number, item: any) => {
