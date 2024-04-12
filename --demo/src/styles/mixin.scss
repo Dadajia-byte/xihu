@@ -1,0 +1,28 @@
+@mixin cover {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin linear-txt {
+    background: linear-gradient(to bottom right, $theme-color-blue, $theme-color-green);
+    /*设置渐变的方向从左到右 颜色从ff0000到ffff00*/
+    -webkit-background-clip: text;
+    /*将设置的背景颜色限制在文字中*/
+    -webkit-text-fill-color: transparent;
+    /*给文字设置成透明*/
+}
+
+@mixin clip-path {
+    clip-path: polygon(0 0, 100%, 70% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 96%0, 74% 100%, 0 100%);
+}
+
+@mixin clip-path-right {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+}
+
+@mixin text-column {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
