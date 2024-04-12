@@ -42,7 +42,7 @@ const masterItem = [
   {
     name: '沈昌祥',
     description: '中国工程院院士',
-    isStream: false,
+    isStream: true,
     img: '/src/assets/images/home_guest_images/guest8.png',
   },
   {
@@ -60,7 +60,7 @@ const masterItem = [
   {
     name: '郝志强',
     description: '工业和信息化部教育与考试中心主任、书记',
-    isStream: false,
+    isStream: true,
     img: '/src/assets/images/home_guest_images/guest5.png',
   },
   {
@@ -72,13 +72,13 @@ const masterItem = [
   {
     name: '左晓栋',
     description: '中国科学技术大学网络空间安全学院教授',
-    isSream: false,
+    isSream: true,
     img: '/src/assets/images/home_guest_images/guest7.png',
   },
   {
     name: '谭晓生',
     description: '北京赛博英杰科技有限公司董事长',
-    isStream: false,
+    isStream: true,
     img: '/src/assets/images/home_guest_images/guest6.png',
   },
   {

@@ -521,15 +521,6 @@ const defaultSeries = [
       { name: '技术创新', value: 2400 },
       { name: '防御策略', value: 2000 },
       { name: '数字化转型', value: 1600 },
-      // { name: '区块链技术', value: 6600 },
-      // { name: '数据加密', value: 6400 },
-      // { name: '网络间谍', value: 6200 },
-      // { name: '网络防护', value: 6000 },
-      // { name: '安全框架', value: 5800 },
-      // { name: '监控系统', value: 5600 },
-      // { name: '数据保护法', value: 5400 },
-      // { name: '网络犯罪', value: 5200 },
-      // { name: '信息安全意识', value: 5000 },
     ],
   },
 ]
@@ -548,11 +539,11 @@ function DrawWordCloud() {
   .bg {
     z-index: 0;
     position: absolute;
-    top: 7.5rem;
-    right: -2.5rem;
-    width: 15rem;
-    height: 18.75rem;
-    background: url('/src/assets/images/bg_images/huati_bg.png') no-repeat
+    top: 20%;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/src/assets/images/bg_images/huati_bg2.png') no-repeat
       center/cover;
   }
 }

@@ -32,7 +32,12 @@
     </el-form>
     <div class="meeting-list" v-for="group in meetingList" :key="group.dayTime">
       <div class="dayTime">{{ group.dayTime }}</div>
-      <div class="meeting" v-for="item in group.items" :key="item.title">
+      <div
+        class="meeting"
+        v-for="item in group.items"
+        :key="item.title"
+        :style="`background:url(${item.img}) no-repeat center/cover`"
+      >
         <div class="meeting_top">
           <div class="meeting_title">{{ item.title }}</div>
           <div class="huifang">观看回放</div>
@@ -56,6 +61,7 @@ const meetingList = [
         title: '格致论道@西湖论剑',
         time: '18:00-21:00',
         pos: '杭州市滨江区文化中心剧场一层',
+        img: '/src/assets/images/mobile/Agenda1.png',
       },
     ],
   },
@@ -63,59 +69,67 @@ const meetingList = [
     dayTime: '5月6日 上午',
     items: [
       {
-        title: '格致论道@西湖论剑',
-        time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层',
-      },
-      {
-        title: '格致论道@西湖论剑',
-        time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层',
-      },
-      {
-        title: '格致论道@西湖论剑',
-        time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层',
+        title: '95后极客青年Talk',
+        time: '10:00-10:30',
+        pos: '线上直播',
+        img: '/src/assets/images/mobile/Agenda2.png',
       },
     ],
   },
   {
-    dayTime: '5月6日 上午',
+    dayTime: '5月6日 下午',
     items: [
       {
-        title: '格致论道@西湖论剑',
-        time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层',
+        title: '当科幻照进现实我们会更安全吗？',
+        time: '13:00-13:30',
+        pos: '线上直播',
+        img: '/src/assets/images/mobile/Agenda3.png',
       },
       {
-        title: '格致论道@西湖论剑',
-        time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层',
+        title: '人工智能会颠覆安全行业吗？',
+        time: '15:00-15:30',
+        pos: '线上直播',
+        img: '/src/assets/images/mobile/Agenda4.png',
       },
       {
-        title: '格致论道@西湖论剑',
-        time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层',
+        title: '反诈直播间@西湖论剑',
+        time: '15:30-16:30',
+        pos: '线上直播',
+        img: '/src/assets/images/mobile/Agenda5.png',
       },
     ],
   },
   {
-    dayTime: '5月6日 上午',
+    dayTime: '5月7日 上午',
     items: [
       {
-        title: '格致论道@西湖论剑',
-        time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层',
+        title: '主论坛',
+        time: '09:00-12:00',
+        pos: '杭州洲际酒店·杭州厅',
+        img: '/src/assets/images/mobile/Agenda6.png',
       },
       {
-        title: '格致论道@西湖论剑',
-        time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层',
+        title: '生态合作伙伴分论坛',
+        time: '09:00-22:00',
+        pos: '杭州英冠索菲特酒店',
+        img: '/src/assets/images/mobile/Agenda7.png',
+      },
+    ],
+  },
+  {
+    dayTime: '5月8日 上午',
+    items: [
+      {
+        title: '教育技术产业融合创新发展论坛',
+        time: '08:30-12:10',
+        pos: ' 杭州洲际酒店·国际厅1厅',
+        img: '/src/assets/images/mobile/Agenda8.png',
       },
       {
-        title: '格致论道@西湖论剑',
-        time: '18:00-21:00',
-        pos: '杭州市滨江区文化中心剧场一层',
+        title: '商用密码应用论坛',
+        time: '09:00-12:00',
+        pos: '杭州洲际酒店·国际厅2厅',
+        img: '/src/assets/images/mobile/Agenda9.png',
       },
     ],
   },
@@ -127,7 +141,8 @@ const meetingList = [
   // background: url();
   // background-size: cover;
   overflow: hidden;
-  background-color: blue;
+  background: url(/src/assets/images/bg_images/homemateBG.png) no-repeat
+    center/cover;
 
   .title {
     font-size: 7vw;

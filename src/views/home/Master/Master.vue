@@ -4,6 +4,7 @@
     data-wow-duration="1.5s"
     data-wow-delay="0.1s"
   >
+    <div class="bg"></div>
     <span class="divider wow fadeInUp">
       <div class="content">
         <span style="font-size: 0.8125rem" class="head">E</span>
@@ -179,6 +180,19 @@ const handleLeftClick = () => {
 </script>
 
 <style scoped lang="scss">
+// .master{
+//   position: relative;
+//   .bg{
+//     position: absolute;
+//     height: 12.5rem;
+//     width: 12.5rem;
+//     right: -3.75rem;
+//     bottom: 0;
+//     z-index: 0;
+//     background: url(/src/assets/images/bg_images/homebg3.png) no-repeat center/contain;
+//   }
+// }
+
 .carousel-container {
   height: 6.6131rem; // 637.504 * 0.83
   width: 18.8472rem; // 1816.504 * 0.83

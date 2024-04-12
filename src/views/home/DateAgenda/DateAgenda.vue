@@ -170,7 +170,6 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
-@import '/src/styles/mixin.scss';
 .divider {
   overflow: hidden;
   height: 1.875rem;

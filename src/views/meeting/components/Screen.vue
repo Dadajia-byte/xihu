@@ -18,38 +18,51 @@
         class="f-c"
         content="主论坛"
         style="left: 37%; top: 0; --i: 0s"
+        @click="update(0)"
       ></FloatCard>
       <FloatCard
         class="f-c"
         content="平行论坛"
         style="left: 13%; bottom: 0; --i: 1s"
+        @click="update(1)"
       ></FloatCard>
       <FloatCard
         class="f-c"
         content="科普论坛"
         style="right: 13%; bottom: 0; --i: 2s"
+        @click="update(2)"
       ></FloatCard>
       <FloatCard
         class="f-c"
         content="掌上论剑"
         style="right: -5%; top: 30%; --i: 3s"
+        @click="update(3)"
       ></FloatCard>
       <FloatCard
         class="f-c"
         content="生态合作论坛"
         style="left: -5%; top: 30%; --i: 4s"
+        @click="update(4)"
       ></FloatCard>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, defineEmits } from 'vue'
 import FloatCard from './FloatCard.vue'
+
+const emit = defineEmits(['updateType'])
+const update = (index: number) => {
+  emit('updateType', index)
+}
+
 const wait = (ms: number) => {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
-
+const click = () => {
+  console.log('wobeidianjile')
+}
 const title = ['大会议程', '西湖论剑·数字安全大会']
 let titleIndex = 0
 let titleItemIndex = 0
@@ -93,9 +106,10 @@ onMounted(() => {
   height: calc(100vh - $layout-header-height);
   background: no-repeat center center;
   background-image: url('@/assets/images/meeting_images/screenbg1.png'),
-    linear-gradient(to right, $theme-color-blue, $theme-color-green);
+    linear-gradient(to right bottom, #1185e4, #2db1ba);
   padding: 5% 18% 5%;
-
+  // $theme-color-blue: #1185e4;
+  // $theme-color-green: #2db1ba;
   .cir-outside {
     @include cover;
     border: 0.0167rem solid rgba(222, 222, 222, 0.588);

@@ -34,7 +34,7 @@
       src="https://roma.720yun.com/vr/ce1c0d20bffcf1f9"
       frameborder="no"
       width="100%"
-      height="1000"
+      height="100%"
     ></iframe>
   </div>
 </template>
@@ -122,7 +122,7 @@
 <style scoped lang="scss">
 .container {
   height: 100vh;
-  background-color: blue; // 后期加入背景图片，去掉这个属性
+  // 后期加入背景图片，去掉这个属性
   // background: url();
   background-size: cover;
   overflow: hidden;

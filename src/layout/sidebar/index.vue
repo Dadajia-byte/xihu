@@ -15,11 +15,12 @@
 
       <div class="content">AI体验</div>
     </div>
-    <div class="about">
-      <el-icon size=".45rem" color="#0b81f0">
-        <MoreFilled />
-      </el-icon>
+    <div class="buy" @click="buyTicket">
+      <svgIcon name="buy" style="width: 0.45rem; height: 0.45rem"></svgIcon>
+
+      <div class="content">立即购票</div>
     </div>
+
     <transition name="fade">
       <div class="backTop" @click="backTop" ref="bt" v-if="isShow">
         <svgIcon name="toTop" style="width: 0.35rem; height: 0.35rem"></svgIcon>
@@ -51,7 +52,10 @@ const poster = () => {
 }
 
 const clockIn = () => {
-  judgeLog()
+  let res = judgeLog()
+  if (res) {
+    $router.push('/shot')
+  }
 }
 
 const AiReport = () => {
@@ -60,7 +64,12 @@ const AiReport = () => {
     $router.push('/AIreport')
   }
 }
-
+const buyTicket = () => {
+  // let res = judgeLog()
+  // if (res) {
+  $router.push('/onlinebuy')
+  // }
+}
 onMounted(() => {
   window.onscroll = function () {
     let high = document.documentElement.scrollTop || document.body.scrollTop // 兼容
@@ -84,6 +93,7 @@ onMounted(() => {
   .backTop,
   .about,
   .communication,
+  .buy,
   .poster {
     display: flex;
     flex-direction: column;
@@ -103,9 +113,6 @@ onMounted(() => {
     }
   }
 
-  .content {
-  }
-
   .backTop {
     scale: 0.8;
 
@@ -119,7 +126,8 @@ onMounted(() => {
 
   .clockIn,
   .communication,
-  .poster {
+  .poster,
+  .buy {
     div {
       padding-top: 0.05rem;
       font-size: 0.15rem;
