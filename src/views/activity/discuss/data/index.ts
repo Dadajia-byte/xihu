@@ -17,7 +17,7 @@ let commentList = ref([
       {
         name: '咸鱼不会飞',
         id: 19870621,
-        headImg: '/src/assets/images/avatar/1.jpg',
+        headImg: 'avatar/1.jpg',
         content:
           '真是一个紧迫的议题。现在全球竞争这么激烈，数字安全策略不仅关系到经济发展，更是国家安全的重要组成部分',
         time: '2024年3月20日 19:48',
@@ -29,7 +29,7 @@ let commentList = ref([
           {
             from: 'Horizon',
             fromId: 19891221,
-            fromHeadImg: '/src/assets/images/avatar/2.jpg',
+            fromHeadImg: 'avatar/2.jpg',
             to: '咸鱼不会飞',
             toId: 19870621,
             content:
@@ -43,7 +43,7 @@ let commentList = ref([
           {
             from: '缘',
             fromId: 1123,
-            fromHeadImg: '/src/assets/images/avatar/3.jpeg',
+            fromHeadImg: 'avatar/3.jpeg',
             to: '咸鱼不会飞',
             toId: 19870621,
             content: '这不仅是技术问题，更是战略布局问题，必须长远考虑',
@@ -58,7 +58,7 @@ let commentList = ref([
       {
         name: '飞翔的土豆',
         id: 19891221,
-        headImg: '/src/assets/images/avatar/4.jpg',
+        headImg: 'avatar/4.jpg',
         content: '中国在5G上的确走在了前列，希望能持续保持领先',
         time: '2024年3月26日 14:43',
         commentNum: 1,
@@ -69,7 +69,7 @@ let commentList = ref([
           {
             from: 'Lana Del Rey',
             fromId: 19870621,
-            fromHeadImg: '/src/assets/images/avatar/8.jpg',
+            fromHeadImg: 'avatar/8.jpg',
             to: 'Taylor Swift',
             toId: 19891221,
             content: '关键还是要看实际应用和服务能不能跟上',
@@ -84,7 +84,7 @@ let commentList = ref([
       {
         name: '数字游侠',
         id: 20190830,
-        headImg: '/src/assets/images/avatar/6.jpg',
+        headImg: 'avatar/6.jpg',
         content:
           '看到这样的分析很振奋人心，希望我们的数字基础设施可以越来越强大',
         time: '2024年3月27日  11:43',
@@ -96,7 +96,7 @@ let commentList = ref([
           {
             from: '源深',
             fromId: 19870621,
-            fromHeadImg: '/src/assets/images/avatar/5.jpg',
+            fromHeadImg: 'avatar/5.jpg',
             to: '数字游侠',
             toId: 19891221,
             content:
@@ -110,7 +110,7 @@ let commentList = ref([
           {
             from: '漫步云端521',
             fromId: 19870621,
-            fromHeadImg: '/src/assets/images/avatar/8.jpg',
+            fromHeadImg: 'avatar/8.jpg',
             to: '数字游侠',
             toId: 19891221,
             content: '国家力量+民间智慧，双管齐下才能赢',
@@ -125,7 +125,7 @@ let commentList = ref([
       {
         name: 'Horizon',
         id: 20190830,
-        headImg: '/src/assets/images/avatar/5.jpg',
+        headImg: 'avatar/5.jpg',
         content: '数字安全太重要了，希望我们能有自己的核心技术',
         time: '2024年3月30日 18:33',
         commentNum: 0,
@@ -136,7 +136,7 @@ let commentList = ref([
           {
             from: '飞翔的土豆',
             fromId: 19870621,
-            fromHeadImg: '/src/assets/images/avatar/4.jpg',
+            fromHeadImg: 'avatar/4.jpg',
             to: 'Horizon',
             toId: 19891221,
             content: '核心技术是保护伞，没有就会受制于人',
@@ -149,7 +149,7 @@ let commentList = ref([
           {
             from: '咸鱼不会飞',
             fromId: 19870621,
-            fromHeadImg: '/src/assets/images/avatar/6.jpg',
+            fromHeadImg: 'avatar/6.jpg',
             to: 'Horizon',
             toId: 19891221,
             content: '自主研发才是王道，加油！',
@@ -164,7 +164,7 @@ let commentList = ref([
       {
         name: '极客少年',
         id: 20190830,
-        headImg: '/src/assets/images/avatar/8.jpg',
+        headImg: 'avatar/8.jpg',
         content: '华为的5G技术真是骄傲，希望能早日看到全国覆盖',
         time: '2024年3月30日 18:43',
         commentNum: 0,
@@ -175,7 +175,7 @@ let commentList = ref([
           {
             from: '漫步云端521',
             fromId: 19870621,
-            fromHeadImg: '/src/assets/images/avatar/7.jpg',
+            fromHeadImg: 'avatar/7.jpg',
             to: '极客少年',
             toId: 19891221,
             content: '想象一下5G全覆盖的未来，太期待了！',
@@ -188,7 +188,7 @@ let commentList = ref([
           {
             from: '数字游侠',
             fromId: 19870621,
-            fromHeadImg: '/src/assets/images/avatar/6.jpg',
+            fromHeadImg: 'avatar/6.jpg',
             to: '极客少年',
             toId: 19891221,
             content: '这将是一个巨大的进步，对整个社会都是',
@@ -209,7 +209,7 @@ let commentList = ref([
     index: '0',
     replyComment: '',
     myName: '星辰大海007',
-    myHeader: '/src/assets/images/avatar/2.jpg',
+    myHeader: 'avatar/2.jpg',
     myId: 19870621,
     to: '',
     toId: -1,
@@ -217,7 +217,7 @@ let commentList = ref([
       {
         name: '漫步云端521',
         id: 19870621,
-        headImg: '/src/assets/images/avatar/6.jpg',
+        headImg: 'avatar/6.jpg',
         content:
           '人工智能的安全性确实不能忽视，看到Tay的故事后我觉得监管必不可少，但也不能限制了创新，这个平衡点挺难把握的',
         time: '2024年3月16日 18:43',
@@ -229,7 +229,7 @@ let commentList = ref([
           {
             from: '飞翔的土豆',
             fromId: 19891221,
-            fromHeadImg: '/src/assets/images/avatar/7.jpg',
+            fromHeadImg: 'avatar/7.jpg',
             to: '漫步云端521',
             toId: 19870621,
             content: '说得对，既要发展又要安全，这责任不小啊',
@@ -242,7 +242,7 @@ let commentList = ref([
           {
             from: '星辰大海007',
             fromId: 19891221,
-            fromHeadImg: '/src/assets/images/avatar/6.jpg',
+            fromHeadImg: 'avatar/6.jpg',
             to: '漫步云端521',
             toId: 19870621,
             content: '监管肯定需要，但是AI还是得自由发展，让它展现全部潜力',
@@ -258,7 +258,7 @@ let commentList = ref([
       {
         name: '码农小哥',
         id: 20190830,
-        headImg: '/src/assets/images/avatar/7.jpg',
+        headImg: 'avatar/7.jpg',
         content: '我们需要明确一点，AI是人创造的，所以出问题的不是AI，而是人',
         time: '2024年2月16日 12:43',
         commentNum: 0,
@@ -269,7 +269,7 @@ let commentList = ref([
           {
             from: '茶余饭后233',
             fromId: 19891221,
-            fromHeadImg: '/src/assets/images/avatar/8.jpg',
+            fromHeadImg: 'avatar/8.jpg',
             to: '码农小哥',
             toId: 19870621,
             content: '确实，问题出在人身上，AI只是执行了错误的命令而已',
@@ -282,7 +282,7 @@ let commentList = ref([
           {
             from: '清风徐来',
             fromId: 19891221,
-            fromHeadImg: '/src/assets/images/avatar/2.jpg',
+            fromHeadImg: 'avatar/2.jpg',
             to: '码农小哥',
             toId: 19870621,
             content: '问题是怎么防止人犯错呢？这是个系统性的大问题',
@@ -297,7 +297,7 @@ let commentList = ref([
       {
         name: '数字游侠',
         id: 20190830,
-        headImg: '/src/assets/images/avatar/7.jpg',
+        headImg: 'avatar/7.jpg',
         content: '这就是为什么AI的道德框架很重要，我们需要有道德的AI',
         time: '2024年2月18日 18:45',
         commentNum: 0,
@@ -308,7 +308,7 @@ let commentList = ref([
           {
             from: '极客少年',
             fromId: 19891221,
-            fromHeadImg: '/src/assets/images/avatar/1.jpg',
+            fromHeadImg: 'avatar/1.jpg',
             to: '数字游侠',
             toId: 19870621,
             content: '道德框架听起来很科幻，但实施起来超难',
@@ -321,7 +321,7 @@ let commentList = ref([
           {
             from: '梦里花落知多少',
             fromId: 19891221,
-            fromHeadImg: '/src/assets/images/avatar/5.jpg',
+            fromHeadImg: 'avatar/5.jpg',
             to: '数字游侠',
             toId: 19870621,
             content: '是啊，谁来定义“道德”呢？每个人的标准都不一样',
@@ -334,7 +334,7 @@ let commentList = ref([
           {
             from: '极客少年',
             fromId: 19891221,
-            fromHeadImg: '/src/assets/images/avatar/7.jpg',
+            fromHeadImg: 'avatar/7.jpg',
             to: '数字游侠',
             toId: 19870621,
             content:
@@ -348,7 +348,7 @@ let commentList = ref([
           {
             from: '数字游侠',
             fromId: 19891221,
-            fromHeadImg: '/src/assets/images/avatar/2.jpg',
+            fromHeadImg: 'avatar/2.jpg',
             to: '极客少年',
             toId: 19870621,
             content: '确实，所以得有人时刻监控',

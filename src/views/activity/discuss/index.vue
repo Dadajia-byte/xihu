@@ -73,7 +73,7 @@
           <el-avatar
             class="header-img"
             :size="40"
-            :src="item.headImg"
+            :src="`${getImg(item.headImg)}`"
           ></el-avatar>
           <div class="author-info">
             <span class="author-name">{{ item.name }}</span>
@@ -101,7 +101,7 @@
               <el-avatar
                 class="header-img"
                 :size="40"
-                :src="reply.fromHeadImg"
+                :src="`${getImg(reply.fromHeadImg)}`"
               ></el-avatar>
               <div class="author-info">
                 <span class="author-name">{{ reply.from }}</span>
@@ -183,6 +183,7 @@
 </template>
 
 <script setup lang="ts">
+import { getImg } from '@/utils/img'
 import commentList from './data/index'
 import { ref, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'

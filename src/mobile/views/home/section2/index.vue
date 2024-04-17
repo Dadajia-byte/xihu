@@ -33,7 +33,7 @@
         <swiper-slide v-for="item in box" :key="item.content">
           <div
             class="box"
-            :style="`background:url(${item.img}) no-repeat center/cover`"
+            :style="`background:url(${getImg(item.img)}) no-repeat center/cover`"
           >
             <div class="box_content">{{ item.content }}</div>
             <div class="box_more">查看详情</div>
@@ -47,23 +47,24 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Pagination } from 'swiper/modules'
+import { getImg } from '@/utils/img'
 import 'swiper/scss/pagination'
 const box = [
   {
     content: '议题更前沿',
-    img: '/src/assets/images/meetingabout/1.jpg',
+    img: 'meetingabout/1.jpg',
   },
   {
     content: '线上更精彩',
-    img: '/src/assets/images/meetingabout/2.jpg',
+    img: 'meetingabout/2.jpg',
   },
   {
     content: '成功更显著',
-    img: '/src/assets/images/meetingabout/3.jpg',
+    img: 'meetingabout/3.jpg',
   },
   {
     content: '国际化更深入',
-    img: '/src/assets/images/meetingabout/4.jpg',
+    img: 'meetingabout/4.jpg',
   },
 ]
 const modules = [Autoplay, Pagination]

@@ -13,7 +13,7 @@
           <div class="top">
             <div
               class="image"
-              :style="`background:url(${item.img}) no-repeat center/cover`"
+              :style="`background:url(${getImg(item.img)}) no-repeat center/cover`"
             ></div>
             <div class="bofang" v-show="item.isStream"></div>
           </div>
@@ -31,61 +31,63 @@
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Scrollbar } from 'swiper/modules'
 import 'swiper/scss/pagination'
+import { getImg } from '@/utils/img'
+
 const modules = [Autoplay, Scrollbar]
 const masterItem = [
   // {
   //   name: '张宇',
   //   description: '中国发展研究基金会副理事长、国务院发展研究中心副主任',
   //   isStream: true,
-  //   img: '/src/assets/images/home_guest_images/guest8.png',
+  //   img: 'home_guest_images/guest8.png',
   // },
   {
     name: '沈昌祥',
     description: '中国工程院院士',
     isStream: true,
-    img: '/src/assets/images/home_guest_images/guest8.png',
+    img: 'home_guest_images/guest8.png',
   },
   {
     name: '邬贺铨',
     description: '中国工程院院士',
     isStream: true,
-    img: '/src/assets/images/home_guest_images/guest9.png',
+    img: 'home_guest_images/guest9.png',
   },
   {
     name: '方滨兴',
     description: '中国工程院院士',
     isStream: true,
-    img: '/src/assets/images/home_guest_images/guest3.png',
+    img: 'home_guest_images/guest3.png',
   },
   {
     name: '郝志强',
     description: '工业和信息化部教育与考试中心主任、书记',
     isStream: true,
-    img: '/src/assets/images/home_guest_images/guest5.png',
+    img: 'home_guest_images/guest5.png',
   },
   {
     name: '何皓仁',
     description: '中国信通院安全研究所车联网安全中心主任',
     isStream: true,
-    img: '/src/assets/images/home_guest_images/guest2.png',
+    img: 'home_guest_images/guest2.png',
   },
   {
     name: '左晓栋',
     description: '中国科学技术大学网络空间安全学院教授',
     isSream: true,
-    img: '/src/assets/images/home_guest_images/guest7.png',
+    img: 'home_guest_images/guest7.png',
   },
   {
     name: '谭晓生',
     description: '北京赛博英杰科技有限公司董事长',
     isStream: true,
-    img: '/src/assets/images/home_guest_images/guest6.png',
+    img: 'home_guest_images/guest6.png',
   },
   {
     name: '范渊',
     description: '安恒信息董事长',
     isStream: true,
-    img: '/src/assets/images/home_guest_images/guest1.png',
+    img: 'home_guest_images/guest1.png',
   },
 ]
 </script>
