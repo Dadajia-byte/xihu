@@ -99,6 +99,7 @@ onMounted(() => {
   incraeseNum((num) => (num3.value = num), finalNum3.value, 2000)
   incraeseNum((num) => (num4.value = num), finalNum4.value, 2000)
   initWOW()
+  console.log(getImg('bg_images/home1.png'))
 })
 
 const initWOW = () => {

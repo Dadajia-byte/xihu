@@ -1,3 +1,10 @@
+
 export const getImg = (url: string) => {
-    return new URL(`@/assets/images/${url}`, import.meta.url).href;
+    if(url.includes('http')){
+        return url
+    } else
+    return new URL(`../assets/images/${url}`, import.meta.url).href;
+
+    
+    
 }

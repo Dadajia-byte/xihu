@@ -34,7 +34,7 @@
                 style=""
               >
                 <div class="img">
-                  <img :src="`${logo.logoUrl}`" alt="" />
+                  <img :src="`${getImg(logo.logoUrl)}`" alt="" />
                 </div>
               </swiper-slide>
             </swiper>
@@ -47,6 +47,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import {getImg} from '@/utils/img';
+
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Pagination } from 'swiper/modules'
 import WOW from 'wow.js'
@@ -74,7 +76,7 @@ const mateDatas = ref([
     title: '战略合作媒体',
     logoData: [
       {
-        logoUrl: '/src/assets/images/mate_images/xinhua.png',
+        logoUrl: 'mate_images/xinhua.png',
         companyUrl: '',
       },
     ],
@@ -158,75 +160,75 @@ const mateDatas = ref([
     title: '生态合作媒体',
     logoData: [
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/anbotong.png',
+        logoUrl: 'mate_images/ecology/anbotong.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/anheng.png',
+        logoUrl: 'mate_images/ecology/anheng.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/baode.png',
+        logoUrl: 'mate_images/ecology/baode.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/cosic.png',
+        logoUrl: 'mate_images/ecology/cosic.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/huizhi.png',
+        logoUrl: 'mate_images/ecology/huizhi.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/leyan.png',
+        logoUrl: 'mate_images/ecology/leyan.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/lianruan.png',
+        logoUrl: 'mate_images/ecology/lianruan.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/lihua.png',
+        logoUrl: 'mate_images/ecology/lihua.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/qiyang.png',
+        logoUrl: 'mate_images/ecology/qiyang.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/seagate.png',
+        logoUrl: 'mate_images/ecology/seagate.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/shangyuan.png',
+        logoUrl: 'mate_images/ecology/shangyuan.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/suma.png',
+        logoUrl: 'mate_images/ecology/suma.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/wahaha.png',
+        logoUrl: 'mate_images/ecology/wahaha.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/wangsu.png',
+        logoUrl: 'mate_images/ecology/wangsu.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/wuzhou.png',
+        logoUrl: 'mate_images/ecology/wuzhou.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/xiaodao.png',
+        logoUrl: 'mate_images/ecology/xiaodao.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/xinhan.png',
+        logoUrl: 'mate_images/ecology/xinhan.png',
         companyUrl: '',
       },
       {
-        logoUrl: '/src/assets/images/mate_images/ecology/zhonger.png',
+        logoUrl: 'mate_images/ecology/zhonger.png',
         companyUrl: '',
       },
     ],
