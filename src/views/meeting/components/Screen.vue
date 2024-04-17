@@ -60,9 +60,7 @@ const update = (index: number) => {
 const wait = (ms: number) => {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
-const click = () => {
-  console.log('wobeidianjile')
-}
+
 const title = ['大会议程', '西湖论剑·数字安全大会']
 let titleIndex = 0
 let titleItemIndex = 0
