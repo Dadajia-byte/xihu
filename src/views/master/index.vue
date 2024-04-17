@@ -27,7 +27,7 @@
                 :key="index"
               >
                 <div class="card">
-                  <img :src="card.url" alt="" />
+                  <img :src="`${getImg(card.url)}`" alt="" />
                 </div>
                 <span class="name">{{ card.name }}</span>
                 <span class="description">{{ card.description }}</span>
@@ -117,6 +117,7 @@
 </template>
 
 <script setup lang="ts">
+import { getImg } from '@/utils/img'
 import { ref, onMounted } from 'vue'
 import { Search } from '@element-plus/icons-vue'
 import useMasterStore from '@/store/modules/master'
@@ -132,53 +133,53 @@ const left = ref()
 const right = ref()
 const cards = [
   {
-    url: '/src/assets/images/master/1.png',
+    url: 'master/1.png',
     name: '左晓栋',
     description:
       '中国科学技术大学网络空间安全学院教授、科技人文高等研究院副院长',
   },
   {
-    url: '/src/assets/images/master/2.jpg',
+    url: 'master/2.jpg',
     name: '崔光耀',
     description: '《中国信息安全》杂志原主编',
   },
   {
-    url: '/src/assets/images/master/3.jpg',
+    url: 'master/3.jpg',
     name: '顾炳中',
     description: '中国计算机用户协会理事长',
   },
   {
-    url: '/src/assets/images/master/4.jpg',
+    url: 'master/4.jpg',
     name: '李新友',
     description: '国家信息中心研究员',
   },
   {
-    url: '/src/assets/images/master/5.jpg',
+    url: 'master/5.jpg',
     name: '曲胜',
     description: '中国能源研究会能源网络安全技术研究中心常务副主任',
   },
   {
-    url: '/src/assets/images/master/6.jpg',
+    url: 'master/6.jpg',
     name: '王秉政',
     description: '全国信安标委成员',
   },
   {
-    url: '/src/assets/images/master/7.jpg',
+    url: 'master/7.jpg',
     name: '许玉娜',
     description: '中国网络安全产业联盟副秘书长',
   },
   {
-    url: '/src/assets/images/master/8.jpg',
+    url: 'master/8.jpg',
     name: '严明',
     description: '国计算机学会计算机安全专委会荣誉主任',
   },
   {
-    url: '/src/assets/images/master/9.jpg',
+    url: 'master/9.jpg',
     name: '姚力',
     description: 'CNCERT 博士',
   },
   {
-    url: '/src/assets/images/master/10.jpg',
+    url: 'master/10.jpg',
     name: '叶红',
     description: '中国信息协会信息安全专业委员会主任',
   },

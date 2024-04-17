@@ -80,9 +80,9 @@
             </div>
             <div
               class="img"
-              style="
-                background: url('/src/assets/images/meetingabout/1.jpg')
-                  no-repeat center/cover;
+              :style="
+                `background: url('${getImg('meetingabout/1.jpg')}')
+                  no-repeat center/cover;`
               "
             ></div>
           </div>
@@ -101,9 +101,9 @@
             </div>
             <div
               class="img"
-              style="
-                background: url('/src/assets/images/meetingabout/2.jpg')
-                  no-repeat center/cover;
+              :style="
+                `background: url('${getImg('meetingabout/2.jpg')}')
+                  no-repeat center/cover;`
               "
             ></div>
           </div>
@@ -124,9 +124,9 @@
             </div>
             <div
               class="img"
-              style="
-                background: url('/src/assets/images/meetingabout/4.jpg')
-                  no-repeat center/cover;
+              :style="
+                `background: url('${getImg('meetingabout/4.jpg')}')
+                  no-repeat center/cover;`
               "
             ></div>
           </div>
@@ -145,9 +145,9 @@
             </div>
             <div
               class="img"
-              style="
-                background: url('/src/assets/images/meetingabout/3.jpg')
-                  no-repeat center/cover;
+              :style="
+                `background: url('${getImg('meetingabout/3.jpg')}')
+                  no-repeat center/cover;`
               "
             ></div>
           </div>
@@ -160,7 +160,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import WOW from 'wow.js'
-
+import { getImg } from '@/utils/img';
 let num1 = ref(1)
 let finalNum1 = ref(10000)
 let num2 = ref(1)

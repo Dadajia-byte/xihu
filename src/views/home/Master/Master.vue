@@ -19,7 +19,7 @@
       <div class="master-container" ref="cardlist">
         <div class="card-container" v-for="(card, index) in cards" :key="index">
           <div class="card">
-            <img :src="card.url" alt="" />
+            <img :src="`${getImg(card.url)}`" alt="" />
           </div>
           <span class="name">{{ card.name }}</span>
           <span class="description">{{ card.description }}</span>
@@ -50,6 +50,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import WOW from 'wow.js'
+import {getImg} from '@/utils/img';
 
 const initWOW = () => {
   const wow = new WOW({
@@ -66,37 +67,37 @@ onMounted(() => {
 
 const cards = [
   {
-    url: '/src/assets/images/guest_images/guest1.png',
+    url: 'guest_images/guest1.png',
     name: '范渊',
     description: '安恒信息董事长',
   },
   {
-    url: '/src/assets/images/guest_images/guest2.png',
+    url: 'guest_images/guest2.png',
     name: '柯皓仁',
     description: '中国信通院安全研究所车联网安全中心主任',
   },
   {
-    url: '/src/assets/images/guest_images/guest3.png',
+    url: 'guest_images/guest3.png',
     name: '方滨兴',
     description: '中国工程院院士',
   },
   {
-    url: '/src/assets/images/guest_images/guest4.png',
+    url: 'guest_images/guest4.png',
     name: '刘世锦',
     description: '国务院发展研究中心原副主任、中国发展研究基金会副理事长',
   },
   {
-    url: '/src/assets/images/guest_images/guest5.png',
+    url: 'guest_images/guest5.png',
     name: '郝志强',
     description: '工业和信息化部教育与考试中心主任、书记',
   },
   {
-    url: '/src/assets/images/guest_images/guest6.png',
+    url: 'guest_images/guest6.png',
     name: '谭晓生',
     description: '北京赛博英杰科技有限公司董事长',
   },
   {
-    url: '/src/assets/images/guest_images/guest7.png',
+    url: 'guest_images/guest7.png',
     name: '左晓栋',
     description:
       '中国科学技术大学网络空间安全学院教授、科技人文高等研究院副院长',
@@ -189,7 +190,7 @@ const handleLeftClick = () => {
 //     right: -3.75rem;
 //     bottom: 0;
 //     z-index: 0;
-//     background: url(/src/assets/images/bg_images/homebg3.png) no-repeat center/contain;
+//     background: url(bg_images/homebg3.png) no-repeat center/contain;
 //   }
 // }
 

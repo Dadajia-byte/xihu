@@ -9,48 +9,19 @@
     <div class="past">
       <div class="past_container">
         <div class="part1 wow fadeInUp">
-          <div
-            class="img1"
-            style="
-              background-image: url(/src/assets/images/pastagenda_images/pastagenda6.jpg);
-            "
-          ></div>
-          <div
-            class="img2"
-            style="
-              background-image: url(/src/assets/images/pastagenda_images/pastagenda3.jpg);
-            "
-          ></div>
+          <div class="img1" :style="`background-image: url(${getImg('pastagenda_images/pastagenda6.jpg')});`"></div>
+          <div class="img2" :style="`background-image: url(${getImg('pastagenda_images/pastagenda3.jpg')});`
+            "></div>
         </div>
         <div class="part2 wow fadeInUp">
-          <div
-            class="img3"
-            style="
-              background-image: url(/src/assets/images/pastagenda_images/pastagenda2.jpg);
-            "
-          ></div>
+          <div class="img3" :style="`background-image: url(${getImg('pastagenda_images/pastagenda2.jpg')});`"></div>
         </div>
         <div class="part1 wow fadeInUp">
-          <div
-            class="img1"
-            style="
-              background-image: url(/src/assets/images/pastagenda_images/pastagenda1.jpeg);
-            "
-          ></div>
-          <div
-            class="img2"
-            style="
-              background-image: url(/src/assets/images/pastagenda_images/pastagenda4.jpg);
-            "
-          ></div>
+          <div class="img1" :style="`background-image: url(${getImg('pastagenda_images/pastagenda1.jpeg')});`"></div>
+          <div class="img2" :style="`background-image: url(${getImg('pastagenda_images/pastagenda4.jpg')});`"></div>
         </div>
         <div class="part2 wow fadeInUp">
-          <div
-            class="img3"
-            style="
-              background-image: url(/src/assets/images/pastagenda_images/pastagenda5.jpg);
-            "
-          ></div>
+          <div class="img3" :style="`background-image: url(${getImg('pastagenda_images/pastagenda5.jpg')});`"></div>
         </div>
       </div>
     </div>
@@ -59,6 +30,7 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import {getImg} from '@/utils/img';
 import WOW from 'wow.js'
 const initWOW = () => {
   const wow = new WOW({
@@ -165,6 +137,7 @@ onMounted(() => {
   font-weight: 700;
   font-family: sybold;
   position: relative;
+
   .content {
     position: absolute;
     display: flex;
@@ -173,6 +146,7 @@ onMounted(() => {
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
+
     .content2 {
       @include linear-txt;
       line-height: 0.875rem;
@@ -183,6 +157,7 @@ onMounted(() => {
     position: relative;
     color: #457fca;
     padding-bottom: 0.1125rem;
+
     &::before {
       content: '';
       position: absolute;
@@ -191,11 +166,9 @@ onMounted(() => {
       height: 0.125rem;
       width: 0.75rem;
       border-radius: 0.25rem;
-      background: linear-gradient(
-        to bottom right,
-        $theme-color-blue,
-        $theme-color-green
-      );
+      background: linear-gradient(to bottom right,
+          $theme-color-blue,
+          $theme-color-green );
     }
   }
 }

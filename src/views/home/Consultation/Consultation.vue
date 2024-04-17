@@ -20,7 +20,7 @@
         <el-card body-style="padding:0;     ">
           <div
             class="newsImg"
-            :style="`background:url(${item.imageUrl}) no-repeat center/cover ;`"
+            :style="`background:url(${getImg(item.imageUrl)}) no-repeat center/cover ;`"
           ></div>
           <div class="title">{{ item.title }}</div>
           <div class="content">
@@ -35,6 +35,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import WOW from 'wow.js'
+import {getImg} from '@/utils/img';
+
 const initWOW = () => {
   const wow = new WOW({
     boxClass: 'wow',
@@ -49,25 +51,25 @@ onMounted(() => {
 })
 const newsList = ref([
   {
-    imageUrl: '/src/assets/images/home_news/2.jpg',
+    imageUrl: 'home_news/2.jpg',
     title: '2023西湖论剑·数字安全大会在杭举行',
     content:
       '人民网杭州5月7日电 (张帆)今天，以“数字安全@数字中国”为主题的2023西湖论剑·数字安全大会(原西湖论剑·网络安全大会)在杭州举行。大会围绕“数字安全赋能数字中国”开展百余场专题报告..',
   },
   {
-    imageUrl: '/src/assets/images/home_news/1.png',
+    imageUrl: 'home_news/1.png',
     title: '大家都关心的嘉宾PPT下载指南来啦!',
     content:
       '指路贴来啦!大家都关心的嘉宾PPT下载指南在这里!一图解锁西湖论剑官网&小程序下载路径，看众多专家真知灼见，干货满满，引领行业思辨!',
   },
   {
-    imageUrl: '/src/assets/images/home_news/4.jpg',
+    imageUrl: 'home_news/4.jpg',
     title: '2023西湖论剑·数字安全大会举办',
     content:
       '央广网杭州5月8日消息(记者 姜頔)自山下而仰山巅谓之高远，自山前而窥山后谓之深远，自近山而望远山谓之平远。5月7日，以“数字安全@数字中国”为主题的2023西湖论剑·数字安全大会在杭州成功举办。',
   },
   {
-    imageUrl: '/src/assets/images/home_news/3.png',
+    imageUrl: 'home_news/3.png',
     title: '西湖论剑暨安恒信息年度新品发布会在杭州举行',
     content:
       '人民网杭州4月19日电 （叶宾得）今天，西湖论剑暨安恒信息首次年度新品发布会在杭州举行，发布会以“新·见未来 实·现梦想”为主题，介绍安恒“MSS+数据安全”两大战略新进展、发布新产品...',
@@ -86,7 +88,7 @@ const newsList = ref([
     height: 25rem;
     top: -1.25rem;
     right: 0;
-    background: url('/src/assets/images/bg_images/homebg1.png') no-repeat
+    background: url('bg_images/homebg1.png') no-repeat
       center/cover;
   }
   .newsImg {

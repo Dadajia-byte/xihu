@@ -1,7 +1,7 @@
 <template>
   <div
     class="box-card"
-    :style="`background: url('${historyData.img}') no-repeat;background-size: 4rem 2.1875rem;`"
+    :style="`background: url('${getImg(historyData.img)}') no-repeat;background-size: 4rem 2.1875rem;`"
   >
     <div class="name">{{ historyData.title }}</div>
     <el-icon class="televsion"><Monitor /></el-icon>
@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue'
+import { getImg } from '@/utils/img';
 defineProps({
   historyData: {
     type: Object,

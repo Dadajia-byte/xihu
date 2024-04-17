@@ -54,7 +54,6 @@ import usePictureStore from '@/store/modules/picture'
 import { ElMessage } from 'element-plus'
 import type { UploadProps } from 'element-plus'
 import WOW from 'wow.js'
-
 let PictureStore = usePictureStore()
 
 const initWOW = () => {
