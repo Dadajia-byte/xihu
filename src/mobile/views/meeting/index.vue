@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { getImg } from '@/utils/img';
+import { getImg } from '@/utils/img'
 const meetingList = [
   {
     dayTime: '5月5日 下午',

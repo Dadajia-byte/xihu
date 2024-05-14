@@ -5,11 +5,11 @@
       <el-carousel :interval="5000" arrow="never" style="height: 12.7357rem">
         <el-carousel-item style="height: 12.7357rem">
           <!-- <img src="/src/assets/images/bg_images/home1.png" alt="" /> -->
-          <div class="banner" :style="`background: url('${getImg('bg_images/home1.png')}')
-                no-repeat center/cover;`
-              
-              
-            "></div>
+          <div
+            class="banner"
+            :style="`background: url('${getImg('bg_images/home1.png')}')
+                no-repeat center/cover;`"
+          ></div>
         </el-carousel-item>
       </el-carousel>
       <!-- <el-card class="box-card">
@@ -82,7 +82,7 @@ import Mate from './Mate/Mate.vue'
 import Past from './Past/Past.vue'
 import HighLight from './HighLight/HighLight.vue'
 import { ref, onMounted } from 'vue'
-import {getImg} from '@/utils/img'
+import { getImg } from '@/utils/img'
 import WOW from 'wow.js'
 let num1 = ref(1)
 let finalNum1 = ref(10000)

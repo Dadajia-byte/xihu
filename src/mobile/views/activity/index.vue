@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { getImg } from '@/utils/img';
+import { getImg } from '@/utils/img'
 const lists = ref([
   {
     imgUrl: 'home_activity/1.png',

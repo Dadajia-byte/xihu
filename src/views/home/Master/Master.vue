@@ -50,7 +50,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import WOW from 'wow.js'
-import {getImg} from '@/utils/img';
+import { getImg } from '@/utils/img'
 
 const initWOW = () => {
   const wow = new WOW({

@@ -79,8 +79,8 @@
 
 <script setup lang="ts">
 import WOW from 'wow.js'
-import { onMounted, ref,nextTick } from 'vue'
-import {getImg} from '@/utils/img'
+import { onMounted, ref, nextTick } from 'vue'
+import { getImg } from '@/utils/img'
 
 const initWOW = () => {
   const wow = new WOW({
@@ -150,26 +150,18 @@ const carouselList = ref()
 
 const handleSelect = async (index: number) => {
   carouselList.value.setActiveItem(index)
-  
+
   activeIndex.value = index
-  
+
   for (let i = 0; i < activityList.value.length; i++) {
     activityList.value[i].opacity = '0'
   }
   activityList.value[index].opacity = '1'
   await nextTick()
-  
-
-
- 
-  
- 
 }
-
 </script>
 
 <style scoped lang="scss">
-
 .main {
   position: relative;
   z-index: 1;

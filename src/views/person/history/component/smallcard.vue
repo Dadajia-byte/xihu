@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue'
-import { getImg } from '@/utils/img';
+import { getImg } from '@/utils/img'
 defineProps({
   historyData: {
     type: Object,

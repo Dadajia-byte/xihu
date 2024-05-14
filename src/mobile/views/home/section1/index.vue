@@ -3,10 +3,8 @@
     <section class="sec1">
       <el-carousel trigger="click" indicator-position="none">
         <el-carousel-item
-          :style="
-            `background: url(${getImg('bg_images/home1.png')}) no-repeat
-              center/contain;`
-          "
+          :style="`background: url(${getImg('bg_images/home1.png')}) no-repeat
+              center/contain;`"
         ></el-carousel-item>
       </el-carousel>
     </section>

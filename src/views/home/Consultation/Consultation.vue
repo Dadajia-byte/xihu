@@ -35,7 +35,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import WOW from 'wow.js'
-import {getImg} from '@/utils/img';
+import { getImg } from '@/utils/img'
 
 const initWOW = () => {
   const wow = new WOW({
@@ -88,8 +88,7 @@ const newsList = ref([
     height: 25rem;
     top: -1.25rem;
     right: 0;
-    background: url('bg_images/homebg1.png') no-repeat
-      center/cover;
+    background: url('bg_images/homebg1.png') no-repeat center/cover;
   }
   .newsImg {
     height: 4.1604rem;
