@@ -9,7 +9,7 @@
       >
         <el-upload
           class="avatar-uploader"
-          action="https://8.130.145.109:8080/dev-api/upload"
+          action="http://8.130.145.109:8080/dev-api/upload"
           :show-file-list="false"
           :on-success="handleAvatarSuccess"
           :before-upload="beforeAvatarUpload"

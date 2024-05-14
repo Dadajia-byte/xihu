@@ -22,7 +22,7 @@
               :key="index"
             >
               <div class="img">
-                <img :src="`${logo.logoUrl}`" alt="" />
+                <img v-lazy="logo.logoUrl" alt="" />
               </div>
             </div>
           </div>

@@ -14,6 +14,9 @@ import 'swiper/scss'
 import App from './App.vue'
 import * as echarts from 'echarts'
 import 'echarts-wordcloud'
+
+
+
 const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn,
@@ -30,6 +33,10 @@ app.use(routers)
 // 引入pinia
 import pinia from './store'
 app.use(pinia)
+
+// 图片懒加载
+import { lazyLoad } from './directives'
+app.use(lazyLoad)
 
 app.config.globalProperties.$echarts = echarts
 
