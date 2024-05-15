@@ -19,7 +19,7 @@
       <div class="master-container" ref="cardlist">
         <div class="card-container" v-for="(card, index) in cards" :key="index">
           <div class="card">
-            <img  v-lazy="getImg(card.url)" alt="" />
+            <img v-lazy="getImg(card.url)" alt="" />
           </div>
           <span class="name">{{ card.name }}</span>
           <span class="description">{{ card.description }}</span>

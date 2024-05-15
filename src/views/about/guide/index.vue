@@ -28,9 +28,8 @@
           </div>
         </div>
         <div
-          class="map wow fadeInUp"
-          data-wow-duration="1s"
-          data-wow-delay="0.1s"
+          class="map"
+          v-fadeInUp
         >
           <img
             v-show="truePic"
@@ -139,9 +138,8 @@
         </div>
         <div class="accom">
           <div
-            class="map wow fadeInUp"
-            data-wow-duration="1s"
-            data-wow-delay="0.1s"
+            class="map "
+            v-fadeInUp
           ></div>
           <el-card
             class="card_3 wow fadeInRight"
@@ -207,9 +205,8 @@
           大会签到
         </div>
         <div
-          class="details wow fadeInUp"
-          data-wow-duration="1s"
-          data-wow-delay="0.2s"
+          class="details "
+          v-fadeInUp
         >
           <div class="detail">
             <div class="sign">签到位置</div>

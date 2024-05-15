@@ -15,8 +15,6 @@ import App from './App.vue'
 import * as echarts from 'echarts'
 import 'echarts-wordcloud'
 
-
-
 const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn,
@@ -35,8 +33,8 @@ import pinia from './store'
 app.use(pinia)
 
 // 图片懒加载
-import { lazyLoad } from './directives'
-app.use(lazyLoad)
+import { lazyLoad, fadeIn } from './directives'
+app.use(lazyLoad).use(fadeIn)
 
 app.config.globalProperties.$echarts = echarts
 
