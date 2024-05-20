@@ -1,16 +1,16 @@
-import { App, DirectiveBinding } from "vue";
+import { App, DirectiveBinding } from 'vue'
 
 const config = {
   rootMargin: '0px',
   threshold: 0,
 }
 
-const observer = new IntersectionObserver(entries => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.intersectionRatio > 0) {
       // 这里给entry上的src赋值为binding上的value
       const element = entry.target as HTMLImageElement
-      (entry.target as HTMLImageElement).src = element.dataset.src as string
+      ;(entry.target as HTMLImageElement).src = element.dataset.src as string
       observer.unobserve(entry.target)
     }
   })
@@ -20,7 +20,6 @@ function isBlewViewport(el: HTMLElement) {
   const rect = el.getBoundingClientRect()
   return rect.top > window.innerHeight
 }
-
 
 export default {
   install(app: App) {
@@ -35,7 +34,7 @@ export default {
       },
       unmounted(el: HTMLImageElement) {
         observer.unobserve(el)
-      }
+      },
     })
   },
 }

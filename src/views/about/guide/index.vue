@@ -27,10 +27,7 @@
             大会平面图
           </div>
         </div>
-        <div
-          class="map"
-          v-fadeInUp
-        >
+        <div class="map" v-fadeInUp>
           <img
             v-show="truePic"
             src="https://img2023.gcsis.cn/2023/4/42089a0585c7403191042decc029556f.jpeg"
@@ -137,10 +134,7 @@
           酒店住宿
         </div>
         <div class="accom">
-          <div
-            class="map "
-            v-fadeInUp
-          ></div>
+          <div class="map" v-fadeInUp></div>
           <el-card
             class="card_3 wow fadeInRight"
             data-wow-duration="1s"
@@ -204,10 +198,7 @@
         >
           大会签到
         </div>
-        <div
-          class="details "
-          v-fadeInUp
-        >
+        <div class="details" v-fadeInUp>
           <div class="detail">
             <div class="sign">签到位置</div>
             <div class="moredetail">杭州洲际酒店正门入口</div>
